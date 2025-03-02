@@ -44,20 +44,20 @@
         Approval Selesai
       </button>
       <button
-        class="flex-grow w-[158px] h-[24px] font-sans text-[16px] font-semibold mt-7 ml-8 mr-4 text-[#2671D9]"
+        class="flex-grow w-[158px] h-[24px] font-sans text-[16px] font-semibold mt-7 ml-8 mr-4"
         @click="navigateToApprovalStopclock"
       >
         Approval Stop Clock
+      </button>
+      <button
+        class="flex-grow w-[158px] h-[24px] font-sans text-[16px] font-semibold mt-7 ml-8 mr-4 text-[#2671D9]"
+        @click="navigateToApprovalDitolak"
+      >
+        Approval Ditolak
         <img
           src="@/assets/image/LineBlue.png"
           class="w-[158px] h-[4px] mt-2"
         >
-      </button>
-      <button
-        class="flex-grow w-[158px] h-[24px] font-sans text-[16px] font-semibold mt-7 ml-8 mr-4"
-        @click="navigateToApprovalDitolak"
-      >
-        Approval Ditolak
       </button>
       <div class="flex items-start">
         <div class="w-[320px] h-[40px] rounded-lg bg-[#FFFFFF] border border-[#E5E7E9] mt-6 ml-4 flex justify-between items-center">
@@ -441,13 +441,13 @@
                       @click.stop="toggleActionDropdown(index)"
                     >
                       <!-- <svg width="2" height="8" viewBox="0 0 2 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                          d="M1 1.8125C0.91712 1.8125 0.837634 1.77958 0.779029 1.72097C0.720424 1.66237 0.6875 1.58288 0.6875 1.5C0.6875 1.41712 0.720424 1.33763 0.779029 1.27903C0.837634 1.22042 0.91712 1.1875 1 1.1875C1.08288 1.1875 1.16237 1.22042 1.22097 1.27903C1.27958 1.33763 1.3125 1.41712 1.3125 1.5C1.3125 1.58288 1.27958 1.66237 1.22097 1.72097C1.16237 1.77958 1.08288 1.8125 1 1.8125ZM1 4.3125C0.91712 4.3125 0.837634 4.27958 0.779029 4.22097C0.720424 4.16237 0.6875 4.08288 0.6875 4C0.6875 3.91712 0.720424 3.83763 0.779029 3.77903C0.837634 3.72042 0.91712 3.6875 1 3.6875C1.08288 3.6875 1.16237 3.72042 1.22097 3.77903C1.27958 3.83763 1.3125 3.91712 1.3125 4C1.3125 4.08288 1.27958 4.16237 1.22097 4.22097C1.16237 4.27958 1.08288 4.3125 1 4.3125ZM1 6.8125C0.91712 6.8125 0.837634 6.77958 0.779029 6.72097C0.720424 6.66237 0.6875 6.58288 0.6875 6.5C0.6875 6.41712 0.720424 6.33763 0.779029 6.27903C0.837634 6.22042 0.91712 6.1875 1 6.1875C1.08288 6.1875 1.16237 6.22042 1.22097 6.27903C1.27958 6.33763 1.3125 6.41712 1.3125 6.5C1.3125 6.58288 1.27958 6.66237 1.22097 6.72097C1.16237 6.77958 1.08288 6.8125 1 6.8125Z"
-                          stroke="#333333"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                      </svg> -->
+                          <path
+                            d="M1 1.8125C0.91712 1.8125 0.837634 1.77958 0.779029 1.72097C0.720424 1.66237 0.6875 1.58288 0.6875 1.5C0.6875 1.41712 0.720424 1.33763 0.779029 1.27903C0.837634 1.22042 0.91712 1.1875 1 1.1875C1.08288 1.1875 1.16237 1.22042 1.22097 1.27903C1.27958 1.33763 1.3125 1.41712 1.3125 1.5C1.3125 1.58288 1.27958 1.66237 1.22097 1.72097C1.16237 1.77958 1.08288 1.8125 1 1.8125ZM1 4.3125C0.91712 4.3125 0.837634 4.27958 0.779029 4.22097C0.720424 4.16237 0.6875 4.08288 0.6875 4C0.6875 3.91712 0.720424 3.83763 0.779029 3.77903C0.837634 3.72042 0.91712 3.6875 1 3.6875C1.08288 3.6875 1.16237 3.72042 1.22097 3.77903C1.27958 3.83763 1.3125 3.91712 1.3125 4C1.3125 4.08288 1.27958 4.16237 1.22097 4.22097C1.16237 4.27958 1.08288 4.3125 1 4.3125ZM1 6.8125C0.91712 6.8125 0.837634 6.77958 0.779029 6.72097C0.720424 6.66237 0.6875 6.58288 0.6875 6.5C0.6875 6.41712 0.720424 6.33763 0.779029 6.27903C0.837634 6.22042 0.91712 6.1875 1 6.1875C1.08288 6.1875 1.16237 6.22042 1.22097 6.27903C1.27958 6.33763 1.3125 6.41712 1.3125 6.5C1.3125 6.58288 1.27958 6.66237 1.22097 6.72097C1.16237 6.77958 1.08288 6.8125 1 6.8125Z"
+                            stroke="#333333"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg> -->
                       <svg
                         width="16"
                         height="12"
@@ -468,13 +468,13 @@
                       class="absolute right-[55px] bottom-[10px] h-[40px] flex items-center rounded-lg bg-[#FFFFFF] border border-[#E5E7E9] hover:bg-[#DBEAFE] shadow-lg z-10"
                     >
                       <!-- <svg width="16" height="12" class="ml-4" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                          fill-rule="evenodd"
-                          clip-rule="evenodd"
-                          d="M8.00051 1.66667C5.20279 1.66667 2.82714 3.48116 1.98946 5.99938C1.98897 6.00085 1.98897 6.00266 1.98946 6.00413C2.82818 8.52053 5.20293 10.3333 7.99934 10.3333C10.7971 10.3333 13.1727 8.51884 14.0104 6.00062C14.0109 5.99915 14.0109 5.99734 14.0104 5.99587C13.1717 3.47947 10.7969 1.66667 8.00051 1.66667ZM0.72429 5.57853C1.73777 2.53181 4.61153 0.333334 8.00051 0.333334C11.3879 0.333334 14.2606 2.52976 15.2753 5.57427C15.3669 5.84915 15.367 6.14654 15.2756 6.42148C14.2621 9.4682 11.3883 11.6667 7.99934 11.6667C4.61194 11.6667 1.73927 9.47024 0.72454 6.42573C0.632921 6.15085 0.632834 5.85346 0.72429 5.57853ZM7.99997 4.66667C7.26359 4.66667 6.66663 5.26362 6.66663 6C6.66663 6.73638 7.26359 7.33333 7.99997 7.33333C8.73635 7.33333 9.3333 6.73638 9.3333 6C9.3333 5.26362 8.73635 4.66667 7.99997 4.66667ZM5.3333 6C5.3333 4.52724 6.52721 3.33333 7.99997 3.33333C9.47273 3.33333 10.6666 4.52724 10.6666 6C10.6666 7.47276 9.47273 8.66667 7.99997 8.66667C6.52721 8.66667 5.3333 7.47276 5.3333 6Z"
-                          fill="#2671D9"
-                        />
-                      </svg> -->
+                          <path
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                            d="M8.00051 1.66667C5.20279 1.66667 2.82714 3.48116 1.98946 5.99938C1.98897 6.00085 1.98897 6.00266 1.98946 6.00413C2.82818 8.52053 5.20293 10.3333 7.99934 10.3333C10.7971 10.3333 13.1727 8.51884 14.0104 6.00062C14.0109 5.99915 14.0109 5.99734 14.0104 5.99587C13.1717 3.47947 10.7969 1.66667 8.00051 1.66667ZM0.72429 5.57853C1.73777 2.53181 4.61153 0.333334 8.00051 0.333334C11.3879 0.333334 14.2606 2.52976 15.2753 5.57427C15.3669 5.84915 15.367 6.14654 15.2756 6.42148C14.2621 9.4682 11.3883 11.6667 7.99934 11.6667C4.61194 11.6667 1.73927 9.47024 0.72454 6.42573C0.632921 6.15085 0.632834 5.85346 0.72429 5.57853ZM7.99997 4.66667C7.26359 4.66667 6.66663 5.26362 6.66663 6C6.66663 6.73638 7.26359 7.33333 7.99997 7.33333C8.73635 7.33333 9.3333 6.73638 9.3333 6C9.3333 5.26362 8.73635 4.66667 7.99997 4.66667ZM5.3333 6C5.3333 4.52724 6.52721 3.33333 7.99997 3.33333C9.47273 3.33333 10.6666 4.52724 10.6666 6C10.6666 7.47276 9.47273 8.66667 7.99997 8.66667C6.52721 8.66667 5.3333 7.47276 5.3333 6Z"
+                            fill="#2671D9"
+                          />
+                        </svg> -->
                       <button
                         class="block flex-grow px-4 py-2 text-[14px] font-sans font-normal text-[#333333] text-left"
                         @click="navigateToDetail(item.tipe, item.did)"
@@ -535,331 +535,332 @@
     </div>
   </div>
 </template>
-
-<script>
-import { fetchGet } from '@/api/apiFunction';
-import { parseStatusAproval, dueDateParsing } from '@/utils/helper';
-import Loading from '../loading.vue';
-import ModalFailed from '../modalfailed.vue';
-
-export default {
-  components: {
-    Loading,
-    ModalFailed
-  },
-  data() {
-    return {
-      selectedTable: "ApprovalMitra",
-
-      showDropdown: false,
-      selectedOption: null,
-      selectedSubOptions: [],
-      filterOptions: [{ name: "Tipe", subOptions: ["PKS", "NDA", "MoU"] }],
-
-      selectedValue: 8,
-      currentPage: 1,
-      displayOptions: [8, 16, 25],
-      actionDropdownIndex: null,
-      searchQuery: "",
-      modalFailed: {
-        isVisible: false,
-        title: '',
-        message: ''
+  
+  <script>
+  import { fetchGet } from '@/api/apiFunction';
+  import { parseStatusAproval, dueDateParsing } from '@/utils/helper';
+  import Loading from '../loading.vue';
+  import ModalFailed from '../modalfailed.vue';
+  
+  export default {
+    components: {
+      Loading,
+      ModalFailed
+    },
+    data() {
+      return {
+        selectedTable: "ApprovalMitra",
+  
+        showDropdown: false,
+        selectedOption: null,
+        selectedSubOptions: [],
+        filterOptions: [{ name: "Tipe", subOptions: ["PKS", "NDA", "MoU"] }],
+  
+        selectedValue: 8,
+        currentPage: 1,
+        displayOptions: [8, 16, 25],
+        actionDropdownIndex: null,
+        searchQuery: "",
+        modalFailed: {
+          isVisible: false,
+          title: '',
+          message: ''
+        },
+        isLoading: false,
+        tableData: [],
+        // tableData: [
+        //   { judul: "Lorem ipsum dolor", nomor: 90224, tipe: "MoU", pelaksana: "Pusat", status: "Approval Stop Clock" },
+        //   { judul: "Lorem ipsum dolor", nomor: 90224, tipe: "MoU", pelaksana: "Pusat", status: "Approval Stop Clock" },
+        //   { judul: "Lorem ipsum dolor", nomor: 90224, tipe: "PKS", pelaksana: "Pusat", status: "Approval Stop Clock" },
+        //   { judul: "Lorem ipsum dolor", nomor: 90224, tipe: "PKS", pelaksana: "Pusat", status: "Approval Stop Clock" },
+        //   { judul: "Lorem ipsum dolor", nomor: 90224, tipe: "MoU", pelaksana: "Pusat", status: "Approval Stop Clock" },
+        //   { judul: "Lorem ipsum dolor", nomor: 90224, tipe: "PKS", pelaksana: "Pusat", status: "Approval Stop Clock" },
+        //   { judul: "Lorem ipsum dolor", nomor: 90224, tipe: "MoU", pelaksana: "Pusat", status: "Approval Stop Clock" },
+        //   { judul: "Lorem ipsum dolor", nomor: 90224, tipe: "PKS", pelaksana: "Pusat", status: "Approval Stop Clock" },
+        //   { judul: "Lorem ipsum dolor", nomor: 90224, tipe: "MoU", pelaksana: "Pusat", status: "Approval Stop Clock" },
+        //   { judul: "Lorem ipsum dolor", nomor: 90224, tipe: "MoU", pelaksana: "Pusat", status: "Approval Stop Clock" },
+        //   { judul: "Lorem ipsum dolor", nomor: 90224, tipe: "PKS", pelaksana: "Pusat", status: "Approval Stop Clock" },
+        //   { judul: "Lorem ipsum dolor", nomor: 90224, tipe: "PKS", pelaksana: "Pusat", status: "Approval Stop Clock" },
+        //   { judul: "Lorem ipsum dolor", nomor: 90224, tipe: "MoU", pelaksana: "Pusat", status: "Approval Stop Clock" },
+        //   { judul: "Lorem ipsum dolor", nomor: 90224, tipe: "PKS", pelaksana: "Pusat", status: "Approval Stop Clock" },
+        //   { judul: "Lorem ipsum dolor", nomor: 90224, tipe: "MoU", pelaksana: "Pusat", status: "Approval Stop Clock" },
+        //   { judul: "Lorem ipsum dolor", nomor: 90224, tipe: "PKS", pelaksana: "Pusat", status: "Approval Stop Clock" },
+        //   { judul: "Lorem ipsum dolor", nomor: 90224, tipe: "MoU", pelaksana: "Pusat", status: "Approval Stop Clock" },
+        //   { judul: "Lorem ipsum dolor", nomor: 90224, tipe: "MoU", pelaksana: "Pusat", status: "Approval Stop Clock" },
+        //   { judul: "Lorem ipsum dolor", nomor: 90224, tipe: "PKS", pelaksana: "Pusat", status: "Approval Stop Clock" },
+        //   { judul: "Lorem ipsum dolor", nomor: 90224, tipe: "PKS", pelaksana: "Pusat", status: "Approval Stop Clock" },
+        //   { judul: "Lorem ipsum dolor", nomor: 90224, tipe: "MoU", pelaksana: "Pusat", status: "Approval Stop Clock" },
+        //   { judul: "Lorem ipsum dolor", nomor: 90224, tipe: "PKS", pelaksana: "Pusat", status: "Approval Stop Clock" },
+        //   { judul: "Lorem ipsum dolor", nomor: 90224, tipe: "MoU", pelaksana: "Pusat", status: "Approval Stop Clock" },
+        //   { judul: "Lorem ipsum dolor", nomor: 90224, tipe: "PKS", pelaksana: "Pusat", status: "Approval Stop Clock" },
+        //   { judul: "Lorem ipsum dolor", nomor: 90224, tipe: "PKS", pelaksana: "Pusat", status: "Approval Stop Clock" },
+        // ],
+        sortOrder: "asc",
+      };
+    },
+    computed: {
+      totalData() {
+        return this.tableData.length;
       },
-      isLoading: false,
-      tableData: [],
-      // tableData: [
-      //   { judul: "Lorem ipsum dolor", nomor: 90224, tipe: "MoU", pelaksana: "Pusat", status: "Approval Stop Clock" },
-      //   { judul: "Lorem ipsum dolor", nomor: 90224, tipe: "MoU", pelaksana: "Pusat", status: "Approval Stop Clock" },
-      //   { judul: "Lorem ipsum dolor", nomor: 90224, tipe: "PKS", pelaksana: "Pusat", status: "Approval Stop Clock" },
-      //   { judul: "Lorem ipsum dolor", nomor: 90224, tipe: "PKS", pelaksana: "Pusat", status: "Approval Stop Clock" },
-      //   { judul: "Lorem ipsum dolor", nomor: 90224, tipe: "MoU", pelaksana: "Pusat", status: "Approval Stop Clock" },
-      //   { judul: "Lorem ipsum dolor", nomor: 90224, tipe: "PKS", pelaksana: "Pusat", status: "Approval Stop Clock" },
-      //   { judul: "Lorem ipsum dolor", nomor: 90224, tipe: "MoU", pelaksana: "Pusat", status: "Approval Stop Clock" },
-      //   { judul: "Lorem ipsum dolor", nomor: 90224, tipe: "PKS", pelaksana: "Pusat", status: "Approval Stop Clock" },
-      //   { judul: "Lorem ipsum dolor", nomor: 90224, tipe: "MoU", pelaksana: "Pusat", status: "Approval Stop Clock" },
-      //   { judul: "Lorem ipsum dolor", nomor: 90224, tipe: "MoU", pelaksana: "Pusat", status: "Approval Stop Clock" },
-      //   { judul: "Lorem ipsum dolor", nomor: 90224, tipe: "PKS", pelaksana: "Pusat", status: "Approval Stop Clock" },
-      //   { judul: "Lorem ipsum dolor", nomor: 90224, tipe: "PKS", pelaksana: "Pusat", status: "Approval Stop Clock" },
-      //   { judul: "Lorem ipsum dolor", nomor: 90224, tipe: "MoU", pelaksana: "Pusat", status: "Approval Stop Clock" },
-      //   { judul: "Lorem ipsum dolor", nomor: 90224, tipe: "PKS", pelaksana: "Pusat", status: "Approval Stop Clock" },
-      //   { judul: "Lorem ipsum dolor", nomor: 90224, tipe: "MoU", pelaksana: "Pusat", status: "Approval Stop Clock" },
-      //   { judul: "Lorem ipsum dolor", nomor: 90224, tipe: "PKS", pelaksana: "Pusat", status: "Approval Stop Clock" },
-      //   { judul: "Lorem ipsum dolor", nomor: 90224, tipe: "MoU", pelaksana: "Pusat", status: "Approval Stop Clock" },
-      //   { judul: "Lorem ipsum dolor", nomor: 90224, tipe: "MoU", pelaksana: "Pusat", status: "Approval Stop Clock" },
-      //   { judul: "Lorem ipsum dolor", nomor: 90224, tipe: "PKS", pelaksana: "Pusat", status: "Approval Stop Clock" },
-      //   { judul: "Lorem ipsum dolor", nomor: 90224, tipe: "PKS", pelaksana: "Pusat", status: "Approval Stop Clock" },
-      //   { judul: "Lorem ipsum dolor", nomor: 90224, tipe: "MoU", pelaksana: "Pusat", status: "Approval Stop Clock" },
-      //   { judul: "Lorem ipsum dolor", nomor: 90224, tipe: "PKS", pelaksana: "Pusat", status: "Approval Stop Clock" },
-      //   { judul: "Lorem ipsum dolor", nomor: 90224, tipe: "MoU", pelaksana: "Pusat", status: "Approval Stop Clock" },
-      //   { judul: "Lorem ipsum dolor", nomor: 90224, tipe: "PKS", pelaksana: "Pusat", status: "Approval Stop Clock" },
-      //   { judul: "Lorem ipsum dolor", nomor: 90224, tipe: "PKS", pelaksana: "Pusat", status: "Approval Stop Clock" },
-      // ],
-      sortOrder: "asc",
-    };
-  },
-  computed: {
-    totalData() {
-      return this.tableData.length;
+      totalPages() {
+        return Math.ceil(this.totalData / this.selectedValue);
+      },
+      pages() {
+        let pagesArray = [];
+        for (let i = 1; i <= this.totalPages; i++) {
+          pagesArray.push(i);
+        }
+        return pagesArray;
+      },
+      paginatedData() {
+        const start = (this.currentPage - 1) * this.selectedValue; // Calculate starting index
+        const end = start + this.selectedValue; // Calculate ending index
+        return this.filteredTableData.slice(start, end); // Slice the filtered data based on the current page
+      },
+      filteredAndPaginatedData() {
+        let filteredData = this.tableData;
+        // Filter berdasarkan opsi terpilih (selectedSubOptions)
+        if (this.selectedSubOptions.length) {
+          filteredData = filteredData.filter((item) => {
+            return this.selectedSubOptions.includes(item.tipe);
+          });
+        }
+        // Filter berdasarkan input pencarian (searchQuery)
+        if (this.searchQuery) {
+          const query = this.searchQuery.toLowerCase();
+          filteredData = filteredData.filter((item) => {
+            return item.judul.toLowerCase().includes(query);
+          });
+        }
+        const start = (this.currentPage - 1) * this.selectedValue;
+        const end = start + this.selectedValue;
+        return filteredData.slice(start, end);
+      },
     },
-    totalPages() {
-      return Math.ceil(this.totalData / this.selectedValue);
+    mounted() {
+      this.getDataApi();
     },
-    pages() {
-      let pagesArray = [];
-      for (let i = 1; i <= this.totalPages; i++) {
-        pagesArray.push(i);
-      }
-      return pagesArray;
-    },
-    paginatedData() {
-      const start = (this.currentPage - 1) * this.selectedValue; // Calculate starting index
-      const end = start + this.selectedValue; // Calculate ending index
-      return this.filteredTableData.slice(start, end); // Slice the filtered data based on the current page
-    },
-    filteredAndPaginatedData() {
-      let filteredData = this.tableData;
-      // Filter berdasarkan opsi terpilih (selectedSubOptions)
-      if (this.selectedSubOptions.length) {
-        filteredData = filteredData.filter((item) => {
-          return this.selectedSubOptions.includes(item.tipe);
-        });
-      }
-      // Filter berdasarkan input pencarian (searchQuery)
-      if (this.searchQuery) {
-        const query = this.searchQuery.toLowerCase();
-        filteredData = filteredData.filter((item) => {
-          return item.judul.toLowerCase().includes(query);
-        });
-      }
-      const start = (this.currentPage - 1) * this.selectedValue;
-      const end = start + this.selectedValue;
-      return filteredData.slice(start, end);
-    },
-  },
-  mounted() {
-    this.getDataApi();
-  },
-  methods: {
-    closeModalFailed() {
-      this.modalFailed = {
-        isVisible: false,
-        title: '',
-        message: ''
-      }
-    },
-    sortTable(columnName) {
-      this.sortOrder = this.sortOrder === "asc" ? "desc" : "asc";
-
-      this.tableData.sort((a, b) => {
-        const aValue = a[columnName] != null ? a[columnName] : "";
-        const bValue = b[columnName] != null ? b[columnName] : "";
-
-        // Jika keduanya adalah angka, lakukan sorting numerik
-        if (!isNaN(aValue) && !isNaN(bValue)) {
-          if (this.sortOrder === "asc") {
-            return aValue - bValue; // Urutkan dari kecil ke besar
-          } else {
-            return bValue - aValue; // Urutkan dari besar ke kecil
+    methods: {
+      closeModalFailed() {
+        this.modalFailed = {
+          isVisible: false,
+          title: '',
+          message: ''
+        }
+      },
+      sortTable(columnName) {
+        this.sortOrder = this.sortOrder === "asc" ? "desc" : "asc";
+  
+        this.tableData.sort((a, b) => {
+          const aValue = a[columnName] != null ? a[columnName] : "";
+          const bValue = b[columnName] != null ? b[columnName] : "";
+  
+          // Jika keduanya adalah angka, lakukan sorting numerik
+          if (!isNaN(aValue) && !isNaN(bValue)) {
+            if (this.sortOrder === "asc") {
+              return aValue - bValue; // Urutkan dari kecil ke besar
+            } else {
+              return bValue - aValue; // Urutkan dari besar ke kecil
+            }
           }
+  
+          // Jika bukan angka, lakukan sorting string
+          const aStr = aValue.toString().toLowerCase();
+          const bStr = bValue.toString().toLowerCase();
+  
+          if (this.sortOrder === "asc") {
+            return aStr.localeCompare(bStr); // Urutkan A-Z
+          } else {
+            return bStr.localeCompare(aStr); // Urutkan Z-A
+          }
+        });
+      },
+      navigateToDetail(tipe, id) {
+        let base = tipe;
+        if (tipe == 'MoU') {
+          base = 'MOU'
         }
-
-        // Jika bukan angka, lakukan sorting string
-        const aStr = aValue.toString().toLowerCase();
-        const bStr = bValue.toString().toLowerCase();
-
-        if (this.sortOrder === "asc") {
-          return aStr.localeCompare(bStr); // Urutkan A-Z
-        } else {
-          return bStr.localeCompare(aStr); // Urutkan Z-A
-        }
-      });
-    },
-    navigateToDetail(tipe, id) {
-      let base = tipe;
-      if (tipe == 'MoU') {
-        base = 'MOU'
-      }
-      this.$router.push(`/approval/approvalstopclock/detailpengajuanapprovalstopclock/${base}/${id}`);
-    },
-    navigateToApprovalSelesai() {
-      this.$router.push("/approval");
-    },
-    navigateToApprovalStopclock() {
-      this.$router.push("/approval/approvalstopclock");
-    },
-    navigateToApprovalDitolak() {
+        this.$router.push(`/approval/approvalditolak/detailpengajuanapprovalditolak/${base}/${id}`);
+      },
+      navigateToApprovalSelesai() {
+        this.$router.push("/approval");
+      },
+      navigateToApprovalStopclock() {
+        this.$router.push("/approval/approvalstopclock");
+      },
+      navigateToApprovalDitolak() {
       this.$router.push("/approval/approvalditolak");
     },
-    toggleDropdown() {
-      this.showDropdown = !this.showDropdown;
-      if (this.showDropdown) {
-        document.addEventListener("click", this.handleClickOutside);
-      } else {
-        document.removeEventListener("click", this.handleClickOutside);
-      }
-    },
-    selectOption(option) {
-      if (this.selectedOption === option) {
-        this.selectedOption = null;
-      } else {
-        this.selectedOption = option;
-      }
-    },
-    removeSubOption(subOption) {
-      this.selectedSubOptions = this.selectedSubOptions.filter((item) => item !== subOption);
-    },
-    toggleActionDropdown(index) {
-      if (this.actionDropdownIndex === index) {
-        this.actionDropdownIndex = null; // Menutup dropdown jika sudah dibuka
-      } else {
-        this.actionDropdownIndex = index; // Membuka dropdown secara spesifik
-      }
-      this.$nextTick(() => {
-        document.addEventListener("click", this.closeDropdown);
-      });
-    },
-    closeDropdown(event) {
-      if (!event.target.closest(".action-dropdown") && !event.target.closest("button")) {
-        this.actionDropdownIndex = null;
+      toggleDropdown() {
+        this.showDropdown = !this.showDropdown;
+        if (this.showDropdown) {
+          document.addEventListener("click", this.handleClickOutside);
+        } else {
+          document.removeEventListener("click", this.handleClickOutside);
+        }
+      },
+      selectOption(option) {
+        if (this.selectedOption === option) {
+          this.selectedOption = null;
+        } else {
+          this.selectedOption = option;
+        }
+      },
+      removeSubOption(subOption) {
+        this.selectedSubOptions = this.selectedSubOptions.filter((item) => item !== subOption);
+      },
+      toggleActionDropdown(index) {
+        if (this.actionDropdownIndex === index) {
+          this.actionDropdownIndex = null; // Menutup dropdown jika sudah dibuka
+        } else {
+          this.actionDropdownIndex = index; // Membuka dropdown secara spesifik
+        }
+        this.$nextTick(() => {
+          document.addEventListener("click", this.closeDropdown);
+        });
+      },
+      closeDropdown(event) {
+        if (!event.target.closest(".action-dropdown") && !event.target.closest("button")) {
+          this.actionDropdownIndex = null;
+          document.removeEventListener("click", this.closeDropdown);
+        }
+      },
+      beforeUnmount() {
         document.removeEventListener("click", this.closeDropdown);
-      }
-    },
-    beforeUnmount() {
-      document.removeEventListener("click", this.closeDropdown);
-    },
-    prevPage() {
-      if (this.currentPage > 1) {
-        this.currentPage--;
-      }
-    },
-    handleClickOutside(event) {
-      const filterContainer = this.$refs.filterContainer;
-      if (filterContainer && !filterContainer.contains(event.target)) {
-        this.showDropdown = false;
-        this.selectedOption = null;
-        document.removeEventListener("click", this.handleClickOutside);
-      }
-    },
-    nextPage() {
-      if (this.currentPage < this.totalPages) {
-        this.currentPage++;
-      }
-    },
-    setPage(page) {
-      this.currentPage = page;
-    },
-    viewItem(item) {
-      console.log("Viewing item:", item);
-    },
-    // api
-		async getDataApi() {
-      this.isLoading = true;
-			let boxResult = new Array;
-      const positionLevel = localStorage.getItem("position");
-      if (positionLevel != "PartnershipManager") {
+      },
+      prevPage() {
+        if (this.currentPage > 1) {
+          this.currentPage--;
+        }
+      },
+      handleClickOutside(event) {
+        const filterContainer = this.$refs.filterContainer;
+        if (filterContainer && !filterContainer.contains(event.target)) {
+          this.showDropdown = false;
+          this.selectedOption = null;
+          document.removeEventListener("click", this.handleClickOutside);
+        }
+      },
+      nextPage() {
+        if (this.currentPage < this.totalPages) {
+          this.currentPage++;
+        }
+      },
+      setPage(page) {
+        this.currentPage = page;
+      },
+      viewItem(item) {
+        console.log("Viewing item:", item);
+      },
+      // api
+          async getDataApi() {
+        this.isLoading = true;
+              let boxResult = new Array;
+        const positionLevel = localStorage.getItem("position");
+        if (positionLevel != "PartnershipManager") {
+          this.isLoading = false;
+          return this.modalFailed = {
+            isVisible: true,
+            title: 'Role Tidak Terdaftar',
+            message: "Halaman ini khusus manager mitra"
+          }
+        }
+        let url = "mitra/manager/mounda/approval-reject";
+        let params = null;
+              const res = await fetchGet(url, params, this.$router);
+              if (res.status == 200) {
+                  const cleanData = res.data.map((item) => ({
+                      judul: item.partnershipTitle,
+                      nomor: item.submissionNumber,
+                      tipe: item.base == "MOU" ? "MoU" : item.base,
+                      pelaksana: item.disposedStaff,
+            bisnis_type: item.bisnisType,
+            due_date: item.isStopClock? "-": dueDateParsing(item.dueDateStaff),
+                      status: parseStatusAproval(item.positionLevel, item.status),
+            did: item.id
+                  }))
+                  console.log(res.data)
+                  boxResult = boxResult.concat(cleanData)
+              } else {
+                  this.isLoading = false;
+          this.modalFailed = {
+            isVisible: true,
+            title: 'Gagal Ambil Data',
+            message: res.data.message ? res.data.message : "Silahkan hubungi admin"
+          }
+              }
+        let url2 = "mitra/manager/pks/approval-reject";
+              const res2 = await fetchGet(url2, params, this.$router);
+              if (res2.status == 200) {
+                  const cleanData2 = res2.data.map((item) => ({
+                      judul: item.partnershipTitle,
+                      nomor: item.submissionNumber,
+                      tipe: "PKS",
+                      pelaksana: item.disposedStaff,
+            bisnis_type: item.bisnisType,
+            due_date: item.isStopClock? "-": dueDateParsing(item.dueDateStaff),
+                      status: parseStatusAproval(item.positionLevel, item.status),
+            did: item.id
+                  }))
+                  boxResult = boxResult.concat(cleanData2)
+                  boxResult = boxResult.map((item, index) => ({ id: index + 1, ...item }))
+                  console.log(res2.data)
+              } else {
+                  this.isLoading = false;
+          this.modalFailed = {
+            isVisible: true,
+            title: 'Gagal Ambil Data',
+            message: res.data.message ? res.data.message : "Silahkan hubungi admin"
+          }
+              }
+              this.tableData = boxResult;
         this.isLoading = false;
-        return this.modalFailed = {
-          isVisible: true,
-          title: 'Role Tidak Terdaftar',
-          message: "Halaman ini khusus manager mitra"
-        }
-      }
-      let url = "mitra/manager/mounda/approval-clock";
-      let params = null;
-			const res = await fetchGet(url, params, this.$router);
-			if (res.status == 200) {
-				const cleanData = res.data.map((item) => ({
-					judul: item.partnershipTitle,
-					nomor: item.submissionNumber,
-					tipe: item.base == "MOU" ? "MoU" : item.base,
-					pelaksana: item.disposedStaff,
-          bisnis_type: item.bisnisType,
-          due_date: item.isStopClock? "-": dueDateParsing(item.dueDateStaff),
-					status: parseStatusAproval(item.positionLevel, item.status),
-          did: item.id
-				}))
-				console.log(res.data)
-				boxResult = boxResult.concat(cleanData)
-			} else {
-				this.isLoading = false;
-        this.modalFailed = {
-          isVisible: true,
-          title: 'Gagal Ambil Data',
-          message: res.data.message ? res.data.message : "Silahkan hubungi admin"
-        }
-			}
-      let url2 = "mitra/manager/pks/approval-clock";
-			const res2 = await fetchGet(url2, params, this.$router);
-			if (res2.status == 200) {
-				const cleanData2 = res2.data.map((item) => ({
-					judul: item.partnershipTitle,
-					nomor: item.submissionNumber,
-					tipe: "PKS",
-					pelaksana: item.disposedStaff,
-          bisnis_type: item.bisnisType,
-          due_date: item.isStopClock? "-": dueDateParsing(item.dueDateStaff),
-					status: parseStatusAproval(item.positionLevel, item.status),
-          did: item.id
-				}))
-				boxResult = boxResult.concat(cleanData2)
-				boxResult = boxResult.map((item, index) => ({ id: index + 1, ...item }))
-				console.log(res2.data)
-			} else {
-				this.isLoading = false;
-        this.modalFailed = {
-          isVisible: true,
-          title: 'Gagal Ambil Data',
-          message: res.data.message ? res.data.message : "Silahkan hubungi admin"
-        }
-			}
-			this.tableData = boxResult;
-      this.isLoading = false;
-		},
+          },
+    }
+  };
+  </script>
+  
+  <style scoped>
+  .pagination-btn {
+    display: flex; /* Menggunakan flexbox */
+    align-items: center; /* Vertikal tengah */
+    justify-content: center; /* Horizontal tengah */
+    padding: 8px 6px 8px 6px;
+    width: 32px;
+    height: 32px;
+    border: transparent;
+    border-radius: 8px;
+    background-color: #fff;
+    color: #000;
+    cursor: pointer;
   }
-};
-</script>
-
-<style scoped>
-.pagination-btn {
-  display: flex; /* Menggunakan flexbox */
-  align-items: center; /* Vertikal tengah */
-  justify-content: center; /* Horizontal tengah */
-  padding: 8px 6px 8px 6px;
-  width: 32px;
-  height: 32px;
-  border: transparent;
-  border-radius: 8px;
-  background-color: #fff;
-  color: #000;
-  cursor: pointer;
-}
-.pagination-btn.active {
-  background-color: #2671d9;
-  color: #fff;
-}
-.pagination-btn:disabled {
-  background-color: #fff;
-  cursor: not-allowed;
-}
-button {
-  cursor: pointer;
-  border: none;
-  outline: none;
-  transition: background-color 0.3s;
-}
-.filter-container {
-  position: relative;
-}
-.dropdown-options {
-  width: 200px;
-}
-.option-item {
-  position: relative;
-}
-.sub-options {
-  width: 220px;
-  top: 0;
-  left: 200px;
-}
-</style>
+  .pagination-btn.active {
+    background-color: #2671d9;
+    color: #fff;
+  }
+  .pagination-btn:disabled {
+    background-color: #fff;
+    cursor: not-allowed;
+  }
+  button {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    transition: background-color 0.3s;
+  }
+  .filter-container {
+    position: relative;
+  }
+  .dropdown-options {
+    width: 200px;
+  }
+  .option-item {
+    position: relative;
+  }
+  .sub-options {
+    width: 220px;
+    top: 0;
+    left: 200px;
+  }
+  </style>
+  

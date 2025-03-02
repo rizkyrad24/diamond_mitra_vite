@@ -9,8 +9,10 @@ import MasukStaff from '@/pages/masuk/masuk-staff.vue';
 import DetailPengajuanStaff from '@/pages/detail-pengajuan/detail-pengajuan-staff.vue';
 import ApprovalMitra from '@/pages/approval/approval-view.vue';
 import ApprovalStopclock from '@/pages/approval/approval-stopclock.vue';
+import ApprovalDitolak from '@/pages/approval/approval-ditolak.vue';
 import DetailPengajuanApproval from '@/pages/approval/detail-pengajuan-approval.vue';
 import DetailPengajuanApprovalStopclock from '@/pages/approval/detail-pengajuan-approval-stopclock.vue';
+import DetailPengajuanApprovalDitolak from '@/pages/approval/detail-pengajuan-approval-ditolak.vue';
 import ProsesMitra from '@/pages/proses/proses-view.vue';
 import ProsesStaff from '@/pages/proses/proses-staff.vue';
 import SelesaiMitra from '@/pages/selesai/selesai-view.vue';
@@ -41,8 +43,10 @@ const routes = [
   { name: 'DetailPengajuanStaff', path: '/masukstaff/detailpengajuanstaff/:base/:id', component: DetailPengajuanStaff, meta: { requiresAuth: true, role: ['PartnershipStaff'] }  },
   { name: 'ApprovalMitra', path: '/approval', component: ApprovalMitra, meta: { requiresAuth: true, role: ['PartnershipManager', 'PartnershipVP', 'PartnershipDirector'] }  },
   { name: 'ApprovalStopclock', path: '/approval/approvalstopclock', component: ApprovalStopclock, meta: { requiresAuth: true, role: ['PartnershipManager', 'PartnershipVP', 'PartnershipDirector'] }  },
+  { name: 'ApprovalDitolak', path: '/approval/approvalditolak', component: ApprovalDitolak, meta: { requiresAuth: true, role: ['PartnershipManager', 'PartnershipVP', 'PartnershipDirector'] }  },
   { name: 'DetailPengajuanApproval', path: '/approval/detailpengajuanapproval/:base/:id', component: DetailPengajuanApproval, meta: { requiresAuth: true, role: ['PartnershipManager', 'PartnershipVP', 'PartnershipDirector'] }  },
-  { name: 'DetailPengajuanApprovalStopclock', path: '/approval/approvalstopclock/detailpengajuanapprovalstopclock/:base/:id', component: DetailPengajuanApprovalStopclock, meta: { requiresAuth: true, role: ['PartnershipManager', 'PartnershipVP', 'PartnershipDirector'] }  },
+  { name: 'DetailPengajuanApprovalStopclock', path: '/approval/approvalstopclock/detailpengajuanapprovalstopclock/:base/:id', component: DetailPengajuanApprovalStopclock, meta: { requiresAuth: true, role: ['PartnershipManager'] }  },
+  { name: 'DetailPengajuanApprovalDitolak', path: '/approval/approvalditolak/detailpengajuanapprovalditolak/:base/:id', component: DetailPengajuanApprovalDitolak, meta: { requiresAuth: true, role: ['PartnershipManager'] }  },
   { name: 'ProsesMitra', path: '/proses', component: ProsesMitra, meta: { requiresAuth: true, role: ['PartnershipManager', 'PartnershipVP', 'PartnershipDirector'] } },
   { name: 'ProsesStaff', path: '/prosesstaff', component: ProsesStaff, meta: { requiresAuth: true, role: ['PartnershipStaff'] } },
   { name: 'SelesaiMitra', path: '/selesai', component: SelesaiMitra, meta: { requiresAuth: true, role: ['PartnershipManager', 'PartnershipVP', 'PartnershipDirector'] } },

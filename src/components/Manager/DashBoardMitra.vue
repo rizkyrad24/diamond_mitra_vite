@@ -1,28 +1,50 @@
 <template>
-  <Loading :isVisible="isLoading" />
+  <Loading :is-visible="isLoading" />
   <ModalFailed
-    :isVisible="modalFailed.isVisible"
+    :is-visible="modalFailed.isVisible"
     :title="modalFailed.title"
     :message="modalFailed.message"
     @close="closeModalFailed"
   />
   <div>
-    <div class="w-auto h-[54px] rounded-lg bg-[#FFFFFF] border-collapse"></div>
+    <div class="w-auto h-[54px] rounded-lg bg-[#FFFFFF] border-collapse" />
   </div>
   <div class="px-4 py-3">
     <div class="h-auto w-[1086px] rounded-lg bg-[#FFFFFF] border-collapse mx-auto">
       <div class="flex">
-        <svg class="ml-4 mt-[10px]" width="6" height="28" viewBox="0 0 6 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect width="6" height="28" fill="#1F5AAD" />
+        <svg
+          class="ml-4 mt-[10px]"
+          width="6"
+          height="28"
+          viewBox="0 0 6 28"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect
+            width="6"
+            height="28"
+            fill="#1F5AAD"
+          />
         </svg>
-        <h1 class="font-sans text-[20px] text-[#333333] mt-2 ml-[5px] font-semibold">Dashboard</h1>
+        <h1 class="font-sans text-[20px] text-[#333333] mt-2 ml-[5px] font-semibold">
+          Dashboard
+        </h1>
       </div>
-      <h1 class="items-start justify-center px-2 ml-2 text-[#9C9C9C]">Dashboard Kemitraan</h1>
+      <h1 class="items-start justify-center px-2 ml-2 text-[#9C9C9C]">
+        Dashboard Kemitraan
+      </h1>
       <div class="blue-box mt-3 ml-4 mr-4 w-[1046px] h-[100px] relative">
         <div class="flex items-start">
           <div>
             <div class="flex items-center">
-              <svg width="14" height="18" class="mb-1" viewBox="0 0 14 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg
+                width="14"
+                height="18"
+                class="mb-1"
+                viewBox="0 0 14 18"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
                 <path
                   fill-rule="evenodd"
                   clip-rule="evenodd"
@@ -30,38 +52,122 @@
                   fill="white"
                 />
               </svg>
-              <h1 class="ml-[6px] mb-1 text-white text-[15px] font-sans font-semibold">KEMITRAAN BISNIS</h1>
+              <h1 class="ml-[6px] mb-1 text-white text-[15px] font-sans font-semibold">
+                {{ jabatan }} KEMITRAAN BISNIS
+              </h1>
             </div>
-            <span class="flex text-white font-sans font-normal text-[20px] px-5"> {{ jabatan }} Sub Bidang Kemitraan Bisnis {{ bisnisType || "Konektivitas dan Infrastruktur" }} </span>
+            <span class="flex text-white font-sans font-normal text-[20px] px-5">Sub Bidang Kemitraan Bisnis {{ bisnisType || "Konektivitas dan Infrastruktur" }} </span>
           </div>
-          <svg class="absolute right-0 top-0 w-auto h-[100px] rounded-md" width="246" height="100" viewBox="0 0 246 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="247.935" height="123.968" rx="50" transform="matrix(0.82137 0.570396 -0.82137 0.570396 130.625 0)" fill="#91BEF7" />
-            <rect x="74.8809" y="-21" width="288" height="100" rx="50" fill="white" fill-opacity="0.3" />
-            <rect x="0.693295" y="-0.350537" width="208.276" height="139.666" rx="49.5" transform="matrix(0.409185 -0.912452 0.977404 0.211378 0.752225 50.3112)" stroke="white" stroke-opacity="0.3" />
+          <svg
+            class="absolute right-0 top-0 w-auto h-[100px] rounded-md"
+            width="246"
+            height="100"
+            viewBox="0 0 246 100"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect
+              width="247.935"
+              height="123.968"
+              rx="50"
+              transform="matrix(0.82137 0.570396 -0.82137 0.570396 130.625 0)"
+              fill="#91BEF7"
+            />
+            <rect
+              x="74.8809"
+              y="-21"
+              width="288"
+              height="100"
+              rx="50"
+              fill="white"
+              fill-opacity="0.3"
+            />
+            <rect
+              x="0.693295"
+              y="-0.350537"
+              width="208.276"
+              height="139.666"
+              rx="49.5"
+              transform="matrix(0.409185 -0.912452 0.977404 0.211378 0.752225 50.3112)"
+              stroke="white"
+              stroke-opacity="0.3"
+            />
           </svg>
         </div>
       </div>
       <div class="flex flex-row">
         <div class="w-[338px] h-[88px] border-[1px] rounded-lg border-[#0EA976] bg-[#0EA976] mt-6 ml-4 flex items-center justify-between px-4">
           <div>
-            <h1 class="text-[16px] font-sans font-normal text-[#FFFFFF]">Pengajuan Dalam Proses</h1>
+            <h1 class="text-[16px] font-sans font-normal text-[#FFFFFF]">
+              Pengajuan Dalam Proses
+            </h1>
             <span class="text-[24px] font-sans font-bold text-[#FFFFFF]">{{ summaryData?.totalHplus7 }}</span>
           </div>
-          <svg width="39" height="40" viewBox="0 0 39 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <ellipse cx="19.5176" cy="20.0001" rx="19.4824" ry="19.6417" fill="white" />
-            <path d="M10 20.96V23C10 28 12 30 17 30H23C28 30 30 28 30 23V17C30 12 28 10 23 10H17C12 10 10 12 10 17" stroke="#1D966E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-            <path d="M23 18.38L24.12 17.25" stroke="#1D966E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-            <path d="M15.8799 20L18.6199 22.75L21.1699 20.21" stroke="#1D966E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+          <svg
+            width="39"
+            height="40"
+            viewBox="0 0 39 40"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <ellipse
+              cx="19.5176"
+              cy="20.0001"
+              rx="19.4824"
+              ry="19.6417"
+              fill="white"
+            />
+            <path
+              d="M10 20.96V23C10 28 12 30 17 30H23C28 30 30 28 30 23V17C30 12 28 10 23 10H17C12 10 10 12 10 17"
+              stroke="#1D966E"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M23 18.38L24.12 17.25"
+              stroke="#1D966E"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M15.8799 20L18.6199 22.75L21.1699 20.21"
+              stroke="#1D966E"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
           </svg>
         </div>
         <div class="w-[338px] h-[88px] border-[1px] rounded-lg border-[#FFA229] bg-[#FFA229] mt-6 ml-4 flex items-center justify-between px-4">
           <div>
-            <h1 class="text-[16px] font-sans font-normal text-[#FFFFFF]">Pengajuan H-7 Due Date</h1>
+            <h1 class="text-[16px] font-sans font-normal text-[#FFFFFF]">
+              Pengajuan H-7 Due Date
+            </h1>
             <span class="text-[24px] font-sans font-bold text-[#FFFFFF]">{{ summaryData?.totalHmin7 }}</span>
           </div>
-          <svg width="39" height="40" viewBox="0 0 39 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <ellipse cx="19.5176" cy="20.0001" rx="19.4824" ry="19.6417" fill="white" />
-            <path d="M30 16C30 12 28 10 24 10H16C12 10 10 12 10 16V29C10 29.55 10.45 30 11 30H24C28 30 30 28 30 24V20" stroke="#FFA229" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+          <svg
+            width="39"
+            height="40"
+            viewBox="0 0 39 40"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <ellipse
+              cx="19.5176"
+              cy="20.0001"
+              rx="19.4824"
+              ry="19.6417"
+              fill="white"
+            />
+            <path
+              d="M30 16C30 12 28 10 24 10H16C12 10 10 12 10 16V29C10 29.55 10.45 30 11 30H24C28 30 30 28 30 24V20"
+              stroke="#FFA229"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
             <path
               d="M23.5098 19.7399L24.1598 19.0899C24.1998 19.0499 24.2398 19.0099 24.2798 18.9599C25.0898 18.0999 25.4098 17.0899 24.1598 15.8399C22.8398 14.5199 21.7998 14.9499 20.9098 15.8399L15.7198 21.0299C15.5198 21.2299 15.3298 21.6199 15.2898 21.8999L15.0098 23.8799C14.9098 24.5999 15.4098 25.0999 16.1298 24.9999L18.1098 24.7199C18.3898 24.6799 18.7798 24.4899 18.9798 24.2899L20.9198 22.3499"
               stroke="#FFA229"
@@ -70,20 +176,65 @@
               stroke-linecap="round"
               stroke-linejoin="round"
             />
-            <path d="M20.1699 16.5801C20.6099 18.1501 21.8399 19.3901 23.4199 19.8301" stroke="#FFA229" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+            <path
+              d="M20.1699 16.5801C20.6099 18.1501 21.8399 19.3901 23.4199 19.8301"
+              stroke="#FFA229"
+              stroke-width="1.5"
+              stroke-miterlimit="10"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
           </svg>
         </div>
         <div class="w-[338px] h-[88px] border-[1px] rounded-lg border-[#FF5656] bg-[#FF5656] mt-6 ml-4 flex items-center justify-between px-4">
           <div>
-            <h1 class="text-[16px] font-sans font-normal text-[#FFFFFF]">Pengajuan Melewati Due Date</h1>
+            <h1 class="text-[16px] font-sans font-normal text-[#FFFFFF]">
+              Pengajuan Melewati Due Date
+            </h1>
             <span class="text-[24px] font-sans font-bold text-[#FFFFFF]">{{ summaryData?.totalDueDate }}</span>
           </div>
-          <svg width="39" height="40" viewBox="0 0 39 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <ellipse cx="19.5176" cy="20.0001" rx="19.4824" ry="19.6417" fill="white" />
-            <path d="M21.4902 18.0099L22.3302 17.1699" stroke="#CA3131" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-            <path d="M16.6699 22.8301L19.4199 20.0801" stroke="#CA3131" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-            <path d="M22.3299 22.8299L16.6699 17.1699" stroke="#CA3131" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-            <path d="M9.5 20.96V23C9.5 28 11.5 30 16.5 30H22.5C27.5 30 29.5 28 29.5 23V17C29.5 12 27.5 10 22.5 10H16.5C11.5 10 9.5 12 9.5 17" stroke="#CA3131" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+          <svg
+            width="39"
+            height="40"
+            viewBox="0 0 39 40"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <ellipse
+              cx="19.5176"
+              cy="20.0001"
+              rx="19.4824"
+              ry="19.6417"
+              fill="white"
+            />
+            <path
+              d="M21.4902 18.0099L22.3302 17.1699"
+              stroke="#CA3131"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M16.6699 22.8301L19.4199 20.0801"
+              stroke="#CA3131"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M22.3299 22.8299L16.6699 17.1699"
+              stroke="#CA3131"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M9.5 20.96V23C9.5 28 11.5 30 16.5 30H22.5C27.5 30 29.5 28 29.5 23V17C29.5 12 27.5 10 22.5 10H16.5C11.5 10 9.5 12 9.5 17"
+              stroke="#CA3131"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
           </svg>
         </div>
       </div>
@@ -91,10 +242,15 @@
         <div class="flex">
           <div class="w-[676px] h-[416px] border-collapse rounded-lg bg-[#FFFFFF] border-[#E5E7E9] border-[1px] ml-4 mt-6">
             <div class="flex items-center">
-              <h1 class="text-[20px] font-sans font-semibold text-[#000000] ml-6 mt-6">Progress Kemitraan</h1>
+              <h1 class="text-[20px] font-sans font-semibold text-[#000000] ml-6 mt-6">
+                Progress Kemitraan
+              </h1>
               <span class="text-[16px] font-sans font-normal text-[#000000] ml-2 mt-6">(per Tahun)</span>
               <!--Date-->
-              <div ref="datePickerContainer" class="relative">
+              <div
+                ref="datePickerContainer"
+                class="relative"
+              >
                 <div
                   ref="datePickerButton"
                   class="w-[120px] h-[40px] border rounded-lg bg-white border-[#E5E7E9] ml-[246px] mt-4 flex items-center justify-between px-4 hover:bg-[#DBEAFE] cursor-pointer transition-all"
@@ -103,7 +259,13 @@
                   <span class="text-[14px] font-sans font-light text-[#9C9C9C]">
                     {{ selectedDate ? formatDate(selectedDate) : "2024" }}
                   </span>
-                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 14 14"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
                     <path
                       fill-rule="evenodd"
                       clip-rule="evenodd"
@@ -120,20 +282,40 @@
                   class="custom-date-picker absolute top-[52px] mt-2 left-[246px] border border-[#E5E7E9] font-sans text-[10px] text-[#9C9C9C] rounded-lg p-2 w-[120px] hover:bg-[#DBEAFE] cursor-pointer transition-all"
                   @change="updateDate"
                   @blur="hideDatePicker"
-                />
+                >
               </div>
             </div>
             <div class="items-center w-[124px] h-[60px] ml-6 mt-2 border-dashed rounded-lg bg-[#E7F1FD] border-[1px] border-[#91BEF7]">
-              <h1 class="text-[12px] font-sans font-light text-[#9CA2AD] ml-[22px] mr-4 mt-2">Total Pengajuan</h1>
-              <span id="totalData" class="text-[16px] font-sans font-bold text-[#071631] w-[92px] h-[24px] ml-[50px] mr-4 mt-7 mb-2">{{ totalDataPengajuan }}</span>
+              <h1 class="text-[12px] font-sans font-light text-[#9CA2AD] ml-[22px] mr-4 mt-2">
+                Total Pengajuan
+              </h1>
+              <span
+                id="totalData"
+                class="text-[16px] font-sans font-bold text-[#071631] w-[92px] h-[24px] ml-[50px] mr-4 mt-7 mb-2"
+              >{{ totalDataPengajuan }}</span>
             </div>
             <div>
-              <svg class="ml-6 mr-6 mt-4" width="628" height="1" viewBox="0 0 628 1" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <line y1="0.5" x2="628" y2="0.5" stroke="#E5E7E9" />
+              <svg
+                class="ml-6 mr-6 mt-4"
+                width="628"
+                height="1"
+                viewBox="0 0 628 1"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <line
+                  y1="0.5"
+                  x2="628"
+                  y2="0.5"
+                  stroke="#E5E7E9"
+                />
               </svg>
             </div>
             <div class="chart-container ml-5 mt-4">
-              <canvas id="myBarChart" class="bar-chart"></canvas>
+              <canvas
+                id="myBarChart"
+                class="bar-chart"
+              />
             </div>
           </div>
           <div class="flex flex-col justify-start w-[346px] h-[416px] ml-6 mt-6 mr-6 border-collapse rounded-lg bg-[#FFFFFF] border-[#E5E7E9] border-[1px] bg-wave">
@@ -146,33 +328,65 @@
             <div class="flex flex-col items-center mt-12">
               <div class="chart-item mb-6">
                 <div>
-                  <p class="font-sans text-[16px] text-[#7F7F80] font-medium">Total NDA</p>
-                  <h2 id="totalNDA" class="font-sans text-[24px] text-[#333333] font-bold">{{ summaryData?.totalNda }}</h2>
+                  <p class="font-sans text-[16px] text-[#7F7F80] font-medium">
+                    Total NDA
+                  </p>
+                  <h2
+                    id="totalNDA"
+                    class="font-sans text-[24px] text-[#333333] font-bold"
+                  >
+                    {{ summaryData?.totalNda }}
+                  </h2>
                 </div>
-                <div id="ndaDisplay"></div>
+                <div id="ndaDisplay" />
               </div>
               <div class="chart-item mb-6">
                 <div>
-                  <p class="font-sans text-[16px] text-[#7F7F80] font-medium">Total MoU</p>
-                  <h2 id="totalMoU" class="font-sans text-[24px] text-[#333333] font-bold">{{ summaryData?.totalMou }}</h2>
+                  <p class="font-sans text-[16px] text-[#7F7F80] font-medium">
+                    Total MoU
+                  </p>
+                  <h2
+                    id="totalMoU"
+                    class="font-sans text-[24px] text-[#333333] font-bold"
+                  >
+                    {{ summaryData?.totalMou }}
+                  </h2>
                 </div>
-                <div id="mouDisplay"></div>
+                <div id="mouDisplay" />
               </div>
               <div class="chart-item">
                 <div>
-                  <p class="font-sans text-[16px] text-[#7F7F80] font-medium">Total PKS</p>
-                  <h2 id="totalPKS" class="font-sans text-[24px] text-[#333333] font-bold">{{ summaryData?.totalPks }}</h2>
+                  <p class="font-sans text-[16px] text-[#7F7F80] font-medium">
+                    Total PKS
+                  </p>
+                  <h2
+                    id="totalPKS"
+                    class="font-sans text-[24px] text-[#333333] font-bold"
+                  >
+                    {{ summaryData?.totalPks }}
+                  </h2>
                 </div>
-                <div id="pksDisplay"></div>
+                <div id="pksDisplay" />
               </div>
             </div>
           </div>
         </div>
-        <div class="flex items-start">
+        <div class="flex items-start relative">
           <div class="w-[320px] h-[40px] rounded-lg bg-[#FFFFFF] border border-[#E5E7E9] mt-6 ml-4 flex justify-between items-center">
-            <input type="text" placeholder="Cari sesuatu disini ..." v-model="searchQuery" class="font-sans text-[14px] text-[#7F7F80] font-extralight ml-4 outline-none w-full" />
+            <input
+              v-model="searchQuery"
+              type="text"
+              placeholder="Cari sesuatu disini ..."
+              class="font-sans text-[14px] text-[#7F7F80] font-extralight ml-4 outline-none w-full"
+            >
             <button class="bg-[#2671D9] w-[40px] h-full flex items-center justify-center rounded-r-lg">
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 14 14"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
                 <path
                   fill-rule="evenodd"
                   clip-rule="evenodd"
@@ -182,10 +396,22 @@
               </svg>
             </button>
           </div>
-          <div class="filter-container" ref="filterContainer">
-            <button @click="toggleDropdown" class="flex">
+          <div
+            ref="filterContainer"
+            class="filter-container"
+          >
+            <button
+              class="flex"
+              @click="toggleDropdown"
+            >
               <div class="flex items-center justify-center w-[90px] h-[40px] rounded-lg bg-[#FFFFFF] border border-[#E5E7E9] ml-2 mt-6 hover:bg-[#DBEAFE] cursor-pointer transition-all">
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 14 14"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
                   <path
                     d="M11.6668 0.333252H2.3335C1.80306 0.333252 1.29436 0.543966 0.919283 0.919038C0.54421 1.29411 0.333496 1.80282 0.333496 2.33325V3.11325C0.333401 3.38855 0.39014 3.6609 0.500163 3.91325V3.95325C0.594349 4.16723 0.727758 4.36169 0.893496 4.52659L5.00016 8.60658V12.9999C4.99994 13.1132 5.02859 13.2247 5.08341 13.3238C5.13823 13.423 5.21742 13.5065 5.3135 13.5666C5.41959 13.6323 5.54201 13.667 5.66683 13.6666C5.77119 13.666 5.87395 13.6408 5.96683 13.5933L8.6335 12.2599C8.74344 12.2045 8.83589 12.1198 8.90061 12.015C8.96533 11.9103 8.99979 11.7897 9.00016 11.6666V8.60658L13.0802 4.52659C13.2459 4.36169 13.3793 4.16723 13.4735 3.95325V3.91325C13.5927 3.66287 13.6585 3.39044 13.6668 3.11325V2.33325C13.6668 1.80282 13.4561 1.29411 13.081 0.919038C12.706 0.543966 12.1973 0.333252 11.6668 0.333252ZM7.86016 7.85992C7.79838 7.92221 7.74949 7.99609 7.71632 8.07731C7.68314 8.15854 7.66632 8.24551 7.66683 8.33325V11.2533L6.3335 11.9199V8.33325C6.334 8.24551 6.31719 8.15854 6.28401 8.07731C6.25083 7.99609 6.20195 7.92221 6.14016 7.85992L2.60683 4.33325H11.3935L7.86016 7.85992ZM12.3335 2.99992H1.66683V2.33325C1.66683 2.15644 1.73707 1.98687 1.86209 1.86185C1.98712 1.73682 2.15669 1.66659 2.3335 1.66659H11.6668C11.8436 1.66659 12.0132 1.73682 12.1382 1.86185C12.2633 1.98687 12.3335 2.15644 12.3335 2.33325V2.99992Z"
                     fill="#2671D9"
@@ -194,10 +420,24 @@
                 <span class="text-[14px] font-sans font-medium text-[#333333] ml-2">Filter</span>
               </div>
             </button>
-            <div v-if="showDropdown" class="dropdown-options bg-white mt-[1px] rounded-bl-lg rounded-br-lg ml-2 shadow-md absolute z-50">
-              <div v-for="(option, index) in filterOptions" :key="index" class="option-item flex justify-between items-center p-2 border-b cursor-pointer hover:bg-[#DBEAFE]" @click="selectOption(option)">
+            <div
+              v-if="showDropdown"
+              class="dropdown-options bg-white mt-[1px] rounded-bl-lg rounded-br-lg ml-2 shadow-md absolute z-50"
+            >
+              <div
+                v-for="(option, index) in filterOptions"
+                :key="index"
+                class="option-item flex justify-between items-center p-2 border-b cursor-pointer hover:bg-[#DBEAFE]"
+                @click="selectOption(option)"
+              >
                 <span>{{ option.name }}</span>
-                <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg
+                  width="8"
+                  height="12"
+                  viewBox="0 0 8 12"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
                   <path
                     fill-rule="evenodd"
                     clip-rule="evenodd"
@@ -206,26 +446,63 @@
                   />
                 </svg>
               </div>
-              <div v-if="selectedOption && selectedOption.subOptions" class="sub-options bg-white mt-[1px] rounded-bl-lg rounded-br-lg ml-4 shadow-md absolute z-50">
-                <div v-for="(subOption, index) in selectedOption.subOptions" :key="index" class="sub-option-item flex items-center p-2 border-b cursor-pointer hover:bg-[#DBEAFE]">
-                  <input type="checkbox" v-model="selectedSubOptions" :value="subOption" class="mr-2" />
+              <div
+                v-if="selectedOption && selectedOption.subOptions"
+                class="sub-options bg-white mt-[1px] rounded-bl-lg rounded-br-lg ml-4 shadow-md absolute z-50"
+              >
+                <div
+                  v-for="(subOption, index) in selectedOption.subOptions"
+                  :key="index"
+                  class="sub-option-item flex items-center p-2 border-b cursor-pointer hover:bg-[#DBEAFE]"
+                >
+                  <input
+                    v-model="selectedSubOptions"
+                    type="checkbox"
+                    :value="subOption"
+                    class="mr-2"
+                  >
                   <span>{{ subOption }}</span>
                 </div>
               </div>
             </div>
           </div>
+          <!-- Export Excel Button -->
+          <button
+            class="absolute right-5 bottom-0"
+            @click="downloadDataExcel"
+          >
+            <div class="flex items-center justify-center w-auto h-[40px] rounded-lg bg-[#FFFFFF] border border-[#E5E7E9] px-2 mt-6 hover:bg-[#DBEAFE] cursor-pointer transition-all">
+              <span class="text-[14px] font-sans font-medium text-[#333333]">Export Excel</span>
+            </div>
+          </button>
+          <!-- End Export Excel Button -->
         </div>
         <div class="flex flex-wrap">
-          <div v-if="selectedSubOptions.length" class="flex mt-2 ml-4 w-[1046px] h-[44px] border-[1px] rounded-lg">
+          <div
+            v-if="selectedSubOptions.length"
+            class="flex mt-2 ml-4 w-[1046px] h-[44px] border-[1px] rounded-lg"
+          >
             <div
               v-for="(subOption, index) in selectedSubOptions"
               :key="index"
               class="flex items-center w-relative h-[24px] bg-[#E9F1FB] border-[#BAD1F3] border-[1px] font-semibold text-[#2671D9] text-[12px] rounded-xl px-2 py-1 mt-[10px] ml-4"
             >
               <span>{{ subOption }}</span>
-              <button @click="removeSubOption(subOption)" class="ml-1">
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M6 4.586L10.95 9.536 9.536 10.95 4.586 6 9.536 1.05 10.95 2.464 6 7.414 1.05 2.464 2.464 1.05 7.414 6 2.464 10.95 1.05 9.536 6 4.586Z" fill="#2671D9" />
+              <button
+                class="ml-1"
+                @click="removeSubOption(subOption)"
+              >
+                <svg
+                  width="12"
+                  height="12"
+                  viewBox="0 0 12 12"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M6 4.586L10.95 9.536 9.536 10.95 4.586 6 9.536 1.05 10.95 2.464 6 7.414 1.05 2.464 2.464 1.05 7.414 6 2.464 10.95 1.05 9.536 6 4.586Z"
+                    fill="#2671D9"
+                  />
                 </svg>
               </button>
             </div>
@@ -240,7 +517,13 @@
                 <th class="p-2 border border-[#E5E7E9]">
                   <div class="flex items-center justify-between">
                     <span>No.</span>
-                    <svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg
+                      width="14"
+                      height="10"
+                      viewBox="0 0 14 10"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
                       <path
                         fill-rule="evenodd"
                         clip-rule="evenodd"
@@ -257,7 +540,14 @@
                 <th class="p-2 border border-[#E5E7E9]">
                   <div class="flex items-center justify-between">
                     <span>PIC Kemitraan</span>
-                    <svg @click="sortTable('pic')" width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg
+                      width="14"
+                      height="10"
+                      viewBox="0 0 14 10"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      @click="sortTable('pic')"
+                    >
                       <path
                         fill-rule="evenodd"
                         clip-rule="evenodd"
@@ -274,7 +564,14 @@
                 <th class="p-2 border border-[#E5E7E9]">
                   <div class="flex items-center justify-between">
                     <span>Jumlah Pengajuan</span>
-                    <svg @click="sortTable('jumlahPengajuan')" width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg
+                      width="14"
+                      height="10"
+                      viewBox="0 0 14 10"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      @click="sortTable('jumlahPengajuan')"
+                    >
                       <path
                         fill-rule="evenodd"
                         clip-rule="evenodd"
@@ -291,7 +588,14 @@
                 <th class="p-2 border border-[#E5E7E9]">
                   <div class="flex items-center justify-between">
                     <span>Total Diproses</span>
-                    <svg @click="sortTable('totalDiproses')" width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg
+                      width="14"
+                      height="10"
+                      viewBox="0 0 14 10"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      @click="sortTable('totalDiproses')"
+                    >
                       <path
                         fill-rule="evenodd"
                         clip-rule="evenodd"
@@ -308,7 +612,14 @@
                 <th class="p-2 border border-[#E5E7E9]">
                   <div class="flex items-center justify-between">
                     <span>Total Direvisi</span>
-                    <svg @click="sortTable('totalRevisi')" width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg
+                      width="14"
+                      height="10"
+                      viewBox="0 0 14 10"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      @click="sortTable('totalRevisi')"
+                    >
                       <path
                         fill-rule="evenodd"
                         clip-rule="evenodd"
@@ -325,7 +636,14 @@
                 <th class="p-2 border border-[#E5E7E9]">
                   <div class="flex items-center justify-between">
                     <span>Total Ditolak</span>
-                    <svg @click="sortTable('totalDitolak')" width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg
+                      width="14"
+                      height="10"
+                      viewBox="0 0 14 10"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      @click="sortTable('totalDitolak')"
+                    >
                       <path
                         fill-rule="evenodd"
                         clip-rule="evenodd"
@@ -342,7 +660,14 @@
                 <th class="p-2 border border-[#E5E7E9]">
                   <div class="flex items-center justify-between">
                     <span>Total Selesai</span>
-                    <svg @click="sortTable('totalSelesai')" width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg
+                      width="14"
+                      height="10"
+                      viewBox="0 0 14 10"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      @click="sortTable('totalSelesai')"
+                    >
                       <path
                         fill-rule="evenodd"
                         clip-rule="evenodd"
@@ -360,7 +685,14 @@
                 <th class="p-2 border border-[#E5E7E9]">
                   <div class="flex items-center justify-between">
                     <span>Total Stop Clock</span>
-                    <svg @click="sortTable('totalStopClock')" width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg
+                      width="14"
+                      height="10"
+                      viewBox="0 0 14 10"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      @click="sortTable('totalStopClock')"
+                    >
                       <path
                         fill-rule="evenodd"
                         clip-rule="evenodd"
@@ -377,15 +709,35 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="(item, index) in filteredAndPaginatedData" :key="`${index}-${item.pic}`" class="bg-[#FFFFFF] border border-[#E5E7E9] text-[12px] text-[#4D5E80] font-sans font-semibold">
-                <td class="p-2 py-4 border border-[#E5E7E9]">{{ (currentPage - 1) * selectedValue + index + 1 }}</td>
-                <td class="p-2 py-4 border border-[#E5E7E9]">{{ item.pic }}</td>
-                <td class="p-2 py-4 border border-[#E5E7E9]">{{ item.jumlahPengajuan }}</td>
-                <td class="p-2 py-4 border border-[#E5E7E9]">{{ item.totalDiproses }}</td>
-                <td class="p-2 py-4 border border-[#E5E7E9]">{{ item.totalRevisi }}</td>
-                <td class="p-2 py-4 border border-[#E5E7E9]">{{ item.totalDitolak }}</td>
-                <td class="p-2 py-4 border border-[#E5E7E9]">{{ item.totalSelesai }}</td>
-                <td class="p-2 py-4 border border-[#E5E7E9]">{{ item.totalStopClock }}</td>
+              <tr
+                v-for="(item, index) in filteredAndPaginatedData"
+                :key="`${index}-${item.pic}`"
+                class="bg-[#FFFFFF] border border-[#E5E7E9] text-[12px] text-[#4D5E80] font-sans font-semibold"
+              >
+                <td class="p-2 py-4 border border-[#E5E7E9]">
+                  {{ (currentPage - 1) * selectedValue + index + 1 }}
+                </td>
+                <td class="p-2 py-4 border border-[#E5E7E9]">
+                  {{ item.pic }}
+                </td>
+                <td class="p-2 py-4 border border-[#E5E7E9]">
+                  {{ item.jumlahPengajuan }}
+                </td>
+                <td class="p-2 py-4 border border-[#E5E7E9]">
+                  {{ item.totalDiproses }}
+                </td>
+                <td class="p-2 py-4 border border-[#E5E7E9]">
+                  {{ item.totalRevisi }}
+                </td>
+                <td class="p-2 py-4 border border-[#E5E7E9]">
+                  {{ item.totalDitolak }}
+                </td>
+                <td class="p-2 py-4 border border-[#E5E7E9]">
+                  {{ item.totalSelesai }}
+                </td>
+                <td class="p-2 py-4 border border-[#E5E7E9]">
+                  {{ item.totalStopClock }}
+                </td>
               </tr>
             </tbody>
           </table>
@@ -394,19 +746,43 @@
       <div class="flex items-center justify-between p-4">
         <div class="flex items-center text-[14px] font-sans font-normal">
           <span>Menampilkan</span>
-          <select class="ml-2 p-1 border border-[#E5E7E9] rounded-md" v-model="selectedValue">
-            <option v-for="value in displayOptions" :key="value" :value="value">{{ value }}</option>
-          </select>
-          <span class="ml-2"
-            >dari <b>{{ totalData }}</b> Data</span
+          <select
+            v-model="selectedValue"
+            class="ml-2 p-1 border border-[#E5E7E9] rounded-md"
           >
+            <option
+              v-for="value in displayOptions"
+              :key="value"
+              :value="value"
+            >
+              {{ value }}
+            </option>
+          </select>
+          <span class="ml-2">dari <b>{{ totalData }}</b> Data</span>
         </div>
         <div class="flex items-center rounded-lg border-transparent text-[14px] font-sans font-normal border-[#FFFFFF]">
-          <button class="pagination-btn" :disabled="currentPage === 1" @click="prevPage">‹</button>
-          <button v-for="page in pages" :key="page" :class="['pagination-btn', { active: currentPage === page }]" @click="setPage(page)">
+          <button
+            class="pagination-btn"
+            :disabled="currentPage === 1"
+            @click="prevPage"
+          >
+            ‹
+          </button>
+          <button
+            v-for="page in pages"
+            :key="page"
+            :class="['pagination-btn', { active: currentPage === page }]"
+            @click="setPage(page)"
+          >
             {{ page }}
           </button>
-          <button class="pagination-btn" :disabled="currentPage === totalPages" @click="nextPage">›</button>
+          <button
+            class="pagination-btn"
+            :disabled="currentPage === totalPages"
+            @click="nextPage"
+          >
+            ›
+          </button>
         </div>
       </div>
     </div>
@@ -420,6 +796,7 @@ import { fetchGet } from '@/api/apiFunction';
 // import { parseStatusAproval } from '@/utils/helper';
 import Loading from '../loading.vue';
 import ModalFailed from '../modalfailed.vue';
+import exportExcel from "@/utils/expot_excel";
 
 Chart.register(DoughnutController, ArcElement, BarController, BarElement, CategoryScale, LinearScale, Tooltip, Legend, ChartDataLabels);
 
@@ -563,6 +940,36 @@ export default {
       return filteredData.slice(start, end);
     },
   },
+  watch: {
+    selectedValue() {
+      this.currentPage = 1; // Reset to first page
+    },
+    showDropdown(newVal) {
+      if (newVal) {
+        document.addEventListener("click", this.handleClickOutside);
+      } else {
+        document.removeEventListener("click", this.handleClickOutside);
+      }
+    },
+  },
+  mounted() {
+    document.addEventListener("click", this.handleClickOutside);
+    window.addEventListener("beforeunload", () => {
+      document.removeEventListener("click", this.handleClickOutside);
+    });
+    this.getDataApi();
+    this.bisnisType = localStorage.getItem('bisnisType');
+    const role = localStorage.getItem('position');
+    if (role == 'PartnershipManager') {
+      this.jabatan = "MANAGER"
+    }
+    if (role == 'PartnershipVP') {
+      this.jabatan = "VICE PRESIDENT"
+    }
+  },
+  beforeUnmount() {
+    document.removeEventListener("click", this.handleClickOutside);
+  },
   methods: {
     closeModalFailed() {
       this.modalFailed = {
@@ -663,7 +1070,7 @@ export default {
         document.removeEventListener("click", this.handleClickOutside);
       }
     },
-    createChart(barChartData, totalNda, totalMou, totalPks, max, step) {
+    createChart(barChartData, totalNda, totalMou, totalPks, totalFinishedNda, totalFinishedMou, totalFinishedPks, max, step) {
       // Data for the bar chart
       // const barChartData = [20, 15, 9, 20, 5];
       // Calculate the total data
@@ -671,9 +1078,9 @@ export default {
       const totalData = totalNda + totalMou + totalPks;
       document.getElementById("totalData").innerText = totalData;
 
-      const createCircleChart = (elementId, value, color, label) => {
+      const createCircleChart = (elementId, value, finishedValue, color, label) => {
         const container = document.getElementById(elementId);
-        const percentage = (value / totalData) * 100;
+        const percentage = finishedValue / value * 100;
         const radius = 40;
         const strokeWidth = 15;
         const normalizedRadius = radius - strokeWidth / 2;
@@ -704,8 +1111,8 @@ export default {
               />
             </svg>
             <div class="chart-text">
-              <span class="value">${value}</span>
-              <span class="total">/${totalData}</span>
+              <span class="value">${finishedValue}</span>
+              <span class="total">/${value}</span>
             </div>
             <div class="chart-tooltip" style="display: none; position: absolute; padding: 5px; background: rgba(0, 0, 0, 0.85); color: #fff; border-radius: 5px; font-size: 10px; white-space: nowrap;">
               <div style="font-weight: bold;">${label}</div>
@@ -743,9 +1150,9 @@ export default {
           progressCircle.style.transition = "transform 0.5s ease";
         });
       };
-      createCircleChart("ndaDisplay", totalNda, "#0EA976", "NDA");
-      createCircleChart("mouDisplay", totalMou, "#FFA229", "MoU");
-      createCircleChart("pksDisplay", totalPks, "#FF51AF", "PKS");
+      createCircleChart("ndaDisplay", totalNda, totalFinishedNda, "#0EA976", "NDA");
+      createCircleChart("mouDisplay", totalMou, totalFinishedMou, "#FFA229", "MoU");
+      createCircleChart("pksDisplay", totalPks, totalFinishedPks, "#FF51AF", "PKS");
 
       // Bar Chart
       let delayed;
@@ -838,6 +1245,27 @@ export default {
         },
       });
     },
+    downloadDataExcel() {
+      const fileName = "Data_Dashboard_Kemitraan";
+      const sheetName = "Dashboard";
+      const title = "Aggregat Pengajuan Per Staff Kemitraan";
+      const headers = [
+        { header: "No", key: "no", width: 5 },
+        { header: "PIC Kemitraan", key: "pic", width: 40 },
+        { header: "Jumlah Pengajuan", key: "jumlahPengajuan", width: 20 },
+        { header: "Total Diproses", key: "totalDiproses", width: 20 },
+        { header: "Total Direvisi", key: "totalRevisi", width: 20 },
+        { header: "Total Ditolak", key: "totalDitolak", width: 20 },
+        { header: "Total Selesai", key: "totalSelesai", width: 20 },
+        { header: "Total Stop Clock", key: "totalStopClock", width: 20 },
+      ];
+      const data = this.tableData.map((item, index) => ({
+        ...item,
+        no: index + 1,
+        duedate: item.hari >= 0? `H-${item.hari}`: `H+${item.hari * (-1)}`
+      }))
+      exportExcel(fileName, sheetName, title, headers, data);
+    },
     // api
 		async getDataApi() {
       this.isLoading = true;
@@ -892,7 +1320,7 @@ export default {
 
         const barChartData = [res.data.totalProcessed, res.data.totalRevision, res.data.totalRejected, res.data.totalFinished, res.data.totalStopClock]
         const max = Math.max.apply(null, barChartData)
-        this.createChart(barChartData, res.data.totalNda, res.data.totalMou, res.data.totalPks, max, Math.ceil(max/4));
+        this.createChart(barChartData, res.data.totalNda, res.data.totalMou, res.data.totalPks, res.data.totalFinishedNda, res.data.totalFinishedMou, res.data.totalFinishedPks, max, Math.ceil(max/4));
 
         this.isLoading = false;
 			} else {
@@ -904,36 +1332,6 @@ export default {
         }
 			}
 		}
-  },
-  watch: {
-    selectedValue() {
-      this.currentPage = 1; // Reset to first page
-    },
-    showDropdown(newVal) {
-      if (newVal) {
-        document.addEventListener("click", this.handleClickOutside);
-      } else {
-        document.removeEventListener("click", this.handleClickOutside);
-      }
-    },
-  },
-  mounted() {
-    document.addEventListener("click", this.handleClickOutside);
-    window.addEventListener("beforeunload", () => {
-      document.removeEventListener("click", this.handleClickOutside);
-    });
-    this.getDataApi();
-    this.bisnisType = localStorage.getItem('bisnisType');
-    const role = localStorage.getItem('position');
-    if (role == 'PartnershipManager') {
-      this.jabatan = "Manager"
-    }
-    if (role == 'PartnershipVP') {
-      this.jabatan = "Vice President"
-    }
-  },
-  beforeUnmount() {
-    document.removeEventListener("click", this.handleClickOutside);
   },
 };
 </script>

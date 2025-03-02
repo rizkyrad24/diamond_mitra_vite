@@ -7,31 +7,31 @@ import { dateParsing } from '@/utils/helper';
 </script>
 
 <template>
+  <Loading :is-visible="isLoading" />
+  <ModalFailed
+    :is-visible="modalFailed.isVisible"
+    :title="modalFailed.title"
+    :message="modalFailed.message"
+    @close="closeModalFailed"
+  />
+  <ModalSuccess
+    :is-visible="modalSuccess.isVisible"
+    :title="modalSuccess.title"
+    :message="modalSuccess.message"
+    @close="modalSuccess.closeFunction"
+  />
+  <ModalDialog
+    :is-visible="modalDialog.isVisible"
+    :title="modalDialog.title"
+    :message="modalDialog.message"
+    @close="modalDialog.closeFunction"
+    @ok="modalDialog.okFunction"
+  />
   <div>
-    <Loading :is-visible="isLoading" />
-    <ModalFailed
-      :is-visible="modalFailed.isVisible"
-      :title="modalFailed.title"
-      :message="modalFailed.message"
-      @close="closeModalFailed"
-    />
-    <ModalSuccess
-      :is-visible="modalSuccess.isVisible"
-      :title="modalSuccess.title"
-      :message="modalSuccess.message"
-      @close="modalSuccess.closeFunction"
-    />
-    <ModalDialog
-      :is-visible="modalDialog.isVisible"
-      :title="modalDialog.title"
-      :message="modalDialog.message"
-      @close="modalDialog.closeFunction"
-      @ok="modalDialog.okFunction"
-    />
     <div class="flex w-auto h-[54px] rounded-lg bg-[#FFFFFF] border-collapse">
       <button @click="navigateToDetail">
-        <h1 class="w-[51px] h-[22px] font-sans text-[#2671D9] text-[14px] font-semibold ml-6 mt-4 mb-4">
-          Masuk
+        <h1 class="w-auto h-[22px] font-sans text-[#2671D9] text-[14px] font-semibold ml-6 mr-2 mt-4 mb-4">
+          Approval Ditolak
         </h1>
       </button>
       <svg
@@ -52,7 +52,7 @@ import { dateParsing } from '@/utils/helper';
       <span class="w-[119px] h-[22px] font-sans text-[#7F7F80] text-[14px] font-semibold ml-1 mt-[17px]">Detail
         Pengajuan</span>
     </div>
-    <div class="px-6 py-3">
+    <div class="px-4 py-3">
       <div class="relative h-auto w-[1086px] rounded-lg bg-[#FFFFFF] border-collapse mx-auto">
         <div class="flex">
           <svg
@@ -77,7 +77,15 @@ import { dateParsing } from '@/utils/helper';
         <h1 class="items-start justify-center px-2 ml-2 text-[#9C9C9C]">
           {{ dataBerkas?.submissionNumber }}
         </h1>
-        <!-- <PengajuanDiterima :isVisible="showPopup" @close="showPopup = false" /> -->
+        <div
+          class="flex items-center w-[1046px] h-[55px] rounded-lg border-[#4791F2] border-[1px] bg-[#e7f1fd] ml-4 mt-4 mb-4"
+        >
+          <h1 class="text-[16px] font-semibold text-[#2671D9] font-sans ml-4 mt-4 mb-5">
+            Info Approval :
+          </h1>
+          <span class="text-[16px] text-[#333333] font-sans ml-1 mt-4 mb-5">Pengajuan ini memerlukan approval untuk
+            menyelesaikan proses kemitraan</span>
+        </div>
         <div
           class="flex items-center mt-4 ml-4 w-[1046px] h-[48px] rounded-lg bg-[#FFFFFF] border-[#E5E7E9] border-[1px]"
         >
@@ -186,17 +194,17 @@ import { dateParsing } from '@/utils/helper';
             <div class="w-[1046px] h-[1px] bg-[#E5E7E9] justify-center transform translate-x-[-2.3%] mt-6" />
             <div class="flex items-start mt-6">
               <div class="flex w-1/2">
-                <h1 class="w-[130px] min-h-[17px] font-sans text-[#333333] text-[14px] font-semibold">
+                <h1 class="w-[130px] h-[17px] font-sans text-[#333333] text-[14px] font-semibold">
                   Latar Belakang
                 </h1>
-                <span class="min-h-[17px] text-[#7F7F80] font-sans font-thin text-[14px] ml-4">{{
+                <span class="w-auto min-h-[17px] text-[#7F7F80] font-sans font-thin text-[14px] ml-4">{{
                   dataBerkas?.background || '-' }}</span>
               </div>
               <div class="flex w-1/2">
-                <h1 class="w-[130px] min-h-[17px] font-sans text-[14px] text-[#333333] font-semibold ml-[40px]">
+                <h1 class="w-[130px] h-[17px] font-sans text-[14px] text-[#333333] font-semibold ml-[40px]">
                   Catatan
                 </h1>
-                <span class="min-h-[17px] font-sans font-thin text-[#7F7F80] text-[14px] ml-4">{{ dataBerkas?.note
+                <span class="w-auto min-h-[17px] font-sans font-thin text-[#7F7F80] text-[14px] ml-4">{{ dataBerkas?.note
                   || '-' }}</span>
               </div>
             </div>
@@ -1026,84 +1034,46 @@ import { dateParsing } from '@/utils/helper';
             >
               <div class="flex p-4">
                 <div class="ml-4">
-                  <span class="block text-[#4D5E80] font-sans text-[14px] font-semibold">{{ dataBerkas?.responseText }}</span>
+                  <span class="block text-[#333333] font-sans text-[14px]">{{ dataBerkas?.responseText }}</span>
                 </div>
               </div>
             </div>
           </div>
-          <div class="flex flex-col w-[511px] h-auto ml-6">
+          <div class="flex flex-col w-[520px] h-auto ml-4">
             <div class="flex items-center">
               <h1 class="font-sans text-[#4D5E80] text-[16px] font-semibold">
-                Approval
+                Catatan Approval
               </h1>
             </div>
-            <div
-              class="w-full h-[88px] bg-[#E0E0E0] border-[#E5E7E9] border-[1px] rounded-lg mt-2 flex items-start justify-start"
-            >
-              <div class="flex p-4">
-                <div class="ml-4">
-                  <span class="block text-[#4D5E80] font-sans text-[14px] font-semibold">{{ dataBerkas?.approvalNote }}</span>
-                </div>
-              </div>
-            </div>
+            <textarea
+              v-model="ApprovalNote"
+              type="text"
+              placeholder="Masukkan catatan approval"
+              class="w-full h-[88px] text-black font-sans text-sm focus:border-gray-400 focus:outline-none border border-gray-300 rounded-lg p-2 mt-2 bg-white"
+            />
           </div>
         </div>
-        <div class="flex flex-row w-[1046px] h-auto ml-4 py-7">
+        <div class="flex flex-row w-[1046px] h-auto ml-4 py-9">
           <button
-            v-if="dataBerkas?.status == 'Pengajuan'"
-            class="absolute bottom-[12px] right-[390px] flex"
-            @click="SendRevisiMayor"
-          >
-            <div
-              class="flex items-center justify-center w-[114px] h-[40px] rounded-lg bg-[#FFFFFF] border-[#2671D9] border-[1px] hover:bg-[#DBEAFE] cursor-pointer transition-all"
-            >
-              <span class="text-[14px] font-sans font-medium text-[#2671D9] ml-3 mt-[9px] mr-3 mb-[9px]">Revisi
-                Mayor</span>
-            </div>
-          </button>
-          <button
-            v-if="dataBerkas?.status == 'Pengajuan'"
-            class="absolute bottom-[12px] right-[255px] flex"
-            @click="SendRevisiMinor"
-          >
-            <div
-              class="flex items-center justify-center w-[114px] h-[40px] rounded-lg bg-[#FFFFFF] border-[#2671D9] border-[1px] hover:bg-[#DBEAFE] cursor-pointer transition-all"
-            >
-              <span class="text-[14px] font-sans font-medium text-[#2671D9] ml-3 mt-[9px] mr-3 mb-[9px]">Revisi
-                Minor</span>
-            </div>
-          </button>
-          <button
-            v-if="dataBerkas?.status == 'Pengajuan'"
-            class="absolute bottom-[12px] right-[115px] flex"
+            class="absolute bottom-[12px] right-[123px] mt-4 flex"
             @click="SendTolak"
-          >
-            <div
-              class="flex items-center justify-center w-[125px] h-[40px] rounded-lg bg-[#FFFFFF] border-[#C53830] border-[1px] hover:bg-[#FEE2E2] cursor-pointer transition-all"
-            >
-              <span class="text-[14px] font-sans font-medium text-[#C53830] ml-3 mt-[9px] mr-3 mb-[9px]">Ajukan Ditolak</span>
-            </div>
-          </button>
-          <button
-            v-if="dataBerkas?.status == 'Pengajuan'"
-            class="absolute bottom-[12px] right-[25px] flex"
-            @click="SendApprov"
-          >
-            <div
-              class="flex items-center justify-center w-[72px] h-[40px] rounded-lg bg-[#2671D9] hover:bg-[#1E5BB7] border-[#FFFFFF] border-[1px]"
-            >
-              <span class="text-[14px] font-sans font-medium text-[#FFFFFF] ml-3 mt-[9px] mr-3 mb-[9px]">Proses</span>
-            </div>
-          </button>
-          <button
-            v-if="dataBerkas?.status == 'Pengajuan Ditolak'"
-            class="absolute bottom-[12px] right-[25px] flex"
-            @click="SendAbortTolak"
           >
             <div
               class="flex items-center justify-center w-auto h-[40px] rounded-lg bg-[#FFFFFF] border-[#C53830] border-[1px] hover:bg-[#FEE2E2] cursor-pointer transition-all"
             >
-              <span class="text-[14px] font-sans font-medium text-[#C53830] ml-3 mt-[9px] mr-3 mb-[9px]">Batal Ajukan Ditolak</span>
+              <span class="text-[14px] font-sans text-[#C53830] font-semibold ml-3 mt-[9px] mr-3 mb-[9px]">Batalkan Pengajuan Ditolak</span>
+            </div>
+          </button>
+          <button
+            class="absolute bottom-[12px] right-[24px] flex"
+            @click="SendApprov"
+          >
+            <div
+              class="flex items-center justify-center w-[83px] h-[40px] rounded-lg bg-[#2671D9] hover:bg-[#1E5BB7] border-[#FFFFFF] border-[1px]"
+            >
+              <span
+                class="text-[14px] font-sans text-[#FFFFFF] font-semibold ml-3 mt-[9px] mr-3 mb-[9px]"
+              >Approve</span>
             </div>
           </button>
         </div>
@@ -1113,19 +1083,28 @@ import { dateParsing } from '@/utils/helper';
 </template>
 
 <script>
-import { fetchGet, fetchPost } from '@/api/apiFunction';
+import { fetchGet, fetchPostForm } from '@/api/apiFunction';
 import { baseURL } from '@/api/apiManager';
 
 export default {
   data() {
     return {
-      showPengajuanDiterimaPopup: false,
+      fileDetails: {
+        KKB: { fileName: "", fileSize: "" },
+        KKR: { fileName: "", fileSize: "" },
+        KKF: { fileName: "", fileSize: "" },
+        KKO: { fileName: "", fileSize: "" },
+        ProposalMitra: { fileName: "", fileSize: "" },
+        DokumenSuratMenyurat: { fileName: "", fileSize: "" },
+        DokumenLainnya: { fileName: "", fileSize: "" },
+      },
       isDropdownArrowOpen: false,
       isDropdownArrowOpen1: false,
       isDropdownArrowOpen2: false,
       isDropdownArrowOpen3: false,
+      showApprovalPopup: false, // Untuk menampilkan popup persetujuan pengajuan
+      showDisetujuiPopup: false, // Untuk menampilkan popup pengajuan disetujui
       showDropdown: false,
-      showPopup: false,
 
       dataBerkas: null,
       base: null,
@@ -1172,6 +1151,7 @@ export default {
       },
       isLoading: false,
 
+      ApprovalNote: "",
     };
   },
   mounted() {
@@ -1206,9 +1186,6 @@ export default {
         closeFunction: () => null
       }
     },
-    closePopup() {
-      this.showPengajuanDiterimaPopup = false;
-    },
     toggleDropdownArrow() {
       this.isDropdownArrowOpen = !this.isDropdownArrowOpen;
     },
@@ -1222,16 +1199,24 @@ export default {
       this.isDropdownArrowOpen3 = !this.isDropdownArrowOpen3;
     },
     navigateToDetail() {
-      this.$router.push("/masukstaff");
+      this.$router.push("/approval/approvalditolak");
     },
-
-    // Popup Aprrove
+    closeApprovalPopup() {
+      this.showApprovalPopup = false; // Menutup popup persetujuan pengajuan
+    },
+    approvePengajuan() {
+      this.showApprovalPopup = false; // Menutup popup persetujuan pengajuan
+      this.showDisetujuiPopup = true; // Menampilkan popup pengajuan disetujui
+    },
+    closeDisetujuiPopup() {
+      this.showDisetujuiPopup = false; // Menutup popup pengajuan disetujui
+    },
+    // Popup Approve
     SendApprov() {
-      this.showApprovPopup = false;
       this.modalDialog = {
         isVisible: true,
-        title: 'Proses Pengajuan',
-        message: `Apakan anda yakin akan memproses pengajuan ini`,
+        title: 'Approve Pengajuan Ditolak',
+        message: 'Apakan anda yakin akan menyetujui pengajuan ditolak ini',
         okFunction: this.openApprov,
         closeFunction: this.closeApprov
       }
@@ -1242,35 +1227,32 @@ export default {
     },
     closeApprov() {
       this.closeModalDialog()
-      this.showApprovPopup = true;
     },
     successApprov() {
       this.modalSuccess = {
         isVisible: true,
-        title: 'Proses Pengajuan Berhasil',
-        message: `Pengajuan berhasil diproses`,
+        title: 'Berhasil Approve',
+        message: 'Pengajuan ditolak berhasil diApprove',
         closeFunction: this.closeSelesaiApprov
       }
     },
     failApprov(data) {
       this.modalFailed = {
         isVisible: true,
-        title: 'Proses Pengajuan Gagal',
+        title: 'Gagal Approve Tolak',
         message: data?.message ? data.message : "Silahkan hubungi admin"
       }
     },
     closeSelesaiApprov() {
-      this.closeModalSuccess();
-      this.$router.push('/masukstaff')
+      this.closeModalSuccess()
+      this.$router.push('/approval/approvalditolak')
     },
-
     // Popup Tolak
     SendTolak() {
-      this.showTolakPopup = false;
       this.modalDialog = {
         isVisible: true,
-        title: 'Tolak Pengajuan',
-        message: `Apakan anda yakin akan menolak pengajuan ini`,
+        title: 'Batalkan Pengajuan Ditolak',
+        message: 'Apakan anda yakin akan menbatalkan pengajuan ditolak ini',
         okFunction: this.openTolak,
         closeFunction: this.closeTolak
       }
@@ -1281,187 +1263,84 @@ export default {
     },
     closeTolak() {
       this.closeModalDialog()
-      this.showTolakPopup = true;
     },
     successTolak() {
       this.modalSuccess = {
         isVisible: true,
-        title: 'Tolak Pengajuan Berhasil',
-        message: `Pengajuan berhasil ditolak`,
+        title: 'Berhasil Batalkan Pengajuan Ditolak',
+        message: 'Pengajuan ditolak berhasil dibatalkan',
         closeFunction: this.closeSelesaiTolak
       }
     },
     failTolak(data) {
       this.modalFailed = {
         isVisible: true,
-        title: 'Tolak Pengajuan Gagal',
+        title: 'Gagal Batalkan Pengajuan Ditolak',
         message: data?.message ? data.message : "Silahkan hubungi admin"
       }
     },
     closeSelesaiTolak() {
-      this.closeModalSuccess();
-      this.$router.push('/masukstaff')
+      this.closeModalSuccess()
+      this.$router.push('/approval/approvalditolak')
     },
-
-    // Popup AbortTolak
-    SendAbortTolak() {
-      this.showAbortTolakPopup = false;
-      this.modalDialog = {
-        isVisible: true,
-        title: 'Batalkan Ajukan Tolak',
-        message: `Apakan anda yakin akan membatalkan ajukan tolak pengajuan ini`,
-        okFunction: this.openAbortTolak,
-        closeFunction: this.closeAbortTolak
-      }
-    },
-    openAbortTolak() {
-      this.closeModalDialog();
-      this.postAbortTolak(this.successAbortTolak, this.failAbortTolak);
-    },
-    closeAbortTolak() {
-      this.closeModalDialog()
-      this.showAbortTolakPopup = true;
-    },
-    successAbortTolak() {
-      this.modalSuccess = {
-        isVisible: true,
-        title: 'Berhasil Membatalkan Ajuan Tolak',
-        message: `Pengajuan tolak berhasil dibatalkan`,
-        closeFunction: this.closeSelesaiAbortTolak
-      }
-    },
-    failAbortTolak(data) {
-      this.modalFailed = {
-        isVisible: true,
-        title: 'Gagal Membatalkan Ajuan Tolak',
-        message: data?.message ? data.message : "Silahkan hubungi admin"
-      }
-    },
-    closeSelesaiAbortTolak() {
-      this.closeModalSuccess();
-      this.$router.push('/masukstaff')
-    },
-
-    // Popup RevisiMinor
-    SendRevisiMinor() {
-      this.showRevisiMinorPopup = false;
-      this.modalDialog = {
-        isVisible: true,
-        title: 'Revisi Minor Pengajuan',
-        message: `Apakan anda yakin akan meminta revisi minor pengajuan ini`,
-        okFunction: this.openRevisiMinor,
-        closeFunction: this.closeRevisiMinor
-      }
-    },
-    openRevisiMinor() {
-      this.closeModalDialog();
-      this.postRevisiMinor(this.successRevisiMinor, this.failRevisiMinor);
-    },
-    closeRevisiMinor() {
-      this.closeModalDialog()
-      this.showRevisiMinorPopup = true;
-    },
-    successRevisiMinor() {
-      this.modalSuccess = {
-        isVisible: true,
-        title: 'Permintaan Revisi Minor Berhasil',
-        message: `Pengajuan berhasil diminta untuk Revisi Minor`,
-        closeFunction: this.closeSelesaiRevisiMinor
-      }
-    },
-    failRevisiMinor(data) {
-      this.modalFailed = {
-        isVisible: true,
-        title: 'Permintaan Revisi Minor Gagal',
-        message: data?.message ? data.message : "Silahkan hubungi admin"
-      }
-    },
-    closeSelesaiRevisiMinor() {
-      this.closeModalSuccess();
-      this.$router.push('/masukstaff')
-    },
-
-    // Popup RevisiMayor
-    SendRevisiMayor() {
-      this.showRevisiMayorPopup = false;
-      this.modalDialog = {
-        isVisible: true,
-        title: 'Revisi Mayor Pengajuan',
-        message: `Apakan anda yakin akan meminta revisi Mayor pengajuan ini`,
-        okFunction: this.openRevisiMayor,
-        closeFunction: this.closeRevisiMayor
-      }
-    },
-    openRevisiMayor() {
-      this.closeModalDialog();
-      this.postRevisiMayor(this.successRevisiMayor, this.failRevisiMayor);
-    },
-    closeRevisiMayor() {
-      this.closeModalDialog()
-      this.showRevisiMayorPopup = true;
-    },
-    successRevisiMayor() {
-      this.modalSuccess = {
-        isVisible: true,
-        title: 'Permintaan Revisi Mayor Berhasil',
-        message: `Pengajuan berhasil diminta untuk Revisi Mayor`,
-        closeFunction: this.closeSelesaiRevisiMayor
-      }
-    },
-    failRevisiMayor(data) {
-      this.modalFailed = {
-        isVisible: true,
-        title: 'Permintaan Revisi Mayor Gagal',
-        message: data?.message ? data.message : "Silahkan hubungi admin"
-      }
-    },
-    closeSelesaiRevisiMayor() {
-      this.closeModalSuccess();
-      this.$router.push('/masukstaff')
-    },
-
     // api
     async getDataApi(base, id) {
       this.isLoading = true;
       if (base == "PKS") {
-        const res = await fetchGet(`mitra/staff/pks/incoming-data/${id}`, null, this.$router);
+        let url = "";
+        const position = localStorage.getItem('position')
+        if (position == "PartnershipManager") {
+          url = `mitra/manager/pks/approval/${id}`;
+        } else if (position == "PartnershipVP") {
+          url = `mitra/vp/pks/approval/${id}`;
+        } else if (position == "PartnershipDirector") {
+          url = `mitra/direksi/pks/approval/${id}`;
+        } else {
+          this.isLoading = false;
+          return this.modalFailed = {
+            isVisible: true,
+            title: 'Tidak Ada Akses',
+            message: "Anda tidak mempunyai akses untuk aproval"
+          }
+        }
+        const res = await fetchGet(url, null, this.$router);
         if (res.status == 200) {
           this.dataBerkas = res.data;
           res.data.attachmentsPks.forEach((item) => {
             if (item.fileType == 'KKO') {
               this.fileNameKKO = item.fileName;
               this.fileSizeKKO = item.fileSize;
-              this.linkDownloadKKO = `${baseURL.replace('/api',"")}/download/file/${item.id}`
+              this.linkDownloadKKO = `${baseURL.replace('/api',"")}/download/file/${item.id}`;
             }
             if (item.fileType == 'KKF') {
               this.fileNameKKF = item.fileName;
               this.fileSizeKKF = item.fileSize;
-              this.linkDownloadKKF = `${baseURL.replace('/api',"")}/download/file/${item.id}`
+              this.linkDownloadKKF = `${baseURL.replace('/api',"")}/download/file/${item.id}`;
             }
             if (item.fileType == 'KKR') {
               this.fileNameKKR = item.fileName;
               this.fileSizeKKR = item.fileSize;
-              this.linkDownloadKKR = `${baseURL.replace('/api',"")}/download/file/${item.id}`
+              this.linkDownloadKKR = `${baseURL.replace('/api',"")}/download/file/${item.id}`;
             }
             if (item.fileType == 'KKB') {
               this.fileNameKKB = item.fileName;
               this.fileSizeKKB = item.fileSize;
-              this.linkDownloadKKB = `${baseURL.replace('/api',"")}/download/file/${item.id}`
+              this.linkDownloadKKB = `${baseURL.replace('/api',"")}/download/file/${item.id}`;
             }
             if (item.fileType == 'Dokumen Surat Menyurat') {
               this.fileNamesurat = item.fileName;
               this.fileSizesurat = item.fileSize;
-              this.linkDownloadsurat = `${baseURL.replace('/api',"")}/download/file/${item.id}`
+              this.linkDownloadsurat = `${baseURL.replace('/api',"")}/download/file/${item.id}`;
             }
             if (item.fileType == 'Proposal Mitra') {
               this.fileNamemitra = item.fileName;
               this.fileSizemitra = item.fileSize;
-              this.linkDownloadmitra = `${baseURL.replace('/api',"")}/download/file/${item.id}`
+              this.linkDownloadmitra = `${baseURL.replace('/api',"")}/download/file/${item.id}`;
             }
             if (item.fileType == 'Dokumen Lainnya') {
               this.fileNamelainnya = item.fileName;
               this.fileSizelainnya = item.fileSize;
-              this.linkDownloadlainnya = `${baseURL.replace('/api',"")}/download/file/${item.id}`
+              this.linkDownloadlainnya = `${baseURL.replace('/api',"")}/download/file/${item.id}`;
             }
           })
           this.isLoading = false;
@@ -1475,28 +1354,40 @@ export default {
           }
         }
       } else {
-        const res = await fetchGet(
-          `mitra/staff/mounda/incoming-data/${id}`,
-          null,
-          this.$router
-        );
+        let url = "";
+        const position = localStorage.getItem('position')
+        if (position == "PartnershipManager") {
+          url = `mitra/manager/mounda/approval/${id}`;
+        } else if (position == "PartnershipVP") {
+          url = `mitra/vp/mounda/approval/${id}`;
+        } else if (position == "PartnershipDirector") {
+          url = `mitra/direksi/mounda/approval/${id}`;
+        } else {
+          this.isLoading = false;
+          return this.modalFailed = {
+            isVisible: true,
+            title: 'Tidak Ada Akses',
+            message: "Anda tidak mempunyai akses untuk aproval"
+          }
+        }
+        const res = await fetchGet(url, null, this.$router);
         if (res.status == 200) {
           this.dataBerkas = res.data;
           res.data.attachmentsMou.forEach((item) => {
             if (item.fileType == 'Dokumen Surat Menyurat') {
               this.fileNamesurat = item.fileName;
               this.fileSizesurat = item.fileSize;
-              this.linkDownloadsurat = `${baseURL.replace('/api',"")}/download/file/${item.id}`
+              this.linkDownloadsurat = `${baseURL.replace('/api',"")}/download/file/${item.id}`;
             }
             if (item.fileType == 'Proposal Mitra') {
               this.fileNamemitra = item.fileName;
               this.fileSizemitra = item.fileSize;
-              this.linkDownloadmitra = `${baseURL.replace('/api',"")}/download/file/${item.id}`
+              this.linkDownloadmitra = `${baseURL.replace('/api',"")}/download/file/${item.id}`;
             }
             if (item.fileType == 'Dokumen Lainnya') {
               this.fileNamelainnya = item.fileName;
               this.fileSizelainnya = item.fileSize;
-              this.linkDownloadlainnya = `${baseURL.replace('/api',"")}/download/file/${item.id}`
+              this.linkDownloadlainnya = `${baseURL.replace('/api',"")}/download/file/${item.id}`;
             }
           })
           this.isLoading = false;
@@ -1513,8 +1404,22 @@ export default {
     },
     async postAproval(successFunction, failFunction) {
       this.isLoading = true;
+      const form = new FormData()
+      form.append('ApprovalNote', this.ApprovalNote)
       if (this.base == "PKS") {
-        const res = await fetchPost(`mitra/staff/pks/incoming-data/${this.id}`, null, null, this.$router);
+        let url = "";
+        const position = localStorage.getItem('position')
+        if (position == "PartnershipManager") {
+          url = `mitra/manager/pks/approval/${this.id}/approve-reject`;
+        } else {
+          this.isLoading = false;
+          return this.modalFailed = {
+            isVisible: true,
+            title: 'Tidak Ada Akses',
+            message: "Anda tidak mempunyai akses untuk aproval"
+          }
+        }
+        const res = await fetchPostForm(url, null, form, this.$router);
         if (res.status == 200) {
           this.isLoading = false;
           successFunction();
@@ -1524,55 +1429,19 @@ export default {
           failFunction();
         }
       } else {
-        const res = await fetchPost(`mitra/staff/mounda/incoming-data/${this.id}`, null, null, this.$router);
-        if (res.status == 200) {
-          this.isLoading = false;
-          successFunction();
-          console.log(res.data)
+        let url = "";
+        const position = localStorage.getItem('position')
+        if (position == "PartnershipManager") {
+          url = `mitra/manager/mounda/approval/${this.id}/approve-reject`;
         } else {
           this.isLoading = false;
-          failFunction();
+          return this.modalFailed = {
+            isVisible: true,
+            title: 'Tidak Ada Akses',
+            message: "Anda tidak mempunyai akses untuk aproval"
+          }
         }
-      }
-    },
-    async postRevisiMinor(successFunction, failFunction) {
-      this.isLoading = true;
-      if (this.base == "PKS") {
-        const res = await fetchPost(`mitra/staff/pks/incoming-data/${this.id}/minor-revision`, null, null, this.$router);
-        if (res.status == 200) {
-          this.isLoading = false;
-          successFunction();
-          console.log(res.data)
-        } else {
-          this.isLoading = false;
-          failFunction();
-        }
-      } else {
-        const res = await fetchPost(`mitra/staff/mounda/incoming-data/${this.id}/minor-revision`, null, null, this.$router);
-        if (res.status == 200) {
-          this.isLoading = false;
-          successFunction();
-          console.log(res.data)
-        } else {
-          this.isLoading = false;
-          failFunction();
-        }
-      }
-    },
-    async postRevisiMayor(successFunction, failFunction) {
-      this.isLoading = true;
-      if (this.base == "PKS") {
-        const res = await fetchPost(`mitra/staff/pks/incoming-data/${this.id}/mayor-revision`, null, null, this.$router);
-        if (res.status == 200) {
-          this.isLoading = false;
-          successFunction();
-          console.log(res.data)
-        } else {
-          this.isLoading = false;
-          failFunction();
-        }
-      } else {
-        const res = await fetchPost(`mitra/staff/mounda/incoming-data/${this.id}/mayor-revision`, null, null, this.$router);
+        const res = await fetchPostForm(url, null, form, this.$router);
         if (res.status == 200) {
           this.isLoading = false;
           successFunction();
@@ -1585,8 +1454,22 @@ export default {
     },
     async postTolak(successFunction, failFunction) {
       this.isLoading = true;
+      const form = new FormData()
+      form.append('ApprovalNote', this.ApprovalNote)
       if (this.base == "PKS") {
-        const res = await fetchPost(`mitra/staff/pks/incoming-data/${this.id}/reject`, null, null, this.$router);
+        let url = "";
+        const position = localStorage.getItem('position')
+        if (position == "PartnershipManager") {
+          url = `mitra/manager/pks/approval/${this.id}/abort-reject`;
+        } else {
+          this.isLoading = false;
+          return this.modalFailed = {
+            isVisible: true,
+            title: 'Tidak Ada Akses',
+            message: "Anda tidak mempunyai akses untuk aproval"
+          }
+        }
+        const res = await fetchPostForm(url, null, form, this.$router);
         if (res.status == 200) {
           this.isLoading = false;
           successFunction();
@@ -1596,31 +1479,19 @@ export default {
           failFunction();
         }
       } else {
-        const res = await fetchPost(`mitra/staff/mounda/incoming-data/${this.id}/reject`, null, null, this.$router);
-        if (res.status == 200) {
-          this.isLoading = false;
-          successFunction();
-          console.log(res.data)
+        let url = "";
+        const position = localStorage.getItem('position')
+        if (position == "PartnershipManager") {
+          url = `mitra/manager/mounda/approval/${this.id}/abort-reject`;
         } else {
           this.isLoading = false;
-          failFunction();
+          return this.modalFailed = {
+            isVisible: true,
+            title: 'Tidak Ada Akses',
+            message: "Anda tidak mempunyai akses untuk aproval"
+          }
         }
-      }
-    },
-    async postAbortTolak(successFunction, failFunction) {
-      this.isLoading = true;
-      if (this.base == "PKS") {
-        const res = await fetchPost(`mitra/staff/pks/incoming-data/${this.id}/abort-reject`, null, null, this.$router);
-        if (res.status == 200) {
-          this.isLoading = false;
-          successFunction();
-          console.log(res.data)
-        } else {
-          this.isLoading = false;
-          failFunction();
-        }
-      } else {
-        const res = await fetchPost(`mitra/staff/mounda/incoming-data/${this.id}/abort-reject`, null, null, this.$router);
+        const res = await fetchPostForm(url, null, form, this.$router);
         if (res.status == 200) {
           this.isLoading = false;
           successFunction();

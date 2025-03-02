@@ -8,6 +8,9 @@ export function parseStatusAproval(positionLevel, status) {
     if (status == 'Pengajuan StartClock') {
       return "Pengajuan StartClock"
     }
+    if (status == 'Pengajuan Ditolak') {
+      return "Mengajukan Ditolak"
+    }
     if (status == 'Approved' && positionLevel >= 8) {
       return "Selesai"
     }
@@ -113,6 +116,9 @@ export function mapperStatus(positionLevel, status, attachments, isStopClock) {
   }
   if (status == 'Pengajuan StartClock') {
     return ['Pengajuan StartClock', 'bg-[#FFE5E6] text-[#FF5656] border-[#FD8A8A]']
+  }
+  if (status == 'Pengajuan Ditolak') {
+    return ['Mengajukan Ditolak', 'bg-[#FFE5E6] text-[#FF5656] border-[#FD8A8A]']
   }
   if ('Revisi'.includes(status)) {
     return ['Revisi', 'bg-[#FFE5E6] text-[#FF8000] border-[#FFD6AD]']

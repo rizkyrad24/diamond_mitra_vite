@@ -1,35 +1,74 @@
 <template>
-  <Loading :isVisible="isLoading" />
+  <Loading :is-visible="isLoading" />
   <ModalFailed
-    :isVisible="modalFailed.isVisible"
+    :is-visible="modalFailed.isVisible"
     :title="modalFailed.title"
     :message="modalFailed.message"
     @close="closeModalFailed"
   />
   <div>
     <div class="flex w-auto h-[54px] rounded-lg bg-[#FFFFFF] border-collapse">
-      <h1 class="w-[51px] h-[22px] font-sans text-[#7F7F80] text-[14px] font-semibold ml-6 mt-4 mb-4">Selesai</h1>
+      <h1 class="w-[51px] h-[22px] font-sans text-[#7F7F80] text-[14px] font-semibold ml-6 mt-4 mb-4">
+        Selesai
+      </h1>
     </div>
   </div>
   <div class="px-4 py-3">
     <div class="h-[776px] w-[1086px] rounded-lg bg-[#FFFFFF] border-collapse mx-auto">
       <div class="flex">
-        <svg class="ml-4 mt-[10px]" width="6" height="28" viewBox="0 0 6 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect width="6" height="28" fill="#1F5AAD" />
+        <svg
+          class="ml-4 mt-[10px]"
+          width="6"
+          height="28"
+          viewBox="0 0 6 28"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect
+            width="6"
+            height="28"
+            fill="#1F5AAD"
+          />
         </svg>
-        <h1 class="font-sans text-[20px] text-[#333333] mt-2 ml-[5px] font-semibold">Selesai</h1>
+        <h1 class="font-sans text-[20px] text-[#333333] mt-2 ml-[5px] font-semibold">
+          Selesai
+        </h1>
       </div>
-      <h1 class="items-start justify-center px-2 ml-2 text-[#9C9C9C]">Surat Masuk Pengajuan Mitra</h1>
-      <button class="flex-grow w-[56px] h-[24px] font-sans text-[16px] font-semibold mt-7 ml-8 mr-4 text-[#2671D9]" @click="navigateToSelesai">
+      <h1 class="items-start justify-center px-2 ml-2 text-[#9C9C9C]">
+        Surat Masuk Pengajuan Mitra
+      </h1>
+      <button
+        class="flex-grow w-[56px] h-[24px] font-sans text-[16px] font-semibold mt-7 ml-8 mr-4 text-[#2671D9]"
+        @click="navigateToSelesai"
+      >
         Selesai
-        <img src="@/assets/image/LineBlue.png" class="w-[129px] h-[4px] mt-2" />
+        <img
+          src="@/assets/image/LineBlue.png"
+          class="w-[129px] h-[4px] mt-2"
+        >
       </button>
-      <button :class="['flex-grow w-[56px] h-[24px] font-sans text-[16px] font-semibold mt-7 ml-4 mr-4', selectedTable === 'ApprovalDitolak' ? 'text-[#2671D9]' : 'text-[#333333]']" @click="navigateToDitolak">Ditolak</button>
-      <div class="flex items-start">
+      <button
+        :class="['flex-grow w-[56px] h-[24px] font-sans text-[16px] font-semibold mt-7 ml-4 mr-4', selectedTable === 'ApprovalDitolak' ? 'text-[#2671D9]' : 'text-[#333333]']"
+        @click="navigateToDitolak"
+      >
+        Ditolak
+      </button>
+      <div class="flex items-start relative">
         <div class="w-[320px] h-[40px] rounded-lg bg-[#FFFFFF] border border-[#E5E7E9] mt-6 ml-4 flex justify-between items-center">
-          <input type="text" placeholder="Cari sesuatu disini ..." v-model="searchQuery" class="font-sans text-[14px] text-[#7F7F80] font-extralight ml-4 outline-none w-full" />
+          <input
+            v-model="searchQuery"
+            type="text"
+            placeholder="Cari sesuatu disini ..."
+            class="font-sans text-[14px] text-[#7F7F80] font-extralight ml-4 outline-none w-full"
+          >
           <button class="bg-[#2671D9] w-[40px] h-full flex items-center justify-center rounded-r-lg">
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 14 14"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
               <path
                 fill-rule="evenodd"
                 clip-rule="evenodd"
@@ -39,10 +78,22 @@
             </svg>
           </button>
         </div>
-        <div class="filter-container" ref="filterContainer">
-          <button @click="toggleDropdown" class="flex">
+        <div
+          ref="filterContainer"
+          class="filter-container"
+        >
+          <button
+            class="flex"
+            @click="toggleDropdown"
+          >
             <div class="flex items-center justify-center w-[90px] h-[40px] rounded-lg bg-[#FFFFFF] border border-[#E5E7E9] ml-2 mt-6 hover:bg-[#DBEAFE] cursor-pointer transition-all">
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 14 14"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
                 <path
                   d="M11.6668 0.333252H2.3335C1.80306 0.333252 1.29436 0.543966 0.919283 0.919038C0.54421 1.29411 0.333496 1.80282 0.333496 2.33325V3.11325C0.333401 3.38855 0.39014 3.6609 0.500163 3.91325V3.95325C0.594349 4.16723 0.727758 4.36169 0.893496 4.52659L5.00016 8.60658V12.9999C4.99994 13.1132 5.02859 13.2247 5.08341 13.3238C5.13823 13.423 5.21742 13.5065 5.3135 13.5666C5.41959 13.6323 5.54201 13.667 5.66683 13.6666C5.77119 13.666 5.87395 13.6408 5.96683 13.5933L8.6335 12.2599C8.74344 12.2045 8.83589 12.1198 8.90061 12.015C8.96533 11.9103 8.99979 11.7897 9.00016 11.6666V8.60658L13.0802 4.52659C13.2459 4.36169 13.3793 4.16723 13.4735 3.95325V3.91325C13.5927 3.66287 13.6585 3.39044 13.6668 3.11325V2.33325C13.6668 1.80282 13.4561 1.29411 13.081 0.919038C12.706 0.543966 12.1973 0.333252 11.6668 0.333252ZM7.86016 7.85992C7.79838 7.92221 7.74949 7.99609 7.71632 8.07731C7.68314 8.15854 7.66632 8.24551 7.66683 8.33325V11.2533L6.3335 11.9199V8.33325C6.334 8.24551 6.31719 8.15854 6.28401 8.07731C6.25083 7.99609 6.20195 7.92221 6.14016 7.85992L2.60683 4.33325H11.3935L7.86016 7.85992ZM12.3335 2.99992H1.66683V2.33325C1.66683 2.15644 1.73707 1.98687 1.86209 1.86185C1.98712 1.73682 2.15669 1.66659 2.3335 1.66659H11.6668C11.8436 1.66659 12.0132 1.73682 12.1382 1.86185C12.2633 1.98687 12.3335 2.15644 12.3335 2.33325V2.99992Z"
                   fill="#2671D9"
@@ -51,10 +102,24 @@
               <span class="text-[14px] font-sans font-medium text-[#333333] ml-2">Filter</span>
             </div>
           </button>
-          <div v-if="showDropdown" class="dropdown-options bg-white mt-[1px] rounded-bl-lg rounded-br-lg ml-2 shadow-md absolute z-50">
-            <div v-for="(option, index) in filterOptions" :key="index" class="flex justify-between items-center p-2 border-b cursor-pointer hover:bg-[#DBEAFE]" @click="selectOption(option)">
+          <div
+            v-if="showDropdown"
+            class="dropdown-options bg-white mt-[1px] rounded-bl-lg rounded-br-lg ml-2 shadow-md absolute z-50"
+          >
+            <div
+              v-for="(option, index) in filterOptions"
+              :key="index"
+              class="flex justify-between items-center p-2 border-b cursor-pointer hover:bg-[#DBEAFE]"
+              @click="selectOption(option)"
+            >
               <span>{{ option.name }}</span>
-              <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg
+                width="8"
+                height="12"
+                viewBox="0 0 8 12"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
                 <path
                   fill-rule="evenodd"
                   clip-rule="evenodd"
@@ -63,26 +128,63 @@
                 />
               </svg>
             </div>
-            <div v-if="selectedOption && selectedOption.subOptions" class="sub-options bg-white mt-[1px] rounded-bl-lg rounded-br-lg ml-4 shadow-md absolute z-50">
-              <div v-for="(subOption, index) in selectedOption.subOptions" :key="index" class="sub-option-item flex items-center p-2 border-b cursor-pointer hover:bg-[#DBEAFE]">
-                <input type="checkbox" v-model="selectedSubOptions" :value="subOption" class="mr-2" />
+            <div
+              v-if="selectedOption && selectedOption.subOptions"
+              class="sub-options bg-white mt-[1px] rounded-bl-lg rounded-br-lg ml-4 shadow-md absolute z-50"
+            >
+              <div
+                v-for="(subOption, index) in selectedOption.subOptions"
+                :key="index"
+                class="sub-option-item flex items-center p-2 border-b cursor-pointer hover:bg-[#DBEAFE]"
+              >
+                <input
+                  v-model="selectedSubOptions"
+                  type="checkbox"
+                  :value="subOption"
+                  class="mr-2"
+                >
                 <span>{{ subOption }}</span>
               </div>
             </div>
           </div>
         </div>
+        <!-- Export Excel Button -->
+        <button
+          class="absolute right-5 bottom-0"
+          @click="downloadDataExcel"
+        >
+          <div class="flex items-center justify-center w-auto h-[40px] rounded-lg bg-[#FFFFFF] border border-[#E5E7E9] px-2 mt-6 hover:bg-[#DBEAFE] cursor-pointer transition-all">
+            <span class="text-[14px] font-sans font-medium text-[#333333]">Export Excel</span>
+          </div>
+        </button>
+        <!-- End Export Excel Button -->
       </div>
       <div class="flex flex-wrap">
-        <div v-if="selectedSubOptions.length" class="flex mt-2 ml-4 w-[1046px] h-[44px] border-[1px] rounded-lg">
+        <div
+          v-if="selectedSubOptions.length"
+          class="flex mt-2 ml-4 w-[1046px] h-[44px] border-[1px] rounded-lg"
+        >
           <div
             v-for="(subOption, index) in selectedSubOptions"
             :key="index"
             class="flex items-center w-relative h-[24px] bg-[#E9F1FB] border-[#BAD1F3] border-[1px] font-semibold text-[#2671D9] text-[12px] rounded-xl px-2 py-1 mt-[10px] ml-4"
           >
             <span>{{ subOption }}</span>
-            <button @click="removeSubOption(subOption)" class="ml-1">
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M6 4.586L10.95 9.536 9.536 10.95 4.586 6 9.536 1.05 10.95 2.464 6 7.414 1.05 2.464 2.464 1.05 7.414 6 2.464 10.95 1.05 9.536 6 4.586Z" fill="#2671D9" />
+            <button
+              class="ml-1"
+              @click="removeSubOption(subOption)"
+            >
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 12 12"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M6 4.586L10.95 9.536 9.536 10.95 4.586 6 9.536 1.05 10.95 2.464 6 7.414 1.05 2.464 2.464 1.05 7.414 6 2.464 10.95 1.05 9.536 6 4.586Z"
+                  fill="#2671D9"
+                />
               </svg>
             </button>
           </div>
@@ -97,7 +199,14 @@
                   <th class="p-2 border border-[#E5E7E9]">
                     <div class="flex items-center justify-between">
                       <span>No.</span>
-                      <svg class="ml-2" width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <svg
+                        class="ml-2"
+                        width="14"
+                        height="10"
+                        viewBox="0 0 14 10"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
                         <path
                           fill-rule="evenodd"
                           clip-rule="evenodd"
@@ -114,7 +223,14 @@
                   <th class="p-2 border border-[#E5E7E9]">
                     <div class="flex items-center justify-between">
                       <span>Judul</span>
-                      <svg @click="sortTable('judul')" width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <svg
+                        width="14"
+                        height="10"
+                        viewBox="0 0 14 10"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        @click="sortTable('judul')"
+                      >
                         <path
                           fill-rule="evenodd"
                           clip-rule="evenodd"
@@ -131,7 +247,15 @@
                   <th class="p-2 border border-[#E5E7E9]">
                     <div class="flex items-center justify-between">
                       <span>No</span>
-                      <svg @click="sortTable('nomor')" class="ml-2" width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <svg
+                        class="ml-2"
+                        width="14"
+                        height="10"
+                        viewBox="0 0 14 10"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        @click="sortTable('nomor')"
+                      >
                         <path
                           fill-rule="evenodd"
                           clip-rule="evenodd"
@@ -148,7 +272,15 @@
                   <th class="p-2 border border-[#E5E7E9]">
                     <div class="flex items-center justify-between">
                       <span>Tipe</span>
-                      <svg @click="sortTable('tipe')" class="ml-2" width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <svg
+                        class="ml-2"
+                        width="14"
+                        height="10"
+                        viewBox="0 0 14 10"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        @click="sortTable('tipe')"
+                      >
                         <path
                           fill-rule="evenodd"
                           clip-rule="evenodd"
@@ -165,7 +297,15 @@
                   <th class="p-2 border border-[#E5E7E9]">
                     <div class="flex items-center justify-between">
                       <span>User</span>
-                      <svg @click="sortTable('user')" class="ml-2" width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <svg
+                        class="ml-2"
+                        width="14"
+                        height="10"
+                        viewBox="0 0 14 10"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        @click="sortTable('user')"
+                      >
                         <path
                           fill-rule="evenodd"
                           clip-rule="evenodd"
@@ -182,7 +322,14 @@
                   <th class="p-2 border border-[#E5E7E9]">
                     <div class="flex items-center justify-between">
                       <span>Tanggal Perjanjian</span>
-                      <svg @click="sortTable('tanggal')" width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <svg
+                        width="14"
+                        height="10"
+                        viewBox="0 0 14 10"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        @click="sortTable('tanggal')"
+                      >
                         <path
                           fill-rule="evenodd"
                           clip-rule="evenodd"
@@ -199,7 +346,14 @@
                   <th class="p-2 border border-[#E5E7E9]">
                     <div class="flex items-center justify-between">
                       <span>Tanggal Selesai Perjanjian</span>
-                      <svg @click="sortTable('tgl_end')" width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <svg
+                        width="14"
+                        height="10"
+                        viewBox="0 0 14 10"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        @click="sortTable('tgl_end')"
+                      >
                         <path
                           fill-rule="evenodd"
                           clip-rule="evenodd"
@@ -216,7 +370,14 @@
                   <th class="p-2 border border-[#E5E7E9]">
                     <div class="flex items-center justify-between">
                       <span>Pejabat yang Bertanda Tangan</span>
-                      <svg @click="sortTable('pejabat')" width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <svg
+                        width="14"
+                        height="10"
+                        viewBox="0 0 14 10"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        @click="sortTable('pejabat')"
+                      >
                         <path
                           fill-rule="evenodd"
                           clip-rule="evenodd"
@@ -233,7 +394,14 @@
                   <th class="p-2 border border-[#E5E7E9]">
                     <div class="flex items-center justify-between">
                       <span>Hari Menuju Selesai</span>
-                      <svg @click="sortTable('hari')" width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <svg
+                        width="14"
+                        height="10"
+                        viewBox="0 0 14 10"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        @click="sortTable('hari')"
+                      >
                         <path
                           fill-rule="evenodd"
                           clip-rule="evenodd"
@@ -247,10 +415,17 @@
                       </svg>
                     </div>
                   </th>
-                  <th class="p-2 border border-[#E5E7E9]">
+                  <th class="p-2 border border-[#E5E7E9] w-[120px]">
                     <div class="flex items-center justify-between">
                       <span>Status Perjanjian</span>
-                      <svg @click="sortTable('statusperjanjian')" width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <svg
+                        width="14"
+                        height="10"
+                        viewBox="0 0 14 10"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        @click="sortTable('statusperjanjian')"
+                      >
                         <path
                           fill-rule="evenodd"
                           clip-rule="evenodd"
@@ -267,7 +442,13 @@
                   <th class="p-2 border border-[#E5E7E9]">
                     <div class="flex items-center justify-between">
                       <span>Status</span>
-                      <svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <svg
+                        width="14"
+                        height="10"
+                        viewBox="0 0 14 10"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
                         <path
                           fill-rule="evenodd"
                           clip-rule="evenodd"
@@ -284,27 +465,65 @@
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="(item, index) in filteredAndPaginatedData" :key="`${index}-${item.judul}`" class="bg-[#FFFFFF] border border-[#E5E7E9] text-[12px] text-[#4D5E80] font-sans font-semibold">
-                  <td class="p-2 py-4 border border-[#E5E7E9]">{{ (currentPage - 1) * selectedValue + index + 1 }}</td>
-                  <td class="p-2 py-4 border border-[#E5E7E9]">{{ item.judul }}</td>
-                  <td class="p-2 py-4 border border-[#E5E7E9]">{{ item.nomor }}</td>
-                  <td class="p-2 py-4 border border-[#E5E7E9]">{{ item.tipe }}</td>
-                  <td class="p-2 py-4 border border-[#E5E7E9]">{{ item.user }}</td>
-                  <td class="p-2 py-4 border border-[#E5E7E9]">{{ item.tanggal }}</td>
-                  <td class="p-2 py-4 border border-[#E5E7E9]">{{ item.tgl_end }}</td>
-                  <td class="p-2 py-4 border border-[#E5E7E9]">{{ item.pejabat }}</td>
-                  <td v-if="item.hari > 0" class="p-2 py-4 border border-[#E5E7E9] text-[#18c429]">H-{{ item.hari }}</td>
-                  <td v-else-if="item.hari == 0" class="p-2 py-4 border border-[#E5E7E9] text-[#f9c01a]">H</td>
-                  <td v-else-if="item.hari < 0" class="p-2 py-4 border border-[#E5E7E9] text-[#FF5656]">H+{{ item.hari * -1 }}</td>
-                  <td v-else class="p-2 py-4 border border-[#E5E7E9] text-[#FF5656]"></td>
+                <tr
+                  v-for="(item, index) in filteredAndPaginatedData"
+                  :key="`${index}-${item.judul}`"
+                  class="bg-[#FFFFFF] border border-[#E5E7E9] text-[12px] text-[#4D5E80] font-sans font-semibold"
+                >
                   <td class="p-2 py-4 border border-[#E5E7E9]">
+                    {{ (currentPage - 1) * selectedValue + index + 1 }}
+                  </td>
+                  <td class="p-2 py-4 border border-[#E5E7E9]">
+                    {{ item.judul }}
+                  </td>
+                  <td class="p-2 py-4 border border-[#E5E7E9]">
+                    {{ item.nomor }}
+                  </td>
+                  <td class="p-2 py-4 border border-[#E5E7E9]">
+                    {{ item.tipe }}
+                  </td>
+                  <td class="p-2 py-4 border border-[#E5E7E9]">
+                    {{ item.user }}
+                  </td>
+                  <td class="p-2 py-4 border border-[#E5E7E9]">
+                    {{ item.tanggal }}
+                  </td>
+                  <td class="p-2 py-4 border border-[#E5E7E9]">
+                    {{ item.tgl_end }}
+                  </td>
+                  <td class="p-2 py-4 border border-[#E5E7E9]">
+                    {{ item.pejabat }}
+                  </td>
+                  <td
+                    v-if="item.hari > 0"
+                    class="p-2 py-4 border border-[#E5E7E9] text-[#18c429]"
+                  >
+                    H-{{ item.hari }}
+                  </td>
+                  <td
+                    v-else-if="item.hari == 0"
+                    class="p-2 py-4 border border-[#E5E7E9] text-[#f9c01a]"
+                  >
+                    H
+                  </td>
+                  <td
+                    v-else-if="item.hari < 0"
+                    class="p-2 py-4 border border-[#E5E7E9] text-[#FF5656]"
+                  >
+                    H+{{ item.hari * -1 }}
+                  </td>
+                  <td
+                    v-else
+                    class="p-2 py-4 border border-[#E5E7E9] text-[#FF5656]"
+                  />
+                  <td class="p-2 w-[120px] py-4 border border-[#E5E7E9]">
                     <span
                       :class="[
-                        'w-[55px] h-[24px] px-4 py-1 rounded-full font-sans text-[12px] font-semibold border-[1px]',
+                        'w-[120px] h-[24px] px-4 py-1 rounded-full font-sans text-[12px] font-semibold border-[1px]',
                         item.statusperjanjian === 'Aktif' ? 'bg-[#E7F1FD] border-[1px] border-[#91BEF7] text-[#4791F2]' : '',
                         item.statusperjanjian === 'Tidak Aktif' ? 'bg-[#F5F5F5] border-[1px] border-[#9C9C9C] text-[#9C9C9C]' : '',
                       ]"
-                      >{{ item.statusperjanjian }}
+                    >{{ item.statusperjanjian }}
                     </span>
                   </td>
                   <td class="p-2 py-4 border border-[#E5E7E9]">
@@ -321,22 +540,46 @@
       <div class="flex items-center justify-between p-4">
         <div class="flex items-center text-[14px] font-sans font-normal">
           <span>Menampilkan</span>
-          <select class="ml-2 p-1 border border-[#E5E7E9] rounded-md" v-model="selectedValue">
-            <option v-for="value in displayOptions" :key="value" :value="value">{{ value }}</option>
-          </select>
-          <span class="ml-2"
-            >dari <b>{{ totalData }}</b> Data</span
+          <select
+            v-model="selectedValue"
+            class="ml-2 p-1 border border-[#E5E7E9] rounded-md"
           >
+            <option
+              v-for="value in displayOptions"
+              :key="value"
+              :value="value"
+            >
+              {{ value }}
+            </option>
+          </select>
+          <span class="ml-2">dari <b>{{ totalData }}</b> Data</span>
         </div>
         <div class="flex items-center rounded-lg border-transparent text-[14px] font-sans font-normal border-[#FFFFFF]">
-          <button class="pagination-btn" :disabled="currentPage === 1" @click="prevPage">‹</button>
-          <button v-for="page in pages" :key="page" :class="['pagination-btn', { active: currentPage === page }]" @click="setPage(page)">
+          <button
+            class="pagination-btn"
+            :disabled="currentPage === 1"
+            @click="prevPage"
+          >
+            ‹
+          </button>
+          <button
+            v-for="page in pages"
+            :key="page"
+            :class="['pagination-btn', { active: currentPage === page }]"
+            @click="setPage(page)"
+          >
             {{ page }}
           </button>
-          <button class="pagination-btn" :disabled="currentPage === totalPages" @click="nextPage">›</button>
+          <button
+            class="pagination-btn"
+            :disabled="currentPage === totalPages"
+            @click="nextPage"
+          >
+            ›
+          </button>
         </div>
       </div>
-      <div class="w-auto h-[1px] ml-4 mr-4 bg-[#E5E7E9]"></div>
+      <div class="w-auto h-[1px] ml-4 mr-4 bg-[#E5E7E9]" />
     </div>
   </div>
 </template>
@@ -346,6 +589,7 @@ import { fetchGet } from '@/api/apiFunction';
 import { parseStatusAproval, dueDateParsing, dateParsing, mapperStatusPerjanjian } from '@/utils/helper';
 import Loading from '../loading.vue';
 import ModalFailed from '../modalfailed.vue';
+import exportExcel from '@/utils/expot_excel';
 
 export default {
   components: {
@@ -444,6 +688,9 @@ export default {
       return filteredData.slice(start, end);
     },
   },
+  mounted() {
+    this.getDataApi();
+  },
   methods: {
     closeModalFailed() {
       this.modalFailed = {
@@ -524,6 +771,31 @@ export default {
         this.currentPage++;
       }
     },
+    downloadDataExcel() {
+      const fileName = "Data_pengajuan_selesai";
+      const sheetName = "Selesai";
+      const title = "Pengajuan Selesai";
+      const headers = [
+        { header: "No", key: "no", width: 5 },
+        { header: "Judul", key: "judul", width: 40 },
+        { header: "No. Permintaan", key: "nomor", width: 20 },
+        { header: "Tipe", key: "tipe", width: 10 },
+        { header: "User", key: "user", width: 20 },
+        { header: "Tipe Bisnis", key: "bisnis_type", width: 20 },
+        { header: "Tanggal Perjanjian", key: "tanggal", width: 20 },
+        { header: "Tanggal Perjanjian Selesai", key: "tgl_end", width: 20 },
+        { header: "Pejabat Bertanda Tangan", key: "pejabat", width: 30 },
+        { header: "Hari Menuju Selesai", key: "duedate", width: 10 },
+        { header: "Status Perjanjian", key: "statusperjanjian", width: 15 },
+        { header: "Status", key: "status", width: 20 },
+      ];
+      const data = this.tableData.map((item, index) => ({
+        ...item,
+        no: index + 1,
+        duedate: item.hari >= 0? `H-${item.hari}`: `H+${item.hari * (-1)}`
+      }))
+      exportExcel(fileName, sheetName, title, headers, data);
+    },
     // api
 		async getDataApi() {
       this.isLoading = true;
@@ -562,7 +834,8 @@ export default {
           statusperjanjian: mapperStatusPerjanjian(item.endContractDate),
 					status: item.status,
           statusapp: parseStatusAproval(item.positionLevel, item.status),
-          did: item.id
+          did: item.id,
+          bisnis_type: item.bisnisType
 				}))
 				console.log(res.data)
 				boxResult = boxResult.concat(cleanData)
@@ -606,7 +879,8 @@ export default {
           statusperjanjian: mapperStatusPerjanjian(item.endContractDate),
 					status: item.status,
           statusapp: parseStatusAproval(item.positionLevel, item.status),
-          did: item.id
+          did: item.id,
+          bisnis_type: item.bisnisType
 				}))
 				boxResult = boxResult.concat(cleanData2)
 				boxResult = boxResult.map((item, index) => ({ id: index + 1, ...item }))
@@ -622,9 +896,6 @@ export default {
 			this.tableData = boxResult.filter(item => item.status !== 'Ditolak')
       this.isLoading = false;
 		}
-  },
-  mounted() {
-    this.getDataApi();
   }
 };
 </script>
