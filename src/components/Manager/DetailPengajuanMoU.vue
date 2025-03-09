@@ -8,23 +8,41 @@ import { dateParsing } from '@/utils/helper';
 </script>
 
 <template>
-  <Loading :isVisible="isLoading" />
+  <Loading :is-visible="isLoading" />
   <ModalFailed
-    :isVisible="modalFailed.isVisible"
+    :is-visible="modalFailed.isVisible"
     :title="modalFailed.title"
     :message="modalFailed.message"
     @close="closeModalFailed"
   />
-  <ModalSuccess :isVisible="modalSuccess.isVisible" :title="modalSuccess.title" :message="modalSuccess.message"
-    @close="modalSuccess.closeFunction" />
-  <ModalDialog :isVisible="modalDialog.isVisible" :title="modalDialog.title" :message="modalDialog.message"
-    @close="modalDialog.closeFunction" @ok="modalDialog.okFunction" />
+  <ModalSuccess
+    :is-visible="modalSuccess.isVisible"
+    :title="modalSuccess.title"
+    :message="modalSuccess.message"
+    @close="modalSuccess.closeFunction"
+  />
+  <ModalDialog
+    :is-visible="modalDialog.isVisible"
+    :title="modalDialog.title"
+    :message="modalDialog.message"
+    @close="modalDialog.closeFunction"
+    @ok="modalDialog.okFunction"
+  />
   <div>
     <div class="flex w-auto h-[54px] rounded-lg bg-[#FFFFFF] border-collapse">
       <button @click="navigateToDetail">
-        <h1 class="w-[51px] h-[22px] font-sans text-[#2671D9] text-[14px] font-semibold ml-6 mr-2 mt-4 mb-4">Proses</h1>
+        <h1 class="w-[51px] h-[22px] font-sans text-[#2671D9] text-[14px] font-semibold ml-6 mr-2 mt-4 mb-4">
+          Proses
+        </h1>
       </button>
-      <svg width="8" height="12" class="mt-[21px] mr-1" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg
+        width="8"
+        height="12"
+        class="mt-[21px] mr-1"
+        viewBox="0 0 8 12"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
         <path
           fill-rule="evenodd"
           clip-rule="evenodd"
@@ -37,23 +55,55 @@ import { dateParsing } from '@/utils/helper';
     <div class="px-4 py-3">
       <div class="relative h-auto w-[1086px] rounded-lg bg-[#FFFFFF] border-collapse mx-auto">
         <div class="flex">
-          <svg class="ml-4 mt-[18px]" width="6" height="28" viewBox="0 0 6 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="6" height="28" fill="#1F5AAD" />
+          <svg
+            class="ml-4 mt-[18px]"
+            width="6"
+            height="28"
+            viewBox="0 0 6 28"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect
+              width="6"
+              height="28"
+              fill="#1F5AAD"
+            />
           </svg>
-          <h1 class="w-[825px] h-[28px] font-sans text-[20px] text-[#333333] mt-4 ml-[5px] font-semibold">Detail Pengajuan {{
-              dataBerkas?.base || 'PKS' }}</h1>
+          <h1 class="w-[825px] h-[28px] font-sans text-[20px] text-[#333333] mt-4 ml-[5px] font-semibold">
+            Detail Pengajuan {{
+              dataBerkas?.base || 'PKS' }}
+          </h1>
           <div class="relative mt-4 mb-4 items-start w-[209px] h-[72px] border-[1px] border-[#E5E7E9] rounded-md">
             <div class="w-[209px] h-[29px] border-[1px] border-[#E5E7E9] rounded-tl-md rounded-tr-md bg-[#FFB200]">
-              <h1 class="mt-[7px] ml-4 w-[177px] h-[15px] font-sans text-[10px] text-[#333333] font-medium">Progress Kemitraan {{
-              dataBerkas?.base || 'PKS' }}</h1>
+              <h1 class="mt-[7px] ml-4 w-[177px] h-[15px] font-sans text-[10px] text-[#333333] font-medium">
+                Progress Kemitraan {{
+                  dataBerkas?.base || 'PKS' }}
+              </h1>
             </div>
             <div class="flex items-center">
-              <h1 class="w-[79px] h-[27px] font-sans text-[18px] font-bold text-[#FFB200] ml-4 mb-2">Proposal</h1>
-              <button @click="showProgressMoUPopup = true" class="ml-[80px]">
-                <svg width="46" height="45" viewBox="0 0 46 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <h1 class="w-[79px] h-[27px] font-sans text-[18px] font-bold text-[#FFB200] ml-4 mb-2">
+                Proposal
+              </h1>
+              <button
+                class="ml-[80px]"
+                @click="showProgressMoUPopup = true"
+              >
+                <svg
+                  width="46"
+                  height="45"
+                  viewBox="0 0 46 45"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
                   <g filter="url(#filter0_d_1290_16355)">
-                    <g opacity="0.4" filter="url(#filter1_d_1290_16355)">
-                      <path d="M19 26C23.1421 26 26.5 22.6421 26.5 18.5C26.5 14.3579 23.1421 11 19 11C14.8579 11 11.5 14.3579 11.5 18.5C11.5 22.6421 14.8579 26 19 26Z" fill="#FFB200" />
+                    <g
+                      opacity="0.4"
+                      filter="url(#filter1_d_1290_16355)"
+                    >
+                      <path
+                        d="M19 26C23.1421 26 26.5 22.6421 26.5 18.5C26.5 14.3579 23.1421 11 19 11C14.8579 11 11.5 14.3579 11.5 18.5C11.5 22.6421 14.8579 26 19 26Z"
+                        fill="#FFB200"
+                      />
                     </g>
                     <path
                       fill-rule="evenodd"
@@ -63,55 +113,161 @@ import { dateParsing } from '@/utils/helper';
                     />
                   </g>
                   <defs>
-                    <filter id="filter0_d_1290_16355" x="6" y="6.5" width="26" height="26" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                      <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                    <filter
+                      id="filter0_d_1290_16355"
+                      x="6"
+                      y="6.5"
+                      width="26"
+                      height="26"
+                      filterUnits="userSpaceOnUse"
+                      color-interpolation-filters="sRGB"
+                    >
+                      <feFlood
+                        flood-opacity="0"
+                        result="BackgroundImageFix"
+                      />
+                      <feColorMatrix
+                        in="SourceAlpha"
+                        type="matrix"
+                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                        result="hardAlpha"
+                      />
                       <feOffset dy="1" />
                       <feGaussianBlur stdDeviation="2" />
-                      <feComposite in2="hardAlpha" operator="out" />
-                      <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 0.778759 0 0 0 0 0.267318 0 0 0 1 0" />
-                      <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1290_16355" />
-                      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1290_16355" result="shape" />
+                      <feComposite
+                        in2="hardAlpha"
+                        operator="out"
+                      />
+                      <feColorMatrix
+                        type="matrix"
+                        values="0 0 0 0 1 0 0 0 0 0.778759 0 0 0 0 0.267318 0 0 0 1 0"
+                      />
+                      <feBlend
+                        mode="normal"
+                        in2="BackgroundImageFix"
+                        result="effect1_dropShadow_1290_16355"
+                      />
+                      <feBlend
+                        mode="normal"
+                        in="SourceGraphic"
+                        in2="effect1_dropShadow_1290_16355"
+                        result="shape"
+                      />
                     </filter>
-                    <filter id="filter1_d_1290_16355" x="0.5" y="0" width="45" height="45" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                      <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
-                      <feOffset dx="4" dy="4" />
+                    <filter
+                      id="filter1_d_1290_16355"
+                      x="0.5"
+                      y="0"
+                      width="45"
+                      height="45"
+                      filterUnits="userSpaceOnUse"
+                      color-interpolation-filters="sRGB"
+                    >
+                      <feFlood
+                        flood-opacity="0"
+                        result="BackgroundImageFix"
+                      />
+                      <feColorMatrix
+                        in="SourceAlpha"
+                        type="matrix"
+                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                        result="hardAlpha"
+                      />
+                      <feOffset
+                        dx="4"
+                        dy="4"
+                      />
                       <feGaussianBlur stdDeviation="7.5" />
-                      <feComposite in2="hardAlpha" operator="out" />
-                      <feColorMatrix type="matrix" values="0 0 0 0 0.763946 0 0 0 0 0.970231 0 0 0 0 0.498223 0 0 0 0.5 0" />
-                      <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1290_16355" />
-                      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1290_16355" result="shape" />
+                      <feComposite
+                        in2="hardAlpha"
+                        operator="out"
+                      />
+                      <feColorMatrix
+                        type="matrix"
+                        values="0 0 0 0 0.763946 0 0 0 0 0.970231 0 0 0 0 0.498223 0 0 0 0.5 0"
+                      />
+                      <feBlend
+                        mode="normal"
+                        in2="BackgroundImageFix"
+                        result="effect1_dropShadow_1290_16355"
+                      />
+                      <feBlend
+                        mode="normal"
+                        in="SourceGraphic"
+                        in2="effect1_dropShadow_1290_16355"
+                        result="shape"
+                      />
                     </filter>
                   </defs>
                 </svg>
               </button>
             </div>
-            <div v-if="showProgressMoUPopup" class="fixed inset-0 flex items-center justify-center bg-[#1F2937] bg-opacity-50">
+            <div
+              v-if="showProgressMoUPopup"
+              class="fixed inset-0 flex items-center justify-center bg-[#1F2937] bg-opacity-50"
+            >
               <div class="w-[684.92px] h-[470px] rounded-lg shadow-lg bg-[#FFFFFF] border-collapse">
-                <button @click="closePopup" class="text-[#2671D9] w-[14px] h-[14px] absolute mt-[25px] ml-[650px] text-[20px]">&times;</button>
+                <button
+                  class="text-[#2671D9] w-[14px] h-[14px] absolute mt-[25px] ml-[650px] text-[20px]"
+                  @click="closePopup"
+                >
+                  &times;
+                </button>
                 <div class="flex mt-[8px]">
-                  <svg class="ml-4 mt-[10px]" width="6" height="28" viewBox="0 0 6 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect width="6" height="28" fill="#1F5AAD" />
+                  <svg
+                    class="ml-4 mt-[10px]"
+                    width="6"
+                    height="28"
+                    viewBox="0 0 6 28"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <rect
+                      width="6"
+                      height="28"
+                      fill="#1F5AAD"
+                    />
                   </svg>
-                  <h1 class="font-sans text-[20px] text-[#333333] mt-2 ml-[5px] font-semibold">Progress Kemitraan</h1>
+                  <h1 class="font-sans text-[20px] text-[#333333] mt-2 ml-[5px] font-semibold">
+                    Progress Kemitraan
+                  </h1>
                 </div>
-                <h1 class="items-start justify-center px-2 ml-2 text-[#9C9C9C]">{{ dataBerkas?.partnershipTitle }}</h1>
+                <h1 class="items-start justify-center px-2 ml-2 text-[#9C9C9C]">
+                  {{ dataBerkas?.partnershipTitle }}
+                </h1>
                 <div class="flex flex-col w-[289px] h-[130px] rounded-lg mt-6 ml-5 border-[1px] border-[#E5E7E9]">
                   <div class="w-full h-[40px] p-4 flex justify-between items-center rounded-t-lg bg-[#0EA976]">
-                    <div class="font-sans text-[14px] font-semibold text-white">Surat Penawaran</div>
+                    <div class="font-sans text-[14px] font-semibold text-white">
+                      Surat Penawaran
+                    </div>
                   </div>
                   <div class="flex items-center ml-4 mt-[10px]">
                     <div class="flex items-center">
                       <div>
-                        <div class="font-sans text-[#333333] text-[12px] font-normal">Dokumen Surat Penawaran</div>
+                        <div class="font-sans text-[#333333] text-[12px] font-normal">
+                          Dokumen Surat Penawaran
+                        </div>
                         <div class="mt-[12px] ml-[38px]">
-                          <p class="w-[200px] h[-12px] text-[#333333] text-[9.06px] truncate">{{ fileName1 }}</p>
-                          <p class="w-[30px] h-[11px] text-[#9E9E9E] text-[7.77px]">{{ fileSize1 }}</p>
+                          <p class="w-[200px] h[-12px] text-[#333333] text-[9.06px] truncate">
+                            {{ fileName1 }}
+                          </p>
+                          <p class="w-[30px] h-[11px] text-[#9E9E9E] text-[7.77px]">
+                            {{ fileSize1 }}
+                          </p>
                         </div>
                       </div>
-                      <svg class="w-[30px] h-[30px] absolute mt-[30px]" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="15" cy="15" r="14.5652" class="fill-[#E2FCF3]" />
+                      <svg
+                        class="w-[30px] h-[30px] absolute mt-[30px]"
+                        viewBox="0 0 30 30"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <circle
+                          cx="15"
+                          cy="15"
+                          r="14.5652"
+                          class="fill-[#E2FCF3]"
+                        />
                         <g transform="translate(9, 8)">
                           <path
                             class="fill-[#0EA976]"
@@ -119,31 +275,77 @@ import { dateParsing } from '@/utils/helper';
                           />
                         </g>
                       </svg>
-                      <svg xmlns="http://www.w3.org/2000/svg" class="text-[#0EA976] bg-[#E2FCF3] rounded-full w-[15px] h-[15px] absolute mb-[35px] ml-[240px]" viewBox="0 0 21 19" fill="currentColor">
-                        <path fill-rule="evenodd" d="M16.707 4.293a1 1 0 00-1.414 0L8 11.586 4.707 8.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z" clip-rule="evenodd" />
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="text-[#0EA976] bg-[#E2FCF3] rounded-full w-[15px] h-[15px] absolute mb-[35px] ml-[240px]"
+                        viewBox="0 0 21 19"
+                        fill="currentColor"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M16.707 4.293a1 1 0 00-1.414 0L8 11.586 4.707 8.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z"
+                          clip-rule="evenodd"
+                        />
                       </svg>
                     </div>
                   </div>
                 </div>
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-[33px] h-[28px] absolute ml-[325px] mt-[-80px]" viewBox="0 0 33 28" fill="none">
-                  <path d="M24.75 6.91797L31.8317 13.9996L24.75 21.0813" stroke="#292D32" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                  <path d="M1 14H30.64" stroke="#292D32" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-[33px] h-[28px] absolute ml-[325px] mt-[-80px]"
+                  viewBox="0 0 33 28"
+                  fill="none"
+                >
+                  <path
+                    d="M24.75 6.91797L31.8317 13.9996L24.75 21.0813"
+                    stroke="#292D32"
+                    stroke-width="1.5"
+                    stroke-miterlimit="10"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M1 14H30.64"
+                    stroke="#292D32"
+                    stroke-width="1.5"
+                    stroke-miterlimit="10"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
                 </svg>
                 <div class="flex flex-col w-[289px] h-[130px] rounded-lg absolute mt-[-130px] ml-[374px] border-[1px] border-[#DEDEDE]">
                   <div class="w-full h-[40px] p-4 flex justify-between items-center rounded-t-lg bg-[#0EA976]">
-                    <div class="font-sans text-[14px] font-semibold text-white">Proposal</div>
+                    <div class="font-sans text-[14px] font-semibold text-white">
+                      Proposal
+                    </div>
                   </div>
                   <div class="flex items-center ml-4 mt-[10px]">
                     <div class="flex items-center">
                       <div>
-                        <div class="font-sans text-[#333333] text-[12px] font-normal">Dokumen Proposal</div>
+                        <div class="font-sans text-[#333333] text-[12px] font-normal">
+                          Dokumen Proposal
+                        </div>
                         <div class="mt-[12px] ml-[38px]">
-                          <p class="w-[200px] h[-12px] text-[#333333] text-[9.06px] truncate">{{ fileName2 }}</p>
-                          <p class="w-[30px] h-[11px] text-[#9E9E9E] text-[7.77px]">{{ fileSize2 }}</p>
+                          <p class="w-[200px] h[-12px] text-[#333333] text-[9.06px] truncate">
+                            {{ fileName2 }}
+                          </p>
+                          <p class="w-[30px] h-[11px] text-[#9E9E9E] text-[7.77px]">
+                            {{ fileSize2 }}
+                          </p>
                         </div>
                       </div>
-                      <svg class="w-[30px] h-[30px] absolute mt-[30px]" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="15" cy="15" r="14.5652" class="fill-[#E2FCF3]" />
+                      <svg
+                        class="w-[30px] h-[30px] absolute mt-[30px]"
+                        viewBox="0 0 30 30"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <circle
+                          cx="15"
+                          cy="15"
+                          r="14.5652"
+                          class="fill-[#E2FCF3]"
+                        />
                         <g transform="translate(9, 8)">
                           <path
                             class="fill-[#0EA976]"
@@ -151,31 +353,77 @@ import { dateParsing } from '@/utils/helper';
                           />
                         </g>
                       </svg>
-                      <svg xmlns="http://www.w3.org/2000/svg" class="text-[#0EA976] bg-[#E2FCF3] rounded-full w-[15px] h-[15px] absolute top-[53.5px] left-[255px]" viewBox="0 0 21 19" fill="currentColor">
-                        <path fill-rule="evenodd" d="M16.707 4.293a1 1 0 00-1.414 0L8 11.586 4.707 8.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z" clip-rule="evenodd" />
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="text-[#0EA976] bg-[#E2FCF3] rounded-full w-[15px] h-[15px] absolute top-[53.5px] left-[255px]"
+                        viewBox="0 0 21 19"
+                        fill="currentColor"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M16.707 4.293a1 1 0 00-1.414 0L8 11.586 4.707 8.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z"
+                          clip-rule="evenodd"
+                        />
                       </svg>
                     </div>
                   </div>
                 </div>
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-[33px] h-[32px] absolute ml-[505px] mt-[20px]" viewBox="0 0 32 33" fill="none">
-                  <path d="M20.2017 24.75L13.4201 31.8317L6.63857 24.75" stroke="#292D32" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                  <path d="M13.4204 1L13.4204 30.64" stroke="#292D32" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-[33px] h-[32px] absolute ml-[505px] mt-[20px]"
+                  viewBox="0 0 32 33"
+                  fill="none"
+                >
+                  <path
+                    d="M20.2017 24.75L13.4201 31.8317L6.63857 24.75"
+                    stroke="#292D32"
+                    stroke-width="1.5"
+                    stroke-miterlimit="10"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M13.4204 1L13.4204 30.64"
+                    stroke="#292D32"
+                    stroke-width="1.5"
+                    stroke-miterlimit="10"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
                 </svg>
                 <div class="absolute flex flex-col w-[289px] h-[130px] rounded-lg mt-[70px] ml-[370px] border-[1px] border-[#E5E7E9]">
                   <div class="w-full h-[40px] p-4 flex justify-between items-center rounded-t-lg bg-[#0EA976]">
-                    <div class="font-sans text-[14px] font-semibold text-white">MoU/NDA</div>
+                    <div class="font-sans text-[14px] font-semibold text-white">
+                      MoU/NDA
+                    </div>
                   </div>
                   <div class="flex items-center ml-4 mt-[10px]">
                     <div class="flex items-center">
                       <div>
-                        <div class="font-sans text-[#333333] text-[12px] font-normal">MoU/NDA</div>
+                        <div class="font-sans text-[#333333] text-[12px] font-normal">
+                          MoU/NDA
+                        </div>
                         <div class="mt-[12px] ml-[38px]">
-                          <p class="w-[200px] h[-12px] text-[#333333] text-[9.06px] truncate">{{ fileName3 }}</p>
-                          <p class="w-[30px] h-[11px] text-[#9E9E9E] text-[7.77px]">{{ fileSize3 }}</p>
+                          <p class="w-[200px] h[-12px] text-[#333333] text-[9.06px] truncate">
+                            {{ fileName3 }}
+                          </p>
+                          <p class="w-[30px] h-[11px] text-[#9E9E9E] text-[7.77px]">
+                            {{ fileSize3 }}
+                          </p>
                         </div>
                       </div>
-                      <svg class="w-[30px] h-[30px] absolute mt-[30px]" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="15" cy="15" r="14.5652" class="fill-[#E2FCF3]" />
+                      <svg
+                        class="w-[30px] h-[30px] absolute mt-[30px]"
+                        viewBox="0 0 30 30"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <circle
+                          cx="15"
+                          cy="15"
+                          r="14.5652"
+                          class="fill-[#E2FCF3]"
+                        />
                         <g transform="translate(9, 8)">
                           <path
                             class="fill-[#0EA976]"
@@ -183,8 +431,17 @@ import { dateParsing } from '@/utils/helper';
                           />
                         </g>
                       </svg>
-                      <svg xmlns="http://www.w3.org/2000/svg" class="text-[#0EA976] bg-[#E2FCF3] rounded-full w-[15px] h-[15px] absolute top-[53.5px] left-[255px]" viewBox="0 0 21 19" fill="currentColor">
-                        <path fill-rule="evenodd" d="M16.707 4.293a1 1 0 00-1.414 0L8 11.586 4.707 8.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z" clip-rule="evenodd" />
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="text-[#0EA976] bg-[#E2FCF3] rounded-full w-[15px] h-[15px] absolute top-[53.5px] left-[255px]"
+                        viewBox="0 0 21 19"
+                        fill="currentColor"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M16.707 4.293a1 1 0 00-1.414 0L8 11.586 4.707 8.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z"
+                          clip-rule="evenodd"
+                        />
                       </svg>
                     </div>
                   </div>
@@ -194,99 +451,147 @@ import { dateParsing } from '@/utils/helper';
           </div>
         </div>
         <div class="flex items-center mt-4 ml-4 w-[1046px] h-[48px] rounded-lg bg-[#FFFFFF] border-[#E5E7E9] border-[1px]">
-          <div class="w-[30px] h-[48px] bg-[#4791F2] rounded-tl-md rounded-bl-md"></div>
-          <div class="text-[16px] font-sans font-semibold text-[#333333] ml-[10px] mt-[14.5px] mb-[14.5px]">Informasi Umum</div>
-          <button @click="toggleDropdownArrow" class="ml-auto mr-4 flex py-1 px-1 rounded-full hover:bg-[#FFFFFF]">
-            <svg :class="{ 'rotate-180': isDropdownArrowOpen }" class="w-4 h-4 text-[#2671D9]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          <div class="w-[30px] h-[48px] bg-[#4791F2] rounded-tl-md rounded-bl-md" />
+          <div class="text-[16px] font-sans font-semibold text-[#333333] ml-[10px] mt-[14.5px] mb-[14.5px]">
+            Informasi Umum
+          </div>
+          <button
+            class="ml-auto mr-4 flex py-1 px-1 rounded-full hover:bg-[#FFFFFF]"
+            @click="toggleDropdownArrow"
+          >
+            <svg
+              :class="{ 'rotate-180': isDropdownArrowOpen }"
+              class="w-4 h-4 text-[#2671D9]"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"
+              />
             </svg>
           </button>
         </div>
         <transition name="fade">
-          <div v-if="isDropdownArrowOpen"
-            class="flex flex-col w-[1046px] bg-[#FFFFFF] border-collapse rounded-bl-md rounded-br-md border-[#E5E7E9] border-[1px] ml-4 px-6 py-6">
+          <div
+            v-if="isDropdownArrowOpen"
+            class="flex flex-col w-[1046px] bg-[#FFFFFF] border-collapse rounded-bl-md rounded-br-md border-[#E5E7E9] border-[1px] ml-4 px-6 py-6"
+          >
             <div class="flex items-center">
-              <h1 class="w-[130px] h-[17px] font-sans text-[#333333] text-[14px] font-semibold">No. Permintaan</h1>
+              <h1 class="w-[130px] h-[17px] font-sans text-[#333333] text-[14px] font-semibold">
+                No. Permintaan
+              </h1>
               <span class="w-[92px] h-[17px] text-[#7F7F80] font-sans font-thin text-[14px] ml-4">{{
                 dataBerkas?.submissionNumber }}</span>
               <div class="flex">
-                <h1 class="w-[130px] h-[17px] font-sans text-[14px] text-[#333333] font-semibold ml-[300px]">Metode
-                  Kemitraan</h1>
+                <h1 class="w-[130px] h-[17px] font-sans text-[14px] text-[#333333] font-semibold ml-[300px]">
+                  Metode
+                  Kemitraan
+                </h1>
                 <span class="w-[112px] h-[17px] font-sans font-thin text-[#7F7F80] text-[14px] ml-4">{{
                   dataBerkas?.partnershipMethod || '-' }}</span>
               </div>
             </div>
             <div class="flex mt-6 items-center">
-              <h1 class="w-[130px] h-[17px] font-sans text-[#333333] text-[14px] font-semibold">Judul</h1>
+              <h1 class="w-[130px] h-[17px] font-sans text-[#333333] text-[14px] font-semibold">
+                Judul
+              </h1>
               <span class="w-[182px] h-[17px] text-[#7F7F80] font-sans font-thin text-[14px] ml-4">{{
                 dataBerkas?.partnershipTitle || '-' }}</span>
               <div class="flex ml-[1px]">
-                <h1 class="w-[130px] h-[17px] font-sans text-[14px] text-[#333333] font-semibold ml-[209px]">Jenis
-                  Material</h1>
+                <h1 class="w-[130px] h-[17px] font-sans text-[14px] text-[#333333] font-semibold ml-[209px]">
+                  Jenis
+                  Material
+                </h1>
                 <span class="w-[112px] h-[17px] font-sans font-thin text-[#7F7F80] text-[14px] ml-4">{{
                   dataBerkas?.materialType || '-' }}</span>
               </div>
             </div>
             <div class="flex mt-6 items-center">
-              <h1 class="w-[130px] h-[17px] font-sans text-[#333333] text-[14px] font-semibold">Nomor Anggaran</h1>
+              <h1 class="w-[130px] h-[17px] font-sans text-[#333333] text-[14px] font-semibold">
+                Nomor Anggaran
+              </h1>
               <span class="w-[57px] h-[17px] text-[#7F7F80] font-sans font-thin text-[14px] ml-4">{{
                 dataBerkas?.budgetNumber || '-' }}</span>
               <div class="flex ml-[335px]">
-                <h1 class="w-[130px] h-[17px] font-sans text-[14px] text-[#333333] font-semibold">Jenis Kemitraan</h1>
+                <h1 class="w-[130px] h-[17px] font-sans text-[14px] text-[#333333] font-semibold">
+                  Jenis Kemitraan
+                </h1>
                 <span class="w-[112px] h-[17px] font-sans font-thin text-[#7F7F80] text-[14px] ml-[17px]">{{ dataBerkas?.partnershipType || '-' }}</span>
               </div>
             </div>
             <div class="flex mt-6 items-center">
-              <h1 class="w-[130px] h-[17px] font-sans text-[#333333] text-[14px] font-semibold">Tipe Anggaran</h1>
+              <h1 class="w-[130px] h-[17px] font-sans text-[#333333] text-[14px] font-semibold">
+                Tipe Anggaran
+              </h1>
               <span class="w-[103px] h-[17px] text-[#7F7F80] font-sans font-thin text-[14px] ml-4">{{
                 dataBerkas?.budgetType || '-' }}</span>
               <div class="flex ml-[288px]">
-                <h1 class="w-[130px] h-[17px] font-sans text-[14px] text-[#333333] font-semibold">Pelaksana</h1>
+                <h1 class="w-[130px] h-[17px] font-sans text-[14px] text-[#333333] font-semibold">
+                  Pelaksana
+                </h1>
                 <span class="w-[300px] h-[17px] font-sans font-thin text-[#7F7F80] text-[14px] ml-[18px]">{{
                   dataBerkas?.disposedStaff || '-' }}</span>
               </div>
             </div>
             <div class="flex mt-6 items-center">
-              <h1 class="w-[130px] h-[17px] font-sans text-[#333333] text-[14px] font-semibold">Tipe Bisnis</h1>
+              <h1 class="w-[130px] h-[17px] font-sans text-[#333333] text-[14px] font-semibold">
+                Tipe Bisnis
+              </h1>
               <span class="w-[103px] h-[17px] text-[#7F7F80] font-sans font-thin text-[14px] ml-4">{{
                 dataBerkas?.bisnisType || '-' }}</span>
               <div class="flex ml-[288px]">
-                <h1 class="w-[130px] h-[17px] font-sans text-[14px] text-[#333333] font-semibold">Kandidat</h1>
+                <h1 class="w-[130px] h-[17px] font-sans text-[14px] text-[#333333] font-semibold">
+                  Kandidat
+                </h1>
                 <span class="w-[300px] h-[17px] font-sans font-thin text-[#7F7F80] text-[14px] ml-[18px]">{{
                   dataBerkas?.partnershipCandidate || '-' }}</span>
               </div>
             </div>
-            <div class="w-[1046px] h-[1px] bg-[#E5E7E9] justify-center transform translate-x-[-2.3%] mt-6"></div>
+            <div class="w-[1046px] h-[1px] bg-[#E5E7E9] justify-center transform translate-x-[-2.3%] mt-6" />
             <div class="flex items-start mt-6">
               <div class="flex w-1/2">
-                <h1 class="w-[130px] h-[17px] font-sans text-[#333333] text-[14px] font-semibold">Latar Belakang</h1>
+                <h1 class="w-[130px] h-[17px] font-sans text-[#333333] text-[14px] font-semibold">
+                  Latar Belakang
+                </h1>
                 <span class="w-auto min-h-[17px] text-[#7F7F80] font-sans font-thin text-[14px] ml-4">{{
                   dataBerkas?.background || '-' }}</span>
               </div>
               <div class="flex w-1/2">
-                <h1 class="w-[130px] h-[17px] font-sans text-[14px] text-[#333333] font-semibold ml-[40px]">Catatan
+                <h1 class="w-[130px] h-[17px] font-sans text-[14px] text-[#333333] font-semibold ml-[40px]">
+                  Catatan
                 </h1>
                 <span class="w-auto min-h-[17px] font-sans font-thin text-[#7F7F80] text-[14px] ml-4">{{ dataBerkas?.note
                   || '-' }}</span>
               </div>
             </div>
             <div class="flex items-center mt-6">
-              <h1 class="w-[130px] h-[17px] font-sans text-[#333333] text-[14px] font-semibold">Dibuat Oleh</h1>
+              <h1 class="w-[130px] h-[17px] font-sans text-[#333333] text-[14px] font-semibold">
+                Dibuat Oleh
+              </h1>
               <span class="w-[92px] h-[17px] text-[#7F7F80] font-sans font-thin text-[14px] ml-4">{{ dataBerkas?.user ||
                 '-' }}</span>
               <div class="flex">
-                <h1 class="w-[130px] h-[17px] font-sans text-[14px] text-[#333333] font-semibold ml-[300px]">Tanggal Buat
+                <h1 class="w-[130px] h-[17px] font-sans text-[14px] text-[#333333] font-semibold ml-[300px]">
+                  Tanggal Buat
                 </h1>
                 <span class="w-[112px] h-[17px] font-sans font-thin text-[#7F7F80] text-[14px] ml-4">{{
                   dateParsing(dataBerkas?.submissionDate) || '-' }}</span>
               </div>
             </div>
             <div class="flex items-center mt-6">
-              <h1 class="w-[130px] h-[17px] font-sans text-[#333333] text-[14px] font-semibold">Due Date</h1>
+              <h1 class="w-[130px] h-[17px] font-sans text-[#333333] text-[14px] font-semibold">
+                Due Date
+              </h1>
               <span class="w-[92px] h-[17px] text-[#7F7F80] font-sans font-thin text-[14px] ml-4">{{ dateParsing(dataBerkas?.dueDateStaff) ||
                 '-' }}</span>
               <div class="flex">
-                <h1 class="w-[130px] h-[17px] font-sans text-[14px] text-[#333333] font-semibold ml-[300px]">Tanggal Diharapkan Selesai
+                <h1 class="w-[130px] h-[17px] font-sans text-[14px] text-[#333333] font-semibold ml-[300px]">
+                  Tanggal Diharapkan Selesai
                 </h1>
                 <span class="w-[112px] h-[17px] font-sans font-thin text-[#7F7F80] text-[14px] ml-4">{{
                   dateParsing(dataBerkas?.expectedDate) || '-' }}</span>
@@ -295,30 +600,59 @@ import { dateParsing } from '@/utils/helper';
           </div>
         </transition>
         <div class="flex items-center mt-4 ml-4 w-[1046px] h-[48px] rounded-lg bg-[#FFFFFF] border-[#E5E7E9] border-[1px]">
-          <div class="w-[30px] h-[48px] bg-[#FFA229] rounded-tl-md rounded-bl-md"></div>
-          <div class="text-[16px] font-sans font-semibold text-[#333333] ml-[10px] mt-[14.5px] mb-[14.5px]">Lingkup Pekerjaan</div>
-          <button @click="toggleDropdownArrow1" class="ml-auto mr-4 flex py-1 px-1 rounded-full hover:bg-[#FFFFFF]">
-            <svg :class="{ 'rotate-180': isDropdownArrowOpen1 }" class="w-4 h-4 text-[#2671D9]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          <div class="w-[30px] h-[48px] bg-[#FFA229] rounded-tl-md rounded-bl-md" />
+          <div class="text-[16px] font-sans font-semibold text-[#333333] ml-[10px] mt-[14.5px] mb-[14.5px]">
+            Lingkup Pekerjaan
+          </div>
+          <button
+            class="ml-auto mr-4 flex py-1 px-1 rounded-full hover:bg-[#FFFFFF]"
+            @click="toggleDropdownArrow1"
+          >
+            <svg
+              :class="{ 'rotate-180': isDropdownArrowOpen1 }"
+              class="w-4 h-4 text-[#2671D9]"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"
+              />
             </svg>
           </button>
         </div>
         <transition name="fade">
-          <div v-if="isDropdownArrowOpen1"
-            class="flex flex-col w-[1046px] h-[270px] bg-[#FFFFFF] border-[#E5E7E9] border-[1px] ml-4 px-6 py-6 rounded-bl-md rounded-br-md">
+          <div
+            v-if="isDropdownArrowOpen1"
+            class="flex flex-col w-[1046px] h-[270px] bg-[#FFFFFF] border-[#E5E7E9] border-[1px] ml-4 px-6 py-6 rounded-bl-md rounded-br-md"
+          >
             <div class="flex items-center justify-between w-full px-4">
               <div class="flex flex-col gap-2 items-center">
-                <h1 class="w-[130px] h-[17px] font-sans text-[#333333] text-[14px] font-semibold">Pembayaran</h1>
-                <h1 class="w-[130px] h-[17px] text-[14px] text-[#7F7F80]">-</h1>
+                <h1 class="w-[130px] h-[17px] font-sans text-[#333333] text-[14px] font-semibold">
+                  Pembayaran
+                </h1>
+                <h1 class="w-[130px] h-[17px] text-[14px] text-[#7F7F80]">
+                  -
+                </h1>
               </div>
               <div class="flex flex-col gap-2 items-center">
-                <div class="w-[130px] h-[17px] font-sans text-[#333333] text-[14px] font-semibold">Time Schedule</div>
-                <div class="w-[130px] h-[17px] text-[14px] text-[#7F7F80]">-</div>
-              </div>
-              <div class="flex flex-col gap-2 items-center">
-                <div class="w-[130px] h-[17px] font-sans text-[#333333] text-[14px] font-semibold">Calon Mitra Bisnis
+                <div class="w-[130px] h-[17px] font-sans text-[#333333] text-[14px] font-semibold">
+                  Time Schedule
                 </div>
-                <div class="w-[130px] h-[17px] text-[14px] text-[#7F7F80]">{{ dataBerkas?.partnershipCandidate || "-" }}
+                <div class="w-[130px] h-[17px] text-[14px] text-[#7F7F80]">
+                  -
+                </div>
+              </div>
+              <div class="flex flex-col gap-2 items-center">
+                <div class="w-[130px] h-[17px] font-sans text-[#333333] text-[14px] font-semibold">
+                  Calon Mitra Bisnis
+                </div>
+                <div class="w-[130px] h-[17px] text-[14px] text-[#7F7F80]">
+                  {{ dataBerkas?.partnershipCandidate || "-" }}
                 </div>
               </div>
             </div>
@@ -328,209 +662,415 @@ import { dateParsing } from '@/utils/helper';
                   <th class="p-2 border border-[#E5E7E9] w-[74px] h-[48px]">
                     <div class="flex items-center w-[74px]">
                       <span>No.</span>
-                      <svg width="14" height="10" class="ml-3" viewBox="0 0 14 10" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" clip-rule="evenodd"
+                      <svg
+                        width="14"
+                        height="10"
+                        class="ml-3"
+                        viewBox="0 0 14 10"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
                           d="M10.4252 0.144043C10.7073 0.144043 10.9359 0.364674 10.9359 0.636836L10.9359 8.3174L13.1282 6.20189C13.3276 6.00944 13.651 6.00944 13.8504 6.20189C14.0499 6.39434 14.0499 6.70636 13.8504 6.89881L10.7863 9.85556C10.6906 9.94798 10.5607 9.9999 10.4252 9.9999C10.2898 9.9999 10.1599 9.94798 10.0641 9.85556L7.00001 6.89881C6.80057 6.70636 6.80057 6.39434 7.00001 6.20189C7.19944 6.00944 7.52279 6.00944 7.72223 6.20189L9.91454 8.3174L9.91454 0.636836C9.91454 0.364674 10.1432 0.144043 10.4252 0.144043Z"
-                          fill="#93B8EC" />
+                          fill="#93B8EC"
+                        />
                         <path
                           d="M3.21369 0.144824C3.41312 -0.0476236 3.73647 -0.0476236 3.9359 0.144824L7.00001 3.10158C7.19945 3.29403 7.19945 3.60605 7.00001 3.79849C6.80058 3.99094 6.47723 3.99094 6.27779 3.79849L4.08548 1.68299V9.36355C4.08548 9.63571 3.85684 9.85634 3.57479 9.85634C3.29275 9.85634 3.06411 9.63571 3.06411 9.36355V1.68299L0.871794 3.79849C0.672359 3.99094 0.349011 3.99094 0.149576 3.79849C-0.0498587 3.60605 -0.0498587 3.29403 0.149576 3.10158L3.21369 0.144824Z"
-                          fill="#93B8EC" />
+                          fill="#93B8EC"
+                        />
                       </svg>
                     </div>
                   </th>
                   <th class="p-2 border border-[#E5E7E9]">
                     <div class="flex items-center justify-between">
                       <span class="px-3">Pekerjaan</span>
-                      <svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" clip-rule="evenodd"
+                      <svg
+                        width="14"
+                        height="10"
+                        viewBox="0 0 14 10"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
                           d="M10.4252 0.144043C10.7073 0.144043 10.9359 0.364674 10.9359 0.636836L10.9359 8.3174L13.1282 6.20189C13.3276 6.00944 13.651 6.00944 13.8504 6.20189C14.0499 6.39434 14.0499 6.70636 13.8504 6.89881L10.7863 9.85556C10.6906 9.94798 10.5607 9.9999 10.4252 9.9999C10.2898 9.9999 10.1599 9.94798 10.0641 9.85556L7.00001 6.89881C6.80057 6.70636 6.80057 6.39434 7.00001 6.20189C7.19944 6.00944 7.52279 6.00944 7.72223 6.20189L9.91454 8.3174L9.91454 0.636836C9.91454 0.364674 10.1432 0.144043 10.4252 0.144043Z"
-                          fill="#93B8EC" />
+                          fill="#93B8EC"
+                        />
                         <path
                           d="M3.21369 0.144824C3.41312 -0.0476236 3.73647 -0.0476236 3.9359 0.144824L7.00001 3.10158C7.19945 3.29403 7.19945 3.60605 7.00001 3.79849C6.80058 3.99094 6.47723 3.99094 6.27779 3.79849L4.08548 1.68299V9.36355C4.08548 9.63571 3.85684 9.85634 3.57479 9.85634C3.29275 9.85634 3.06411 9.63571 3.06411 9.36355V1.68299L0.871794 3.79849C0.672359 3.99094 0.349011 3.99094 0.149576 3.79849C-0.0498587 3.60605 -0.0498587 3.29403 0.149576 3.10158L3.21369 0.144824Z"
-                          fill="#93B8EC" />
+                          fill="#93B8EC"
+                        />
                       </svg>
                     </div>
                   </th>
                 </tr>
               </thead>
-              <tbody v-if="base == 'PKS'" class="h-[54px] w-[998px]">
-                <tr v-for="(item, index) in dataBerkas?.scopesPks" :key="index"
-                  class="bg-[#FFFFFF] border border-[#E5E7E9] text-[#333333] font-sans text-[14px] font-normal w-[900px] h-[22px]">
-                  <td class="p-2 border border-[#E5E7E9]">{{ index + 1 }}</td>
+              <tbody
+                v-if="base == 'PKS'"
+                class="h-[54px] w-[998px]"
+              >
+                <tr
+                  v-for="(item, index) in dataBerkas?.scopesPks"
+                  :key="index"
+                  class="bg-[#FFFFFF] border border-[#E5E7E9] text-[#333333] font-sans text-[14px] font-normal w-[900px] h-[22px]"
+                >
+                  <td class="p-2 border border-[#E5E7E9]">
+                    {{ index + 1 }}
+                  </td>
                   <td
-                    class="p-2 border border-[#E5E7E9] text-[14px] text-left pl-5 font-sans font-normal text-[#333333]">
-                    {{ item.scopeName }}</td>
+                    class="p-2 border border-[#E5E7E9] text-[14px] text-left pl-5 font-sans font-normal text-[#333333]"
+                  >
+                    {{ item.scopeName }}
+                  </td>
                 </tr>
               </tbody>
-              <tbody v-else class="h-[54px] w-[998px]">
-                <tr v-for="(item, index) in dataBerkas?.scopesMou" :key="index"
-                  class="bg-[#FFFFFF] border border-[#E5E7E9] text-[#333333] font-sans text-[14px] font-normal w-[900px] h-[22px]">
-                  <td class="p-2 border border-[#E5E7E9]">{{ index + 1 }}</td>
+              <tbody
+                v-else
+                class="h-[54px] w-[998px]"
+              >
+                <tr
+                  v-for="(item, index) in dataBerkas?.scopesMou"
+                  :key="index"
+                  class="bg-[#FFFFFF] border border-[#E5E7E9] text-[#333333] font-sans text-[14px] font-normal w-[900px] h-[22px]"
+                >
+                  <td class="p-2 border border-[#E5E7E9]">
+                    {{ index + 1 }}
+                  </td>
                   <td
-                    class="p-2 border border-[#E5E7E9] text-[14px] text-left pl-5 font-sans font-normal text-[#333333]">
-                    {{ item.scopeName }}</td>
+                    class="p-2 border border-[#E5E7E9] text-[14px] text-left pl-5 font-sans font-normal text-[#333333]"
+                  >
+                    {{ item.scopeName }}
+                  </td>
                 </tr>
               </tbody>
             </table>
           </div>
         </transition>
         <div class="flex items-center mt-4 ml-4 w-[1046px] h-[48px] rounded-lg bg-[#FFFFFF] border-[#E5E7E9] border-[1px]">
-          <div class="w-[30px] h-[48px] bg-[#F42495] rounded-tl-md rounded-bl-md"></div>
-          <div class="text-[16px] font-sans font-semibold text-[#333333] ml-[10px] mt-[14.5px] mb-[14.5px]">Berkas Lampiran</div>
-          <button @click="toggleDropdownArrow3" class="ml-auto mr-4 flex py-1 px-1 rounded-full hover:bg-[#FFFFFF]">
-            <svg :class="{ 'rotate-180': isDropdownArrowOpen3 }" class="w-4 h-4 text-[#2671D9]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          <div class="w-[30px] h-[48px] bg-[#F42495] rounded-tl-md rounded-bl-md" />
+          <div class="text-[16px] font-sans font-semibold text-[#333333] ml-[10px] mt-[14.5px] mb-[14.5px]">
+            Berkas Lampiran
+          </div>
+          <button
+            class="ml-auto mr-4 flex py-1 px-1 rounded-full hover:bg-[#FFFFFF]"
+            @click="toggleDropdownArrow3"
+          >
+            <svg
+              :class="{ 'rotate-180': isDropdownArrowOpen3 }"
+              class="w-4 h-4 text-[#2671D9]"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"
+              />
             </svg>
           </button>
         </div>
         <transition name="fade">
-          <div v-if="isDropdownArrowOpen3" class="flex flex-wrap w-[1046px] bg-[#FFFFFF] border-[#E5E7E9] border-[1px] ml-4 px-5 py-6 rounded-bl-md rounded-br-md gap-6">
+          <div
+            v-if="isDropdownArrowOpen3"
+            class="flex flex-wrap w-[1046px] bg-[#FFFFFF] border-[#E5E7E9] border-[1px] ml-4 px-5 py-6 rounded-bl-md rounded-br-md gap-6"
+          >
             <!-- Proposal Mitra -->
             <div class="flex flex-col w-[316.6px]">
               <div class="flex items-center">
-                <h1 class="font-sans text-[#4D5E80] text-[16px] font-semibold">Proposal Mitra</h1>
+                <h1 class="font-sans text-[#4D5E80] text-[16px] font-semibold">
+                  Proposal Mitra
+                </h1>
                 <span class="text-[#B3B3B3] font-sans text-[12px] font-light mt-1 ml-1">(Opsional)</span>
               </div>
-              <a :href="fileDetails.ProposalMitra.linkDownload" v-if="fileDetails.ProposalMitra.fileName" class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center">
-                <svg width="45" height="46" class="mx-4 my-2" viewBox="0 0 45 46" fill="none"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="22.5" cy="23" r="22.5" fill="#E9F1FB" />
+              <a
+                v-if="fileDetails.ProposalMitra.fileName"
+                :href="fileDetails.ProposalMitra.linkDownload"
+                class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center"
+              >
+                <svg
+                  width="45"
+                  height="46"
+                  class="mx-4 my-2"
+                  viewBox="0 0 45 46"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle
+                    cx="22.5"
+                    cy="23"
+                    r="22.5"
+                    fill="#E9F1FB"
+                  />
                   <path
                     d="M30 20.1312C29.9902 20.0451 29.9714 19.9603 29.9437 19.8781V19.7937C29.8987 19.6974 29.8385 19.6087 29.7656 19.5313L24.1406 13.9062C24.0631 13.8333 23.9745 13.7732 23.8781 13.7281H23.7937C23.6985 13.6735 23.5933 13.6384 23.4844 13.625H17.8125C17.0666 13.625 16.3512 13.9213 15.8238 14.4488C15.2963 14.9762 15 15.6916 15 16.4375V29.5625C15 30.3084 15.2963 31.0238 15.8238 31.5512C16.3512 32.0787 17.0666 32.375 17.8125 32.375H27.1875C27.9334 32.375 28.6488 32.0787 29.1762 31.5512C29.7037 31.0238 30 30.3084 30 29.5625V20.1875V20.1312ZM24.375 16.8219L26.8031 19.25H25.3125C25.0639 19.25 24.8254 19.1512 24.6496 18.9754C24.4738 18.7996 24.375 18.5611 24.375 18.3125V16.8219ZM28.125 29.5625C28.125 29.8111 28.0262 30.0496 27.8504 30.2254C27.6746 30.4012 27.4361 30.5 27.1875 30.5H17.8125C17.5639 30.5 17.3254 30.4012 17.1496 30.2254C16.9738 30.0496 16.875 29.8111 16.875 29.5625V16.4375C16.875 16.1889 16.9738 15.9504 17.1496 15.7746C17.3254 15.5988 17.5639 15.5 17.8125 15.5H22.5V18.3125C22.5 19.0584 22.7963 19.7738 23.3238 20.3012C23.8512 20.8287 24.5666 21.125 25.3125 21.125H28.125V29.5625Z"
-                    fill="#2671D9" />
+                    fill="#2671D9"
+                  />
                 </svg>
                 <div class="py-2 w-[200px] flex-grow truncate pe-3">
                   <span class="text-[#333333] text-sm font-semibold">{{ fileDetails.ProposalMitra.fileName }}</span>
                   <p class="text-[#9E9E9E] text-xs">{{ fileDetails.ProposalMitra.fileSize }}</p>
                 </div>
               </a>
-              <div v-else class="w-[333px] h-auto">
+              <div
+                v-else
+                class="w-[333px] h-auto"
+              >
                 <span class="text-[#9E9E9E] text-sm font-semibold">File belum diupload</span>
               </div>
             </div>
             <!-- Dokumen Surat Menyurat (Opsional) -->
             <div class="flex flex-col w-[316.6px]">
               <div class="flex items-center">
-                <h1 class="font-sans text-[#4D5E80] text-[16px] font-semibold">Dokumen Surat Menyurat</h1>
+                <h1 class="font-sans text-[#4D5E80] text-[16px] font-semibold">
+                  Dokumen Surat Menyurat
+                </h1>
                 <span class="text-[#B3B3B3] font-sans text-[12px] font-light mt-1 ml-1">(Opsional)</span>
               </div>
-              <a :href="fileDetails.DokumenSuratMenyurat.linkDownload" v-if="fileDetails.DokumenSuratMenyurat.fileName" class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center">
-                <svg width="45" height="46" class="mx-4 my-2" viewBox="0 0 45 46" fill="none"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="22.5" cy="23" r="22.5" fill="#E9F1FB" />
+              <a
+                v-if="fileDetails.DokumenSuratMenyurat.fileName"
+                :href="fileDetails.DokumenSuratMenyurat.linkDownload"
+                class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center"
+              >
+                <svg
+                  width="45"
+                  height="46"
+                  class="mx-4 my-2"
+                  viewBox="0 0 45 46"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle
+                    cx="22.5"
+                    cy="23"
+                    r="22.5"
+                    fill="#E9F1FB"
+                  />
                   <path
                     d="M30 20.1312C29.9902 20.0451 29.9714 19.9603 29.9437 19.8781V19.7937C29.8987 19.6974 29.8385 19.6087 29.7656 19.5313L24.1406 13.9062C24.0631 13.8333 23.9745 13.7732 23.8781 13.7281H23.7937C23.6985 13.6735 23.5933 13.6384 23.4844 13.625H17.8125C17.0666 13.625 16.3512 13.9213 15.8238 14.4488C15.2963 14.9762 15 15.6916 15 16.4375V29.5625C15 30.3084 15.2963 31.0238 15.8238 31.5512C16.3512 32.0787 17.0666 32.375 17.8125 32.375H27.1875C27.9334 32.375 28.6488 32.0787 29.1762 31.5512C29.7037 31.0238 30 30.3084 30 29.5625V20.1875V20.1312ZM24.375 16.8219L26.8031 19.25H25.3125C25.0639 19.25 24.8254 19.1512 24.6496 18.9754C24.4738 18.7996 24.375 18.5611 24.375 18.3125V16.8219ZM28.125 29.5625C28.125 29.8111 28.0262 30.0496 27.8504 30.2254C27.6746 30.4012 27.4361 30.5 27.1875 30.5H17.8125C17.5639 30.5 17.3254 30.4012 17.1496 30.2254C16.9738 30.0496 16.875 29.8111 16.875 29.5625V16.4375C16.875 16.1889 16.9738 15.9504 17.1496 15.7746C17.3254 15.5988 17.5639 15.5 17.8125 15.5H22.5V18.3125C22.5 19.0584 22.7963 19.7738 23.3238 20.3012C23.8512 20.8287 24.5666 21.125 25.3125 21.125H28.125V29.5625Z"
-                    fill="#2671D9" />
+                    fill="#2671D9"
+                  />
                 </svg>
                 <div class="py-2 w-[200px] flex-grow truncate pe-3">
                   <span class="text-[#333333] text-sm font-semibold">{{ fileDetails.DokumenSuratMenyurat.fileName }}</span>
                   <p class="text-[#9E9E9E] text-xs">{{ fileDetails.DokumenSuratMenyurat.fileSize }}</p>
                 </div>
               </a>
-              <div v-else class="w-[333px] h-auto">
+              <div
+                v-else
+                class="w-[333px] h-auto"
+              >
                 <span class="text-[#9E9E9E] text-sm font-semibold">File belum diupload</span>
               </div>
             </div>
             <!-- Dokumen Lainnya (Opsional) -->
             <div class="flex flex-col w-[316.6px]">
               <div class="flex items-center">
-                <h1 class="font-sans text-[#4D5E80] text-[16px] font-semibold">Dokumen Lainnya</h1>
+                <h1 class="font-sans text-[#4D5E80] text-[16px] font-semibold">
+                  Dokumen Lainnya
+                </h1>
                 <span class="text-[#B3B3B3] font-sans text-[12px] font-light mt-1 ml-1">(Opsional)</span>
               </div>
-              <a :href="fileDetails.DokumenLainnya.linkDownload" v-if="fileDetails.DokumenLainnya.fileName" class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center">
-                <svg width="45" height="46" class="mx-4 my-2" viewBox="0 0 45 46" fill="none"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="22.5" cy="23" r="22.5" fill="#E9F1FB" />
+              <a
+                v-if="fileDetails.DokumenLainnya.fileName"
+                :href="fileDetails.DokumenLainnya.linkDownload"
+                class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center"
+              >
+                <svg
+                  width="45"
+                  height="46"
+                  class="mx-4 my-2"
+                  viewBox="0 0 45 46"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle
+                    cx="22.5"
+                    cy="23"
+                    r="22.5"
+                    fill="#E9F1FB"
+                  />
                   <path
                     d="M30 20.1312C29.9902 20.0451 29.9714 19.9603 29.9437 19.8781V19.7937C29.8987 19.6974 29.8385 19.6087 29.7656 19.5313L24.1406 13.9062C24.0631 13.8333 23.9745 13.7732 23.8781 13.7281H23.7937C23.6985 13.6735 23.5933 13.6384 23.4844 13.625H17.8125C17.0666 13.625 16.3512 13.9213 15.8238 14.4488C15.2963 14.9762 15 15.6916 15 16.4375V29.5625C15 30.3084 15.2963 31.0238 15.8238 31.5512C16.3512 32.0787 17.0666 32.375 17.8125 32.375H27.1875C27.9334 32.375 28.6488 32.0787 29.1762 31.5512C29.7037 31.0238 30 30.3084 30 29.5625V20.1875V20.1312ZM24.375 16.8219L26.8031 19.25H25.3125C25.0639 19.25 24.8254 19.1512 24.6496 18.9754C24.4738 18.7996 24.375 18.5611 24.375 18.3125V16.8219ZM28.125 29.5625C28.125 29.8111 28.0262 30.0496 27.8504 30.2254C27.6746 30.4012 27.4361 30.5 27.1875 30.5H17.8125C17.5639 30.5 17.3254 30.4012 17.1496 30.2254C16.9738 30.0496 16.875 29.8111 16.875 29.5625V16.4375C16.875 16.1889 16.9738 15.9504 17.1496 15.7746C17.3254 15.5988 17.5639 15.5 17.8125 15.5H22.5V18.3125C22.5 19.0584 22.7963 19.7738 23.3238 20.3012C23.8512 20.8287 24.5666 21.125 25.3125 21.125H28.125V29.5625Z"
-                    fill="#2671D9" />
+                    fill="#2671D9"
+                  />
                 </svg>
                 <div class="py-2 w-[200px] flex-grow truncate pe-3">
                   <span class="text-[#333333] text-sm font-semibold">{{ fileDetails.DokumenLainnya.fileName }}</span>
                   <p class="text-[#9E9E9E] text-xs">{{ fileDetails.DokumenLainnya.fileSize }}</p>
                 </div>
               </a>
-              <div v-else class="w-[333px] h-auto">
+              <div
+                v-else
+                class="w-[333px] h-auto"
+              >
                 <span class="text-[#9E9E9E] text-sm font-semibold">File belum diupload</span>
               </div>
             </div>
           </div>
         </transition>
         <div class="flex items-center mt-4 ml-4 w-[1046px] h-[48px] rounded-lg bg-[#FFFFFF] border-[#E5E7E9] border-[1px]">
-          <div class="w-[30px] h-[48px] bg-[#CE8861] rounded-tl-md rounded-bl-md"></div>
-          <div class="text-[16px] font-sans font-semibold text-[#333333] ml-[10px] mt-[14.5px] mb-[14.5px]">Dokumen Progress Kemitraan</div>
-          <button @click="toggleDropdownArrow4" class="ml-auto mr-4 flex py-1 px-1 rounded-full hover:bg-[#FFFFFF]">
-            <svg :class="{ 'rotate-180': isDropdownArrowOpen4 }" class="w-4 h-4 text-[#2671D9]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          <div class="w-[30px] h-[48px] bg-[#CE8861] rounded-tl-md rounded-bl-md" />
+          <div class="text-[16px] font-sans font-semibold text-[#333333] ml-[10px] mt-[14.5px] mb-[14.5px]">
+            Dokumen Progress Kemitraan
+          </div>
+          <button
+            class="ml-auto mr-4 flex py-1 px-1 rounded-full hover:bg-[#FFFFFF]"
+            @click="toggleDropdownArrow4"
+          >
+            <svg
+              :class="{ 'rotate-180': isDropdownArrowOpen4 }"
+              class="w-4 h-4 text-[#2671D9]"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"
+              />
             </svg>
           </button>
         </div>
         <transition name="fade">
-          <div v-if="isDropdownArrowOpen4" class="flex flex-wrap w-[1046px] bg-[#FFFFFF] border-[#E5E7E9] border-[1px] ml-4 px-5 py-6 rounded-bl-md rounded-br-md gap-6">
+          <div
+            v-if="isDropdownArrowOpen4"
+            class="flex flex-wrap w-[1046px] bg-[#FFFFFF] border-[#E5E7E9] border-[1px] ml-4 px-5 py-6 rounded-bl-md rounded-br-md gap-6"
+          >
             <!-- Surat Penawaran -->
             <div class="flex flex-col w-[316.6px]">
               <div class="flex items-center">
-                <h1 class="font-sans text-[#4D5E80] text-[16px] font-semibold">Surat Penawaran</h1>
+                <h1 class="font-sans text-[#4D5E80] text-[16px] font-semibold">
+                  Surat Penawaran
+                </h1>
               </div>
-              <a :href="linkDownloadFile1" v-if="fileName1" class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center">
-                <svg width="45" height="46" class="mx-4 my-2" viewBox="0 0 45 46" fill="none"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="22.5" cy="23" r="22.5" fill="#E9F1FB" />
+              <a
+                v-if="fileName1"
+                :href="linkDownloadFile1"
+                class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center"
+              >
+                <svg
+                  width="45"
+                  height="46"
+                  class="mx-4 my-2"
+                  viewBox="0 0 45 46"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle
+                    cx="22.5"
+                    cy="23"
+                    r="22.5"
+                    fill="#E9F1FB"
+                  />
                   <path
                     d="M30 20.1312C29.9902 20.0451 29.9714 19.9603 29.9437 19.8781V19.7937C29.8987 19.6974 29.8385 19.6087 29.7656 19.5313L24.1406 13.9062C24.0631 13.8333 23.9745 13.7732 23.8781 13.7281H23.7937C23.6985 13.6735 23.5933 13.6384 23.4844 13.625H17.8125C17.0666 13.625 16.3512 13.9213 15.8238 14.4488C15.2963 14.9762 15 15.6916 15 16.4375V29.5625C15 30.3084 15.2963 31.0238 15.8238 31.5512C16.3512 32.0787 17.0666 32.375 17.8125 32.375H27.1875C27.9334 32.375 28.6488 32.0787 29.1762 31.5512C29.7037 31.0238 30 30.3084 30 29.5625V20.1875V20.1312ZM24.375 16.8219L26.8031 19.25H25.3125C25.0639 19.25 24.8254 19.1512 24.6496 18.9754C24.4738 18.7996 24.375 18.5611 24.375 18.3125V16.8219ZM28.125 29.5625C28.125 29.8111 28.0262 30.0496 27.8504 30.2254C27.6746 30.4012 27.4361 30.5 27.1875 30.5H17.8125C17.5639 30.5 17.3254 30.4012 17.1496 30.2254C16.9738 30.0496 16.875 29.8111 16.875 29.5625V16.4375C16.875 16.1889 16.9738 15.9504 17.1496 15.7746C17.3254 15.5988 17.5639 15.5 17.8125 15.5H22.5V18.3125C22.5 19.0584 22.7963 19.7738 23.3238 20.3012C23.8512 20.8287 24.5666 21.125 25.3125 21.125H28.125V29.5625Z"
-                    fill="#2671D9" />
+                    fill="#2671D9"
+                  />
                 </svg>
                 <div class="py-2 w-[200px] flex-grow truncate pe-3">
                   <span class="text-[#333333] text-sm font-semibold">{{ fileName1 }}</span>
                   <p class="text-[#9E9E9E] text-xs">{{ fileSize1 }}</p>
                 </div>
               </a>
-              <div v-else class="w-[333px] h-auto">
+              <div
+                v-else
+                class="w-[333px] h-auto"
+              >
                 <span class="text-[#9E9E9E] text-sm font-semibold">File belum diupload</span>
               </div>
             </div>
             <!-- Proposal -->
             <div class="flex flex-col w-[316.6px]">
               <div class="flex items-center">
-                <h1 class="font-sans text-[#4D5E80] text-[16px] font-semibold">Proposal</h1>
+                <h1 class="font-sans text-[#4D5E80] text-[16px] font-semibold">
+                  Proposal
+                </h1>
               </div>
-              <a :href="linkDownloadFile2" v-if="fileName2" class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center">
-                <svg width="45" height="46" class="mx-4 my-2" viewBox="0 0 45 46" fill="none"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="22.5" cy="23" r="22.5" fill="#E9F1FB" />
+              <a
+                v-if="fileName2"
+                :href="linkDownloadFile2"
+                class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center"
+              >
+                <svg
+                  width="45"
+                  height="46"
+                  class="mx-4 my-2"
+                  viewBox="0 0 45 46"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle
+                    cx="22.5"
+                    cy="23"
+                    r="22.5"
+                    fill="#E9F1FB"
+                  />
                   <path
                     d="M30 20.1312C29.9902 20.0451 29.9714 19.9603 29.9437 19.8781V19.7937C29.8987 19.6974 29.8385 19.6087 29.7656 19.5313L24.1406 13.9062C24.0631 13.8333 23.9745 13.7732 23.8781 13.7281H23.7937C23.6985 13.6735 23.5933 13.6384 23.4844 13.625H17.8125C17.0666 13.625 16.3512 13.9213 15.8238 14.4488C15.2963 14.9762 15 15.6916 15 16.4375V29.5625C15 30.3084 15.2963 31.0238 15.8238 31.5512C16.3512 32.0787 17.0666 32.375 17.8125 32.375H27.1875C27.9334 32.375 28.6488 32.0787 29.1762 31.5512C29.7037 31.0238 30 30.3084 30 29.5625V20.1875V20.1312ZM24.375 16.8219L26.8031 19.25H25.3125C25.0639 19.25 24.8254 19.1512 24.6496 18.9754C24.4738 18.7996 24.375 18.5611 24.375 18.3125V16.8219ZM28.125 29.5625C28.125 29.8111 28.0262 30.0496 27.8504 30.2254C27.6746 30.4012 27.4361 30.5 27.1875 30.5H17.8125C17.5639 30.5 17.3254 30.4012 17.1496 30.2254C16.9738 30.0496 16.875 29.8111 16.875 29.5625V16.4375C16.875 16.1889 16.9738 15.9504 17.1496 15.7746C17.3254 15.5988 17.5639 15.5 17.8125 15.5H22.5V18.3125C22.5 19.0584 22.7963 19.7738 23.3238 20.3012C23.8512 20.8287 24.5666 21.125 25.3125 21.125H28.125V29.5625Z"
-                    fill="#2671D9" />
+                    fill="#2671D9"
+                  />
                 </svg>
                 <div class="py-2 w-[200px] flex-grow truncate pe-3">
                   <span class="text-[#333333] text-sm font-semibold">{{ fileName2 }}</span>
                   <p class="text-[#9E9E9E] text-xs">{{ fileSize2 }}</p>
                 </div>
               </a>
-              <div v-else class="w-[333px] h-auto">
+              <div
+                v-else
+                class="w-[333px] h-auto"
+              >
                 <span class="text-[#9E9E9E] text-sm font-semibold">File belum diupload</span>
               </div>
             </div>
             <!-- Evaluasi -->
             <div class="flex flex-col w-[316.6px]">
               <div class="flex items-center">
-                <h1 class="font-sans text-[#4D5E80] text-[16px] font-semibold">MoU/NDA</h1>
+                <h1 class="font-sans text-[#4D5E80] text-[16px] font-semibold">
+                  MoU/NDA
+                </h1>
               </div>
-              <a :href="linkDownloadFile3" v-if="fileName3" class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center">
-                <svg width="45" height="46" class="mx-4 my-2" viewBox="0 0 45 46" fill="none"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="22.5" cy="23" r="22.5" fill="#E9F1FB" />
+              <a
+                v-if="fileName3"
+                :href="linkDownloadFile3"
+                class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center"
+              >
+                <svg
+                  width="45"
+                  height="46"
+                  class="mx-4 my-2"
+                  viewBox="0 0 45 46"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle
+                    cx="22.5"
+                    cy="23"
+                    r="22.5"
+                    fill="#E9F1FB"
+                  />
                   <path
                     d="M30 20.1312C29.9902 20.0451 29.9714 19.9603 29.9437 19.8781V19.7937C29.8987 19.6974 29.8385 19.6087 29.7656 19.5313L24.1406 13.9062C24.0631 13.8333 23.9745 13.7732 23.8781 13.7281H23.7937C23.6985 13.6735 23.5933 13.6384 23.4844 13.625H17.8125C17.0666 13.625 16.3512 13.9213 15.8238 14.4488C15.2963 14.9762 15 15.6916 15 16.4375V29.5625C15 30.3084 15.2963 31.0238 15.8238 31.5512C16.3512 32.0787 17.0666 32.375 17.8125 32.375H27.1875C27.9334 32.375 28.6488 32.0787 29.1762 31.5512C29.7037 31.0238 30 30.3084 30 29.5625V20.1875V20.1312ZM24.375 16.8219L26.8031 19.25H25.3125C25.0639 19.25 24.8254 19.1512 24.6496 18.9754C24.4738 18.7996 24.375 18.5611 24.375 18.3125V16.8219ZM28.125 29.5625C28.125 29.8111 28.0262 30.0496 27.8504 30.2254C27.6746 30.4012 27.4361 30.5 27.1875 30.5H17.8125C17.5639 30.5 17.3254 30.4012 17.1496 30.2254C16.9738 30.0496 16.875 29.8111 16.875 29.5625V16.4375C16.875 16.1889 16.9738 15.9504 17.1496 15.7746C17.3254 15.5988 17.5639 15.5 17.8125 15.5H22.5V18.3125C22.5 19.0584 22.7963 19.7738 23.3238 20.3012C23.8512 20.8287 24.5666 21.125 25.3125 21.125H28.125V29.5625Z"
-                    fill="#2671D9" />
+                    fill="#2671D9"
+                  />
                 </svg>
                 <div class="py-2 w-[200px] flex-grow truncate pe-3">
                   <span class="text-[#333333] text-sm font-semibold">{{ fileName3 }}</span>
                   <p class="text-[#9E9E9E] text-xs">{{ fileSize3 }}</p>
                 </div>
               </a>
-              <div v-else class="w-[333px] h-auto">
+              <div
+                v-else
+                class="w-[333px] h-auto"
+              >
                 <span class="text-[#9E9E9E] text-sm font-semibold">File belum diupload</span>
               </div>
             </div>
@@ -539,7 +1079,9 @@ import { dateParsing } from '@/utils/helper';
         <div class="flex flex-row w-[1046px] h-auto py-4 ml-4">
           <div class="flex flex-col w-[511px] h-auto">
             <div class="flex items-center">
-              <h1 class="font-sans text-[#4D5E80] text-[16px] font-semibold">Tanggapan</h1>
+              <h1 class="font-sans text-[#4D5E80] text-[16px] font-semibold">
+                Tanggapan
+              </h1>
             </div>
             <div class="w-full h-[88px] bg-[#E0E0E0] border-[#E5E7E9] border-[1px] rounded-lg mt-2 flex items-start justify-start">
               <div class="flex p-4">
@@ -551,12 +1093,19 @@ import { dateParsing } from '@/utils/helper';
           </div>
           <div class="flex flex-col w-[520px] h-auto ml-4">
             <div class="flex items-center">
-              <h1 class="font-sans text-[#4D5E80] text-[16px] font-semibold">Catatan Approval</h1>
+              <h1 class="font-sans text-[#4D5E80] text-[16px] font-semibold">
+                Catatan Approval
+              </h1>
             </div>
-            <textarea v-model="ApprovalNote" type="text" placeholder="Masukkan catatan approval" class="w-full h-[88px] text-black font-sans text-sm focus:border-gray-400 focus:outline-none border border-gray-300 rounded-lg p-2 mt-2 bg-white"></textarea>
+            <textarea
+              v-model="ApprovalNote"
+              type="text"
+              placeholder="Masukkan catatan approval"
+              class="w-full h-[88px] text-black font-sans text-sm focus:border-gray-400 focus:outline-none border border-gray-300 rounded-lg p-2 mt-2 bg-white"
+            />
           </div>
         </div>
-        <div class="w-[1046px] h-[1px] bg-[#E5E7E9] items-center transform ml-4 mt-6"></div>
+        <div class="w-[1046px] h-[1px] bg-[#E5E7E9] items-center transform ml-4 mt-6" />
         <!-- <div v-if="isManager" class="flex flex-row w-[1046px] h-auto ml-4 py-9">
           <button @click="showPenyelesaianMoUPopup = true" class="absolute bottom-[12px] right-[24px] flex">
             <div class="flex items-center justify-center w-[83px] h-[40px] bg-[#2671D9] hover:bg-[#1E5BB7] rounded-lg border-[1px] text-[#FFFFFF]">
@@ -720,6 +1269,13 @@ export default {
     headerClass3() {
       return this.fileUploaded3 ? "bg-[#0EA976]" : "bg-[#FFC107]";
     },
+  },
+  mounted() {
+    if (this.$route.params.id) {
+      this.getDataApi(this.$route.params.id);
+    }
+    this.id = this.$route.params.id;
+    this.isManager = localStorage.getItem('position') == 'PartnershipManager';
   },
   methods: {
     closeModalFailed() {
@@ -959,13 +1515,6 @@ export default {
         failFunction();
       }
     },
-  },
-  mounted() {
-    if (this.$route.params.id) {
-      this.getDataApi(this.$route.params.id);
-    }
-    this.id = this.$route.params.id;
-    this.isManager = localStorage.getItem('position') == 'PartnershipManager';
   },
 };
 </script>
