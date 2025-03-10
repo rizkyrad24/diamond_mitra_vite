@@ -153,11 +153,12 @@
               <!--Date-->
               <div class="relative">
                 <div
-                  class="w-[120px] h-[40px] border rounded-lg bg-white border-[#E5E7E9] ml-[246px] mt-4 flex items-center justify-between px-4 hover:bg-[#DBEAFE] cursor-pointer transition-all"
+                  class="w-[120px] h-[40px] border rounded-lg bg-white border-[#E5E7E9] ml-[246px] mt-4 flex items-center justify-between px-4 transition-all"
+                  :class="{'hover:bg-[#DBEAFE] cursor-pointer': !isDelay, 'bg-[#bfc4cc]': isDelay}"
                   @click="toggleDatePicker"
                 >
                   <span class="text-[14px] font-sans font-light text-[#9C9C9C]">
-                    {{ selectedDate ? formatDate(selectedDate) : "2024" }}
+                    {{ selectedDate }}
                   </span>
                   <svg
                     width="14"
@@ -175,14 +176,30 @@
                   </svg>
                 </div>
                 <!-- Date Picker -->
-                <input
+                <!-- <input
                   v-if="showDatePicker"
                   ref="datePickerInput"
-                  type="date"
+                  type="number"
                   class="custom-date-picker absolute top-[52px] mt-2 left-[246px] border border-[#E5E7E9] font-sans text-[10px] text-[#9C9C9C] rounded-lg p-2 w-[120px] hover:bg-[#DBEAFE] cursor-pointer transition-all"
                   @change="updateDate"
                   @blur="hideDatePicker"
+                > -->
+                <div
+                  v-if="showDatePicker"
+                  ref="datePickerInput"
+                  class="absolute top-[52px] max-h-[120px] mt-2 left-[246px] border border-[#E5E7E9] bg-white font-sans text-[14px] text-[#9C9C9C] rounded-lg p-2 w-[120px] transition-all overflow-y-scroll"
                 >
+                  <span
+                    class="hover:bg-[#DBEAFE] cursor-pointer block ms-3 mb-[3px]"
+                    @click="updateDate"
+                  >All</span>
+                  <span
+                    v-for="year in years"
+                    :key="year"
+                    class="hover:bg-[#DBEAFE] cursor-pointer block ms-3 mb-[3px]"
+                    @click="updateDate"
+                  >{{ year }}</span>
+                </div>
               </div>
             </div>
             <div class="items-center w-[124px] h-[60px] ml-6 mt-2 border-dashed rounded-lg bg-[#E7F1FD] border-[1px] border-[#91BEF7]">
@@ -218,8 +235,8 @@
           <div class="flex flex-col justify-start w-[346px] h-[416px] ml-6 mt-6 mr-6 border-collapse rounded-lg bg-[#FFFFFF] border-[#E5E7E9] border-[1px] bg-wave">
             <div class="flex items-start p-6">
               <h1 class="font-sans text-[20px] font-semibold text-[#FFFFFF]">
-                <span class="block">Total Dokumen</span>
-                <span class="block">Kemitraan</span>
+                <span class="block">Total Dokumen Kemitraan</span>
+                <span class="block">yang telah selesai</span>
               </h1>
             </div>
             <div class="flex flex-col items-center mt-12">
@@ -707,7 +724,7 @@ export default {
     return {
       DuedatePopUp: false,
       showDatePicker: false,
-      selectedDate: null,
+      selectedDate: 'All',
 
       showDropdown: false,
       selectedOption: null,
@@ -762,7 +779,10 @@ export default {
       //   { pic: "Putri Andini", jumlahPengajuan: 7, totalSelesai: 3, totalDiproses: 2, totalStopClock: 3 },
       // ],
       sortOrder: "asc",
-      bisnisType: ""
+      bisnisType: "",
+      years: ['All'],
+      chartInstance: null,
+      isDelay: false,
     };
   },
   computed: {
@@ -837,6 +857,15 @@ export default {
       return filteredData.slice(start, end);
     },
   },
+  watch: {
+    isDelay(newVal) {
+      if (newVal) {
+        setTimeout(() => {
+          this.isDelay = false;
+        }, 3000)
+      }
+    }
+  },
   mounted() {
     this.getDataApi();
     this.bisnisType = localStorage.getItem("bisnisType");
@@ -892,9 +921,10 @@ export default {
       return new Date(date).toLocaleDateString("en-GB", options);
     },
     updateDate(event) {
-      this.selectedDate = event.target.value;
+      this.selectedDate = event.target.innerText;
       this.hideDatePicker();
-      console.log(this.selectedDate);
+      this.isDelay = true;
+      this.getDataApi();
     },
     hideDatePicker() {
       this.showDatePicker = false;
@@ -954,12 +984,15 @@ export default {
       // const barChartData = [20, 15, 9, 20, 5];
       // Calculate the total data
       // const totalData = barChartData.reduce((acc, value) => acc + value, 0);
+      if (this.chartInstance) {
+        this.chartInstance.destroy();
+      }
       const totalData = totalNda + totalMou + totalPks;
       document.getElementById("totalData").innerText = totalData;
 
       const createCircleChart = (elementId, value, finishedValue, color, label) => {
         const container = document.getElementById(elementId);
-        const percentage = finishedValue / value * 100;
+        const percentage = value > 0? (finishedValue / value * 100): 0;
         const radius = 40;
         const strokeWidth = 15;
         const normalizedRadius = radius - strokeWidth / 2;
@@ -1036,7 +1069,7 @@ export default {
       // Bar Chart
       let delayed;
       const ctx = document.getElementById("myBarChart").getContext("2d");
-      new Chart(ctx, {
+      this.chartInstance = new Chart(ctx, {
         type: "bar",
         data: {
           labels: ["Total Diproses", "Total Direvisi", "Total Ditolak", "Total Selesai", "Total Stop Clock"],
@@ -1197,6 +1230,7 @@ export default {
         this.summaryData = original;
         this.totalDataPengajuan = res.data.totalNda + res.data.totalMou + res.data.totalPks
 
+        this.years = res.data.listYear.map(item => item.toString())
         const barChartData = [res.data.totalProcessed, res.data.totalRevision, res.data.totalRejected, res.data.totalFinished, res.data.totalStopClock]
         const max = Math.max.apply(null, barChartData)
         this.createChart(barChartData, res.data.totalNda, res.data.totalMou, res.data.totalPks, res.data.totalFinishedNda, res.data.totalFinishedMou, res.data.totalFinishedPks, max, Math.ceil(max/4));
