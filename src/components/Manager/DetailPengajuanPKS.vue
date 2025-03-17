@@ -1921,98 +1921,16 @@ import { dateParsing } from '@/utils/helper';
                 Catatan Approval
               </h1>
             </div>
-            <textarea
-              v-model="ApprovalNote"
-              type="text"
-              placeholder="Masukkan catatan approval"
-              class="w-full h-[88px] text-black font-sans text-sm focus:border-gray-400 focus:outline-none border border-gray-300 rounded-lg p-2 mt-2 bg-white"
-            />
+            <div class="w-full h-[88px] bg-[#E0E0E0] border-[#E5E7E9] border-[1px] rounded-lg mt-2 flex items-start justify-start">
+              <div class="flex p-4">
+                <div class="ml-4">
+                  <span class="block text-[#333333] font-sans text-[14px]">{{ dataBerkas?.approvalNote }}</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <div class="w-[1046px] h-[1px] bg-[#E5E7E9] items-center transform ml-4 mt-6" />
-        <!-- <div v-if="isManager" class="flex flex-row w-[1046px] h-auto ml-4 py-9">
-          <button @click="showPenyelesaianPKSPopup = true" class="absolute bottom-[12px] right-[24px] flex">
-            <div class="flex items-center justify-center w-[83px] h-[40px] bg-[#2671D9] hover:bg-[#1E5BB7] rounded-lg border-[1px] text-[#FFFFFF]">
-              <span class="text-[14px] font-sans font-semibold text-[white] ml-3 mt-[9px] mr-3 mb-[9px]">Selesai</span>
-            </div>
-          </button>
-        </div> -->
-        <!-- <div v-if="showPenyelesaianPKSPopup" class="fixed inset-0 flex items-center justify-center bg-[#1F2937] bg-opacity-50">
-          <div class="bg-[#FFFFFF] rounded-lg shadow-lg w-[502px] h-[596px]">
-            <div class="flex w-[502px] h-[76px] bg-[#E9F1FB] border-[#DEDEDE] rounded-tl-lg rounded-tr-lg">
-              <h1 class="w-[325px] h-[28px] ml-6 mt-6 font-sans font-bold text-[20px] text-[#000000]">Progress Kemitraan (PKS) Selesai</h1>
-              <button @click="closePenyelesaianPKSPopup" class="text-[#CCCCCC] absolute mt-5 ml-[472px] text-[20px]">&times;</button>
-            </div>
-            <div class="flex flex-col justify-start items-start mt-4 ml-6 mr-8">
-              <h1 class="w-[454px] h-[56px] items-start text-[16px] font-sans font-normal text-[#333333] mb-2">Silahkan mengisi form berikut untuk penyelesaian dokumen PKS.</h1>
-              <div class="flex flex-col w-[454.5px] h-[72px]">
-                <div class="flex items-center">
-                  <h1 class="w-[88px] h-[24px] font-sans text-[16px] font-bold text-[#4D5E80]">Nomor PKS</h1>
-                  <span class="text-[#FF5656] font-bold ml-1">*</span>
-                </div>
-                <input
-                  v-model="nomorPKS"
-                  type="text"
-                  placeholder="Masukkan Nomor PKS"
-                  class="w-[454.5px] h-[40px] rounded-md bg-[#FFFFFF] border border-[#E5E7E9] mt-2 pl-4 font-sans text-[14px] text-[#7F7F80] font-extralight outline-none"
-                />
-              </div>
-              <div class="relative flex flex-col w-[454.5px] h-[72px] mt-4">
-                <div ref="datePickerSelesaiContainer" class="flex items-center">
-                  <h1 class="w-[122px] h-[24px] font-sans text-[16px] font-bold text-[#4D5E80]">Tanggal Selesai</h1>
-                  <span class="text-[#FF5656] font-bold">*</span>
-                </div>
-                <input
-                  ref="datePickerSelesaiInput"
-                  type="date"
-                  class="custom-date-picker border border-[#E5E7E9] font-sans text-[15px] text-[#9C9C9C] rounded-lg p-[7px] mt-2 hover:bg-[#DBEAFE] cursor-pointer transition-all"
-                  @change="updateDateSelesai"
-                  @blur="hideDatePickerSelesai"
-                />
-              </div>
-              <div class="relative flex flex-col w-[454.5px] h-[72px] mt-4">
-                <div ref="datePickerPerjanjianContainer" class="flex items-center">
-                  <h1 class="w-[190px] h-[24px] font-sans text-[16px] font-bold text-[#4D5E80]">Jangka Waktu Perjanjian</h1>
-                  <span class="text-[#FF5656] font-bold">*</span>
-                </div>
-                <input
-                  ref="datePickerPerjanjianInput"
-                  type="date"
-                  class="custom-date-picker border border-[#E5E7E9] font-sans text-[15px] text-[#9C9C9C] rounded-lg p-[7px] mt-2 hover:bg-[#DBEAFE] cursor-pointer transition-all"
-                  @change="updateDatePerjanjian"
-                  @blur="hideDatePickerPerjanjian"
-                />
-              </div>
-              <div class="flex flex-col w-[454.5px] h-[72px] mt-4">
-                <div class="flex items-center">
-                  <h1 class="w-[286px] h-[24px] font-sans text-[16px] font-bold text-[#4D5E80]">Nama Pejabat yang Bertanda Tangan</h1>
-                  <span class="text-[#FF5656] font-bold">*</span>
-                </div>
-                <SelectSearch
-                  :options="optionsPejabat"
-                  placeholder="Pilih staff..."
-                  :initialValue="namaPejabat"
-                  @change="handleSelectionChange"
-                />
-                <span class="absolute mt-[45px] ml-[428px] cursor-pointer">
-                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
-                      d="M5.99967 1.66634C3.60644 1.66634 1.66634 3.60644 1.66634 5.99967C1.66634 8.39291 3.60644 10.333 5.99967 10.333C7.19648 10.333 8.27889 9.84871 9.0638 9.0638C9.84871 8.27889 10.333 7.19648 10.333 5.99967C10.333 3.60644 8.39291 1.66634 5.99967 1.66634ZM0.333008 5.99967C0.333008 2.87006 2.87006 0.333008 5.99967 0.333008C9.12929 0.333008 11.6663 2.87006 11.6663 5.99967C11.6663 7.32398 11.2114 8.54294 10.4503 9.50751L13.4711 12.5283C13.7314 12.7886 13.7314 13.2107 13.4711 13.4711C13.2107 13.7314 12.7886 13.7314 12.5283 13.4711L9.50751 10.4503C8.54294 11.2114 7.32398 11.6663 5.99967 11.6663C2.87006 11.6663 0.333008 9.12929 0.333008 5.99967Z"
-                      fill="#2671D9"
-                    />
-                  </svg>
-                </span>
-              </div>
-              <button @click="SendApprove" :disabled="!isFormComplete" class="absolute mt-[450px] ml-[378px] flex">
-                <div :class="{ 'bg-[#2671D9] hover:bg-[#1E5BB7] text-[#FFFFFF]': isFormComplete, 'bg-[#E6E6E6] text-[#7F7F80]': !isFormComplete }" class="flex items-center justify-center w-[78px] h-[40px] rounded-lg border-[1px]">
-                  <span class="text-[14px] font-sans font-semibold ml-3 mt-[9px] mr-3 mb-[9px]">Kirim</span>
-                </div>
-              </button>
-            </div>
-          </div>
-        </div> -->
       </div>
     </div>
   </div>

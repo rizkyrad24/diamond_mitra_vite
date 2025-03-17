@@ -2471,13 +2471,12 @@ import { dateParsing } from '@/utils/helper';
                 Tanggapan
               </h1>
             </div>
-            <div class="w-full h-[88px] bg-[#E0E0E0] border-[#E5E7E9] border-[1px] rounded-lg mt-2 flex items-start justify-start">
-              <div class="flex p-4">
-                <div class="ml-4">
-                  <span class="block text-[#333333] font-sans text-[14px]">Lorem ipsum dolor sit amet consectetur. Tincidunt convallis sit quisque.</span>
-                </div>
-              </div>
-            </div>
+            <textarea
+              v-model="responseText"
+              type="text"
+              placeholder="Masukkan tanggapan"
+              class="w-full h-[88px] text-black font-sans text-sm focus:border-gray-400 focus:outline-none border border-gray-300 rounded-lg p-2 mt-2 bg-white"
+            />
           </div>
           <div class="flex flex-col w-[520px] h-auto ml-4">
             <div class="flex items-center">
@@ -2486,6 +2485,7 @@ import { dateParsing } from '@/utils/helper';
               </h1>
             </div>
             <textarea
+              v-model="approvalNote"
               type="text"
               placeholder="Masukkan catatan approval"
               class="w-full h-[88px] text-black font-sans text-sm focus:border-gray-400 focus:outline-none border border-gray-300 rounded-lg p-2 mt-2 bg-white"
@@ -2683,7 +2683,7 @@ import { dateParsing } from '@/utils/helper';
 </template>
 
 <script>
-import { fetchGet, fetchPostForm, fetchPost } from '@/api/apiFunction';
+import { fetchGet, fetchPostForm } from '@/api/apiFunction';
 import { baseURL } from '@/api/apiManager';
 
 export default {
@@ -2764,7 +2764,8 @@ export default {
 
       dataBerkas: null,
       id: null,
-      ApprovalNote: '',
+      approvalNote: '',
+      responseText: '',
 
       modalFailed: {
         isVisible: false,
@@ -3402,6 +3403,8 @@ export default {
       );
       if (res.status == 200) {
         this.dataBerkas = res.data;
+        this.responseText = res.data.responseText;
+        this.approvalNote = res.data.approvalNote;
         res.data.attachmentsPks.forEach((item) => {
           if (item.fileType == 'KKB') {
             this.fileDetails.KKB.fileName = item.fileName;
@@ -3541,7 +3544,8 @@ export default {
     async postPKS(successFunction, failFunction) {
       this.isLoading = true;
       const form = new FormData()
-      form.append('ApprovalNote', this.ApprovalNote)
+      form.append('approvalNote', this.approvalNote)
+      form.append('responseText', this.responseText)
       form.append('pksNumber', this.nomorPKS)
       form.append('officialUndersign', this.namaPejabat.value)
       form.append('approvalCompletionDate', this.selectedDateSelesai)
@@ -3563,6 +3567,8 @@ export default {
     async postFilePks(successFunction, failFunction) {
       this.isLoading = true;
       const form = new FormData()
+      form.append('approvalNote', this.approvalNote)
+      form.append('responseText', this.responseText)
       let sort = 0;
       if (this.fileDetails.KKB.file || this.fileDetails.KKB.fileId) {
         if (this.fileDetails.KKB.file) {
@@ -3720,7 +3726,10 @@ export default {
     },
     async postRevisiMinor(successFunction, failFunction) {
       this.isLoading = true;
-      const res = await fetchPost(`mitra/staff/pks/incoming-data/${this.id}/minor-revision`, null, null, this.$router);
+      const form = new FormData()
+      form.append('approvalNote', this.approvalNote)
+      form.append('responseText', this.responseText)
+      const res = await fetchPostForm(`mitra/staff/pks/incoming-data/${this.id}/minor-revision`, null, form, this.$router);
       if (res.status == 200) {
         this.isSelesaiRevisiMinor = true;
         this.isSendRevisiMinor = false;
@@ -3735,7 +3744,8 @@ export default {
     async postRequestStopClock(successFunction, failFunction) {
       this.isLoading = true;
       const form = new FormData()
-      form.append('ApprovalNote', this.ApprovalNote)
+      form.append('approvalNote', this.approvalNote)
+      form.append('responseText', this.responseText)
       // Display the values
       for (var pair of form.entries()) {
         console.log(pair[0] + ', ' + pair[1]);
@@ -3753,7 +3763,8 @@ export default {
     async postRequestAbortStopClock(successFunction, failFunction) {
       this.isLoading = true;
       const form = new FormData()
-      form.append('ApprovalNote', this.ApprovalNote)
+      form.append('approvalNote', this.approvalNote)
+      form.append('responseText', this.responseText)
       // Display the values
       for (var pair of form.entries()) {
         console.log(pair[0] + ', ' + pair[1]);
@@ -3771,7 +3782,8 @@ export default {
     async postRequestStartClock(successFunction, failFunction) {
       this.isLoading = true;
       const form = new FormData()
-      form.append('ApprovalNote', this.ApprovalNote)
+      form.append('approvalNote', this.approvalNote)
+      form.append('responseText', this.responseText)
       // Display the values
       for (var pair of form.entries()) {
         console.log(pair[0] + ', ' + pair[1]);
@@ -3789,7 +3801,8 @@ export default {
     async postRequestAbortStartClock(successFunction, failFunction) {
       this.isLoading = true;
       const form = new FormData()
-      form.append('ApprovalNote', this.ApprovalNote)
+      form.append('approvalNote', this.approvalNote)
+      form.append('responseText', this.responseText)
       // Display the values
       for (var pair of form.entries()) {
         console.log(pair[0] + ', ' + pair[1]);

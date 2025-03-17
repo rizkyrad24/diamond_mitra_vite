@@ -53,10 +53,10 @@
                 />
               </svg>
               <h1 class="ml-[6px] mb-1 text-white text-[15px] font-sans font-semibold">
-                STAFF KEMITRAAN BISNIS
+                {{ title || "STAFF KEMITRAAN BISNIS" }}
               </h1>
             </div>
-            <span class="flex text-white font-sans font-normal text-[20px] px-5">Sub Bidang Kemitraan Bisnis {{ bisnisType || "Konektivitas dan Infrastruktur" }} </span>
+            <span class="flex text-white font-sans font-normal text-[20px] px-5">{{ department || "Sub Bidang Kemitraan Bisnis " + bisnisType || "Konektivitas dan Infrastruktur" }} </span>
           </div>
           <svg
             class="absolute right-0 top-0 w-auto h-[100px] rounded-md"
@@ -751,6 +751,8 @@ export default {
       totalDataPengajuan: 0,
       
       tableData: [],
+      title: "",
+      department: "",
       // tableData: [
       //   { pic: "Achmad Marzuki Yahya", jumlahPengajuan: 15, totalSelesai: 5, totalDiproses: 3, totalStopClock: 3 },
       //   { pic: "Erna Ade Surya Ponti", jumlahPengajuan: 12, totalSelesai: 4, totalDiproses: 4, totalStopClock: 4 },
@@ -869,6 +871,8 @@ export default {
   mounted() {
     this.getDataApi();
     this.bisnisType = localStorage.getItem("bisnisType");
+    this.title = localStorage.getItem("title");
+    this.department = localStorage.getItem("department");
   },
   methods: {
     closeModalFailed() {

@@ -1,11 +1,17 @@
 <template>
-  <div class="flex items-center justify-center w-[1366px] h-[1024px] bg-[#FFFFFF] shadow-xl">
+  <div class="flex items-center justify-center w-[1366px] h-[1024px] bg-[#F6F0F0] shadow-xl">
     <Loading :is-visible="isLoading" />
     <ModalFailed
       :is-visible="modalFailed.isVisible"
       :title="modalFailed.title"
       :message="modalFailed.message"
       @close="closeModalFailed"
+    />
+    <ModalSuccess
+      :is-visible="modalSuccess.isVisible"
+      :title="modalSuccess.title"
+      :message="modalSuccess.message"
+      @close="modalSuccess.closeFunction"
     />
     <div class="relative">
       <img
@@ -24,7 +30,7 @@
         </div>
       </div>
     </div>
-    <div class="w-[480px] h-[496px] bg-[#FFFFFF] ml-[120px]">
+    <div class="w-[480px] h-[496px] bg-[#F6F0F0] ml-[120px]">
       <svg
         class="ml-[114.5px]"
         width="252"
@@ -61,12 +67,12 @@
           />
         </defs>
       </svg>
-      <div class="w-auto h-[404px] bg-[#FFFFFF] mt-[48px]">
-        <h1 class="w-[108px] h-[60px] font-sans font-semibold text-[#21252B] text-[40px] ml-[186px]">
-          Login
+      <div class="w-auto h-[404px] bg-[#F6F0F0] mt-[48px]">
+        <h1 class="w-[208px] h-[60px] font-sans font-semibold text-[#21252B] text-[40px] ml-[146px]">
+          Login SSO
         </h1>
-        <div class="w-[480px] h-[168px] bg-[#FFFFFF] mt-8">
-          <div class="flex flex-col w-[480px] h-[72px] bg-[#FFFFFF]">
+        <div class="w-[480px] h-[168px] bg-[#F6F0F0] mt-8">
+          <div class="flex flex-col w-[480px] h-[72px] bg-[#F6F0F0]">
             <div class="flex">
               <h1 class="w-[75px] h-[24px] text-[16px] font-sans text-[#4D5E80] font-medium">
                 Username
@@ -77,10 +83,10 @@
               v-model="username"
               type="text"
               placeholder="Masukkan username"
-              class="w-[480px] h-[40px] rounded-md bg-[#FFFFFF] border border-[#E5E7E9] mt-2 pl-4 font-sans font-normal text-[14px] text-[#7F7F80] outline-none"
+              class="w-[480px] h-[40px] rounded-md bg-[#F6F0F0] border border-[#E5E7E9] mt-2 pl-4 font-sans font-normal text-[14px] text-[#7F7F80] outline-none"
             >
           </div>
-          <div class="flex flex-col w-[480px] h-[72px] bg-[#FFFFFF] mt-6">
+          <div class="flex flex-col w-[480px] h-[72px] bg-[#F6F0F0] mt-6">
             <div class="flex items-center">
               <h1 class="w-[70px] h-[24px] text-[16px] font-sans text-[#4D5E80] font-medium">
                 Password
@@ -94,7 +100,7 @@
                 v-model="password"
                 :type="showPassword ? 'text' : 'password'"
                 placeholder="Masukkan password"
-                class="w-[480px] h-[40px] rounded-md bg-[#FFFFFF] border border-[#E5E7E9] pl-4 pr-10 font-sans font-normal text-[14px] text-[#7F7F80] outline-none"
+                class="w-[480px] h-[40px] rounded-md bg-[#F6F0F0] border border-[#E5E7E9] pl-4 pr-10 font-sans font-normal text-[14px] text-[#7F7F80] outline-none"
               >
               <svg
                 v-if="showPassword"
@@ -162,26 +168,25 @@
               </svg>
             </div>
           </div>
-          <div class="relative w-[480px] h-[112px] bg-[#FFFFFF] mt-8">
+          <div class="relative w-[480px] h-[112px] bg-[#F6F0F0] mt-8">
             <button
               :disabled="isDisableLogin"
               :class="isDisableLogin ? 'bg-[#9C9C9C] text-white' : 'bg-[#2671D9] hover:bg-[#1E5BB7]'"
-              class="w-[480px] h-[48px] rounded-md text-[#FFFFFF] font-sans font-medium text-[14px]"
+              class="w-[480px] h-[48px] rounded-md text-[#F6F0F0] font-sans font-medium text-[14px]"
               @click="submit"
             >
-              Login
+              Login dengan SSO
             </button>
             <button
               class="absolute flex mt-4"
               @click="navigateToDetail"
             >
               <div
-                class="flex items-center justify-center w-[480px] h-[48px] rounded-lg bg-[#FFFFFF] border-[#2671D9] border-[1px] hover:bg-[#DBEAFE] cursor-pointer transition-all"
+                class="flex items-center justify-center w-[480px] h-[48px] rounded-lg bg-[#F6F0F0] border-[#2671D9] border-[1px] hover:bg-[#DBEAFE] cursor-pointer transition-all"
               >
                 <span
                   class="text-[14px] font-sans font-medium text-[#2671D9] ml-3 mt-[9px] mr-3 mb-[9px] group-hover:text-[#333333]"
-                >Login
-                  dengan SSO</span>
+                >Login Internal</span>
               </div>
             </button>
           </div>
@@ -197,6 +202,7 @@ import { ref, watch } from "vue";
 import { useRouter } from "vue-router";
 import { fetchPostFormPublic } from "@/api/apiFunction";
 import ModalFailed from "./modalfailed.vue";
+import ModalSuccess from "./modalsuccess.vue";
 import Loading from "./loading.vue";
 
 const router = useRouter();
@@ -212,6 +218,12 @@ const modalFailed = ref({
   title: '',
   message: ''
 });
+const modalSuccess = ref({
+  isVisible: false,
+  title: '',
+  message: '',
+  closeFunction: () => null
+});
 
 watch(
   [username, password],
@@ -225,7 +237,7 @@ watch(
 );
 
 function navigateToDetail() {
-  router.push("/login-sso");
+  router.push("/login");
 }
 
 function togglePasswordVisibility() {
@@ -240,12 +252,21 @@ function closeModalFailed() {
   }
 }
 
+function closeModalSuccess() {
+  modalSuccess.value = {
+    isVisible: false,
+    title: '',
+    message: '',
+    closeFunction: () => null
+  }
+}
+
 async function submit() {
   isLoading.value = true;
   const payload = new FormData();
   payload.append('username', username.value);
   payload.append('password', password.value);
-  const res = await fetchPostFormPublic('account/login', null, payload, router);
+  const res = await fetchPostFormPublic('account/login-ldap', null, payload, router);
   if (res?.status == 200) {
     if (res.data.role == "PartnershipStaff") {
       saveDataLogin(res.data);
@@ -266,6 +287,14 @@ async function submit() {
         title: 'Forbidden',
         message: 'Role anda tidak terdaftar untuk aplikasi ini'
       }
+    }
+  } else if (res?.status == 201) {
+    isLoading.value = false;
+    modalSuccess.value = {
+      isVisible: true,
+      title: 'Success',
+      message: res.data.message,
+      closeFunction: closeModalSuccess
     }
   } else {
     isLoading.value = false;

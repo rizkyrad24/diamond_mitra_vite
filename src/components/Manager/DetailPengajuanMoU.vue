@@ -73,22 +73,29 @@ import { dateParsing } from '@/utils/helper';
             Detail Pengajuan {{
               dataBerkas?.base || 'PKS' }}
           </h1>
-          <div class="relative mt-4 mb-4 items-start w-[209px] h-[72px] border-[1px] border-[#E5E7E9] rounded-md">
-            <div class="w-[209px] h-[29px] border-[1px] border-[#E5E7E9] rounded-tl-md rounded-tr-md bg-[#FFB200]">
+          <div class="relative mt-4 mb-4 items-start w-[209px] min-h-[72px] border-[1px] border-[#E5E7E9] rounded-md">
+            <div
+              :class="{'bg-[#FFB200]': !isProgressFinish, 'bg-[#0ea976]': isProgressFinish}"
+              class="w-[209px] h-[29px] border-[1px] border-[#E5E7E9] rounded-tl-md rounded-tr-md"
+            >
               <h1 class="mt-[7px] ml-4 w-[177px] h-[15px] font-sans text-[10px] text-[#333333] font-medium">
                 Progress Kemitraan {{
                   dataBerkas?.base || 'PKS' }}
               </h1>
             </div>
             <div class="flex items-center">
-              <h1 class="w-[79px] h-[27px] font-sans text-[18px] font-bold text-[#FFB200] ml-4 mb-2">
-                Proposal
+              <h1
+                :class="{'text-[#FFB200]': !isProgressFinish, 'text-[#0ea976]': isProgressFinish}"
+                class="w-[150px] h-auto font-sans text-[18px] font-bold ml-4 my-2"
+              >
+                {{ progress }}
               </h1>
               <button
-                class="ml-[80px]"
+                class="ml-[9px]"
                 @click="showProgressMoUPopup = true"
               >
                 <svg
+                  v-if="!isProgressFinish"
                   width="46"
                   height="45"
                   viewBox="0 0 46 45"
@@ -199,6 +206,19 @@ import { dateParsing } from '@/utils/helper';
                       />
                     </filter>
                   </defs>
+                </svg>
+                <svg
+                  v-else
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="text-[#0EA976] bg-[#E2FCF3] rounded-full w-[15px] h-[15px] absolute top-[42px] ml-[5px]"
+                  viewBox="0 0 21 19"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.707 4.293a1 1 0 00-1.414 0L8 11.586 4.707 8.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z"
+                    clip-rule="evenodd"
+                  />
                 </svg>
               </button>
             </div>
@@ -1097,85 +1117,16 @@ import { dateParsing } from '@/utils/helper';
                 Catatan Approval
               </h1>
             </div>
-            <textarea
-              v-model="ApprovalNote"
-              type="text"
-              placeholder="Masukkan catatan approval"
-              class="w-full h-[88px] text-black font-sans text-sm focus:border-gray-400 focus:outline-none border border-gray-300 rounded-lg p-2 mt-2 bg-white"
-            />
+            <div class="w-full h-[88px] bg-[#E0E0E0] border-[#E5E7E9] border-[1px] rounded-lg mt-2 flex items-start justify-start">
+              <div class="flex p-4">
+                <div class="ml-4">
+                  <span class="block text-[#333333] font-sans text-[14px]">{{ dataBerkas?.approvalNote }}</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <div class="w-[1046px] h-[1px] bg-[#E5E7E9] items-center transform ml-4 mt-6" />
-        <!-- <div v-if="isManager" class="flex flex-row w-[1046px] h-auto ml-4 py-9">
-          <button @click="showPenyelesaianMoUPopup = true" class="absolute bottom-[12px] right-[24px] flex">
-            <div class="flex items-center justify-center w-[83px] h-[40px] bg-[#2671D9] hover:bg-[#1E5BB7] rounded-lg border-[1px] text-[#FFFFFF]">
-              <span class="text-[14px] font-sans font-semibold text-[white] ml-3 mt-[9px] mr-3 mb-[9px]">Selesai</span>
-            </div>
-          </button>
-        </div> -->
-        <!-- <div v-if="showPenyelesaianMoUPopup" class="fixed inset-0 flex items-center justify-center bg-[#1F2937] bg-opacity-50">
-          <div class="bg-[#FFFFFF] rounded-lg shadow-lg w-[502px] h-[508px]">
-            <div class="flex w-[502px] h-[76px] bg-[#E9F1FB] border-[#DEDEDE] rounded-tl-lg rounded-tr-lg">
-              <h1 class="w-[380px] h-[28px] ml-6 mt-6 font-sans font-bold text-[20px] text-[#000000]">Progress Kemitraan (MoU/NDA) Selesai</h1>
-              <button @click="closePenyelesaianMoUPopup" class="text-[#CCCCCC] absolute mt-5 ml-[472px] text-[20px]">&times;</button>
-            </div>
-            <div class="flex flex-col justify-start items-start mt-4 ml-6 mr-8">
-              <h1 class="w-[454px] h-[56px] items-start text-[16px] font-sans font-normal text-[#333333] mb-2">Silahkan mengisi form berikut untuk penyelesaian dokumen MoU/NDA.</h1>
-              <div class="relative flex flex-col w-[454.5px] h-[72px]">
-                <div class="flex items-center">
-                  <h1 class="w-[140px] h-[24px] font-sans text-[16px] font-bold text-[#4D5E80]">Nomor MoU/NDA</h1>
-                  <span class="text-[#FF5656] font-bold ml-1">*</span>
-                </div>
-                <input
-                  v-model="nomorMoU"
-                  type="text"
-                  placeholder="Masukkan Nomor MoU/NDA"
-                  class="w-[454.5px] h-[40px] rounded-md bg-[#FFFFFF] border border-[#E5E7E9] mt-2 pl-4 font-sans text-[14px] text-[#7F7F80] font-extralight outline-none"
-                />
-              </div>
-              <div class="relative flex flex-col w-[454.5px] h-[72px] mt-4">
-                <div ref="datePickerSelesaiContainer" class="flex items-center">
-                  <h1 class="w-[122px] h-[24px] font-sans text-[16px] font-bold text-[#4D5E80]">Tanggal Selesai</h1>
-                  <span class="text-[#FF5656] font-bold">*</span>
-                </div>
-                <input
-                  ref="datePickerSelesaiInput"
-                  type="date"
-                  class="custom-date-picker border border-[#E5E7E9] font-sans text-[15px] text-[#9C9C9C] rounded-lg p-[7px] mt-2 hover:bg-[#DBEAFE] cursor-pointer transition-all"
-                  @change="updateDateSelesai"
-                  @blur="hideDatePickerSelesai"
-                />
-              </div>
-              <div class="flex flex-col w-[454.5px] h-[72px] mt-4">
-                <div class="flex items-center">
-                  <h1 class="w-[286px] h-[24px] font-sans text-[16px] font-bold text-[#4D5E80]">Nama Pejabat yang Bertanda Tangan</h1>
-                  <span class="text-[#FF5656] font-bold">*</span>
-                </div>
-                <SelectSearch
-                  :options="optionsPejabat"
-                  placeholder="Pilih staff..."
-                  :initialValue="namaPejabat"
-                  @change="handleSelectionChange"
-                />
-                <span class="absolute mt-[45px] ml-[428px] cursor-pointer">
-                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
-                      d="M5.99967 1.66634C3.60644 1.66634 1.66634 3.60644 1.66634 5.99967C1.66634 8.39291 3.60644 10.333 5.99967 10.333C7.19648 10.333 8.27889 9.84871 9.0638 9.0638C9.84871 8.27889 10.333 7.19648 10.333 5.99967C10.333 3.60644 8.39291 1.66634 5.99967 1.66634ZM0.333008 5.99967C0.333008 2.87006 2.87006 0.333008 5.99967 0.333008C9.12929 0.333008 11.6663 2.87006 11.6663 5.99967C11.6663 7.32398 11.2114 8.54294 10.4503 9.50751L13.4711 12.5283C13.7314 12.7886 13.7314 13.2107 13.4711 13.4711C13.2107 13.7314 12.7886 13.7314 12.5283 13.4711L9.50751 10.4503C8.54294 11.2114 7.32398 11.6663 5.99967 11.6663C2.87006 11.6663 0.333008 9.12929 0.333008 5.99967Z"
-                      fill="#2671D9"
-                    />
-                  </svg>
-                </span>
-              </div>
-              <button @click="SendApprove" :disabled="!isFormComplete" class="absolute mt-[350px] ml-[378px] flex">
-                <div :class="{ 'bg-[#2671D9] hover:bg-[#1E5BB7] text-[#FFFFFF]': isFormComplete, 'bg-[#E6E6E6] text-[#7F7F80]': !isFormComplete }" class="flex items-center justify-center w-[78px] h-[40px] rounded-lg border-[1px]">
-                  <span class="text-[14px] font-sans font-semibold ml-3 mt-[9px] mr-3 mb-[9px]">Kirim</span>
-                </div>
-              </button>
-            </div>
-          </div>
-        </div> -->
       </div>
     </div>
   </div>
@@ -1269,6 +1220,22 @@ export default {
     headerClass3() {
       return this.fileUploaded3 ? "bg-[#0EA976]" : "bg-[#FFC107]";
     },
+    progress() {
+      if (this.fileName2 || this.fileName3) {
+        return "MoU/NDA"
+      } else if(this.fileName1) {
+        return "Proposal"
+      } else {
+        return "Surat Penawaran"
+      }
+    },
+    isProgressFinish() {
+      if (this.fileName3) {
+        return true
+      } else {
+        return false
+      }
+    }
   },
   mounted() {
     if (this.$route.params.id) {

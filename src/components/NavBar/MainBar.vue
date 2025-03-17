@@ -2,7 +2,7 @@
 import navaction from './navaction.vue';
 import Loading from '../loading.vue';
 import ModalFailed from '../modalfailed.vue';
-import { dateParsing } from '@/utils/helper';
+import { dateParsing, convertDatetime } from '@/utils/helper';
 </script>
 
 <template>
@@ -58,7 +58,7 @@ import { dateParsing } from '@/utils/helper';
                 @click="selectSection(index)"
               >
                 <div class="w-[80px] h-[50px] text-[14px] font-sans text-[#667085]">
-                  <p>{{ dateParsing(row.dateOfUpdate) }}</p>
+                  <p>{{ convertDatetime(row.dateOfUpdate) }}</p>
                 </div>
                 <div
                   class="w-[2px] h-[200px] ml-[24px]"
@@ -87,7 +87,7 @@ import { dateParsing } from '@/utils/helper';
                     </p>
                     <p class="mt-2 text-[14px] text-[#9C9C9C] flex">
                       <span class="w-[66px]">Pelaksana</span>
-                      <span>: {{ row.disposedStaff }}</span>
+                      <span>: {{ row.dispossedStaff }}</span>
                     </p>
                   </div>
                 </div>

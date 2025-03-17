@@ -53,10 +53,10 @@
                 />
               </svg>
               <h1 class="ml-[6px] mb-1 text-white text-[15px] font-sans font-semibold">
-                {{ jabatan }} KEMITRAAN BISNIS
+                {{ title || jabatan + " KEMITRAAN BISNIS" }}
               </h1>
             </div>
-            <span class="flex text-white font-sans font-normal text-[20px] px-5">Sub Bidang Kemitraan Bisnis {{ bisnisType || "Konektivitas dan Infrastruktur" }} </span>
+            <span class="flex text-white font-sans font-normal text-[20px] px-5">{{ title || "Sub Bidang Kemitraan Bisnis " + bisnisType || "Konektivitas dan Infrastruktur" }} </span>
           </div>
           <svg
             class="absolute right-0 top-0 w-auto h-[100px] rounded-md"
@@ -886,6 +886,8 @@ export default {
       years: ['All'],
       chartInstance: null,
       isDelay: false,
+      title: "",
+      department: "",
     };
   },
   computed: {
@@ -993,6 +995,8 @@ export default {
     if (role == 'PartnershipVP') {
       this.jabatan = "VICE PRESIDENT"
     }
+    this.title = localStorage.getItem("title");
+    this.department = localStorage.getItem("department");
   },
   beforeUnmount() {
     document.removeEventListener("click", this.handleClickOutside);

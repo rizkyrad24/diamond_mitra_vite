@@ -1098,15 +1098,12 @@ import { dateParsing } from '@/utils/helper';
                 Tanggapan
               </h1>
             </div>
-            <div
-              class="w-full h-[88px] bg-[#E0E0E0] border-[#E5E7E9] border-[1px] rounded-lg mt-2 flex items-start justify-start"
-            >
-              <div class="flex p-4">
-                <div class="ml-4">
-                  <span class="block text-[#4D5E80] font-sans text-[14px] font-semibold">{{ dataBerkas?.responseText }}</span>
-                </div>
-              </div>
-            </div>
+            <textarea
+              v-model="responseText"
+              type="text"
+              placeholder="Masukkan tanggapan"
+              class="w-full h-[88px] text-black font-sans text-sm focus:border-gray-400 focus:outline-none border border-gray-300 rounded-lg p-2 mt-2 bg-white"
+            />
           </div>
           <div class="flex flex-col w-[511px] h-auto ml-6">
             <div class="flex items-center">
@@ -1114,15 +1111,12 @@ import { dateParsing } from '@/utils/helper';
                 Approval
               </h1>
             </div>
-            <div
-              class="w-full h-[88px] bg-[#E0E0E0] border-[#E5E7E9] border-[1px] rounded-lg mt-2 flex items-start justify-start"
-            >
-              <div class="flex p-4">
-                <div class="ml-4">
-                  <span class="block text-[#4D5E80] font-sans text-[14px] font-semibold">{{ dataBerkas?.approvalNote }}</span>
-                </div>
-              </div>
-            </div>
+            <textarea
+              v-model="approvalNote"
+              type="text"
+              placeholder="Masukkan catatan approval"
+              class="w-full h-[88px] text-black font-sans text-sm focus:border-gray-400 focus:outline-none border border-gray-300 rounded-lg p-2 mt-2 bg-white"
+            />
           </div>
         </div>
 
@@ -1158,7 +1152,7 @@ import { dateParsing } from '@/utils/helper';
 
 <script>
 import { baseURL } from '@/api/apiManager';
-import { fetchGet, fetchPost } from '@/api/apiFunction';
+import { fetchGet, fetchPostForm } from '@/api/apiFunction';
 import SelectSearch from '../SelectSearch/SelectSearch.vue';
 import Loading from '../loading.vue';
 import ModalFailed from '../modalfailed.vue';
@@ -1210,6 +1204,10 @@ export default {
 
       optionsStaff: [],
       disposedStaff: null,
+
+      responseText: '',
+      approvalNote: '',
+
 
       modalFailed: {
         isVisible: false,
@@ -1496,6 +1494,8 @@ export default {
               this.linkDownloadlainnya = `${baseURL.replace('/api',"")}/download/file/${item.id}`
             }
           })
+          this.responseText = res.data.responseText;
+          this.approvalNote = res.data.approvalNote;
           this.isLoading = false;
           console.log(res.data);
         } else {
@@ -1531,6 +1531,8 @@ export default {
               this.linkDownloadlainnya = `${baseURL.replace('/api',"")}/download/file/${item.id}`
             }
           })
+          this.responseText = res.data.responseText;
+          this.approvalNote = res.data.approvalNote;
           this.isLoading = false;
           console.log(res.data);
         } else {
@@ -1549,7 +1551,7 @@ export default {
       const res = await fetchGet('account/list-user', params, this.$router);
       if (res.status == 200) {
         this.optionsStaff = res.data.map(item => ({
-          value: item.username,
+          value: item.id,
           label: `${item.firstName} ${item.lastName}`
         }))
         this.isLoading = false;
@@ -1574,9 +1576,12 @@ export default {
           message: "Silahkan pilih staff terlebih dahulu"
         }
       }
-      const params = { disposedStaff: this.disposedStaff.value }
+      const form = new FormData()
+      form.append('approvalNote', this.approvalNote);
+      form.append('disposedStaff', parseInt(this.disposedStaff.value));
+      form.append('responseText', this.responseText);
       if (this.base == "PKS") {
-        const res = await fetchPost(`mitra/manager/pks/incoming-data/${this.id}`, params, null, this.$router);
+        const res = await fetchPostForm(`mitra/manager/pks/incoming-data/${this.id}`, null, form, this.$router);
         if (res.status == 200) {
           this.isLoading = false;
           successFunction();
@@ -1585,7 +1590,7 @@ export default {
           failFunction();
         }
       } else {
-        const res = await fetchPost(`mitra/manager/mounda/incoming-data/${this.id}`, params, null, this.$router);
+        const res = await fetchPostForm(`mitra/manager/mounda/incoming-data/${this.id}`, null, form, this.$router);
         if (res.status == 200) {
           this.isLoading = false;
           successFunction();
@@ -1613,7 +1618,10 @@ export default {
           message: "Posisi anda tidak dapat mengakses halaman ini"
         }
       }
-      const res = await fetchPost(url, null, null, this.$router);
+      const form = new FormData()
+      form.append('approvalNote', this.approvalNote);
+      form.append('responseText', this.responseText);
+      const res = await fetchPostForm(url, null, form, this.$router);
       if (res.status == 200) {
         this.isLoading = false;
         successFunction();
@@ -1640,7 +1648,10 @@ export default {
           message: "Posisi anda tidak dapat mengakses halaman ini"
         }
       }
-      const res = await fetchPost(url, null, null, this.$router);
+      const form = new FormData()
+      form.append('approvalNote', this.approvalNote);
+      form.append('responseText', this.responseText);
+      const res = await fetchPostForm(url, null, form, this.$router);
       if (res.status == 200) {
         this.isLoading = false;
         successFunction();

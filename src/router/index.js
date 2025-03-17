@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import LoginPage from '@/pages/login-page.vue';
+import loginSSOPage from '@/pages/login-sso-page.vue';
 import HomePage from '@/pages/home-page.vue';
 import DashboardView from '@/pages/dashboard/dashboard-view.vue';
 import DashboardStaff from '@/pages/dashboard/dashboard-staff.vue';
@@ -33,6 +34,7 @@ import { clearDataLogin } from '@/utils/helper';
 
 const routes = [
   { name: 'LoginPage', path: '/login', component: LoginPage },
+  { name: 'LoginSSOPage', path: '/login-sso', component: loginSSOPage },
   { path: '/', redirect: '/login' },
   { name: 'Homepage', path: '/homepage', component: HomePage, meta: { requiresAuth: true, role: ['PartnershipManager', 'PartnershipVP', 'PartnershipDirector'] }  },
   { name: 'Dashboard', path: '/dashboard', component: DashboardView, meta: { requiresAuth: true, role: ['PartnershipManager', 'PartnershipVP', 'PartnershipDirector'] }  },

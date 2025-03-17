@@ -1021,15 +1021,12 @@ import { dateParsing } from '@/utils/helper';
                 Tanggapan
               </h1>
             </div>
-            <div
-              class="w-full h-[88px] bg-[#E0E0E0] border-[#E5E7E9] border-[1px] rounded-lg mt-2 flex items-start justify-start"
-            >
-              <div class="flex p-4">
-                <div class="ml-4">
-                  <span class="block text-[#4D5E80] font-sans text-[14px] font-semibold">{{ dataBerkas?.responseText }}</span>
-                </div>
-              </div>
-            </div>
+            <textarea
+              v-model="responseText"
+              type="text"
+              placeholder="Masukkan tanggapan"
+              class="w-full h-[88px] text-black font-sans text-sm focus:border-gray-400 focus:outline-none border border-gray-300 rounded-lg p-2 mt-2 bg-white"
+            />
           </div>
           <div class="flex flex-col w-[511px] h-auto ml-6">
             <div class="flex items-center">
@@ -1037,15 +1034,12 @@ import { dateParsing } from '@/utils/helper';
                 Approval
               </h1>
             </div>
-            <div
-              class="w-full h-[88px] bg-[#E0E0E0] border-[#E5E7E9] border-[1px] rounded-lg mt-2 flex items-start justify-start"
-            >
-              <div class="flex p-4">
-                <div class="ml-4">
-                  <span class="block text-[#4D5E80] font-sans text-[14px] font-semibold">{{ dataBerkas?.approvalNote }}</span>
-                </div>
-              </div>
-            </div>
+            <textarea
+              v-model="approvalNote"
+              type="text"
+              placeholder="Masukkan catatan approval"
+              class="w-full h-[88px] text-black font-sans text-sm focus:border-gray-400 focus:outline-none border border-gray-300 rounded-lg p-2 mt-2 bg-white"
+            />
           </div>
         </div>
         <div class="flex flex-row w-[1046px] h-auto ml-4 py-7">
@@ -1113,7 +1107,7 @@ import { dateParsing } from '@/utils/helper';
 </template>
 
 <script>
-import { fetchGet, fetchPost } from '@/api/apiFunction';
+import { fetchGet, fetchPostForm } from '@/api/apiFunction';
 import { baseURL } from '@/api/apiManager';
 
 export default {
@@ -1151,6 +1145,9 @@ export default {
       fileNamelainnya: null,
       fileSizelainnya: null,
       linkDownloadlainnya: "",
+
+      responseText: '',
+      approvalNote: '',
 
       modalFailed: {
         isVisible: false,
@@ -1308,8 +1305,8 @@ export default {
       this.showAbortTolakPopup = false;
       this.modalDialog = {
         isVisible: true,
-        title: 'Batalkan Ajukan Tolak',
-        message: `Apakan anda yakin akan membatalkan ajukan tolak pengajuan ini`,
+        title: 'Konfirmasi',
+        message: `Apakan anda yakin akan membatalkan penolakan pengajuan ini`,
         okFunction: this.openAbortTolak,
         closeFunction: this.closeAbortTolak
       }
@@ -1325,15 +1322,15 @@ export default {
     successAbortTolak() {
       this.modalSuccess = {
         isVisible: true,
-        title: 'Berhasil Membatalkan Ajuan Tolak',
-        message: `Pengajuan tolak berhasil dibatalkan`,
+        title: 'Berhasil',
+        message: `Pengajuan penolakan berhasil dibatalkan`,
         closeFunction: this.closeSelesaiAbortTolak
       }
     },
     failAbortTolak(data) {
       this.modalFailed = {
         isVisible: true,
-        title: 'Gagal Membatalkan Ajuan Tolak',
+        title: 'Gagal',
         message: data?.message ? data.message : "Silahkan hubungi admin"
       }
     },
@@ -1464,6 +1461,8 @@ export default {
               this.linkDownloadlainnya = `${baseURL.replace('/api',"")}/download/file/${item.id}`
             }
           })
+          this.responseText = res.data.responseText;
+          this.approvalNote = res.data.approvalNote;
           this.isLoading = false;
           console.log(res.data);
         } else {
@@ -1499,6 +1498,8 @@ export default {
               this.linkDownloadlainnya = `${baseURL.replace('/api',"")}/download/file/${item.id}`
             }
           })
+          this.responseText = res.data.responseText;
+          this.approvalNote = res.data.approvalNote;
           this.isLoading = false;
           console.log(res.data);
         } else {
@@ -1513,8 +1514,11 @@ export default {
     },
     async postAproval(successFunction, failFunction) {
       this.isLoading = true;
+      const form = new FormData()
+      form.append('approvalNote', this.approvalNote);
+      form.append('responseText', this.responseText);
       if (this.base == "PKS") {
-        const res = await fetchPost(`mitra/staff/pks/incoming-data/${this.id}`, null, null, this.$router);
+        const res = await fetchPostForm(`mitra/staff/pks/incoming-data/${this.id}`, null, form, this.$router);
         if (res.status == 200) {
           this.isLoading = false;
           successFunction();
@@ -1524,7 +1528,7 @@ export default {
           failFunction();
         }
       } else {
-        const res = await fetchPost(`mitra/staff/mounda/incoming-data/${this.id}`, null, null, this.$router);
+        const res = await fetchPostForm(`mitra/staff/mounda/incoming-data/${this.id}`, null, form, this.$router);
         if (res.status == 200) {
           this.isLoading = false;
           successFunction();
@@ -1537,8 +1541,11 @@ export default {
     },
     async postRevisiMinor(successFunction, failFunction) {
       this.isLoading = true;
+      const form = new FormData()
+      form.append('approvalNote', this.approvalNote);
+      form.append('responseText', this.responseText);
       if (this.base == "PKS") {
-        const res = await fetchPost(`mitra/staff/pks/incoming-data/${this.id}/minor-revision`, null, null, this.$router);
+        const res = await fetchPostForm(`mitra/staff/pks/incoming-data/${this.id}/minor-revision`, null, form, this.$router);
         if (res.status == 200) {
           this.isLoading = false;
           successFunction();
@@ -1548,7 +1555,7 @@ export default {
           failFunction();
         }
       } else {
-        const res = await fetchPost(`mitra/staff/mounda/incoming-data/${this.id}/minor-revision`, null, null, this.$router);
+        const res = await fetchPostForm(`mitra/staff/mounda/incoming-data/${this.id}/minor-revision`, null, form, this.$router);
         if (res.status == 200) {
           this.isLoading = false;
           successFunction();
@@ -1561,8 +1568,11 @@ export default {
     },
     async postRevisiMayor(successFunction, failFunction) {
       this.isLoading = true;
+      const form = new FormData()
+      form.append('approvalNote', this.approvalNote);
+      form.append('responseText', this.responseText);
       if (this.base == "PKS") {
-        const res = await fetchPost(`mitra/staff/pks/incoming-data/${this.id}/mayor-revision`, null, null, this.$router);
+        const res = await fetchPostForm(`mitra/staff/pks/incoming-data/${this.id}/mayor-revision`, null, form, this.$router);
         if (res.status == 200) {
           this.isLoading = false;
           successFunction();
@@ -1572,7 +1582,7 @@ export default {
           failFunction();
         }
       } else {
-        const res = await fetchPost(`mitra/staff/mounda/incoming-data/${this.id}/mayor-revision`, null, null, this.$router);
+        const res = await fetchPostForm(`mitra/staff/mounda/incoming-data/${this.id}/mayor-revision`, null, form, this.$router);
         if (res.status == 200) {
           this.isLoading = false;
           successFunction();
@@ -1585,8 +1595,11 @@ export default {
     },
     async postTolak(successFunction, failFunction) {
       this.isLoading = true;
+      const form = new FormData()
+      form.append('approvalNote', this.approvalNote);
+      form.append('responseText', this.responseText);
       if (this.base == "PKS") {
-        const res = await fetchPost(`mitra/staff/pks/incoming-data/${this.id}/reject`, null, null, this.$router);
+        const res = await fetchPostForm(`mitra/staff/pks/incoming-data/${this.id}/reject`, null, form, this.$router);
         if (res.status == 200) {
           this.isLoading = false;
           successFunction();
@@ -1596,7 +1609,7 @@ export default {
           failFunction();
         }
       } else {
-        const res = await fetchPost(`mitra/staff/mounda/incoming-data/${this.id}/reject`, null, null, this.$router);
+        const res = await fetchPostForm(`mitra/staff/mounda/incoming-data/${this.id}/reject`, null, form, this.$router);
         if (res.status == 200) {
           this.isLoading = false;
           successFunction();
@@ -1609,8 +1622,11 @@ export default {
     },
     async postAbortTolak(successFunction, failFunction) {
       this.isLoading = true;
+      const form = new FormData()
+      form.append('approvalNote', this.approvalNote);
+      form.append('responseText', this.responseText);
       if (this.base == "PKS") {
-        const res = await fetchPost(`mitra/staff/pks/incoming-data/${this.id}/abort-reject`, null, null, this.$router);
+        const res = await fetchPostForm(`mitra/staff/pks/incoming-data/${this.id}/abort-reject`, null, form, this.$router);
         if (res.status == 200) {
           this.isLoading = false;
           successFunction();
@@ -1620,7 +1636,7 @@ export default {
           failFunction();
         }
       } else {
-        const res = await fetchPost(`mitra/staff/mounda/incoming-data/${this.id}/abort-reject`, null, null, this.$router);
+        const res = await fetchPostForm(`mitra/staff/mounda/incoming-data/${this.id}/abort-reject`, null, form, this.$router);
         if (res.status == 200) {
           this.isLoading = false;
           successFunction();
