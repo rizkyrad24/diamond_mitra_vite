@@ -761,7 +761,7 @@ export default {
         this.isLoading = false;
         return this.modalFailed = {
           isVisible: true,
-          title: 'Role Tidak Terdaftar',
+          title: 'Gagal',
           message: "Halaman ini khusus manager mitra"
         }
       }
@@ -785,7 +785,7 @@ export default {
 				this.isLoading = false;
         this.modalFailed = {
           isVisible: true,
-          title: 'Gagal Ambil Data',
+          title: 'Gagal',
           message: res.data.message ? res.data.message : "Silahkan hubungi admin"
         }
 			}
@@ -809,7 +809,7 @@ export default {
 				this.isLoading = false;
         this.modalFailed = {
           isVisible: true,
-          title: 'Gagal Ambil Data',
+          title: 'Gagal',
           message: res.data.message ? res.data.message : "Silahkan hubungi admin"
         }
 			}

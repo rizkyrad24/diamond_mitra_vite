@@ -1,16 +1,16 @@
 <template>
-    <div class="">
-      <div class="background">
-        <div class="flex">
-          <SidebarStaff />
-          <div class="flex-grow">
-            <MainBar />
-            <SelesaiDitolakStaff />
-          </div>
+  <div class="">
+    <div class="background">
+      <div class="flex">
+        <SidebarStaff />
+        <div class="flex-grow">
+          <MainBar />
+          <SelesaiDitolakStaff />
         </div>
       </div>
     </div>
-  </template>
+  </div>
+</template>
   
   <script>
   import MainBar from "@/components/NavBar/MainBar.vue";

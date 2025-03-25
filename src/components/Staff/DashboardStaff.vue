@@ -1246,7 +1246,7 @@ export default {
 				this.isLoading = false;
         this.modalFailed = {
           isVisible: true,
-          title: 'Gagal Ambil Data',
+          title: 'Gagal',
           message: res.data.message ? res.data.message : "Silahkan hubungi admin"
         }
 			}

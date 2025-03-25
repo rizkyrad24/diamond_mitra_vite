@@ -263,7 +263,7 @@ async function submit() {
       isLoading.value = false;
       modalFailed.value = {
         isVisible: true,
-        title: 'Forbidden',
+        title: 'Gagal',
         message: 'Role anda tidak terdaftar untuk aplikasi ini'
       }
     }
@@ -271,7 +271,7 @@ async function submit() {
     isLoading.value = false;
     modalFailed.value = {
       isVisible: true,
-      title: 'Invalid Login',
+      title: 'Gagal',
       message: res.data
     }
   }

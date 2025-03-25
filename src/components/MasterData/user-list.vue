@@ -1176,7 +1176,7 @@ export default {
     SendCreateUser() {
       this.modalDialog = {
         isVisible: true,
-        title: 'Buat User Baru',
+        title: 'Konfirmasi',
         message: 'Apakan anda yakin dengan data yang anda masukan',
         okFunction: this.openCreateUser,
         closeFunction: this.closeCreateUser
@@ -1192,7 +1192,7 @@ export default {
     successCreateUser() {
       this.modalSuccess = {
         isVisible: true,
-        title: 'Success',
+        title: 'Berhasil',
         message: 'Berhasil membuat user baru',
         closeFunction: this.closeSelesaiCreateUser
       }
@@ -1215,7 +1215,7 @@ export default {
     SendEditUser() {
       this.modalDialog = {
         isVisible: true,
-        title: 'Edit User',
+        title: 'Konfirmasi',
         message: 'Apakan anda yakin dengan data yang anda masukan',
         okFunction: this.openEditUser,
         closeFunction: this.closeEditUser
@@ -1231,7 +1231,7 @@ export default {
     successEditUser() {
       this.modalSuccess = {
         isVisible: true,
-        title: 'Success',
+        title: 'Berhasil',
         message: 'Berhasil mengedit user',
         closeFunction: this.closeSelesaiEditUser
       }
@@ -1254,7 +1254,7 @@ export default {
     SendResetPassword() {
       this.modalDialog = {
         isVisible: true,
-        title: 'Reset Password',
+        title: 'Konfirmasi',
         message: 'Apakan anda yakin dengan data yang anda masukan',
         okFunction: this.openResetPassword,
         closeFunction: this.closeResetPassword
@@ -1270,7 +1270,7 @@ export default {
     successResetPassword() {
       this.modalSuccess = {
         isVisible: true,
-        title: 'Success',
+        title: 'Berhasil',
         message: 'Berhasil reset password',
         closeFunction: this.closeSelesaiResetPassword
       }
@@ -1294,7 +1294,7 @@ export default {
       this.userId = id
       this.modalDialog = {
         isVisible: true,
-        title: 'Hapus User',
+        title: 'Konfirmasi',
         message: 'Apakan anda yakin menghapus user ini',
         okFunction: this.openDeleteUser,
         closeFunction: this.closeDeleteUser
@@ -1310,7 +1310,7 @@ export default {
     successDeleteUser() {
       this.modalSuccess = {
         isVisible: true,
-        title: 'Success',
+        title: 'Berhasil',
         message: 'Berhasil menghapus user',
         closeFunction: this.closeSelesaiDeleteUser
       }
@@ -1355,7 +1355,7 @@ export default {
         this.isLoading = false;
         this.modalFailed = {
           isVisible: true,
-          title: 'Gagal Ambil Data',
+          title: 'Gagal',
           message: res.data.message ? res.data.message : "Silahkan hubungi admin"
         }
       }

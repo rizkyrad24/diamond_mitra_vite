@@ -1314,7 +1314,7 @@ export default {
       this.showDisposePopup = false;
       this.modalDialog = {
         isVisible: true,
-        title: 'Dispose Pengajuan',
+        title: 'Konfirmasi',
         message: `Apakan anda yakin akan mendispose pengajuan ke ${this.disposedStaff.label}`,
         okFunction: this.openDispose,
         closeFunction: this.closeDispose
@@ -1331,7 +1331,7 @@ export default {
     successDispose() {
       this.modalSuccess = {
         isVisible: true,
-        title: 'Dispose Berhasil',
+        title: 'Berhasil',
         message: `Pengajuan berhasil didispose ke ${this.disposedStaff.label}`,
         closeFunction: this.closeSelesaiDispose
       }
@@ -1339,7 +1339,7 @@ export default {
     failDispose(data) {
       this.modalFailed = {
         isVisible: true,
-        title: 'Dispose Gagal',
+        title: 'Gagal',
         message: data?.message ? data.message : "Silahkan hubungi admin"
       }
     },
@@ -1353,7 +1353,7 @@ export default {
       this.showDisposeManagerPopup = false;
       this.modalDialog = {
         isVisible: true,
-        title: 'Dispose Pengajuan Ke Manager',
+        title: 'Konfirmasi',
         message: `Apakan anda yakin akan mendispose pengajuan ke manager`,
         okFunction: this.openDisposeManager,
         closeFunction: this.closeDisposeManager
@@ -1370,7 +1370,7 @@ export default {
     successDisposeManager() {
       this.modalSuccess = {
         isVisible: true,
-        title: 'Dispose Ke Manager Berhasil',
+        title: 'Berhasil',
         message: `Pengajuan berhasil di dispose ke manager`,
         closeFunction: this.closeSelesaiDisposeManager
       }
@@ -1378,7 +1378,7 @@ export default {
     failDisposeManager(data) {
       this.modalFailed = {
         isVisible: true,
-        title: 'Dispose Gagal',
+        title: 'Gagal',
         message: data?.message ? data.message : "Silahkan hubungi admin"
       }
     },
@@ -1392,7 +1392,7 @@ export default {
       this.showRejectPopup = false;
       this.modalDialog = {
         isVisible: true,
-        title: 'Tolak Pengajuan',
+        title: 'Konfirmasi',
         message: `Apakan anda yakin akan menolak pengajuan ini`,
         okFunction: this.openReject,
         closeFunction: this.closeReject
@@ -1409,7 +1409,7 @@ export default {
     successReject() {
       this.modalSuccess = {
         isVisible: true,
-        title: 'Tolak Pengajuan Berhasil',
+        title: 'Berhasil',
         message: `Pengajuan berhasil di tolak`,
         closeFunction: this.closeSelesaiReject
       }
@@ -1417,7 +1417,7 @@ export default {
     failReject(data) {
       this.modalFailed = {
         isVisible: true,
-        title: 'Tolak Gagal',
+        title: 'Gagal',
         message: data?.message ? data.message : "Silahkan hubungi admin"
       }
     },
@@ -1449,7 +1449,7 @@ export default {
         this.isLoading = false;
         return this.modalFailed = {
           isVisible: true,
-          title: 'Role Tidak Terdaftar',
+          title: 'Gagal',
           message: "Posisi anda tidak dapat mengakses halaman ini"
         }
       }
@@ -1502,7 +1502,7 @@ export default {
           this.isLoading = false;
           this.modalFailed = {
             isVisible: true,
-            title: 'Gagal Ambil Data',
+            title: 'Gagal',
             message: res.data.message ? res.data.message : "Silahkan hubungi admin"
           }
         }
@@ -1539,7 +1539,7 @@ export default {
           this.isLoading = false;
           this.modalFailed = {
             isVisible: true,
-            title: 'Gagal Ambil Data',
+            title: 'Gagal',
             message: res.data.message ? res.data.message : "Silahkan hubungi admin"
           }
         }
@@ -1560,7 +1560,7 @@ export default {
         this.isLoading = false;
         this.modalFailed = {
           isVisible: true,
-          title: 'Gagal Ambil Data',
+          title: 'Gagal',
           message: res.data.message ? res.data.message : "Silahkan hubungi admin"
         }
       }
@@ -1572,7 +1572,7 @@ export default {
         this.isLoading = false;
         return this.modalFailed = {
           isVisible: true,
-          title: 'Data Tidak Lengkap',
+          title: 'Gagal',
           message: "Silahkan pilih staff terlebih dahulu"
         }
       }
@@ -1614,7 +1614,7 @@ export default {
         this.isLoading = false;
         return this.modalFailed = {
           isVisible: true,
-          title: 'Role Tidak Terdaftar',
+          title: 'Gagal',
           message: "Posisi anda tidak dapat mengakses halaman ini"
         }
       }
@@ -1644,7 +1644,7 @@ export default {
         this.isLoading = false;
         return this.modalFailed = {
           isVisible: true,
-          title: 'Role Tidak Terdaftar',
+          title: 'Gagal',
           message: "Posisi anda tidak dapat mengakses halaman ini"
         }
       }

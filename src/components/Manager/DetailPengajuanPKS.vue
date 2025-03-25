@@ -2208,7 +2208,7 @@ export default {
       this.showPenyelesaianPKSPopup = false;
       this.modalDialog = {
         isVisible: true,
-        title: 'Selesaikan Pengajuan',
+        title: 'Konfirmasi',
         message: `Apakan anda yakin akan menyelesaikan pengajuan ini`,
         okFunction: this.openApprove,
         closeFunction: this.closeApprove
@@ -2225,7 +2225,7 @@ export default {
     successApprove() {
       this.modalSuccess = {
         isVisible: true,
-        title: 'Selesaikan Berhasil',
+        title: 'Berhasil',
         message: `Pengajuan berhasil diselesaikan`,
         closeFunction: this.closeSelesaiApprove
       }
@@ -2233,7 +2233,7 @@ export default {
     failApprove(data) {
       this.modalFailed = {
         isVisible: true,
-        title: 'Selesaikan Gagal',
+        title: 'Gagal',
         message: data?.message ? data.message : "Silahkan hubungi admin"
       }
     },
@@ -2259,7 +2259,7 @@ export default {
         this.isLoading = false;
         return this.modalFailed = {
           isVisible: true,
-          title: 'Gagal Ambil Data',
+          title: 'Gagal',
           message: res.data.message ? res.data.message : "Silahkan hubungi admin"
         }
       }
@@ -2275,7 +2275,7 @@ export default {
         this.isLoading = false;
         return this.modalFailed = {
           isVisible: true,
-          title: 'Akses Ditolak',
+          title: 'Gagal',
           message: "Anda tidak mempunyai akses untuk aproval"
         }
       }
@@ -2370,7 +2370,7 @@ export default {
         this.isLoading = false;
         this.modalFailed = {
           isVisible: true,
-          title: 'Gagal Ambil Data',
+          title: 'Gagal',
           message: res.data.message ? res.data.message : "Silahkan hubungi admin"
         }
       }

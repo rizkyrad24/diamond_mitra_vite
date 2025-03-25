@@ -1213,7 +1213,7 @@ export default {
     SendApprov() {
       this.modalDialog = {
         isVisible: true,
-        title: 'Approve Pengajuan',
+        title: 'Berhasil',
         message: 'Apakan anda yakin akan menyetujui pengajuan ini',
         okFunction: this.openApprov,
         closeFunction: this.closeApprov
@@ -1229,7 +1229,7 @@ export default {
     successApprov() {
       this.modalSuccess = {
         isVisible: true,
-        title: 'Berhasil Approve',
+        title: 'Berhasil',
         message: 'Pengajuan berhasil diApprove',
         closeFunction: this.closeSelesaiApprov
       }
@@ -1237,7 +1237,7 @@ export default {
     failApprov(data) {
       this.modalFailed = {
         isVisible: true,
-        title: 'Gagal Approve',
+        title: 'Gagal',
         message: data?.message ? data.message : "Silahkan hubungi admin"
       }
     },
@@ -1249,7 +1249,7 @@ export default {
     SendTolak() {
       this.modalDialog = {
         isVisible: true,
-        title: 'Tolak Pengajuan',
+        title: 'Konfirmasi',
         message: 'Apakan anda yakin akan menolak pengajuan ini',
         okFunction: this.openTolak,
         closeFunction: this.closeTolak
@@ -1265,7 +1265,7 @@ export default {
     successTolak() {
       this.modalSuccess = {
         isVisible: true,
-        title: 'Berhasil Tolak',
+        title: 'Berhasil',
         message: 'Pengajuan berhasil ditolak',
         closeFunction: this.closeSelesaiTolak
       }
@@ -1273,7 +1273,7 @@ export default {
     failTolak(data) {
       this.modalFailed = {
         isVisible: true,
-        title: 'Gagal Tolak',
+        title: 'Gagal',
         message: data?.message ? data.message : "Silahkan hubungi admin"
       }
     },
@@ -1297,7 +1297,7 @@ export default {
           this.isLoading = false;
           return this.modalFailed = {
             isVisible: true,
-            title: 'Tidak Ada Akses',
+            title: 'Gagal',
             message: "Anda tidak mempunyai akses untuk aproval"
           }
         }
@@ -1349,7 +1349,7 @@ export default {
           this.isLoading = false;
           this.modalFailed = {
             isVisible: true,
-            title: 'Gagal Ambil Data',
+            title: 'Gagal',
             message: res.data.message ? res.data.message : "Silahkan hubungi admin"
           }
         }
@@ -1366,7 +1366,7 @@ export default {
           this.isLoading = false;
           return this.modalFailed = {
             isVisible: true,
-            title: 'Tidak Ada Akses',
+            title: 'Gagal',
             message: "Anda tidak mempunyai akses untuk aproval"
           }
         }
@@ -1398,7 +1398,7 @@ export default {
           this.isLoading = false;
           this.modalFailed = {
             isVisible: true,
-            title: 'Gagal Ambil Data',
+            title: 'Gagal',
             message: res.data.message ? res.data.message : "Silahkan hubungi admin"
           }
         }
@@ -1422,7 +1422,7 @@ export default {
           this.isLoading = false;
           return this.modalFailed = {
             isVisible: true,
-            title: 'Tidak Ada Akses',
+            title: 'Gagal',
             message: "Anda tidak mempunyai akses untuk aproval"
           }
         }
@@ -1448,7 +1448,7 @@ export default {
           this.isLoading = false;
           return this.modalFailed = {
             isVisible: true,
-            title: 'Tidak Ada Akses',
+            title: 'Gagal',
             message: "Anda tidak mempunyai akses untuk aproval"
           }
         }
@@ -1481,7 +1481,7 @@ export default {
           this.isLoading = false;
           return this.modalFailed = {
             isVisible: true,
-            title: 'Tidak Ada Akses',
+            title: 'Gagal',
             message: "Anda tidak mempunyai akses untuk aproval"
           }
         }
@@ -1507,7 +1507,7 @@ export default {
           this.isLoading = false;
           return this.modalFailed = {
             isVisible: true,
-            title: 'Tidak Ada Akses',
+            title: 'Gagal',
             message: "Anda tidak mempunyai akses untuk aproval"
           }
         }

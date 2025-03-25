@@ -1,8 +1,20 @@
 <template>
-  <div style="position: relative" class="searchable-select mt-1 text-[14px] font-sans text-[#9C9C9C] p-2 w-full border rounded-lg">
-    <input v-model="searchTerm" type="text" :placeholder="placeholder" @focus="isDropdownOpen = true"
-      class="search-input" style="width: 100%; padding: 1px; box-sizing: border-box;" />
-    <ul v-if="isDropdownOpen" class="dropdown-list" style="
+  <div
+    style="position: relative"
+    class="searchable-select mt-1 text-[14px] font-sans text-[#9C9C9C] p-2 w-full border rounded-lg"
+  >
+    <input
+      v-model="searchTerm"
+      type="text"
+      :placeholder="placeholder"
+      class="search-input"
+      style="width: 100%; padding: 1px; box-sizing: border-box;"
+      @focus="isDropdownOpen = true"
+    >
+    <ul
+      v-if="isDropdownOpen"
+      class="dropdown-list"
+      style="
           list-style-type: none;
           margin: 0;
           padding: 0;
@@ -16,16 +28,27 @@
           overflow-y: auto;
           background-color: #fff;
           z-index: 1000;
-        ">
-      <li v-for="option in filteredOptions" :key="option.value" @click="selectOption(option)" class="dropdown-item"
+        "
+    >
+      <li
+        v-for="option in filteredOptions"
+        :key="option.value"
+        class="dropdown-item"
         style="
             padding: 8px;
             cursor: pointer;
             background-color: #fff;
-          " @mouseover="hoverOption($event, true)" @mouseout="hoverOption($event, false)">
+          "
+        @click="selectOption(option)"
+        @mouseover="hoverOption($event, true)"
+        @mouseout="hoverOption($event, false)"
+      >
         {{ option.label }}
       </li>
-      <li v-if="filteredOptions.length === 0" style="padding: 8px; color: #999;">
+      <li
+        v-if="filteredOptions.length === 0"
+        style="padding: 8px; color: #999;"
+      >
         No results found
       </li>
     </ul>

@@ -2,7 +2,7 @@
 import navaction from './navaction.vue';
 import Loading from '../loading.vue';
 import ModalFailed from '../modalfailed.vue';
-import { dateParsing, convertDatetime } from '@/utils/helper';
+import { convertDatetime } from '@/utils/helper';
 </script>
 
 <template>
@@ -166,7 +166,7 @@ export default {
           this.isLoading = false;
           this.modalFailed = {
             isVisible: true,
-            title: 'Gagal Ambil Data',
+            title: 'Gagal',
             message: res.data.message ? res.data.message : "Silahkan hubungi admin"
           }
       }

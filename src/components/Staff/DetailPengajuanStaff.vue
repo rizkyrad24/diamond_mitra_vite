@@ -1227,7 +1227,7 @@ export default {
       this.showApprovPopup = false;
       this.modalDialog = {
         isVisible: true,
-        title: 'Proses Pengajuan',
+        title: 'Konfirmasi',
         message: `Apakan anda yakin akan memproses pengajuan ini`,
         okFunction: this.openApprov,
         closeFunction: this.closeApprov
@@ -1244,7 +1244,7 @@ export default {
     successApprov() {
       this.modalSuccess = {
         isVisible: true,
-        title: 'Proses Pengajuan Berhasil',
+        title: 'Berhasil',
         message: `Pengajuan berhasil diproses`,
         closeFunction: this.closeSelesaiApprov
       }
@@ -1252,7 +1252,7 @@ export default {
     failApprov(data) {
       this.modalFailed = {
         isVisible: true,
-        title: 'Proses Pengajuan Gagal',
+        title: 'Gagal',
         message: data?.message ? data.message : "Silahkan hubungi admin"
       }
     },
@@ -1266,7 +1266,7 @@ export default {
       this.showTolakPopup = false;
       this.modalDialog = {
         isVisible: true,
-        title: 'Tolak Pengajuan',
+        title: 'Konfirmasi',
         message: `Apakan anda yakin akan menolak pengajuan ini`,
         okFunction: this.openTolak,
         closeFunction: this.closeTolak
@@ -1283,7 +1283,7 @@ export default {
     successTolak() {
       this.modalSuccess = {
         isVisible: true,
-        title: 'Tolak Pengajuan Berhasil',
+        title: 'Berhasil',
         message: `Pengajuan berhasil ditolak`,
         closeFunction: this.closeSelesaiTolak
       }
@@ -1291,7 +1291,7 @@ export default {
     failTolak(data) {
       this.modalFailed = {
         isVisible: true,
-        title: 'Tolak Pengajuan Gagal',
+        title: 'Gagal',
         message: data?.message ? data.message : "Silahkan hubungi admin"
       }
     },
@@ -1323,7 +1323,7 @@ export default {
       this.modalSuccess = {
         isVisible: true,
         title: 'Berhasil',
-        message: `Pengajuan penolakan berhasil dibatalkan`,
+        message: `Penolakan pengajuan berhasil dibatalkan`,
         closeFunction: this.closeSelesaiAbortTolak
       }
     },
@@ -1344,7 +1344,7 @@ export default {
       this.showRevisiMinorPopup = false;
       this.modalDialog = {
         isVisible: true,
-        title: 'Revisi Minor Pengajuan',
+        title: 'Konfirmasi',
         message: `Apakan anda yakin akan meminta revisi minor pengajuan ini`,
         okFunction: this.openRevisiMinor,
         closeFunction: this.closeRevisiMinor
@@ -1361,7 +1361,7 @@ export default {
     successRevisiMinor() {
       this.modalSuccess = {
         isVisible: true,
-        title: 'Permintaan Revisi Minor Berhasil',
+        title: 'Berhasil',
         message: `Pengajuan berhasil diminta untuk Revisi Minor`,
         closeFunction: this.closeSelesaiRevisiMinor
       }
@@ -1369,7 +1369,7 @@ export default {
     failRevisiMinor(data) {
       this.modalFailed = {
         isVisible: true,
-        title: 'Permintaan Revisi Minor Gagal',
+        title: 'Gagal',
         message: data?.message ? data.message : "Silahkan hubungi admin"
       }
     },
@@ -1383,7 +1383,7 @@ export default {
       this.showRevisiMayorPopup = false;
       this.modalDialog = {
         isVisible: true,
-        title: 'Revisi Mayor Pengajuan',
+        title: 'Konfirmasi',
         message: `Apakan anda yakin akan meminta revisi Mayor pengajuan ini`,
         okFunction: this.openRevisiMayor,
         closeFunction: this.closeRevisiMayor
@@ -1400,7 +1400,7 @@ export default {
     successRevisiMayor() {
       this.modalSuccess = {
         isVisible: true,
-        title: 'Permintaan Revisi Mayor Berhasil',
+        title: 'Berhasil',
         message: `Pengajuan berhasil diminta untuk Revisi Mayor`,
         closeFunction: this.closeSelesaiRevisiMayor
       }
@@ -1408,7 +1408,7 @@ export default {
     failRevisiMayor(data) {
       this.modalFailed = {
         isVisible: true,
-        title: 'Permintaan Revisi Mayor Gagal',
+        title: 'Gagal',
         message: data?.message ? data.message : "Silahkan hubungi admin"
       }
     },
@@ -1469,7 +1469,7 @@ export default {
           this.isLoading = false;
           this.modalFailed = {
             isVisible: true,
-            title: 'Gagal Ambil Data',
+            title: 'Gagal',
             message: res.data.message ? res.data.message : "Silahkan hubungi admin"
           }
         }
@@ -1506,7 +1506,7 @@ export default {
           this.isLoading = false;
           this.modalFailed = {
             isVisible: true,
-            title: 'Gagal Ambil Data',
+            title: 'Gagal',
             message: res.data.message ? res.data.message : "Silahkan hubungi admin"
           }
         }

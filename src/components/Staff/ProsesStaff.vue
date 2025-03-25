@@ -825,7 +825,7 @@ export default {
 				this.isLoading = false;
         return this.modalFailed = {
           isVisible: true,
-          title: 'Role Tidak Terdaftar',
+          title: 'Gagal',
           message: "Posisi anda tidak dapat mengakses halaman ini"
         }
 			}
@@ -849,7 +849,7 @@ export default {
 				this.isLoading = false;
         return this.modalFailed = {
           isVisible: true,
-          title: 'Role Tidak Terdaftar',
+          title: 'Gagal',
           message: "Posisi anda tidak dapat mengakses halaman ini"
         }
 			}

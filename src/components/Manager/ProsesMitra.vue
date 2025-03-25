@@ -820,7 +820,7 @@ export default {
         this.isLoading = false;
         return this.modalFailed = {
           isVisible: true,
-          title: 'Role Tidak Terdaftar',
+          title: 'Gagal',
           message: "Posisi anda tidak dapat mengakses halaman ini"
         }
       }
@@ -843,7 +843,7 @@ export default {
 				this.isLoading = false;
         this.modalFailed = {
           isVisible: true,
-          title: 'Gagal Ambil Data',
+          title: 'Gagal',
           message: res.data.message ? res.data.message : "Silahkan hubungi admin"
         }
 			}
@@ -861,7 +861,7 @@ export default {
         this.isLoading = false;
         return this.modalFailed = {
           isVisible: true,
-          title: 'Role Tidak Terdaftar',
+          title: 'Gagal',
           message: "Posisi anda tidak dapat mengakses halaman ini"
         }
       }
@@ -885,7 +885,7 @@ export default {
 				this.isLoading = false;
         this.modalFailed = {
           isVisible: true,
-          title: 'Gagal Ambil Data',
+          title: 'Gagal',
           message: res.data.message ? res.data.message : "Silahkan hubungi admin"
         }
 			}

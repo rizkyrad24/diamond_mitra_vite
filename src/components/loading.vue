@@ -1,9 +1,17 @@
 <template>
-    <div v-if="isVisible" class="loading-overlay">
-      <div class="spinner"></div>
-      <p v-if="message" class="loading-message">{{ message }}</p>
-    </div>
-  </template>
+  <div
+    v-if="isVisible"
+    class="loading-overlay"
+  >
+    <div class="spinner" />
+    <p
+      v-if="message"
+      class="loading-message"
+    >
+      {{ message }}
+    </p>
+  </div>
+</template>
   
   <script>
   export default {

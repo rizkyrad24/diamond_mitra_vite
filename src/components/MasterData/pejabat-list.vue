@@ -720,7 +720,7 @@ export default {
     SendCreatePejabat() {
       this.modalDialog = {
         isVisible: true,
-        title: 'Buat Pejabat Baru',
+        title: 'Konfirmasi',
         message: 'Apakan anda yakin dengan data yang anda masukan',
         okFunction: this.openCreatePejabat,
         closeFunction: this.closeCreatePejabat
@@ -736,7 +736,7 @@ export default {
     successCreatePejabat() {
       this.modalSuccess = {
         isVisible: true,
-        title: 'Success',
+        title: 'Berhasil',
         message: 'Berhasil membuat Pejabat baru',
         closeFunction: this.closeSelesaiCreatePejabat
       }
@@ -759,7 +759,7 @@ export default {
     SendEditPejabat() {
       this.modalDialog = {
         isVisible: true,
-        title: 'Edit Pejabat',
+        title: 'Konfirmasi',
         message: 'Apakan anda yakin dengan data yang anda masukan',
         okFunction: this.openEditPejabat,
         closeFunction: this.closeEditPejabat
@@ -775,7 +775,7 @@ export default {
     successEditPejabat() {
       this.modalSuccess = {
         isVisible: true,
-        title: 'Success',
+        title: 'Berhasil',
         message: 'Berhasil mengedit Pejabat',
         closeFunction: this.closeSelesaiEditPejabat
       }
@@ -799,7 +799,7 @@ export default {
       this.pejabatId = id
       this.modalDialog = {
         isVisible: true,
-        title: 'Hapus Pejabat',
+        title: 'Konfirmasi',
         message: 'Apakan anda yakin menghapus Pejabat ini',
         okFunction: this.openDeletePejabat,
         closeFunction: this.closeDeletePejabat
@@ -815,7 +815,7 @@ export default {
     successDeletePejabat() {
       this.modalSuccess = {
         isVisible: true,
-        title: 'Success',
+        title: 'Berhasil',
         message: 'Berhasil menghapus Pejabat',
         closeFunction: this.closeSelesaiDeletePejabat
       }

@@ -1474,7 +1474,7 @@ export default {
     SendApprovStopClock() {
       this.modalDialog = {
         isVisible: true,
-        title: 'Approve Stopclock',
+        title: 'Konfirmasi',
         message: 'Apakan anda yakin akan menyetujui stopClock pengajuan ini',
         okFunction: this.openApprovStopClock,
         closeFunction: this.closeApprovStopClock
@@ -1490,7 +1490,7 @@ export default {
     successApprovStopClock() {
       this.modalSuccess = {
         isVisible: true,
-        title: 'Berhasil Approve StopClock',
+        title: 'Berhasil',
         message: 'Pengajuan berhasil diStopClock',
         closeFunction: this.closeSelesaiApprovStopClock
       }
@@ -1498,7 +1498,7 @@ export default {
     failApprovStopClock(data) {
       this.modalFailed = {
         isVisible: true,
-        title: 'Gagal Approve StopClock',
+        title: 'Gagal',
         message: data?.message ? data.message : "Silahkan hubungi admin"
       }
     },
@@ -1510,7 +1510,7 @@ export default {
     SendRejectStopClock() {
       this.modalDialog = {
         isVisible: true,
-        title: 'Reject Stopclock',
+        title: 'Konfirmasi',
         message: 'Apakan anda yakin akan menolak stopClock pengajuan ini',
         okFunction: this.openRejectStopClock,
         closeFunction: this.closeRejectStopClock
@@ -1526,7 +1526,7 @@ export default {
     successRejectStopClock() {
       this.modalSuccess = {
         isVisible: true,
-        title: 'Berhasil Reject StopClock',
+        title: 'Berhasil',
         message: 'Pengajuan berhasil diStopClock',
         closeFunction: this.closeSelesaiRejectStopClock
       }
@@ -1534,7 +1534,7 @@ export default {
     failRejectStopClock(data) {
       this.modalFailed = {
         isVisible: true,
-        title: 'Gagal Reject StopClock',
+        title: 'Gagal',
         message: data?.message ? data.message : "Silahkan hubungi admin"
       }
     },
@@ -1546,7 +1546,7 @@ export default {
     SendApprovStartClock() {
       this.modalDialog = {
         isVisible: true,
-        title: 'Approve StartClock',
+        title: 'Konfirmasi',
         message: 'Apakan anda yakin akan menyetujui StartClock pengajuan ini',
         okFunction: this.openApprovStartClock,
         closeFunction: this.closeApprovStartClock
@@ -1562,7 +1562,7 @@ export default {
     successApprovStartClock() {
       this.modalSuccess = {
         isVisible: true,
-        title: 'Berhasil Approve StartClock',
+        title: 'Berhasil',
         message: 'Pengajuan berhasil diStartClock',
         closeFunction: this.closeSelesaiApprovStartClock
       }
@@ -1570,7 +1570,7 @@ export default {
     failApprovStartClock(data) {
       this.modalFailed = {
         isVisible: true,
-        title: 'Gagal Approve StartClock',
+        title: 'Gagal',
         message: data?.message ? data.message : "Silahkan hubungi admin"
       }
     },
@@ -1582,7 +1582,7 @@ export default {
     SendRejectStartClock() {
       this.modalDialog = {
         isVisible: true,
-        title: 'Reject StartClock',
+        title: 'Konfirmasi',
         message: 'Apakan anda yakin akan menolak StartClock pengajuan ini',
         okFunction: this.openRejectStartClock,
         closeFunction: this.closeRejectStartClock
@@ -1598,7 +1598,7 @@ export default {
     successRejectStartClock() {
       this.modalSuccess = {
         isVisible: true,
-        title: 'Berhasil Reject StartClock',
+        title: 'Berhasil',
         message: 'Pengajuan berhasil diStartClock',
         closeFunction: this.closeSelesaiRejectStartClock
       }
@@ -1606,7 +1606,7 @@ export default {
     failRejectStartClock(data) {
       this.modalFailed = {
         isVisible: true,
-        title: 'Gagal Reject StartClock',
+        title: 'Gagal',
         message: data?.message ? data.message : "Silahkan hubungi admin"
       }
     },
@@ -1622,7 +1622,7 @@ export default {
         this.isLoading = false;
         return this.modalFailed = {
           isVisible: true,
-          title: 'Role Tidak Terdaftar',
+          title: 'Gagal',
           message: "Halaman ini khusus manager mitra"
         }
       }
@@ -1676,7 +1676,7 @@ export default {
           this.isLoading = false;
           this.modalFailed = {
             isVisible: true,
-            title: 'Gagal Ambil Data',
+            title: 'Gagal',
             message: res.data.message ? res.data.message : "Silahkan hubungi admin"
           }
         }
@@ -1710,7 +1710,7 @@ export default {
           this.isLoading = false;
           this.modalFailed = {
             isVisible: true,
-            title: 'Gagal Ambil Data',
+            title: 'Gagal',
             message: res.data.message ? res.data.message : "Silahkan hubungi admin"
           }
         }
@@ -1726,7 +1726,7 @@ export default {
         this.isLoading = false;
         return this.modalFailed = {
           isVisible: true,
-          title: 'Role Tidak Terdaftar',
+          title: 'Gagal',
           message: "Halaman ini khusus manager mitra"
         }
       }
@@ -1764,7 +1764,7 @@ export default {
         this.isLoading = false;
         return this.modalFailed = {
           isVisible: true,
-          title: 'Role Tidak Terdaftar',
+          title: 'Gagal',
           message: "Halaman ini khusus manager mitra"
         }
       }
@@ -1802,7 +1802,7 @@ export default {
         this.isLoading = false;
         return this.modalFailed = {
           isVisible: true,
-          title: 'Role Tidak Terdaftar',
+          title: 'Gagal',
           message: "Halaman ini khusus manager mitra"
         }
       }
@@ -1840,7 +1840,7 @@ export default {
         this.isLoading = false;
         return this.modalFailed = {
           isVisible: true,
-          title: 'Role Tidak Terdaftar',
+          title: 'Gagal',
           message: "Halaman ini khusus manager mitra"
         }
       }

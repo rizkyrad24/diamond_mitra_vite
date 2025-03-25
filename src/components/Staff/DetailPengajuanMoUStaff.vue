@@ -1935,7 +1935,7 @@ export default {
       this.showPenyelesaianMoUPopup = false
       this.modalDialog = {
         isVisible: true,
-        title: 'Kirim Pengajuan',
+        title: 'Konfirmasi',
         message: 'Apakan anda yakin akan melanjutkan pengajuan ini ke manager',
         okFunction: this.openApprov,
         closeFunction: this.closeApprov
@@ -1952,7 +1952,7 @@ export default {
     successApprov() {
       this.modalSuccess = {
         isVisible: true,
-        title: 'Berhasil Kirim Pengajuan',
+        title: 'Berhasil',
         message: 'Pengajuan berhasil dikirim ke manager',
         closeFunction: this.closeSelesaiApprov
       }
@@ -1960,7 +1960,7 @@ export default {
     failApprov(data) {
       this.modalFailed = {
         isVisible: true,
-        title: 'Gagal Kirim Pengajuan',
+        title: 'Gagal',
         message: data?.message ? data.message : "Silahkan hubungi admin"
       }
     },
@@ -1974,7 +1974,7 @@ export default {
       this.showProgressMoUPopupStaff = false;
       this.modalDialog = {
         isVisible: true,
-        title: 'Upload File',
+        title: 'Konfirmasi',
         message: 'Apakan anda yakin upload file ini?',
         okFunction: this.openSendFile,
         closeFunction: this.closeSendFile
@@ -1991,7 +1991,7 @@ export default {
     successUploadFile() {
       this.modalSuccess = {
         isVisible: true,
-        title: 'Berhasil Upload File',
+        title: 'Berhasil',
         message: 'File berhasil di upload',
         closeFunction: this.closeSelesaiUploadFile
       }
@@ -1999,7 +1999,7 @@ export default {
     failUploadFile(data) {
       this.modalFailed = {
         isVisible: true,
-        title: 'Gagal Upload File',
+        title: 'Gagal',
         message: data?.message ? data.message : "Silahkan hubungi admin"
       }
     },
@@ -2013,7 +2013,7 @@ export default {
     SendRevisiMinor() {
       this.modalDialog = {
         isVisible: true,
-        title: 'Permintaan Revisi Pengajuan',
+        title: 'Konfirmasi',
         message: 'Apakan anda yakin akan meminta pengajuan ini direvisi',
         okFunction: this.openRevisiMinor,
         closeFunction: this.closeRevisiMinor
@@ -2029,7 +2029,7 @@ export default {
     successRevisiMinor() {
       this.modalSuccess = {
         isVisible: true,
-        title: 'Berhasil Meminta Revisi',
+        title: 'Berhasil',
         message: 'Pengajuan berhasil diminta untuk direvisi',
         closeFunction: this.closeSelesaiRevisiMinor
       }
@@ -2037,7 +2037,7 @@ export default {
     failRevisiMinor(data) {
       this.modalFailed = {
         isVisible: true,
-        title: 'Gagal Revisi Minor',
+        title: 'Gagal',
         message: data?.message ? data.message : "Silahkan hubungi admin"
       }
     },
@@ -2050,7 +2050,7 @@ export default {
     SendRequestStopclock() {
       this.modalDialog = {
         isVisible: true,
-        title: 'Pengajuan Stopclock',
+        title: 'Konfirmasi',
         message: 'Apakan anda yakin akan mengajukan stopclock',
         okFunction: this.openRequestStopclock,
         closeFunction: this.closeRequestStopclock
@@ -2066,7 +2066,7 @@ export default {
     successRequestStopclock() {
       this.modalSuccess = {
         isVisible: true,
-        title: 'Pengajuan Stopclock',
+        title: 'Berhasil',
         message: 'Pengajuan stopclock berhasil',
         closeFunction: this.closeSelesaiRequestStopclock
       }
@@ -2074,7 +2074,7 @@ export default {
     failRequestStopclock(data) {
       this.modalFailed = {
         isVisible: true,
-        title: 'Gagal Pengajuan Stopclock',
+        title: 'Gagal',
         message: data?.message ? data.message : "Silahkan hubungi admin"
       }
     },
@@ -2087,7 +2087,7 @@ export default {
     SendRequestAbortStopclock() {
       this.modalDialog = {
         isVisible: true,
-        title: 'Pembatalan Pengajuan Stopclock',
+        title: 'Konfirmasi',
         message: 'Apakan anda yakin akan membatalkan pengajuan stopclock',
         okFunction: this.openRequestAbortStopclock,
         closeFunction: this.closeRequestAbortStopclock
@@ -2103,7 +2103,7 @@ export default {
     successRequestAbortStopclock() {
       this.modalSuccess = {
         isVisible: true,
-        title: 'Pembatalan Pengajuan Stopclock',
+        title: 'Berhasil',
         message: 'Pembatalan pengajuan stopclock berhasil',
         closeFunction: this.closeSelesaiRequestAbortStopclock
       }
@@ -2111,7 +2111,7 @@ export default {
     failRequestAbortStopclock(data) {
       this.modalFailed = {
         isVisible: true,
-        title: 'Gagal Pembatalan Pengajuan Stopclock',
+        title: 'Gagal',
         message: data?.message ? data.message : "Silahkan hubungi admin"
       }
     },
@@ -2124,7 +2124,7 @@ export default {
     SendRequestStartclock() {
       this.modalDialog = {
         isVisible: true,
-        title: 'Pengajuan Startclock',
+        title: 'Konfirmasi',
         message: 'Apakan anda yakin akan mengajukan startclock',
         okFunction: this.openRequestStartclock,
         closeFunction: this.closeRequestStartclock
@@ -2140,7 +2140,7 @@ export default {
     successRequestStartclock() {
       this.modalSuccess = {
         isVisible: true,
-        title: 'Pengajuan Startclock',
+        title: 'Berhasil',
         message: 'Pengajuan startclock berhasil',
         closeFunction: this.closeSelesaiRequestStartclock
       }
@@ -2148,7 +2148,7 @@ export default {
     failRequestStartclock(data) {
       this.modalFailed = {
         isVisible: true,
-        title: 'Gagal Pengajuan Startclock',
+        title: 'Gagal',
         message: data?.message ? data.message : "Silahkan hubungi admin"
       }
     },
@@ -2161,7 +2161,7 @@ export default {
     SendRequestAbortStartclock() {
       this.modalDialog = {
         isVisible: true,
-        title: 'Pembatalan Pengajuan Startclock',
+        title: 'Konfirmasi',
         message: 'Apakan anda yakin akan membatalkan pengajuan startclock',
         okFunction: this.openRequestAbortStartclock,
         closeFunction: this.closeRequestAbortStartclock
@@ -2177,7 +2177,7 @@ export default {
     successRequestAbortStartclock() {
       this.modalSuccess = {
         isVisible: true,
-        title: 'Pembatalan Pengajuan Startclock',
+        title: 'Berhasil',
         message: 'Pembatalan pengajuan startclock berhasil',
         closeFunction: this.closeSelesaiRequestAbortStartclock
       }
@@ -2185,7 +2185,7 @@ export default {
     failRequestAbortStartclock(data) {
       this.modalFailed = {
         isVisible: true,
-        title: 'Gagal Pembatalan Pengajuan Startclock',
+        title: 'Gagal',
         message: data?.message ? data.message : "Silahkan hubungi admin"
       }
     },
@@ -2209,7 +2209,7 @@ export default {
         this.isLoading = false;
         return this.modalFailed = {
           isVisible: true,
-          title: 'Gagal Ambil Data',
+          title: 'Gagal',
           message: res.data.message ? res.data.message : "Silahkan hubungi admin"
         }
       }
@@ -2299,7 +2299,7 @@ export default {
         this.isLoading = false;
         this.modalFailed = {
           isVisible: true,
-          title: 'Gagal Ambil Data',
+          title: 'Gagal',
           message: res.data.message ? res.data.message : "Silahkan hubungi admin"
         }
       }

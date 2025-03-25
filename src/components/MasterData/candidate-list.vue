@@ -1,90 +1,187 @@
 <template>
-  <div v-if="showFormPopup" class="fixed inset-0 flex items-center justify-center bg-[#1F2937] bg-opacity-50">
+  <div
+    v-if="showFormPopup"
+    class="fixed inset-0 flex items-center justify-center bg-[#1F2937] bg-opacity-50"
+  >
     <div class="w-[684.92px] rounded-lg shadow-lg bg-[#FFFFFF] border-collapse pb-12">
-      <button @click="closePopup"
-        class="text-[#2671D9] w-[14px] h-[14px] absolute mt-[25px] ml-[650px] text-[20px]">&times;</button>
-      <h1 class="font-sans text-[30px] text-center text-[#333333] mt-6 ml-[5px] font-semibold">Form Candidate</h1>
+      <button
+        class="text-[#2671D9] w-[14px] h-[14px] absolute mt-[25px] ml-[650px] text-[20px]"
+        @click="closePopup"
+      >
+        &times;
+      </button>
+      <h1 class="font-sans text-[30px] text-center text-[#333333] mt-6 ml-[5px] font-semibold">
+        Form Candidate
+      </h1>
       <div class="w-full h-[400px] overflow-y-auto px-10 pb-5">
-        <div v-if="[1, 2].includes(formType)" class="mb-4">
+        <div
+          v-if="[1, 2].includes(formType)"
+          class="mb-4"
+        >
           <label class="text-[#4D5E80] font-medium">Nama <span class="text-[#FF5656]">*</span></label>
-          <form action="" class="w-full py-[10px] px-4 mt-2 border-[1px] rounded-lg text-sm flex justify-between">
-            <input v-model="name" type="text" placeholder="Nama..." class="w-full outline-none">
+          <form
+            action=""
+            class="w-full py-[10px] px-4 mt-2 border-[1px] rounded-lg text-sm flex justify-between"
+          >
+            <input
+              v-model="name"
+              type="text"
+              placeholder="Nama..."
+              class="w-full outline-none"
+            >
           </form>
         </div>
         <div class="flex justify-center mt-8">
-          <button v-if="formType == 1" :class="{
-            'bg-[#2671D9] hover:bg-[#1E5BB7] text-[#FFFFFF]': isSendAvaible,
-            'bg-[#cfd6df] text-[black]': !isSendAvaible
-          }" :disabled="!isSendAvaible" @click="SendCreateCandidate"
-            class="p-3 flex justify-center w-full rounded-lg border-[1px] text-[16px] text-center font-sans font-semibold">
+          <button
+            v-if="formType == 1"
+            :class="{
+              'bg-[#2671D9] hover:bg-[#1E5BB7] text-[#FFFFFF]': isSendAvaible,
+              'bg-[#cfd6df] text-[black]': !isSendAvaible
+            }"
+            :disabled="!isSendAvaible"
+            class="p-3 flex justify-center w-full rounded-lg border-[1px] text-[16px] text-center font-sans font-semibold"
+            @click="SendCreateCandidate"
+          >
             Buat Candidate
           </button>
-          <button v-if="formType == 2" :class="{
-            'bg-[#2671D9] hover:bg-[#1E5BB7] text-[#FFFFFF]': isSendEditAvaible,
-            'bg-[#cfd6df] text-[black]': !isSendEditAvaible
-          }" :disabled="!isSendEditAvaible" @click="SendEditCandidate"
-            class="p-3 flex justify-center w-full rounded-lg border-[1px] text-[16px] text-center font-sans font-semibold">
+          <button
+            v-if="formType == 2"
+            :class="{
+              'bg-[#2671D9] hover:bg-[#1E5BB7] text-[#FFFFFF]': isSendEditAvaible,
+              'bg-[#cfd6df] text-[black]': !isSendEditAvaible
+            }"
+            :disabled="!isSendEditAvaible"
+            class="p-3 flex justify-center w-full rounded-lg border-[1px] text-[16px] text-center font-sans font-semibold"
+            @click="SendEditCandidate"
+          >
             Edit Candidate
           </button>
         </div>
       </div>
     </div>
   </div>
-  <Loading :isVisible="isLoading" />
-  <ModalFailed :isVisible="modalFailed.isVisible" :title="modalFailed.title" :message="modalFailed.message"
-    @close="closeModalFailed" />
-  <ModalSuccess :isVisible="modalSuccess.isVisible" :title="modalSuccess.title" :message="modalSuccess.message"
-    @close="modalSuccess.closeFunction" />
-  <ModalDialog :isVisible="modalDialog.isVisible" :title="modalDialog.title" :message="modalDialog.message"
-    @close="modalDialog.closeFunction" @ok="modalDialog.okFunction" />
+  <Loading :is-visible="isLoading" />
+  <ModalFailed
+    :is-visible="modalFailed.isVisible"
+    :title="modalFailed.title"
+    :message="modalFailed.message"
+    @close="closeModalFailed"
+  />
+  <ModalSuccess
+    :is-visible="modalSuccess.isVisible"
+    :title="modalSuccess.title"
+    :message="modalSuccess.message"
+    @close="modalSuccess.closeFunction"
+  />
+  <ModalDialog
+    :is-visible="modalDialog.isVisible"
+    :title="modalDialog.title"
+    :message="modalDialog.message"
+    @close="modalDialog.closeFunction"
+    @ok="modalDialog.okFunction"
+  />
   <div class="px-4 py-3">
     <div class="h-auto w-[1086px] rounded-lg bg-[#FFFFFF] border-collapse mx-auto">
       <div class="flex">
-        <h1 class="mt-[20px] ms-8 text-[30px] font-sans text-[#4D5E80] font-bold">Master Candidate</h1>
+        <h1 class="mt-[20px] ms-8 text-[30px] font-sans text-[#4D5E80] font-bold">
+          Master Candidate
+        </h1>
       </div>
       <div>
         <div class="flex items-start">
           <div
-            class="w-[320px] h-[40px] rounded-lg bg-[#FFFFFF] border border-[#E5E7E9] mt-6 ml-4 flex justify-between items-center">
-            <input type="text" placeholder="Cari sesuatu disini ..." v-model="searchQuery"
-              class="font-sans text-[14px] text-[#7F7F80] font-extralight ml-4 outline-none w-full" />
+            class="w-[320px] h-[40px] rounded-lg bg-[#FFFFFF] border border-[#E5E7E9] mt-6 ml-4 flex justify-between items-center"
+          >
+            <input
+              v-model="searchQuery"
+              type="text"
+              placeholder="Cari sesuatu disini ..."
+              class="font-sans text-[14px] text-[#7F7F80] font-extralight ml-4 outline-none w-full"
+            >
             <button class="bg-[#2671D9] w-[40px] h-full flex items-center justify-center rounded-r-lg">
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd"
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 14 14"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
                   d="M6.00016 1.66634C3.60693 1.66634 1.66683 3.60644 1.66683 5.99967C1.66683 8.39291 3.60693 10.333 6.00016 10.333C7.19696 10.333 8.27938 9.84871 9.06429 9.0638C9.8492 8.27889 10.3335 7.19648 10.3335 5.99967C10.3335 3.60644 8.3934 1.66634 6.00016 1.66634ZM0.333496 5.99967C0.333496 2.87006 2.87055 0.333008 6.00016 0.333008C9.12978 0.333008 11.6668 2.87006 11.6668 5.99967C11.6668 7.32398 11.2119 8.54294 10.4508 9.50751L13.4716 12.5283C13.7319 12.7886 13.7319 13.2107 13.4716 13.4711C13.2112 13.7314 12.7891 13.7314 12.5288 13.4711L9.508 10.4503C8.54343 11.2114 7.32447 11.6663 6.00016 11.6663C2.87055 11.6663 0.333496 9.12929 0.333496 5.99967Z"
-                  fill="white" />
+                  fill="white"
+                />
               </svg>
             </button>
           </div>
-          <div class="filter-container" ref="filterContainer">
-            <button @click="toggleDropdown" class="flex">
+          <div
+            ref="filterContainer"
+            class="filter-container"
+          >
+            <button
+              class="flex"
+              @click="toggleDropdown"
+            >
               <div
-                class="flex items-center justify-center w-[90px] h-[40px] rounded-lg bg-[#FFFFFF] border border-[#E5E7E9] ml-2 mt-6 hover:bg-[#DBEAFE] cursor-pointer transition-all">
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                class="flex items-center justify-center w-[90px] h-[40px] rounded-lg bg-[#FFFFFF] border border-[#E5E7E9] ml-2 mt-6 hover:bg-[#DBEAFE] cursor-pointer transition-all"
+              >
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 14 14"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
                   <path
                     d="M11.6668 0.333252H2.3335C1.80306 0.333252 1.29436 0.543966 0.919283 0.919038C0.54421 1.29411 0.333496 1.80282 0.333496 2.33325V3.11325C0.333401 3.38855 0.39014 3.6609 0.500163 3.91325V3.95325C0.594349 4.16723 0.727758 4.36169 0.893496 4.52659L5.00016 8.60658V12.9999C4.99994 13.1132 5.02859 13.2247 5.08341 13.3238C5.13823 13.423 5.21742 13.5065 5.3135 13.5666C5.41959 13.6323 5.54201 13.667 5.66683 13.6666C5.77119 13.666 5.87395 13.6408 5.96683 13.5933L8.6335 12.2599C8.74344 12.2045 8.83589 12.1198 8.90061 12.015C8.96533 11.9103 8.99979 11.7897 9.00016 11.6666V8.60658L13.0802 4.52659C13.2459 4.36169 13.3793 4.16723 13.4735 3.95325V3.91325C13.5927 3.66287 13.6585 3.39044 13.6668 3.11325V2.33325C13.6668 1.80282 13.4561 1.29411 13.081 0.919038C12.706 0.543966 12.1973 0.333252 11.6668 0.333252ZM7.86016 7.85992C7.79838 7.92221 7.74949 7.99609 7.71632 8.07731C7.68314 8.15854 7.66632 8.24551 7.66683 8.33325V11.2533L6.3335 11.9199V8.33325C6.334 8.24551 6.31719 8.15854 6.28401 8.07731C6.25083 7.99609 6.20195 7.92221 6.14016 7.85992L2.60683 4.33325H11.3935L7.86016 7.85992ZM12.3335 2.99992H1.66683V2.33325C1.66683 2.15644 1.73707 1.98687 1.86209 1.86185C1.98712 1.73682 2.15669 1.66659 2.3335 1.66659H11.6668C11.8436 1.66659 12.0132 1.73682 12.1382 1.86185C12.2633 1.98687 12.3335 2.15644 12.3335 2.33325V2.99992Z"
-                    fill="#2671D9" />
+                    fill="#2671D9"
+                  />
                 </svg>
                 <span class="text-[14px] font-sans font-medium text-[#333333] ml-2">Filter</span>
               </div>
             </button>
-            <div v-if="showDropdown"
-              class="dropdown-options bg-white mt-[1px] rounded-bl-lg rounded-br-lg ml-2 shadow-md absolute z-50">
-              <div v-for="(option, index) in filterOptions" :key="index"
+            <div
+              v-if="showDropdown"
+              class="dropdown-options bg-white mt-[1px] rounded-bl-lg rounded-br-lg ml-2 shadow-md absolute z-50"
+            >
+              <div
+                v-for="(option, index) in filterOptions"
+                :key="index"
                 class="flex justify-between items-center p-2 border-b cursor-pointer hover:bg-[#DBEAFE]"
-                @click="selectOption(option)">
+                @click="selectOption(option)"
+              >
                 <span>{{ option.name }}</span>
-                <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path fill-rule="evenodd" clip-rule="evenodd"
+                <svg
+                  width="8"
+                  height="12"
+                  viewBox="0 0 8 12"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
                     d="M7.20711 5.29289C7.59763 5.68342 7.59763 6.31658 7.20711 6.70711L2.20711 11.7071C1.81658 12.0976 1.18342 12.0976 0.792892 11.7071C0.402369 11.3166 0.402369 10.6834 0.792892 10.2929L5.08579 6L0.792893 1.70711C0.402369 1.31658 0.402369 0.683417 0.792893 0.292893C1.18342 -0.0976314 1.81658 -0.0976313 2.20711 0.292893L7.20711 5.29289Z"
-                    fill="#2671D9" />
+                    fill="#2671D9"
+                  />
                 </svg>
               </div>
-              <div v-if="selectedOption && selectedOption.subOptions"
-                class="sub-options bg-white mt-[1px] rounded-bl-lg rounded-br-lg ml-4 shadow-md absolute z-50">
-                <div v-for="(subOption, index) in selectedOption.subOptions" :key="index"
-                  class="sub-option-item flex items-center p-2 border-b cursor-pointer hover:bg-[#DBEAFE]">
-                  <input type="checkbox" v-model="selectedSubOptions" :value="subOption" class="mr-2" />
+              <div
+                v-if="selectedOption && selectedOption.subOptions"
+                class="sub-options bg-white mt-[1px] rounded-bl-lg rounded-br-lg ml-4 shadow-md absolute z-50"
+              >
+                <div
+                  v-for="(subOption, index) in selectedOption.subOptions"
+                  :key="index"
+                  class="sub-option-item flex items-center p-2 border-b cursor-pointer hover:bg-[#DBEAFE]"
+                >
+                  <input
+                    v-model="selectedSubOptions"
+                    type="checkbox"
+                    :value="subOption"
+                    class="mr-2"
+                  >
                   <span>{{ subOption }}</span>
                 </div>
               </div>
@@ -92,23 +189,41 @@
           </div>
         </div>
         <div class="flex flex-wrap">
-          <div v-if="selectedSubOptions.length" class="flex mt-2 ml-4 w-[1046px] h-[44px] border-[1px] rounded-lg">
-            <div v-for="(subOption, index) in selectedSubOptions" :key="index"
-              class="flex items-center w-relative h-[24px] bg-[#E9F1FB] border-[#BAD1F3] border-[1px] font-semibold text-[#2671D9] text-[12px] rounded-xl px-2 py-1 mt-[10px] ml-4">
+          <div
+            v-if="selectedSubOptions.length"
+            class="flex mt-2 ml-4 w-[1046px] h-[44px] border-[1px] rounded-lg"
+          >
+            <div
+              v-for="(subOption, index) in selectedSubOptions"
+              :key="index"
+              class="flex items-center w-relative h-[24px] bg-[#E9F1FB] border-[#BAD1F3] border-[1px] font-semibold text-[#2671D9] text-[12px] rounded-xl px-2 py-1 mt-[10px] ml-4"
+            >
               <span>{{ subOption }}</span>
-              <button @click="removeSubOption(subOption)" class="ml-1">
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <button
+                class="ml-1"
+                @click="removeSubOption(subOption)"
+              >
+                <svg
+                  width="12"
+                  height="12"
+                  viewBox="0 0 12 12"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
                   <path
                     d="M6 4.586L10.95 9.536 9.536 10.95 4.586 6 9.536 1.05 10.95 2.464 6 7.414 1.05 2.464 2.464 1.05 7.414 6 2.464 10.95 1.05 9.536 6 4.586Z"
-                    fill="#2671D9" />
+                    fill="#2671D9"
+                  />
                 </svg>
               </button>
             </div>
           </div>
         </div>
       </div>
-      <button @click="showFormCreate"
-        class="bg-[#2671D9] hover:bg-[#1E5BB7] text-[#FFFFFF] py-2 px-4 me-6 flex justify-center justify-self-end rounded-lg border-[1px] text-[12px] text-center font-sans font-semibold">
+      <button
+        class="bg-[#2671D9] hover:bg-[#1E5BB7] text-[#FFFFFF] py-2 px-4 me-6 flex justify-center justify-self-end rounded-lg border-[1px] text-[12px] text-center font-sans font-semibold"
+        @click="showFormCreate"
+      >
         Tambah Candidate
       </button>
       <div class="flex">
@@ -119,53 +234,101 @@
                 <th class="p-2 border border-[#E5E7E9]">
                   <div class="flex items-center justify-between">
                     <span>No.</span>
-                    <svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path fill-rule="evenodd" clip-rule="evenodd"
+                    <svg
+                      width="14"
+                      height="10"
+                      viewBox="0 0 14 10"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
                         d="M10.4252 0.144043C10.7073 0.144043 10.9359 0.364674 10.9359 0.636836L10.9359 8.3174L13.1282 6.20189C13.3276 6.00944 13.651 6.00944 13.8504 6.20189C14.0499 6.39434 14.0499 6.70636 13.8504 6.89881L10.7863 9.85556C10.6906 9.94798 10.5607 9.9999 10.4252 9.9999C10.2898 9.9999 10.1599 9.94798 10.0641 9.85556L7.00001 6.89881C6.80057 6.70636 6.80057 6.39434 7.00001 6.20189C7.19944 6.00944 7.52279 6.00944 7.72223 6.20189L9.91454 8.3174L9.91454 0.636836C9.91454 0.364674 10.1432 0.144043 10.4252 0.144043Z"
-                        fill="#93B8EC" />
+                        fill="#93B8EC"
+                      />
                       <path
                         d="M3.21369 0.144824C3.41312 -0.0476236 3.73647 -0.0476236 3.9359 0.144824L7.00001 3.10158C7.19945 3.29403 7.19945 3.60605 7.00001 3.79849C6.80058 3.99094 6.47723 3.99094 6.27779 3.79849L4.08548 1.68299V9.36355C4.08548 9.63571 3.85684 9.85634 3.57479 9.85634C3.29275 9.85634 3.06411 9.63571 3.06411 9.36355V1.68299L0.871794 3.79849C0.672359 3.99094 0.349011 3.99094 0.149576 3.79849C-0.0498587 3.60605 -0.0498587 3.29403 0.149576 3.10158L3.21369 0.144824Z"
-                        fill="#93B8EC" />
+                        fill="#93B8EC"
+                      />
                     </svg>
                   </div>
                 </th>
                 <th class="p-2 border border-[#E5E7E9]">
                   <div class="flex items-center justify-between">
                     <span>Nama Candidate</span>
-                    <svg @click="sortTable('pic')" width="14" height="10" viewBox="0 0 14 10" fill="none"
-                      xmlns="http://www.w3.org/2000/svg">
-                      <path fill-rule="evenodd" clip-rule="evenodd"
+                    <svg
+                      width="14"
+                      height="10"
+                      viewBox="0 0 14 10"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      @click="sortTable('pic')"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
                         d="M10.4252 0.144043C10.7073 0.144043 10.9359 0.364674 10.9359 0.636836L10.9359 8.3174L13.1282 6.20189C13.3276 6.00944 13.651 6.00944 13.8504 6.20189C14.0499 6.39434 14.0499 6.70636 13.8504 6.89881L10.7863 9.85556C10.6906 9.94798 10.5607 9.9999 10.4252 9.9999C10.2898 9.9999 10.1599 9.94798 10.0641 9.85556L7.00001 6.89881C6.80057 6.70636 6.80057 6.39434 7.00001 6.20189C7.19944 6.00944 7.52279 6.00944 7.72223 6.20189L9.91454 8.3174L9.91454 0.636836C9.91454 0.364674 10.1432 0.144043 10.4252 0.144043Z"
-                        fill="#93B8EC" />
+                        fill="#93B8EC"
+                      />
                       <path
                         d="M3.21369 0.144824C3.41312 -0.0476236 3.73647 -0.0476236 3.9359 0.144824L7.00001 3.10158C7.19945 3.29403 7.19945 3.60605 7.00001 3.79849C6.80058 3.99094 6.47723 3.99094 6.27779 3.79849L4.08548 1.68299V9.36355C4.08548 9.63571 3.85684 9.85634 3.57479 9.85634C3.29275 9.85634 3.06411 9.63571 3.06411 9.36355V1.68299L0.871794 3.79849C0.672359 3.99094 0.349011 3.99094 0.149576 3.79849C-0.0498587 3.60605 -0.0498587 3.29403 0.149576 3.10158L3.21369 0.144824Z"
-                        fill="#93B8EC" />
+                        fill="#93B8EC"
+                      />
                     </svg>
                   </div>
                 </th>
               </tr>
             </thead>
             <tbody>
-              <tr v-for="(item, index) in filteredAndPaginatedData" :key="`${index}-${item.name}`"
-                class="bg-[#FFFFFF] border border-[#E5E7E9] text-[12px] text-[#4D5E80] font-sans font-semibold">
-                <td class="p-2 py-4 border border-[#E5E7E9]">{{ (currentPage - 1) * selectedValue +
-                  index + 1 }}</td>
-                <td class="p-2 py-4 border border-[#E5E7E9]">{{ item.name }}</td>
+              <tr
+                v-for="(item, index) in filteredAndPaginatedData"
+                :key="`${index}-${item.name}`"
+                class="bg-[#FFFFFF] border border-[#E5E7E9] text-[12px] text-[#4D5E80] font-sans font-semibold"
+              >
+                <td class="p-2 py-4 border border-[#E5E7E9]">
+                  {{ (currentPage - 1) * selectedValue +
+                    index + 1 }}
+                </td>
+                <td class="p-2 py-4 border border-[#E5E7E9]">
+                  {{ item.name }}
+                </td>
                 <td class="p-2 py-4 border border-[#E5E7E9] relative">
-                  <button @click.stop="toggleActionDropdown(index)"
-                    class="flex items-center justify-center w-[24px] h-[24px] rounded-lg bg-[#E5E7E9]">
-                    <svg width="2" height="8" viewBox="0 0 2 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <button
+                    class="flex items-center justify-center w-[24px] h-[24px] rounded-lg bg-[#E5E7E9]"
+                    @click.stop="toggleActionDropdown(index)"
+                  >
+                    <svg
+                      width="2"
+                      height="8"
+                      viewBox="0 0 2 8"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
                       <path
                         d="M1 1.8125C0.91712 1.8125 0.837634 1.77958 0.779029 1.72097C0.720424 1.66237 0.6875 1.58288 0.6875 1.5C0.6875 1.41712 0.720424 1.33763 0.779029 1.27903C0.837634 1.22042 0.91712 1.1875 1 1.1875C1.08288 1.1875 1.16237 1.22042 1.22097 1.27903C1.27958 1.33763 1.3125 1.41712 1.3125 1.5C1.3125 1.58288 1.27958 1.66237 1.22097 1.72097C1.16237 1.77958 1.08288 1.8125 1 1.8125ZM1 4.3125C0.91712 4.3125 0.837634 4.27958 0.779029 4.22097C0.720424 4.16237 0.6875 4.08288 0.6875 4C0.6875 3.91712 0.720424 3.83763 0.779029 3.77903C0.837634 3.72042 0.91712 3.6875 1 3.6875C1.08288 3.6875 1.16237 3.72042 1.22097 3.77903C1.27958 3.83763 1.3125 3.91712 1.3125 4C1.3125 4.08288 1.27958 4.16237 1.22097 4.22097C1.16237 4.27958 1.08288 4.3125 1 4.3125ZM1 6.8125C0.91712 6.8125 0.837634 6.77958 0.779029 6.72097C0.720424 6.66237 0.6875 6.58288 0.6875 6.5C0.6875 6.41712 0.720424 6.33763 0.779029 6.27903C0.837634 6.22042 0.91712 6.1875 1 6.1875C1.08288 6.1875 1.16237 6.22042 1.22097 6.27903C1.27958 6.33763 1.3125 6.41712 1.3125 6.5C1.3125 6.58288 1.27958 6.66237 1.22097 6.72097C1.16237 6.77958 1.08288 6.8125 1 6.8125Z"
-                        stroke="#333333" stroke-linecap="round" stroke-linejoin="round" />
+                        stroke="#333333"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
                     </svg>
                   </button>
-                  <div v-if="actionDropdownIndex === index"
-                    class="absolute right-0 mt-2 w-[160px] rounded-lg bg-[#FFFFFF] border border-[#E5E7E9] shadow-lg z-10">
-                    <button @click="showFormEdit(item)"
-                      class="block w-full flex-grow px-4 py-2 text-[14px] font-sans font-normal text-[#333333] text-left hover:bg-[#DBEAFE]">Edit</button>
-                    <button @click="SendDeleteCandidate(item.id)"
-                      class="block w-full flex-grow px-4 py-2 text-[14px] font-sans font-normal text-[#333333] text-left hover:bg-[#DBEAFE]">Hapus</button>
+                  <div
+                    v-if="actionDropdownIndex === index"
+                    class="absolute right-0 mt-2 w-[160px] rounded-lg bg-[#FFFFFF] border border-[#E5E7E9] shadow-lg z-10"
+                  >
+                    <button
+                      class="block w-full flex-grow px-4 py-2 text-[14px] font-sans font-normal text-[#333333] text-left hover:bg-[#DBEAFE]"
+                      @click="showFormEdit(item)"
+                    >
+                      Edit
+                    </button>
+                    <button
+                      class="block w-full flex-grow px-4 py-2 text-[14px] font-sans font-normal text-[#333333] text-left hover:bg-[#DBEAFE]"
+                      @click="SendDeleteCandidate(item.id)"
+                    >
+                      Hapus
+                    </button>
                   </div>
                 </td>
               </tr>
@@ -176,18 +339,43 @@
       <div class="flex items-center justify-between p-4">
         <div class="flex items-center text-[14px] font-sans font-normal">
           <span>Menampilkan</span>
-          <select class="ml-2 p-1 border border-[#E5E7E9] rounded-md" v-model="selectedValue">
-            <option v-for="value in displayOptions" :key="value" :value="value">{{ value }}</option>
+          <select
+            v-model="selectedValue"
+            class="ml-2 p-1 border border-[#E5E7E9] rounded-md"
+          >
+            <option
+              v-for="value in displayOptions"
+              :key="value"
+              :value="value"
+            >
+              {{ value }}
+            </option>
           </select>
           <span class="ml-2">dari <b>{{ totalData }}</b> Data</span>
         </div>
         <div class="flex items-center rounded-lg border-transparent text-[14px] font-sans font-normal border-[#FFFFFF]">
-          <button class="pagination-btn" :disabled="currentPage === 1" @click="prevPage">‹</button>
-          <button v-for="page in pages" :key="page" :class="['pagination-btn', { active: currentPage === page }]"
-            @click="setPage(page)">
+          <button
+            class="pagination-btn"
+            :disabled="currentPage === 1"
+            @click="prevPage"
+          >
+            ‹
+          </button>
+          <button
+            v-for="page in pages"
+            :key="page"
+            :class="['pagination-btn', { active: currentPage === page }]"
+            @click="setPage(page)"
+          >
             {{ page }}
           </button>
-          <button class="pagination-btn" :disabled="currentPage === totalPages" @click="nextPage">›</button>
+          <button
+            class="pagination-btn"
+            :disabled="currentPage === totalPages"
+            @click="nextPage"
+          >
+            ›
+          </button>
         </div>
       </div>
     </div>
@@ -320,6 +508,9 @@ export default {
         this.name != "" && this.CandidateId
       )
     },
+  },
+  mounted() {
+    this.getDataApi();
   },
   methods: {
     closeModalFailed() {
@@ -481,7 +672,7 @@ export default {
     SendCreateCandidate() {
       this.modalDialog = {
         isVisible: true,
-        title: 'Buat Candidate Baru',
+        title: 'Konfirmasi',
         message: 'Apakan anda yakin dengan data yang anda masukan',
         okFunction: this.openCreateCandidate,
         closeFunction: this.closeCreateCandidate
@@ -497,7 +688,7 @@ export default {
     successCreateCandidate() {
       this.modalSuccess = {
         isVisible: true,
-        title: 'Success',
+        title: 'Berhasil',
         message: 'Berhasil membuat Candidate baru',
         closeFunction: this.closeSelesaiCreateCandidate
       }
@@ -520,7 +711,7 @@ export default {
     SendEditCandidate() {
       this.modalDialog = {
         isVisible: true,
-        title: 'Edit Candidate',
+        title: 'Konfirmasi',
         message: 'Apakan anda yakin dengan data yang anda masukan',
         okFunction: this.openEditCandidate,
         closeFunction: this.closeEditCandidate
@@ -536,7 +727,7 @@ export default {
     successEditCandidate() {
       this.modalSuccess = {
         isVisible: true,
-        title: 'Success',
+        title: 'Berhasil',
         message: 'Berhasil mengedit Candidate',
         closeFunction: this.closeSelesaiEditCandidate
       }
@@ -560,7 +751,7 @@ export default {
       this.CandidateId = id
       this.modalDialog = {
         isVisible: true,
-        title: 'Hapus Candidate',
+        title: 'Konfirmasi',
         message: 'Apakan anda yakin menghapus Candidate ini',
         okFunction: this.openDeleteCandidate,
         closeFunction: this.closeDeleteCandidate
@@ -576,7 +767,7 @@ export default {
     successDeleteCandidate() {
       this.modalSuccess = {
         isVisible: true,
-        title: 'Success',
+        title: 'Berhasil',
         message: 'Berhasil menghapus Candidate',
         closeFunction: this.closeSelesaiDeleteCandidate
       }
@@ -612,7 +803,7 @@ export default {
         this.isLoading = false;
         this.modalFailed = {
           isVisible: true,
-          title: 'Gagal Ambil Data',
+          title: 'Gagal',
           message: res.data.message ? res.data.message : "Silahkan hubungi admin"
         }
       }
@@ -665,9 +856,6 @@ export default {
         failFunction();
       }
     },
-  },
-  mounted() {
-    this.getDataApi();
   }
 };
 </script>

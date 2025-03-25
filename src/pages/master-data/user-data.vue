@@ -1,15 +1,15 @@
 <template>
-    <div class="">
-        <div class="background">
-            <div class="flex">
-                <SidebarMasterData />
-                <div class="flex-grow">
-                    <MainBar />
-                    <UserList />
-                </div>
-            </div>
+  <div class="">
+    <div class="background">
+      <div class="flex">
+        <SidebarMasterData />
+        <div class="flex-grow">
+          <MainBar />
+          <UserList />
         </div>
+      </div>
     </div>
+  </div>
 </template>
 
 <script>

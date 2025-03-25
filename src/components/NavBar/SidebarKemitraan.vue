@@ -1,12 +1,34 @@
 <template>
   <div class="flex flex-col items-start p-4 w-[248px] h-[1416px] bg-white border-r border-neutral-stroke">
     <!-- Logo -->
-    <div @click="navigateToDetail" class="flex justify-between items-center w-[216px] h-[27px] mt-4 cursor-pointer">
-      <svg width="77" height="13" viewBox="0 0 77 13" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-        <rect width="77" height="13" fill="url(#pattern0_1974_2101)" />
+    <div
+      class="flex justify-between items-center w-[216px] h-[27px] mt-4 cursor-pointer"
+      @click="navigateToDetail"
+    >
+      <svg
+        width="77"
+        height="13"
+        viewBox="0 0 77 13"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+      >
+        <rect
+          width="77"
+          height="13"
+          fill="url(#pattern0_1974_2101)"
+        />
         <defs>
-          <pattern id="pattern0_1974_2101" patternContentUnits="objectBoundingBox" width="1" height="1">
-            <use xlink:href="#image0_1974_2101" transform="matrix(0.00398406 0 0 0.0235979 0 -0.0191542)" />
+          <pattern
+            id="pattern0_1974_2101"
+            patternContentUnits="objectBoundingBox"
+            width="1"
+            height="1"
+          >
+            <use
+              xlink:href="#image0_1974_2101"
+              transform="matrix(0.00398406 0 0 0.0235979 0 -0.0191542)"
+            />
           </pattern>
           <image
             id="image0_1974_2101"
@@ -18,14 +40,21 @@
       </svg>
     </div>
     <!-- Line -->
-    <div class="w-[216px] h-0 border items-center border-[#E5E7E9] mt-[23px] mb-6"></div>
+    <div class="w-[216px] h-0 border items-center border-[#E5E7E9] mt-[23px] mb-6" />
     <div class="flex flex-col w-full gap-[8px]">
       <!-- Dashboard -->
       <button
         :class="['flex text-[14px] font-sans font-semibold items-center justify p-2 rounded-lg transition-colors', isActive('Dashboard') ? 'bg-[#2671D9] text-[#FFFFFF]' : 'text-[#333333] hover:bg-[#DBEAFE]']"
         @click="navigateTo('Dashboard')"
       >
-        <svg width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg" :class="['ml-[5px] mr-3', isActive('Dashboard') ? 'filter-white' : '']">
+        <svg
+          width="18"
+          height="16"
+          viewBox="0 0 18 16"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          :class="['ml-[5px] mr-3', isActive('Dashboard') ? 'filter-white' : '']"
+        >
           <path
             fill-rule="evenodd"
             clip-rule="evenodd"
@@ -40,7 +69,14 @@
         :class="['flex text-[14px] font-sans font-semibold items-center justify p-2 rounded-lg transition-colors', isActive('MasukManager') ? 'bg-[#2671D9] text-[#FFFFFF]' : 'text-[#333333] hover:bg-[#DBEAFE]']"
         @click="navigateTo('MasukManager')"
       >
-        <svg class="ml-[8px] mr-[14px]" width="14" height="16" viewBox="0 0 14 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg
+          class="ml-[8px] mr-[14px]"
+          width="14"
+          height="16"
+          viewBox="0 0 14 16"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
           <path
             fill-rule="evenodd"
             clip-rule="evenodd"
@@ -64,7 +100,14 @@
         :class="['flex text-[14px] font-sans font-semibold items-center justify p-2 rounded-lg transition-colors', isActive('Approval') ? 'bg-[#2671D9] text-[#FFFFFF]' : 'text-[#333333] hover:bg-[#DBEAFE]']"
         @click="navigateTo('Approval')"
       >
-        <svg width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg" :class="['ml-[5px] mr-[14px]', isActive('Approval') ? 'filter-white' : '']">
+        <svg
+          width="18"
+          height="16"
+          viewBox="0 0 18 16"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          :class="['ml-[5px] mr-[14px]', isActive('Approval') ? 'filter-white' : '']"
+        >
           <path
             fill-rule="evenodd"
             clip-rule="evenodd"
@@ -79,7 +122,14 @@
         :class="['flex text-[14px] font-sans font-semibold items-center justify p-2 rounded-lg transition-colors', isActive('Proses') ? 'bg-[#2671D9] text-[#FFFFFF]' : 'text-[#333333] hover:bg-[#DBEAFE]']"
         @click="navigateTo('Proses')"
       >
-        <svg class="ml-[5px] mr-[16px]" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg
+          class="ml-[5px] mr-[16px]"
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
           <path
             d="M14.8006 1.08937L4.18235 9.93824M6.6839 12.4509L9.10754 14.8634C9.25638 15.016 9.44247 15.127 9.64741 15.1856C9.85234 15.2441 10.069 15.2482 10.276 15.1973C10.4841 15.1488 10.6762 15.0476 10.8339 14.9033C10.9915 14.7591 11.1094 14.5768 11.1762 14.3738L15.1555 2.44474C15.2388 2.22131 15.2561 1.97867 15.2054 1.7457C15.1546 1.51273 15.038 1.29923 14.8695 1.13064C14.7009 0.962042 14.4874 0.845444 14.2544 0.794725C14.0214 0.744005 13.7788 0.761301 13.5554 0.844552L1.62628 4.82499C1.41633 4.89654 1.2293 5.02287 1.08453 5.19092C0.939758 5.35897 0.842504 5.56264 0.802823 5.78087C0.761837 5.97949 0.770889 6.18519 0.829164 6.37944C0.88744 6.57369 0.993109 6.7504 1.13666 6.89366L4.18235 9.93935L4.0822 13.7963L6.6839 12.4509Z"
             :stroke="isActive('Proses') ? '#FFFFFF' : '#2671D9'"
@@ -95,12 +145,46 @@
         :class="['flex text-[14px] font-sans font-semibold items-center justify p-2 rounded-lg transition-colors', isActive('Selesai') ? 'bg-[#2671D9] text-[#FFFFFF]' : 'text-[#333333] hover:bg-[#DBEAFE]']"
         @click="navigateTo('Selesai')"
       >
-        <svg class="ml-[5px] mr-[14px]" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M9.27759 6.66H13.2151H9.27759Z" fill="white" />
-          <path d="M9.27759 6.66H13.2151" :stroke="isActive('Selesai') ? '#FFFFFF' : '#2671D9'" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" />
-          <path d="M4.78491 6.66L5.34741 7.2225L7.03491 5.535" :stroke="isActive('Selesai') ? '#FFFFFF' : '#2671D9'" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" />
-          <path d="M9.27759 11.91H13.2151" :stroke="isActive('Selesai') ? '#FFFFFF' : '#2671D9'" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" />
-          <path d="M4.78491 11.91L5.34741 12.4725L7.03491 10.785" :stroke="isActive('Selesai') ? '#FFFFFF' : '#2671D9'" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" />
+        <svg
+          class="ml-[5px] mr-[14px]"
+          width="18"
+          height="18"
+          viewBox="0 0 18 18"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M9.27759 6.66H13.2151H9.27759Z"
+            fill="white"
+          />
+          <path
+            d="M9.27759 6.66H13.2151"
+            :stroke="isActive('Selesai') ? '#FFFFFF' : '#2671D9'"
+            stroke-width="1.3"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M4.78491 6.66L5.34741 7.2225L7.03491 5.535"
+            :stroke="isActive('Selesai') ? '#FFFFFF' : '#2671D9'"
+            stroke-width="1.3"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M9.27759 11.91H13.2151"
+            :stroke="isActive('Selesai') ? '#FFFFFF' : '#2671D9'"
+            stroke-width="1.3"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M4.78491 11.91L5.34741 12.4725L7.03491 10.785"
+            :stroke="isActive('Selesai') ? '#FFFFFF' : '#2671D9'"
+            stroke-width="1.3"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
           <path
             d="M6.75 16.5H11.25C15 16.5 16.5 15 16.5 11.25V6.75C16.5 3 15 1.5 11.25 1.5H6.75C3 1.5 1.5 3 1.5 6.75V11.25C1.5 15 3 16.5 6.75 16.5Z"
             :stroke="isActive('Selesai') ? '#FFFFFF' : '#2671D9'"
@@ -117,12 +201,15 @@
 
 <script>
 export default {
-  name: "SidebarKemitraan, DashboardButton",
+  name: "SidebarKemitraan",
   data() {
     return {
       selectedMenu: "Dashboard",
       position: null,
     };
+  },
+  mounted() {
+    this.position = localStorage.getItem('position');
   },
   methods: {
     navigateToDetail() {
@@ -168,9 +255,6 @@ export default {
           return false;
       }
     },
-  },
-  mounted() {
-    this.position = localStorage.getItem('position');
   }
 };
 </script>
