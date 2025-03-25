@@ -867,6 +867,7 @@ export default {
       }
 			const res2 = await fetchGet(url2, params, this.$router);
 			if (res2.status == 200) {
+        console.log('apa isinya', res2.data)
 				const cleanData2 = res2.data.map((item) => ({
 					judul: item.partnershipTitle,
 					nomor: item.submissionNumber,

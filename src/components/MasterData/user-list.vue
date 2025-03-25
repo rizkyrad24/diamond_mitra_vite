@@ -862,7 +862,7 @@ export default {
       selectedOption: null,
       selectedSubOptions: [],
       filterOptions: [
-      { name: "Role", subOptions: ["Staff", "Manager", "VP", "Direksi", "Admin", "PartnershipStaff", "PartnershipManager", "PartnershipVP"] },
+      { name: "Role", subOptions: ["Staff", "Manager", "VP", "Direksi", "Admin", "PartnershipStaff", "PartnershipManager", "PartnershipVP", "PartnershipDirector"] },
       { name: "Aktif", subOptions: ["Aktif", "Tidak Aktif"] },
       ],
 
