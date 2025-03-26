@@ -206,248 +206,1129 @@ import { dateParsing } from '@/utils/helper';
               v-if="showProgressPKSPopup"
               class="fixed inset-0 flex items-center justify-center bg-[#1F2937] bg-opacity-50"
             >
-              <div class="bg-[#FFFFFF] re rounded-lg shadow-lg w-[1040.84px] h-[650px] border-collapse">
-                <button
+              <div class="bg-[#FFFFFF] re rounded-lg shadow-lg w-auto h-[84%] border-collapse overflow-scroll">
+                <!-- <button
                   class="text-[#2671D9] w-[14px] h-[14px] absolute mt-[30px] ml-[990px] text-[20px]"
                   @click="closePopup"
                 >
                   &times;
-                </button>
-                <div class="flex mt-[8px]">
-                  <svg
-                    class="ml-4 mt-[10px]"
-                    width="6"
-                    height="28"
-                    viewBox="0 0 6 28"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <rect
-                      width="6"
-                      height="28"
-                      fill="#1F5AAD"
-                    />
-                  </svg>
-                  <h1 class="font-sans text-[20px] text-[#333333] mt-2 ml-[5px] font-semibold">
-                    Progress Kemitraan
-                  </h1>
+                </button> -->
+                <div class="flex mt-[8px] justify-between px-6 ">
+                  <div class="flex">
+                      <svg class="mt-[10px]" width="6" height="28" viewBox="0 0 6 28" fill="none"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <rect width="6" height="28" fill="#1F5AAD" />
+                    </svg>
+                    <h1 class="font-sans text-[20px] text-[#333333] mt-2 ml-[5px] font-semibold">
+                      Progress Kemitraan
+                    </h1>
+                  </div>
+                  
+                  <button class="text-[#2671D9] w-[14px] h-[14px] text-[20px]"
+                    @click="closePopup">
+                    &times;
+                  </button>
                 </div>
-                <h1 class="items-start justify-center px-2 ml-2 text-[#9C9C9C]">
+                <h1 class="items-start justify-center px-2 ml-4 text-[#9C9C9C]">
                   {{ dataBerkas?.partnershipTitle }}
                 </h1>
-                <div class="flex">
-                  <div class="flex flex-col w-[289px] h-[130px] rounded-lg mt-6 ml-5 border-[1px] border-[#E5E7E9]">
-                    <div class="w-[289px] h-[40px] p-4 flex justify-between items-center rounded-t-lg bg-[#0EA976]">
-                      <div class="font-sans text-[14px] font-semibold text-white">
-                        Surat Penawaran
+                <div class="p-6">
+                  <div class="flex items-center gap-4">
+                    <a :href="linkDownloadFile1" v-if="fileName1"  class="flex flex-col w-[289px] h-[130px] rounded-lg border-[1px] border-[#E5E7E9]">
+                      <div class="w-[289px] h-[40px] p-4 flex justify-between items-center rounded-t-lg bg-[#0EA976]">
+                        <div class="font-sans text-[14px] font-semibold text-white">
+                          Surat Penawaran
+                        </div>
+                      </div>
+                      <div class="flex flex-col ml-4 mt-[10px]">
+                        <div class="flex">
+                          <div>
+                            <div class="font-sans text-[#333333] text-[12px] font-normal">
+                              Dokumen Surat Penawaran
+                            </div>
+                            <div class="flex">
+                              <svg
+                                class="w-[30px] h-[30px] mt-[12px]"
+                                viewBox="0 0 30 30"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <circle
+                                  cx="15"
+                                  cy="15"
+                                  r="14.5652"
+                                  class="fill-[#E2FCF3]"
+                                />
+                                <g transform="translate(9, 8)">
+                                  <path
+                                    class="fill-[#0EA976]"
+                                    d="M10.4206 4.70885C10.4143 4.65309 10.4021 4.59817 10.3842 4.54499V4.49037C10.355 4.42797 10.3161 4.37061 10.2689 4.32044L6.62757 0.679135C6.5774 0.63193 6.52004 0.593007 6.45764 0.563827H6.40302C6.34137 0.528471 6.27328 0.505776 6.20275 0.49707H2.5311C2.04823 0.49707 1.58514 0.688889 1.24371 1.03033C0.902267 1.37177 0.710449 1.83486 0.710449 2.31772V10.8141C0.710449 11.297 0.902267 11.7601 1.24371 12.1015C1.58514 12.4429 2.04823 12.6348 2.5311 12.6348H8.59994C9.08281 12.6348 9.5459 12.4429 9.88734 12.1015C10.2288 11.7601 10.4206 11.297 10.4206 10.8141V4.74526V4.70885ZM6.77929 2.56654L8.35112 4.13837H7.38617C7.22522 4.13837 7.07085 4.07443 6.95704 3.96062C6.84323 3.84681 6.77929 3.69245 6.77929 3.53149V2.56654ZM9.20683 10.8141C9.20683 10.9751 9.14289 11.1294 9.02907 11.2432C8.91526 11.357 8.7609 11.421 8.59994 11.421H2.5311C2.37015 11.421 2.21578 11.357 2.10197 11.2432C1.98816 11.1294 1.92422 10.9751 1.92422 10.8141V2.31772C1.92422 2.15677 1.98816 2.0024 2.10197 1.88859C2.21578 1.77478 2.37015 1.71084 2.5311 1.71084H5.56552V3.53149C5.56552 4.01436 5.75734 4.47745 6.09878 4.81889C6.44022 5.16032 6.90331 5.35214 7.38617 5.35214H9.20683V10.8141Z"
+                                  />
+                                </g>
+                              </svg>
+                              <div class="mt-[12px] ml-2">
+                                <p class="w-[200px] h[-12px] text-[#333333] text-[9.06px] truncate">
+                                  {{ fileName1 }}
+                                </p>
+                                <p class="w-[200px] h-[11px] text-[#9E9E9E] text-[7.77px]">
+                                  {{ fileSize1 }}
+                                </p>
+                              </div>
+                            </div>
+                            
+                          </div>
+                          
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="text-[#0EA976] bg-[#E2FCF3] rounded-full w-[15px] h-[15px]"
+                            viewBox="0 0 21 19"
+                            fill="currentColor"
+                          >
+                            <path
+                              fill-rule="evenodd"
+                              d="M16.707 4.293a1 1 0 00-1.414 0L8 11.586 4.707 8.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z"
+                              clip-rule="evenodd"
+                            />
+                          </svg>
+                        </div>
+                      </div>
+                    </a>
+                    <div v-else class="w-[289px] h-[130px] border-[1px] rounded-t-lg rounded-b-lg">
+                      <div class="w-auto h-[40px] bg-[#bcc6d2] rounded-t-lg flex justify-start items-center px-4"><span
+                          class="text-white font-semibold">Surat Penawaran</span></div>
+                      <div class="w-[265px] h-[18px] flex justify-between ml-3 mt-[10px]">
+                        <span class="text-[#333333] text-xs">Dokumen Review mitra</span>
+                      </div>
+                      <div class="w-[265px] h-auto flex ml-3 py-[10px]">
+                        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <circle cx="14.5652" cy="14.5652" r="14.5652" fill="#bcc6d2" />
+                          <path
+                            d="M19.4206 12.7088C19.4143 12.6531 19.4021 12.5982 19.3842 12.545V12.4904C19.355 12.428 19.3161 12.3706 19.2689 12.3204L15.6276 8.67914C15.5774 8.63193 15.52 8.59301 15.4576 8.56383H15.403C15.3414 8.52847 15.2733 8.50578 15.2027 8.49707H11.5311C11.0482 8.49707 10.5851 8.68889 10.2437 9.03033C9.90227 9.37177 9.71045 9.83486 9.71045 10.3177V18.8141C9.71045 19.297 9.90227 19.7601 10.2437 20.1015C10.5851 20.4429 11.0482 20.6348 11.5311 20.6348H17.5999C18.0828 20.6348 18.5459 20.4429 18.8873 20.1015C19.2288 19.7601 19.4206 19.297 19.4206 18.8141V12.7453V12.7088ZM15.7793 10.5665L17.3511 12.1384H16.3862C16.2252 12.1384 16.0709 12.0744 15.957 11.9606C15.8432 11.8468 15.7793 11.6924 15.7793 11.5315V10.5665ZM18.2068 18.8141C18.2068 18.9751 18.1429 19.1294 18.0291 19.2432C17.9153 19.357 17.7609 19.421 17.5999 19.421H11.5311C11.3701 19.421 11.2158 19.357 11.102 19.2432C10.9882 19.1294 10.9242 18.9751 10.9242 18.8141V10.3177C10.9242 10.1568 10.9882 10.0024 11.102 9.88859C11.2158 9.77478 11.3701 9.71084 11.5311 9.71084H14.5655V11.5315C14.5655 12.0144 14.7573 12.4774 15.0988 12.8189C15.4402 13.1603 15.9033 13.3521 16.3862 13.3521H18.2068V18.8141Z"
+                            fill="white" />
+                        </svg>
+                        <div class="ml-[13px] -translate-y-2 pt-1">
+                          <span class="text-[#333333] text-[9.06px] font-semibold">Belum ada</span>
+                        </div>
                       </div>
                     </div>
-                    <div class="flex flex-col ml-4 mt-[10px]">
-                      <div class="flex items-center">
-                        <div>
-                          <div class="font-sans text-[#333333] text-[12px] font-normal">
-                            Dokumen Surat Penawaran
-                          </div>
-                          <div class="mt-[12px] ml-[38px]">
-                            <p class="w-[200px] h[-12px] text-[#333333] text-[9.06px] truncate">
-                              {{ fileName1 }}
-                            </p>
-                            <p class="w-[200px] h-[11px] text-[#9E9E9E] text-[7.77px]">
-                              {{ fileSize1 }}
-                            </p>
-                          </div>
+
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="w-[33px] h-[28px]"
+                      viewBox="0 0 33 28"
+                      fill="none"
+                    >
+                      <path
+                        d="M24.75 6.91797L31.8317 13.9996L24.75 21.0813"
+                        stroke="#292D32"
+                        stroke-width="1.5"
+                        stroke-miterlimit="10"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M1 14H30.64"
+                        stroke="#292D32"
+                        stroke-width="1.5"
+                        stroke-miterlimit="10"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+
+                    <a :href="linkDownloadFile2" v-if="fileName2" class="flex flex-col w-[289px] h-[130px] rounded-lg border-[1px] border-[#DEDEDE]">
+                      <div class="w-full h-[40px] p-4 flex justify-between items-center rounded-t-lg bg-[#0EA976]">
+                        <div class="font-sans text-[14px] font-semibold text-white">
+                          Proposal
                         </div>
-                        <svg
-                          class="w-[30px] h-[30px] absolute ml-[2px] mt-[30px]"
-                          viewBox="0 0 30 30"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <circle
-                            cx="15"
-                            cy="15"
-                            r="14.5652"
-                            class="fill-[#E2FCF3]"
-                          />
-                          <g transform="translate(9, 8)">
+                      </div>
+                      <div class="flex flex-col ml-4 mt-[10px]">
+                        <div class="flex">
+                          <div>
+                            <div class="font-sans text-[#333333] text-[12px] font-normal">
+                              Dokumen Profosal
+                            </div>
+                            <div class="flex">
+                              <svg
+                                class="w-[30px] h-[30px] mt-[12px]"
+                                viewBox="0 0 30 30"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <circle
+                                  cx="15"
+                                  cy="15"
+                                  r="14.5652"
+                                  class="fill-[#E2FCF3]"
+                                />
+                                <g transform="translate(9, 8)">
+                                  <path
+                                    class="fill-[#0EA976]"
+                                    d="M10.4206 4.70885C10.4143 4.65309 10.4021 4.59817 10.3842 4.54499V4.49037C10.355 4.42797 10.3161 4.37061 10.2689 4.32044L6.62757 0.679135C6.5774 0.63193 6.52004 0.593007 6.45764 0.563827H6.40302C6.34137 0.528471 6.27328 0.505776 6.20275 0.49707H2.5311C2.04823 0.49707 1.58514 0.688889 1.24371 1.03033C0.902267 1.37177 0.710449 1.83486 0.710449 2.31772V10.8141C0.710449 11.297 0.902267 11.7601 1.24371 12.1015C1.58514 12.4429 2.04823 12.6348 2.5311 12.6348H8.59994C9.08281 12.6348 9.5459 12.4429 9.88734 12.1015C10.2288 11.7601 10.4206 11.297 10.4206 10.8141V4.74526V4.70885ZM6.77929 2.56654L8.35112 4.13837H7.38617C7.22522 4.13837 7.07085 4.07443 6.95704 3.96062C6.84323 3.84681 6.77929 3.69245 6.77929 3.53149V2.56654ZM9.20683 10.8141C9.20683 10.9751 9.14289 11.1294 9.02907 11.2432C8.91526 11.357 8.7609 11.421 8.59994 11.421H2.5311C2.37015 11.421 2.21578 11.357 2.10197 11.2432C1.98816 11.1294 1.92422 10.9751 1.92422 10.8141V2.31772C1.92422 2.15677 1.98816 2.0024 2.10197 1.88859C2.21578 1.77478 2.37015 1.71084 2.5311 1.71084H5.56552V3.53149C5.56552 4.01436 5.75734 4.47745 6.09878 4.81889C6.44022 5.16032 6.90331 5.35214 7.38617 5.35214H9.20683V10.8141Z"
+                                  />
+                                </g>
+                              </svg>
+                              <div class="mt-[12px] ml-2">
+                                <p class="w-[200px] h[-12px] text-[#333333] text-[9.06px] truncate">
+                                  {{ fileName2 }}
+                                </p>
+                                <p class="w-[200px] h-[11px] text-[#9E9E9E] text-[7.77px]">
+                                  {{ fileSize2 }}
+                                </p>
+                              </div>
+                            </div>  
+                          </div>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="text-[#0EA976] bg-[#E2FCF3] rounded-full w-[15px] h-[15px]"
+                            viewBox="0 0 21 19"
+                            fill="currentColor"
+                          >
                             <path
-                              class="fill-[#0EA976]"
-                              d="M10.4206 4.70885C10.4143 4.65309 10.4021 4.59817 10.3842 4.54499V4.49037C10.355 4.42797 10.3161 4.37061 10.2689 4.32044L6.62757 0.679135C6.5774 0.63193 6.52004 0.593007 6.45764 0.563827H6.40302C6.34137 0.528471 6.27328 0.505776 6.20275 0.49707H2.5311C2.04823 0.49707 1.58514 0.688889 1.24371 1.03033C0.902267 1.37177 0.710449 1.83486 0.710449 2.31772V10.8141C0.710449 11.297 0.902267 11.7601 1.24371 12.1015C1.58514 12.4429 2.04823 12.6348 2.5311 12.6348H8.59994C9.08281 12.6348 9.5459 12.4429 9.88734 12.1015C10.2288 11.7601 10.4206 11.297 10.4206 10.8141V4.74526V4.70885ZM6.77929 2.56654L8.35112 4.13837H7.38617C7.22522 4.13837 7.07085 4.07443 6.95704 3.96062C6.84323 3.84681 6.77929 3.69245 6.77929 3.53149V2.56654ZM9.20683 10.8141C9.20683 10.9751 9.14289 11.1294 9.02907 11.2432C8.91526 11.357 8.7609 11.421 8.59994 11.421H2.5311C2.37015 11.421 2.21578 11.357 2.10197 11.2432C1.98816 11.1294 1.92422 10.9751 1.92422 10.8141V2.31772C1.92422 2.15677 1.98816 2.0024 2.10197 1.88859C2.21578 1.77478 2.37015 1.71084 2.5311 1.71084H5.56552V3.53149C5.56552 4.01436 5.75734 4.47745 6.09878 4.81889C6.44022 5.16032 6.90331 5.35214 7.38617 5.35214H9.20683V10.8141Z"
+                              fill-rule="evenodd"
+                              d="M16.707 4.293a1 1 0 00-1.414 0L8 11.586 4.707 8.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z"
+                              clip-rule="evenodd"
                             />
-                          </g>
-                        </svg>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          class="text-[#0EA976] bg-[#E2FCF3] rounded-full w-[15px] h-[15px] absolute mb-[35px] ml-[240px]"
-                          viewBox="0 0 21 19"
-                          fill="currentColor"
-                        >
+                          </svg>
+                        </div>
+                      </div>
+                    </a>
+                    <div v-else class="w-[289px] h-[130px] border-[1px] rounded-t-lg rounded-b-lg">
+                      <div class="w-auto h-[40px] bg-[#bcc6d2] rounded-t-lg flex justify-start items-center px-4"><span
+                          class="text-white font-semibold">Profosal</span></div>
+                      <div class="w-[265px] h-[18px] flex justify-between ml-3 mt-[10px]">
+                        <span class="text-[#333333] text-xs">Dokumen Profosal</span>
+                      </div>
+                      <div class="w-[265px] h-auto flex ml-3 py-[10px]">
+                        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <circle cx="14.5652" cy="14.5652" r="14.5652" fill="#bcc6d2" />
                           <path
-                            fill-rule="evenodd"
-                            d="M16.707 4.293a1 1 0 00-1.414 0L8 11.586 4.707 8.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z"
-                            clip-rule="evenodd"
-                          />
+                            d="M19.4206 12.7088C19.4143 12.6531 19.4021 12.5982 19.3842 12.545V12.4904C19.355 12.428 19.3161 12.3706 19.2689 12.3204L15.6276 8.67914C15.5774 8.63193 15.52 8.59301 15.4576 8.56383H15.403C15.3414 8.52847 15.2733 8.50578 15.2027 8.49707H11.5311C11.0482 8.49707 10.5851 8.68889 10.2437 9.03033C9.90227 9.37177 9.71045 9.83486 9.71045 10.3177V18.8141C9.71045 19.297 9.90227 19.7601 10.2437 20.1015C10.5851 20.4429 11.0482 20.6348 11.5311 20.6348H17.5999C18.0828 20.6348 18.5459 20.4429 18.8873 20.1015C19.2288 19.7601 19.4206 19.297 19.4206 18.8141V12.7453V12.7088ZM15.7793 10.5665L17.3511 12.1384H16.3862C16.2252 12.1384 16.0709 12.0744 15.957 11.9606C15.8432 11.8468 15.7793 11.6924 15.7793 11.5315V10.5665ZM18.2068 18.8141C18.2068 18.9751 18.1429 19.1294 18.0291 19.2432C17.9153 19.357 17.7609 19.421 17.5999 19.421H11.5311C11.3701 19.421 11.2158 19.357 11.102 19.2432C10.9882 19.1294 10.9242 18.9751 10.9242 18.8141V10.3177C10.9242 10.1568 10.9882 10.0024 11.102 9.88859C11.2158 9.77478 11.3701 9.71084 11.5311 9.71084H14.5655V11.5315C14.5655 12.0144 14.7573 12.4774 15.0988 12.8189C15.4402 13.1603 15.9033 13.3521 16.3862 13.3521H18.2068V18.8141Z"
+                            fill="white" />
                         </svg>
+                        <div class="ml-[13px] -translate-y-2 pt-1">
+                          <span class="text-[#333333] text-[9.06px] font-semibold">Belum ada</span>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="w-[33px] h-[28px]"
+                      viewBox="0 0 33 28"
+                      fill="none"
+                    >
+                      <path
+                        d="M24.75 6.91797L31.8317 13.9996L24.75 21.0813"
+                        stroke="#292D32"
+                        stroke-width="1.5"
+                        stroke-miterlimit="10"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M1 14H30.64"
+                        stroke="#292D32"
+                        stroke-width="1.5"
+                        stroke-miterlimit="10"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+
+                    <a :href="linkDownloadFile3" v-if="fileName3" class="flex flex-col w-[289px] h-[130px] rounded-lg border-[1px] border-[#DEDEDE]">
+                      <div class="w-full h-[40px] p-4 flex justify-between items-center rounded-t-lg bg-[#0EA976]">
+                        <div class="font-sans text-[14px] font-semibold text-white">
+                          Evaluasi
+                        </div>
+                      </div>
+                      <div class="flex flex-col ml-4 mt-[10px]">
+                        <div class="flex">
+                          <div>
+                            <div class="font-sans text-[#333333] text-[12px] font-normal">
+                              Dokumen Evaluasi
+                            </div>
+                            <div class="flex">
+                              <svg
+                                class="w-[30px] h-[30px] mt-[12px]"
+                                viewBox="0 0 30 30"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <circle
+                                  cx="15"
+                                  cy="15"
+                                  r="14.5652"
+                                  class="fill-[#E2FCF3]"
+                                />
+                                <g transform="translate(9, 8)">
+                                  <path
+                                    class="fill-[#0EA976]"
+                                    d="M10.4206 4.70885C10.4143 4.65309 10.4021 4.59817 10.3842 4.54499V4.49037C10.355 4.42797 10.3161 4.37061 10.2689 4.32044L6.62757 0.679135C6.5774 0.63193 6.52004 0.593007 6.45764 0.563827H6.40302C6.34137 0.528471 6.27328 0.505776 6.20275 0.49707H2.5311C2.04823 0.49707 1.58514 0.688889 1.24371 1.03033C0.902267 1.37177 0.710449 1.83486 0.710449 2.31772V10.8141C0.710449 11.297 0.902267 11.7601 1.24371 12.1015C1.58514 12.4429 2.04823 12.6348 2.5311 12.6348H8.59994C9.08281 12.6348 9.5459 12.4429 9.88734 12.1015C10.2288 11.7601 10.4206 11.297 10.4206 10.8141V4.74526V4.70885ZM6.77929 2.56654L8.35112 4.13837H7.38617C7.22522 4.13837 7.07085 4.07443 6.95704 3.96062C6.84323 3.84681 6.77929 3.69245 6.77929 3.53149V2.56654ZM9.20683 10.8141C9.20683 10.9751 9.14289 11.1294 9.02907 11.2432C8.91526 11.357 8.7609 11.421 8.59994 11.421H2.5311C2.37015 11.421 2.21578 11.357 2.10197 11.2432C1.98816 11.1294 1.92422 10.9751 1.92422 10.8141V2.31772C1.92422 2.15677 1.98816 2.0024 2.10197 1.88859C2.21578 1.77478 2.37015 1.71084 2.5311 1.71084H5.56552V3.53149C5.56552 4.01436 5.75734 4.47745 6.09878 4.81889C6.44022 5.16032 6.90331 5.35214 7.38617 5.35214H9.20683V10.8141Z"
+                                  />
+                                </g>
+                              </svg>
+                              <div class="mt-[12px] ml-2">
+                                <p class="w-[200px] h[-12px] text-[#333333] text-[9.06px] truncate">
+                                  {{ fileName3 }}
+                                </p>
+                                <p class="w-[200px] h-[11px] text-[#9E9E9E] text-[7.77px]">
+                                  {{ fileSize3 }}
+                                </p>
+                              </div>
+                            </div>
+                            
+                          </div>
+                          
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="text-[#0EA976] bg-[#E2FCF3] rounded-full w-[15px] h-[15px]"
+                            viewBox="0 0 21 19"
+                            fill="currentColor"
+                          >
+                            <path
+                              fill-rule="evenodd"
+                              d="M16.707 4.293a1 1 0 00-1.414 0L8 11.586 4.707 8.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z"
+                              clip-rule="evenodd"
+                            />
+                          </svg>
+                        </div>
+                      </div>
+                    </a>
+                    <div v-else class="w-[289px] h-[130px] border-[1px] rounded-t-lg rounded-b-lg">
+                      <div class="w-auto h-[40px] bg-[#bcc6d2] rounded-t-lg flex justify-start items-center px-4"><span
+                          class="text-white font-semibold">Evaluasi</span></div>
+                      <div class="w-[265px] h-[18px] flex justify-between ml-3 mt-[10px]">
+                        <span class="text-[#333333] text-xs">Dokumen Evaluasi</span>
+                      </div>
+                      <div class="w-[265px] h-auto flex ml-3 py-[10px]">
+                        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <circle cx="14.5652" cy="14.5652" r="14.5652" fill="#bcc6d2" />
+                          <path
+                            d="M19.4206 12.7088C19.4143 12.6531 19.4021 12.5982 19.3842 12.545V12.4904C19.355 12.428 19.3161 12.3706 19.2689 12.3204L15.6276 8.67914C15.5774 8.63193 15.52 8.59301 15.4576 8.56383H15.403C15.3414 8.52847 15.2733 8.50578 15.2027 8.49707H11.5311C11.0482 8.49707 10.5851 8.68889 10.2437 9.03033C9.90227 9.37177 9.71045 9.83486 9.71045 10.3177V18.8141C9.71045 19.297 9.90227 19.7601 10.2437 20.1015C10.5851 20.4429 11.0482 20.6348 11.5311 20.6348H17.5999C18.0828 20.6348 18.5459 20.4429 18.8873 20.1015C19.2288 19.7601 19.4206 19.297 19.4206 18.8141V12.7453V12.7088ZM15.7793 10.5665L17.3511 12.1384H16.3862C16.2252 12.1384 16.0709 12.0744 15.957 11.9606C15.8432 11.8468 15.7793 11.6924 15.7793 11.5315V10.5665ZM18.2068 18.8141C18.2068 18.9751 18.1429 19.1294 18.0291 19.2432C17.9153 19.357 17.7609 19.421 17.5999 19.421H11.5311C11.3701 19.421 11.2158 19.357 11.102 19.2432C10.9882 19.1294 10.9242 18.9751 10.9242 18.8141V10.3177C10.9242 10.1568 10.9882 10.0024 11.102 9.88859C11.2158 9.77478 11.3701 9.71084 11.5311 9.71084H14.5655V11.5315C14.5655 12.0144 14.7573 12.4774 15.0988 12.8189C15.4402 13.1603 15.9033 13.3521 16.3862 13.3521H18.2068V18.8141Z"
+                            fill="white" />
+                        </svg>
+                        <div class="ml-[13px] -translate-y-2 pt-1">
+                          <span class="text-[#333333] text-[9.06px] font-semibold">Belum ada</span>
+                        </div>
                       </div>
                     </div>
                   </div>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="w-[33px] h-[28px] absolute ml-[325px] mt-[90px]"
-                    viewBox="0 0 33 28"
-                    fill="none"
-                  >
-                    <path
-                      d="M24.75 6.91797L31.8317 13.9996L24.75 21.0813"
-                      stroke="#292D32"
-                      stroke-width="1.5"
-                      stroke-miterlimit="10"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                    <path
-                      d="M1 14H30.64"
-                      stroke="#292D32"
-                      stroke-width="1.5"
-                      stroke-miterlimit="10"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                  <div class="flex flex-col w-[289px] h-[130px] rounded-lg mt-6 ml-[370px] absolute border-[1px] border-[#DEDEDE]">
-                    <div class="w-full h-[40px] p-4 flex justify-between items-center rounded-t-lg bg-[#0EA976]">
-                      <div class="font-sans text-[14px] font-semibold text-white">
-                        Proposal
+
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-[289px] h-[32px] ml-auto my-4"
+                      viewBox="0 0 32 33" fill="none">
+                      <path d="M20.2017 24.75L13.4201 31.8317L6.63857 24.75" stroke="#292D32" stroke-width="1.5"
+                        stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                      <path d="M13.4204 1L13.4204 30.64" stroke="#292D32" stroke-width="1.5" stroke-miterlimit="10"
+                        stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+
+                  <div class="flex items-center gap-4">
+                    <a :href="linkDownloadFile6" v-if="fileName6" class="flex flex-col w-[289px] h-[130px] rounded-lg border-[1px] border-[#DEDEDE]">
+                      <div class="w-full h-[40px] p-4 flex justify-between items-center rounded-t-lg bg-[#0EA976]">
+                        <div class="font-sans text-[14px] font-semibold text-white">
+                          Surat Pesanan
+                        </div>
+                      </div>
+                      <div class="flex flex-col ml-4 mt-[10px]">
+                        <div class="flex">
+                          <div>
+                            <div class="font-sans text-[#333333] text-[12px] font-normal">
+                              Dokumen Surat Pesanan
+                            </div>
+                            <div class="flex">
+                              <svg
+                                class="w-[30px] h-[30px] mt-[12px]"
+                                viewBox="0 0 30 30"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <circle
+                                  cx="15"
+                                  cy="15"
+                                  r="14.5652"
+                                  class="fill-[#E2FCF3]"
+                                />
+                                <g transform="translate(9, 8)">
+                                  <path
+                                    class="fill-[#0EA976]"
+                                    d="M10.4206 4.70885C10.4143 4.65309 10.4021 4.59817 10.3842 4.54499V4.49037C10.355 4.42797 10.3161 4.37061 10.2689 4.32044L6.62757 0.679135C6.5774 0.63193 6.52004 0.593007 6.45764 0.563827H6.40302C6.34137 0.528471 6.27328 0.505776 6.20275 0.49707H2.5311C2.04823 0.49707 1.58514 0.688889 1.24371 1.03033C0.902267 1.37177 0.710449 1.83486 0.710449 2.31772V10.8141C0.710449 11.297 0.902267 11.7601 1.24371 12.1015C1.58514 12.4429 2.04823 12.6348 2.5311 12.6348H8.59994C9.08281 12.6348 9.5459 12.4429 9.88734 12.1015C10.2288 11.7601 10.4206 11.297 10.4206 10.8141V4.74526V4.70885ZM6.77929 2.56654L8.35112 4.13837H7.38617C7.22522 4.13837 7.07085 4.07443 6.95704 3.96062C6.84323 3.84681 6.77929 3.69245 6.77929 3.53149V2.56654ZM9.20683 10.8141C9.20683 10.9751 9.14289 11.1294 9.02907 11.2432C8.91526 11.357 8.7609 11.421 8.59994 11.421H2.5311C2.37015 11.421 2.21578 11.357 2.10197 11.2432C1.98816 11.1294 1.92422 10.9751 1.92422 10.8141V2.31772C1.92422 2.15677 1.98816 2.0024 2.10197 1.88859C2.21578 1.77478 2.37015 1.71084 2.5311 1.71084H5.56552V3.53149C5.56552 4.01436 5.75734 4.47745 6.09878 4.81889C6.44022 5.16032 6.90331 5.35214 7.38617 5.35214H9.20683V10.8141Z"
+                                  />
+                                </g>
+                              </svg>
+                              <div class="mt-[12px] ml-2">
+                                <p class="w-[200px] h[-12px] text-[#333333] text-[9.06px] truncate">
+                                  {{ fileName6 }}
+                                </p>
+                                <p class="w-[200px] h-[11px] text-[#9E9E9E] text-[7.77px]">
+                                  {{ fileSize6 }}                                  
+                                </p>
+                              </div>
+                            </div>
+                            
+                          </div>
+                          
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="text-[#0EA976] bg-[#E2FCF3] rounded-full w-[15px] h-[15px]"
+                            viewBox="0 0 21 19"
+                            fill="currentColor"
+                          >
+                            <path
+                              fill-rule="evenodd"
+                              d="M16.707 4.293a1 1 0 00-1.414 0L8 11.586 4.707 8.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z"
+                              clip-rule="evenodd"
+                            />
+                          </svg>
+                        </div>
+                      </div>
+                    </a>
+                    <div v-else class="w-[289px] h-[130px] border-[1px] rounded-t-lg rounded-b-lg">
+                      <div class="w-auto h-[40px] bg-[#bcc6d2] rounded-t-lg flex justify-start items-center px-4"><span
+                          class="text-white font-semibold">Surat Pesanan</span></div>
+                      <div class="w-[265px] h-[18px] flex justify-between ml-3 mt-[10px]">
+                        <span class="text-[#333333] text-xs">Dokumen Surat Pesanan</span>
+                      </div>
+                      <div class="w-[265px] h-auto flex ml-3 py-[10px]">
+                        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <circle cx="14.5652" cy="14.5652" r="14.5652" fill="#bcc6d2" />
+                          <path
+                            d="M19.4206 12.7088C19.4143 12.6531 19.4021 12.5982 19.3842 12.545V12.4904C19.355 12.428 19.3161 12.3706 19.2689 12.3204L15.6276 8.67914C15.5774 8.63193 15.52 8.59301 15.4576 8.56383H15.403C15.3414 8.52847 15.2733 8.50578 15.2027 8.49707H11.5311C11.0482 8.49707 10.5851 8.68889 10.2437 9.03033C9.90227 9.37177 9.71045 9.83486 9.71045 10.3177V18.8141C9.71045 19.297 9.90227 19.7601 10.2437 20.1015C10.5851 20.4429 11.0482 20.6348 11.5311 20.6348H17.5999C18.0828 20.6348 18.5459 20.4429 18.8873 20.1015C19.2288 19.7601 19.4206 19.297 19.4206 18.8141V12.7453V12.7088ZM15.7793 10.5665L17.3511 12.1384H16.3862C16.2252 12.1384 16.0709 12.0744 15.957 11.9606C15.8432 11.8468 15.7793 11.6924 15.7793 11.5315V10.5665ZM18.2068 18.8141C18.2068 18.9751 18.1429 19.1294 18.0291 19.2432C17.9153 19.357 17.7609 19.421 17.5999 19.421H11.5311C11.3701 19.421 11.2158 19.357 11.102 19.2432C10.9882 19.1294 10.9242 18.9751 10.9242 18.8141V10.3177C10.9242 10.1568 10.9882 10.0024 11.102 9.88859C11.2158 9.77478 11.3701 9.71084 11.5311 9.71084H14.5655V11.5315C14.5655 12.0144 14.7573 12.4774 15.0988 12.8189C15.4402 13.1603 15.9033 13.3521 16.3862 13.3521H18.2068V18.8141Z"
+                            fill="white" />
+                        </svg>
+                        <div class="ml-[13px] -translate-y-2 pt-1">
+                          <span class="text-[#333333] text-[9.06px] font-semibold">Belum ada</span>
+                        </div>
                       </div>
                     </div>
-                    <div class="flex flex-col ml-4 mt-[10px]">
-                      <div class="flex items-center">
-                        <div>
-                          <div class="font-sans text-[#333333] text-[12px] font-normal">
-                            Dokumen Proposal
-                          </div>
-                          <div class="mt-[12px] ml-[38px]">
-                            <p class="w-[200px] h[-12px] text-[#333333] text-[9.06px] truncate">
-                              {{ fileName2 }}
-                            </p>
-                            <p class="w-[200px] h-[11px] text-[#9E9E9E] text-[7.77px]">
-                              {{ fileSize2 }}
-                            </p>
-                          </div>
+
+                    <svg
+                      width="33"
+                      height="29"
+                      class="w-[33px] h-[28px]"
+                      viewBox="0 0 33 29"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M8.09082 7.83984L1.00915 14.9215L8.09082 22.0032"
+                        stroke="#292D32"
+                        stroke-width="1.5"
+                        stroke-miterlimit="10"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M31.8408 14.9209H2.20082"
+                        stroke="#292D32"
+                        stroke-width="1.5"
+                        stroke-miterlimit="10"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                    <!-- <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="w-[33px] h-[32px] absolute mt-[170px] ml-[840px]"
+                      viewBox="0 0 32 33"
+                      fill="none"
+                    >
+                      <path
+                        d="M20.2017 24.75L13.4201 31.8317L6.63857 24.75"
+                        stroke="#292D32"
+                        stroke-width="1.5"
+                        stroke-miterlimit="10"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M13.4204 1L13.4204 30.64"
+                        stroke="#292D32"
+                        stroke-width="1.5"
+                        stroke-miterlimit="10"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg> -->
+                    <a :href="linkDownloadFile5" v-if="fileName5" class="flex flex-col w-[289px] h-[130px] rounded-lg border-[1px] border-[#DEDEDE]">
+                      <div class="w-full h-[40px] p-4 flex justify-between items-center rounded-t-lg bg-[#0EA976]">
+                        <div class="font-sans text-[14px] font-semibold text-white">
+                          BAK Pemilihan Mitra
                         </div>
-                        <svg
-                          class="w-[30px] h-[30px] absolute mt-[30px]"
-                          viewBox="0 0 30 30"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <circle
-                            cx="15"
-                            cy="15"
-                            r="14.5652"
-                            class="fill-[#E2FCF3]"
-                          />
-                          <g transform="translate(9, 8)">
+                      </div>
+                      <div class="flex flex-col ml-4 mt-[10px]">
+                        <div class="flex">
+                          <div>
+                            <div class="font-sans text-[#333333] text-[12px] font-normal">
+                              Dokumen BAK Pemilihan Mitra
+                            </div>
+                            <div class="flex">
+                              <svg
+                                class="w-[30px] h-[30px] mt-[12px]"
+                                viewBox="0 0 30 30"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <circle
+                                  cx="15"
+                                  cy="15"
+                                  r="14.5652"
+                                  class="fill-[#E2FCF3]"
+                                />
+                                <g transform="translate(9, 8)">
+                                  <path
+                                    class="fill-[#0EA976]"
+                                    d="M10.4206 4.70885C10.4143 4.65309 10.4021 4.59817 10.3842 4.54499V4.49037C10.355 4.42797 10.3161 4.37061 10.2689 4.32044L6.62757 0.679135C6.5774 0.63193 6.52004 0.593007 6.45764 0.563827H6.40302C6.34137 0.528471 6.27328 0.505776 6.20275 0.49707H2.5311C2.04823 0.49707 1.58514 0.688889 1.24371 1.03033C0.902267 1.37177 0.710449 1.83486 0.710449 2.31772V10.8141C0.710449 11.297 0.902267 11.7601 1.24371 12.1015C1.58514 12.4429 2.04823 12.6348 2.5311 12.6348H8.59994C9.08281 12.6348 9.5459 12.4429 9.88734 12.1015C10.2288 11.7601 10.4206 11.297 10.4206 10.8141V4.74526V4.70885ZM6.77929 2.56654L8.35112 4.13837H7.38617C7.22522 4.13837 7.07085 4.07443 6.95704 3.96062C6.84323 3.84681 6.77929 3.69245 6.77929 3.53149V2.56654ZM9.20683 10.8141C9.20683 10.9751 9.14289 11.1294 9.02907 11.2432C8.91526 11.357 8.7609 11.421 8.59994 11.421H2.5311C2.37015 11.421 2.21578 11.357 2.10197 11.2432C1.98816 11.1294 1.92422 10.9751 1.92422 10.8141V2.31772C1.92422 2.15677 1.98816 2.0024 2.10197 1.88859C2.21578 1.77478 2.37015 1.71084 2.5311 1.71084H5.56552V3.53149C5.56552 4.01436 5.75734 4.47745 6.09878 4.81889C6.44022 5.16032 6.90331 5.35214 7.38617 5.35214H9.20683V10.8141Z"
+                                  />
+                                </g>
+                              </svg>
+                              <div class="mt-[12px] ml-2">
+                                <p class="w-[200px] h[-12px] text-[#333333] text-[9.06px] truncate">
+                                  {{ fileName5 }}
+                                </p>
+                                <p class="w-[200px] h-[11px] text-[#9E9E9E] text-[7.77px]">
+                                  {{ fileSize5 }}
+                                </p>
+                              </div>
+                            </div>
+                            
+                          </div>
+                          
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="text-[#0EA976] bg-[#E2FCF3] rounded-full w-[15px] h-[15px]"
+                            viewBox="0 0 21 19"
+                            fill="currentColor"
+                          >
                             <path
-                              class="fill-[#0EA976]"
-                              d="M10.4206 4.70885C10.4143 4.65309 10.4021 4.59817 10.3842 4.54499V4.49037C10.355 4.42797 10.3161 4.37061 10.2689 4.32044L6.62757 0.679135C6.5774 0.63193 6.52004 0.593007 6.45764 0.563827H6.40302C6.34137 0.528471 6.27328 0.505776 6.20275 0.49707H2.5311C2.04823 0.49707 1.58514 0.688889 1.24371 1.03033C0.902267 1.37177 0.710449 1.83486 0.710449 2.31772V10.8141C0.710449 11.297 0.902267 11.7601 1.24371 12.1015C1.58514 12.4429 2.04823 12.6348 2.5311 12.6348H8.59994C9.08281 12.6348 9.5459 12.4429 9.88734 12.1015C10.2288 11.7601 10.4206 11.297 10.4206 10.8141V4.74526V4.70885ZM6.77929 2.56654L8.35112 4.13837H7.38617C7.22522 4.13837 7.07085 4.07443 6.95704 3.96062C6.84323 3.84681 6.77929 3.69245 6.77929 3.53149V2.56654ZM9.20683 10.8141C9.20683 10.9751 9.14289 11.1294 9.02907 11.2432C8.91526 11.357 8.7609 11.421 8.59994 11.421H2.5311C2.37015 11.421 2.21578 11.357 2.10197 11.2432C1.98816 11.1294 1.92422 10.9751 1.92422 10.8141V2.31772C1.92422 2.15677 1.98816 2.0024 2.10197 1.88859C2.21578 1.77478 2.37015 1.71084 2.5311 1.71084H5.56552V3.53149C5.56552 4.01436 5.75734 4.47745 6.09878 4.81889C6.44022 5.16032 6.90331 5.35214 7.38617 5.35214H9.20683V10.8141Z"
+                              fill-rule="evenodd"
+                              d="M16.707 4.293a1 1 0 00-1.414 0L8 11.586 4.707 8.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z"
+                              clip-rule="evenodd"
                             />
-                          </g>
-                        </svg>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          class="text-[#0EA976] bg-[#E2FCF3] rounded-full w-[15px] h-[15px] absolute top-[53.5px] left-[255px]"
-                          viewBox="0 0 21 19"
-                          fill="currentColor"
-                        >
+                          </svg>
+                        </div>
+                      </div>
+                    </a>
+                    <div v-else class="w-[289px] h-[130px] border-[1px] rounded-t-lg rounded-b-lg">
+                      <div class="w-auto h-[40px] bg-[#bcc6d2] rounded-t-lg flex justify-start items-center px-4"><span
+                          class="text-white font-semibold">BAK Pemilihan Mitra</span></div>
+                      <div class="w-[265px] h-[18px] flex justify-between ml-3 mt-[10px]">
+                        <span class="text-[#333333] text-xs">Dokumen BAK Pemilihan Mitra</span>
+                      </div>
+                      <div class="w-[265px] h-auto flex ml-3 py-[10px]">
+                        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <circle cx="14.5652" cy="14.5652" r="14.5652" fill="#bcc6d2" />
                           <path
-                            fill-rule="evenodd"
-                            d="M16.707 4.293a1 1 0 00-1.414 0L8 11.586 4.707 8.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z"
-                            clip-rule="evenodd"
-                          />
+                            d="M19.4206 12.7088C19.4143 12.6531 19.4021 12.5982 19.3842 12.545V12.4904C19.355 12.428 19.3161 12.3706 19.2689 12.3204L15.6276 8.67914C15.5774 8.63193 15.52 8.59301 15.4576 8.56383H15.403C15.3414 8.52847 15.2733 8.50578 15.2027 8.49707H11.5311C11.0482 8.49707 10.5851 8.68889 10.2437 9.03033C9.90227 9.37177 9.71045 9.83486 9.71045 10.3177V18.8141C9.71045 19.297 9.90227 19.7601 10.2437 20.1015C10.5851 20.4429 11.0482 20.6348 11.5311 20.6348H17.5999C18.0828 20.6348 18.5459 20.4429 18.8873 20.1015C19.2288 19.7601 19.4206 19.297 19.4206 18.8141V12.7453V12.7088ZM15.7793 10.5665L17.3511 12.1384H16.3862C16.2252 12.1384 16.0709 12.0744 15.957 11.9606C15.8432 11.8468 15.7793 11.6924 15.7793 11.5315V10.5665ZM18.2068 18.8141C18.2068 18.9751 18.1429 19.1294 18.0291 19.2432C17.9153 19.357 17.7609 19.421 17.5999 19.421H11.5311C11.3701 19.421 11.2158 19.357 11.102 19.2432C10.9882 19.1294 10.9242 18.9751 10.9242 18.8141V10.3177C10.9242 10.1568 10.9882 10.0024 11.102 9.88859C11.2158 9.77478 11.3701 9.71084 11.5311 9.71084H14.5655V11.5315C14.5655 12.0144 14.7573 12.4774 15.0988 12.8189C15.4402 13.1603 15.9033 13.3521 16.3862 13.3521H18.2068V18.8141Z"
+                            fill="white" />
                         </svg>
+                        <div class="ml-[13px] -translate-y-2 pt-1">
+                          <span class="text-[#333333] text-[9.06px] font-semibold">Belum ada</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <svg
+                      width="33"
+                      height="29"
+                      class="w-[33px] h-[28px]"
+                      viewBox="0 0 33 29"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M8.09082 7.83984L1.00915 14.9215L8.09082 22.0032"
+                        stroke="#292D32"
+                        stroke-width="1.5"
+                        stroke-miterlimit="10"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M31.8408 14.9209H2.20082"
+                        stroke="#292D32"
+                        stroke-width="1.5"
+                        stroke-miterlimit="10"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+
+                    <a :href="linkDownloadFile4" v-if="fileName4" class="flex flex-col w-[289px] h-[130px] rounded-lg border-[1px] border-[#DEDEDE]">
+                      <div class="w-full h-[40px] p-4 flex justify-between items-center rounded-t-lg bg-[#0EA976]">
+                        <div class="font-sans text-[14px] font-semibold text-white">
+                          Negosiasi
+                        </div>
+                      </div>
+                      <div class="flex flex-col ml-4 mt-[10px]">
+                        <div class="flex">
+                          <div>
+                            <div class="font-sans text-[#333333] text-[12px] font-normal">
+                              Dokumen Negosiasi
+                            </div>
+                            <div class="flex">
+                              <svg
+                                class="w-[30px] h-[30px] mt-[12px]"
+                                viewBox="0 0 30 30"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <circle
+                                  cx="15"
+                                  cy="15"
+                                  r="14.5652"
+                                  class="fill-[#E2FCF3]"
+                                />
+                                <g transform="translate(9, 8)">
+                                  <path
+                                    class="fill-[#0EA976]"
+                                    d="M10.4206 4.70885C10.4143 4.65309 10.4021 4.59817 10.3842 4.54499V4.49037C10.355 4.42797 10.3161 4.37061 10.2689 4.32044L6.62757 0.679135C6.5774 0.63193 6.52004 0.593007 6.45764 0.563827H6.40302C6.34137 0.528471 6.27328 0.505776 6.20275 0.49707H2.5311C2.04823 0.49707 1.58514 0.688889 1.24371 1.03033C0.902267 1.37177 0.710449 1.83486 0.710449 2.31772V10.8141C0.710449 11.297 0.902267 11.7601 1.24371 12.1015C1.58514 12.4429 2.04823 12.6348 2.5311 12.6348H8.59994C9.08281 12.6348 9.5459 12.4429 9.88734 12.1015C10.2288 11.7601 10.4206 11.297 10.4206 10.8141V4.74526V4.70885ZM6.77929 2.56654L8.35112 4.13837H7.38617C7.22522 4.13837 7.07085 4.07443 6.95704 3.96062C6.84323 3.84681 6.77929 3.69245 6.77929 3.53149V2.56654ZM9.20683 10.8141C9.20683 10.9751 9.14289 11.1294 9.02907 11.2432C8.91526 11.357 8.7609 11.421 8.59994 11.421H2.5311C2.37015 11.421 2.21578 11.357 2.10197 11.2432C1.98816 11.1294 1.92422 10.9751 1.92422 10.8141V2.31772C1.92422 2.15677 1.98816 2.0024 2.10197 1.88859C2.21578 1.77478 2.37015 1.71084 2.5311 1.71084H5.56552V3.53149C5.56552 4.01436 5.75734 4.47745 6.09878 4.81889C6.44022 5.16032 6.90331 5.35214 7.38617 5.35214H9.20683V10.8141Z"
+                                  />
+                                </g>
+                              </svg>
+                              <div class="mt-[12px] ml-2">
+                                <p class="w-[200px] h[-12px] text-[#333333] text-[9.06px] truncate">
+                                  {{ fileName4 }}
+                                </p>
+                                <p class="w-[200px] h-[11px] text-[#9E9E9E] text-[7.77px]">
+                                  {{ fileSize4 }}
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="text-[#0EA976] bg-[#E2FCF3] rounded-full w-[15px] h-[15px]"
+                            viewBox="0 0 21 19"
+                            fill="currentColor"
+                          >
+                            <path
+                              fill-rule="evenodd"
+                              d="M16.707 4.293a1 1 0 00-1.414 0L8 11.586 4.707 8.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z"
+                              clip-rule="evenodd"
+                            />
+                          </svg>
+                        </div>
+                      </div>
+                    </a>
+                    <div v-else class="w-[289px] h-[130px] border-[1px] rounded-t-lg rounded-b-lg">
+                      <div class="w-auto h-[40px] bg-[#bcc6d2] rounded-t-lg flex justify-start items-center px-4"><span
+                          class="text-white font-semibold">Negosiasi</span></div>
+                      <div class="w-[265px] h-[18px] flex justify-between ml-3 mt-[10px]">
+                        <span class="text-[#333333] text-xs">Dokumen Negosiasi</span>
+                      </div>
+                      <div class="w-[265px] h-auto flex ml-3 py-[10px]">
+                        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <circle cx="14.5652" cy="14.5652" r="14.5652" fill="#bcc6d2" />
+                          <path
+                            d="M19.4206 12.7088C19.4143 12.6531 19.4021 12.5982 19.3842 12.545V12.4904C19.355 12.428 19.3161 12.3706 19.2689 12.3204L15.6276 8.67914C15.5774 8.63193 15.52 8.59301 15.4576 8.56383H15.403C15.3414 8.52847 15.2733 8.50578 15.2027 8.49707H11.5311C11.0482 8.49707 10.5851 8.68889 10.2437 9.03033C9.90227 9.37177 9.71045 9.83486 9.71045 10.3177V18.8141C9.71045 19.297 9.90227 19.7601 10.2437 20.1015C10.5851 20.4429 11.0482 20.6348 11.5311 20.6348H17.5999C18.0828 20.6348 18.5459 20.4429 18.8873 20.1015C19.2288 19.7601 19.4206 19.297 19.4206 18.8141V12.7453V12.7088ZM15.7793 10.5665L17.3511 12.1384H16.3862C16.2252 12.1384 16.0709 12.0744 15.957 11.9606C15.8432 11.8468 15.7793 11.6924 15.7793 11.5315V10.5665ZM18.2068 18.8141C18.2068 18.9751 18.1429 19.1294 18.0291 19.2432C17.9153 19.357 17.7609 19.421 17.5999 19.421H11.5311C11.3701 19.421 11.2158 19.357 11.102 19.2432C10.9882 19.1294 10.9242 18.9751 10.9242 18.8141V10.3177C10.9242 10.1568 10.9882 10.0024 11.102 9.88859C11.2158 9.77478 11.3701 9.71084 11.5311 9.71084H14.5655V11.5315C14.5655 12.0144 14.7573 12.4774 15.0988 12.8189C15.4402 13.1603 15.9033 13.3521 16.3862 13.3521H18.2068V18.8141Z"
+                            fill="white" />
+                        </svg>
+                        <div class="ml-[13px] -translate-y-2 pt-1">
+                          <span class="text-[#333333] text-[9.06px] font-semibold">Belum ada</span>
+                        </div>
                       </div>
                     </div>
                   </div>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="w-[33px] h-[28px] absolute ml-[670px] mt-[90px]"
-                    viewBox="0 0 33 28"
-                    fill="none"
-                  >
-                    <path
-                      d="M24.75 6.91797L31.8317 13.9996L24.75 21.0813"
-                      stroke="#292D32"
-                      stroke-width="1.5"
-                      stroke-miterlimit="10"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                    <path
-                      d="M1 14H30.64"
-                      stroke="#292D32"
-                      stroke-width="1.5"
-                      stroke-miterlimit="10"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                  <div class="absolute flex flex-col w-[289px] h-[130px] rounded-lg mt-[24px] ml-[710px] border-[1px] border-[#DEDEDE]">
-                    <div class="w-full h-[40px] p-4 flex justify-between items-center rounded-t-lg bg-[#0EA976]">
-                      <div class="font-sans text-[14px] font-semibold text-white">
-                        Evaluasi
+
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-[289px] h-[32px] mr-auto my-4"
+                      viewBox="0 0 32 33" fill="none">
+                      <path d="M20.2017 24.75L13.4201 31.8317L6.63857 24.75" stroke="#292D32" stroke-width="1.5"
+                        stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                      <path d="M13.4204 1L13.4204 30.64" stroke="#292D32" stroke-width="1.5" stroke-miterlimit="10"
+                        stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+
+                  <div class="flex items-center gap-4">
+                    <a :href="linkDownloadFile7" v-if="fileName7"  class="flex flex-col w-[289px] h-[130px] rounded-lg border-[1px] border-[#E5E7E9]">
+                      <div class="w-[289px] h-[40px] p-4 flex justify-between items-center rounded-t-lg bg-[#0EA976]">
+                        <div class="font-sans text-[14px] font-semibold text-white">
+                          Draf PKS
+                        </div>
+                      </div>
+                      <div class="flex flex-col ml-4 mt-[10px]">
+                        <div class="flex">
+                          <div>
+                            <div class="font-sans text-[#333333] text-[12px] font-normal">
+                              Dokumen Draf PKS
+                            </div>
+                            <div class="flex">
+                              <svg
+                                class="w-[30px] h-[30px] mt-[12px]"
+                                viewBox="0 0 30 30"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <circle
+                                  cx="15"
+                                  cy="15"
+                                  r="14.5652"
+                                  class="fill-[#E2FCF3]"
+                                />
+                                <g transform="translate(9, 8)">
+                                  <path
+                                    class="fill-[#0EA976]"
+                                    d="M10.4206 4.70885C10.4143 4.65309 10.4021 4.59817 10.3842 4.54499V4.49037C10.355 4.42797 10.3161 4.37061 10.2689 4.32044L6.62757 0.679135C6.5774 0.63193 6.52004 0.593007 6.45764 0.563827H6.40302C6.34137 0.528471 6.27328 0.505776 6.20275 0.49707H2.5311C2.04823 0.49707 1.58514 0.688889 1.24371 1.03033C0.902267 1.37177 0.710449 1.83486 0.710449 2.31772V10.8141C0.710449 11.297 0.902267 11.7601 1.24371 12.1015C1.58514 12.4429 2.04823 12.6348 2.5311 12.6348H8.59994C9.08281 12.6348 9.5459 12.4429 9.88734 12.1015C10.2288 11.7601 10.4206 11.297 10.4206 10.8141V4.74526V4.70885ZM6.77929 2.56654L8.35112 4.13837H7.38617C7.22522 4.13837 7.07085 4.07443 6.95704 3.96062C6.84323 3.84681 6.77929 3.69245 6.77929 3.53149V2.56654ZM9.20683 10.8141C9.20683 10.9751 9.14289 11.1294 9.02907 11.2432C8.91526 11.357 8.7609 11.421 8.59994 11.421H2.5311C2.37015 11.421 2.21578 11.357 2.10197 11.2432C1.98816 11.1294 1.92422 10.9751 1.92422 10.8141V2.31772C1.92422 2.15677 1.98816 2.0024 2.10197 1.88859C2.21578 1.77478 2.37015 1.71084 2.5311 1.71084H5.56552V3.53149C5.56552 4.01436 5.75734 4.47745 6.09878 4.81889C6.44022 5.16032 6.90331 5.35214 7.38617 5.35214H9.20683V10.8141Z"
+                                  />
+                                </g>
+                              </svg>
+                              <div class="mt-[12px] ml-2">
+                                <p class="w-[200px] h[-12px] text-[#333333] text-[9.06px] truncate">
+                                  {{ fileName7 }}               
+                                </p>
+                                <p class="w-[200px] h-[11px] text-[#9E9E9E] text-[7.77px]">
+                                  {{ fileSize7 }}                 
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="text-[#0EA976] bg-[#E2FCF3] rounded-full w-[15px] h-[15px]"
+                            viewBox="0 0 21 19"
+                            fill="currentColor"
+                          >
+                            <path
+                              fill-rule="evenodd"
+                              d="M16.707 4.293a1 1 0 00-1.414 0L8 11.586 4.707 8.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z"
+                              clip-rule="evenodd"
+                            />
+                          </svg>
+                        </div>
+                      </div>
+                    </a>
+                    <div v-else class="w-[289px] h-[130px] border-[1px] rounded-t-lg rounded-b-lg">
+                      <div class="w-auto h-[40px] bg-[#bcc6d2] rounded-t-lg flex justify-start items-center px-4"><span
+                          class="text-white font-semibold">Draf PKS</span></div>
+                      <div class="w-[265px] h-[18px] flex justify-between ml-3 mt-[10px]">
+                        <span class="text-[#333333] text-xs">Dokumen Draf PKS</span>
+                      </div>
+                      <div class="w-[265px] h-auto flex ml-3 py-[10px]">
+                        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <circle cx="14.5652" cy="14.5652" r="14.5652" fill="#bcc6d2" />
+                          <path
+                            d="M19.4206 12.7088C19.4143 12.6531 19.4021 12.5982 19.3842 12.545V12.4904C19.355 12.428 19.3161 12.3706 19.2689 12.3204L15.6276 8.67914C15.5774 8.63193 15.52 8.59301 15.4576 8.56383H15.403C15.3414 8.52847 15.2733 8.50578 15.2027 8.49707H11.5311C11.0482 8.49707 10.5851 8.68889 10.2437 9.03033C9.90227 9.37177 9.71045 9.83486 9.71045 10.3177V18.8141C9.71045 19.297 9.90227 19.7601 10.2437 20.1015C10.5851 20.4429 11.0482 20.6348 11.5311 20.6348H17.5999C18.0828 20.6348 18.5459 20.4429 18.8873 20.1015C19.2288 19.7601 19.4206 19.297 19.4206 18.8141V12.7453V12.7088ZM15.7793 10.5665L17.3511 12.1384H16.3862C16.2252 12.1384 16.0709 12.0744 15.957 11.9606C15.8432 11.8468 15.7793 11.6924 15.7793 11.5315V10.5665ZM18.2068 18.8141C18.2068 18.9751 18.1429 19.1294 18.0291 19.2432C17.9153 19.357 17.7609 19.421 17.5999 19.421H11.5311C11.3701 19.421 11.2158 19.357 11.102 19.2432C10.9882 19.1294 10.9242 18.9751 10.9242 18.8141V10.3177C10.9242 10.1568 10.9882 10.0024 11.102 9.88859C11.2158 9.77478 11.3701 9.71084 11.5311 9.71084H14.5655V11.5315C14.5655 12.0144 14.7573 12.4774 15.0988 12.8189C15.4402 13.1603 15.9033 13.3521 16.3862 13.3521H18.2068V18.8141Z"
+                            fill="white" />
+                        </svg>
+                        <div class="ml-[13px] -translate-y-2 pt-1">
+                          <span class="text-[#333333] text-[9.06px] font-semibold">Belum ada</span>
+                        </div>
                       </div>
                     </div>
-                    <div class="flex flex-col ml-4 mt-[10px]">
-                      <div class="flex items-center">
-                        <div>
-                          <div class="font-sans text-[#333333] text-[12px] font-normal">
-                            Dokumen Evaluasi
-                          </div>
-                          <div class="mt-[12px] ml-[38px]">
-                            <p class="w-[200px] h[-12px] text-[#333333] text-[9.06px] truncate">
-                              {{ fileName3 }}
-                            </p>
-                            <p class="w-[200px] h-[11px] text-[#9E9E9E] text-[7.77px]">
-                              {{ fileSize3 }}
-                            </p>
-                          </div>
-                        </div>
-                        <svg
-                          class="w-[30px] h-[30px] absolute mt-[30px]"
-                          viewBox="0 0 30 30"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <circle
-                            cx="15"
-                            cy="15"
-                            r="14.5652"
-                            class="fill-[#E2FCF3]"
-                          />
-                          <g transform="translate(9, 8)">
-                            <path
-                              class="fill-[#0EA976]"
-                              d="M10.4206 4.70885C10.4143 4.65309 10.4021 4.59817 10.3842 4.54499V4.49037C10.355 4.42797 10.3161 4.37061 10.2689 4.32044L6.62757 0.679135C6.5774 0.63193 6.52004 0.593007 6.45764 0.563827H6.40302C6.34137 0.528471 6.27328 0.505776 6.20275 0.49707H2.5311C2.04823 0.49707 1.58514 0.688889 1.24371 1.03033C0.902267 1.37177 0.710449 1.83486 0.710449 2.31772V10.8141C0.710449 11.297 0.902267 11.7601 1.24371 12.1015C1.58514 12.4429 2.04823 12.6348 2.5311 12.6348H8.59994C9.08281 12.6348 9.5459 12.4429 9.88734 12.1015C10.2288 11.7601 10.4206 11.297 10.4206 10.8141V4.74526V4.70885ZM6.77929 2.56654L8.35112 4.13837H7.38617C7.22522 4.13837 7.07085 4.07443 6.95704 3.96062C6.84323 3.84681 6.77929 3.69245 6.77929 3.53149V2.56654ZM9.20683 10.8141C9.20683 10.9751 9.14289 11.1294 9.02907 11.2432C8.91526 11.357 8.7609 11.421 8.59994 11.421H2.5311C2.37015 11.421 2.21578 11.357 2.10197 11.2432C1.98816 11.1294 1.92422 10.9751 1.92422 10.8141V2.31772C1.92422 2.15677 1.98816 2.0024 2.10197 1.88859C2.21578 1.77478 2.37015 1.71084 2.5311 1.71084H5.56552V3.53149C5.56552 4.01436 5.75734 4.47745 6.09878 4.81889C6.44022 5.16032 6.90331 5.35214 7.38617 5.35214H9.20683V10.8141Z"
-                            />
-                          </g>
-                        </svg>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          class="text-[#0EA976] bg-[#E2FCF3] rounded-full w-[15px] h-[15px] absolute top-[53.5px] left-[255px]"
-                          viewBox="0 0 21 19"
-                          fill="currentColor"
-                        >
+                  <!-- <div v-else class="w-[289px] h-[130px] border-[1px] rounded-t-lg rounded-b-lg">
+                      <div class="w-auto h-[40px] bg-[#bcc6d2] rounded-t-lg"><span
+                          class="text-white font-semibold ml-4 absolute translate-y-2">Review Mitra</span></div>
+                      <div class="w-[265px] h-[18px] flex justify-between ml-3 mt-[10px]">
+                        <span class="text-[#333333] text-xs">Dokumen Review mitra</span>
+                      </div>
+                      <div class="w-[265px] h-auto flex ml-3 py-[10px]">
+                        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <circle cx="14.5652" cy="14.5652" r="14.5652" fill="#bcc6d2" />
                           <path
-                            fill-rule="evenodd"
-                            d="M16.707 4.293a1 1 0 00-1.414 0L8 11.586 4.707 8.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z"
-                            clip-rule="evenodd"
-                          />
+                            d="M19.4206 12.7088C19.4143 12.6531 19.4021 12.5982 19.3842 12.545V12.4904C19.355 12.428 19.3161 12.3706 19.2689 12.3204L15.6276 8.67914C15.5774 8.63193 15.52 8.59301 15.4576 8.56383H15.403C15.3414 8.52847 15.2733 8.50578 15.2027 8.49707H11.5311C11.0482 8.49707 10.5851 8.68889 10.2437 9.03033C9.90227 9.37177 9.71045 9.83486 9.71045 10.3177V18.8141C9.71045 19.297 9.90227 19.7601 10.2437 20.1015C10.5851 20.4429 11.0482 20.6348 11.5311 20.6348H17.5999C18.0828 20.6348 18.5459 20.4429 18.8873 20.1015C19.2288 19.7601 19.4206 19.297 19.4206 18.8141V12.7453V12.7088ZM15.7793 10.5665L17.3511 12.1384H16.3862C16.2252 12.1384 16.0709 12.0744 15.957 11.9606C15.8432 11.8468 15.7793 11.6924 15.7793 11.5315V10.5665ZM18.2068 18.8141C18.2068 18.9751 18.1429 19.1294 18.0291 19.2432C17.9153 19.357 17.7609 19.421 17.5999 19.421H11.5311C11.3701 19.421 11.2158 19.357 11.102 19.2432C10.9882 19.1294 10.9242 18.9751 10.9242 18.8141V10.3177C10.9242 10.1568 10.9882 10.0024 11.102 9.88859C11.2158 9.77478 11.3701 9.71084 11.5311 9.71084H14.5655V11.5315C14.5655 12.0144 14.7573 12.4774 15.0988 12.8189C15.4402 13.1603 15.9033 13.3521 16.3862 13.3521H18.2068V18.8141Z"
+                            fill="white" />
                         </svg>
+                        <div class="ml-[13px] -translate-y-2 pt-1">
+                          <span class="text-[#333333] text-[9.06px] font-semibold">Belum ada</span>
+                        </div>
+                      </div>
+                    </div> -->
+
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="w-[33px] h-[28px]"
+                      viewBox="0 0 33 28"
+                      fill="none"
+                    >
+                      <path
+                        d="M24.75 6.91797L31.8317 13.9996L24.75 21.0813"
+                        stroke="#292D32"
+                        stroke-width="1.5"
+                        stroke-miterlimit="10"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M1 14H30.64"
+                        stroke="#292D32"
+                        stroke-width="1.5"
+                        stroke-miterlimit="10"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                    <a :href="linkDownloadFile8" v-if="fileName8" class="flex flex-col w-[289px] h-[130px] rounded-lg border-[1px] border-[#DEDEDE]">
+                      <div class="w-full h-[40px] p-4 flex justify-between items-center rounded-t-lg bg-[#0EA976]">
+                        <div class="font-sans text-[14px] font-semibold text-white">
+                          Review User
+                        </div>
+                      </div>
+                      <div class="flex flex-col ml-4 mt-[10px]">
+                        <div class="flex">
+                          <div>
+                            <div class="font-sans text-[#333333] text-[12px] font-normal">
+                              Dokumen review User
+                            </div>
+                            <div class="flex">
+                              <svg
+                                class="w-[30px] h-[30px] mt-[12px]"
+                                viewBox="0 0 30 30"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <circle
+                                  cx="15"
+                                  cy="15"
+                                  r="14.5652"
+                                  class="fill-[#E2FCF3]"
+                                />
+                                <g transform="translate(9, 8)">
+                                  <path
+                                    class="fill-[#0EA976]"
+                                    d="M10.4206 4.70885C10.4143 4.65309 10.4021 4.59817 10.3842 4.54499V4.49037C10.355 4.42797 10.3161 4.37061 10.2689 4.32044L6.62757 0.679135C6.5774 0.63193 6.52004 0.593007 6.45764 0.563827H6.40302C6.34137 0.528471 6.27328 0.505776 6.20275 0.49707H2.5311C2.04823 0.49707 1.58514 0.688889 1.24371 1.03033C0.902267 1.37177 0.710449 1.83486 0.710449 2.31772V10.8141C0.710449 11.297 0.902267 11.7601 1.24371 12.1015C1.58514 12.4429 2.04823 12.6348 2.5311 12.6348H8.59994C9.08281 12.6348 9.5459 12.4429 9.88734 12.1015C10.2288 11.7601 10.4206 11.297 10.4206 10.8141V4.74526V4.70885ZM6.77929 2.56654L8.35112 4.13837H7.38617C7.22522 4.13837 7.07085 4.07443 6.95704 3.96062C6.84323 3.84681 6.77929 3.69245 6.77929 3.53149V2.56654ZM9.20683 10.8141C9.20683 10.9751 9.14289 11.1294 9.02907 11.2432C8.91526 11.357 8.7609 11.421 8.59994 11.421H2.5311C2.37015 11.421 2.21578 11.357 2.10197 11.2432C1.98816 11.1294 1.92422 10.9751 1.92422 10.8141V2.31772C1.92422 2.15677 1.98816 2.0024 2.10197 1.88859C2.21578 1.77478 2.37015 1.71084 2.5311 1.71084H5.56552V3.53149C5.56552 4.01436 5.75734 4.47745 6.09878 4.81889C6.44022 5.16032 6.90331 5.35214 7.38617 5.35214H9.20683V10.8141Z"
+                                  />
+                                </g>
+                              </svg>
+                              <div class="mt-[12px] ml-2">
+                                <p class="w-[200px] h[-12px] text-[#333333] text-[9.06px] truncate">
+                                  {{ fileName8 }}                                
+                                </p>
+                                <p class="w-[200px] h-[11px] text-[#9E9E9E] text-[7.77px]">
+                                  {{ fileSize8 }}                                  
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="text-[#0EA976] bg-[#E2FCF3] rounded-full w-[15px] h-[15px]"
+                            viewBox="0 0 21 19"
+                            fill="currentColor"
+                          >
+                            <path
+                              fill-rule="evenodd"
+                              d="M16.707 4.293a1 1 0 00-1.414 0L8 11.586 4.707 8.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z"
+                              clip-rule="evenodd"
+                            />
+                          </svg>
+                        </div>
+                      </div>
+                    </a>
+                    <div v-else class="w-[289px] h-[130px] border-[1px] rounded-t-lg rounded-b-lg">
+                      <div class="w-auto h-[40px] bg-[#bcc6d2] rounded-t-lg flex justify-start items-center px-4"><span
+                          class="text-white font-semibold">Review User</span></div>
+                      <div class="w-[265px] h-[18px] flex justify-between ml-3 mt-[10px]">
+                        <span class="text-[#333333] text-xs">Dokumen Review User</span>
+                      </div>
+                      <div class="w-[265px] h-auto flex ml-3 py-[10px]">
+                        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <circle cx="14.5652" cy="14.5652" r="14.5652" fill="#bcc6d2" />
+                          <path
+                            d="M19.4206 12.7088C19.4143 12.6531 19.4021 12.5982 19.3842 12.545V12.4904C19.355 12.428 19.3161 12.3706 19.2689 12.3204L15.6276 8.67914C15.5774 8.63193 15.52 8.59301 15.4576 8.56383H15.403C15.3414 8.52847 15.2733 8.50578 15.2027 8.49707H11.5311C11.0482 8.49707 10.5851 8.68889 10.2437 9.03033C9.90227 9.37177 9.71045 9.83486 9.71045 10.3177V18.8141C9.71045 19.297 9.90227 19.7601 10.2437 20.1015C10.5851 20.4429 11.0482 20.6348 11.5311 20.6348H17.5999C18.0828 20.6348 18.5459 20.4429 18.8873 20.1015C19.2288 19.7601 19.4206 19.297 19.4206 18.8141V12.7453V12.7088ZM15.7793 10.5665L17.3511 12.1384H16.3862C16.2252 12.1384 16.0709 12.0744 15.957 11.9606C15.8432 11.8468 15.7793 11.6924 15.7793 11.5315V10.5665ZM18.2068 18.8141C18.2068 18.9751 18.1429 19.1294 18.0291 19.2432C17.9153 19.357 17.7609 19.421 17.5999 19.421H11.5311C11.3701 19.421 11.2158 19.357 11.102 19.2432C10.9882 19.1294 10.9242 18.9751 10.9242 18.8141V10.3177C10.9242 10.1568 10.9882 10.0024 11.102 9.88859C11.2158 9.77478 11.3701 9.71084 11.5311 9.71084H14.5655V11.5315C14.5655 12.0144 14.7573 12.4774 15.0988 12.8189C15.4402 13.1603 15.9033 13.3521 16.3862 13.3521H18.2068V18.8141Z"
+                            fill="white" />
+                        </svg>
+                        <div class="ml-[13px] -translate-y-2 pt-1">
+                          <span class="text-[#333333] text-[9.06px] font-semibold">Belum ada</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="w-[33px] h-[28px]"
+                      viewBox="0 0 33 28"
+                      fill="none"
+                    >
+                      <path
+                        d="M24.75 6.91797L31.8317 13.9996L24.75 21.0813"
+                        stroke="#292D32"
+                        stroke-width="1.5"
+                        stroke-miterlimit="10"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M1 14H30.64"
+                        stroke="#292D32"
+                        stroke-width="1.5"
+                        stroke-miterlimit="10"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+
+                    <a :href="linkDownloadFile9" v-if="fileName9" class="flex flex-col w-[289px] h-[130px] rounded-lg border-[1px] border-[#DEDEDE]">
+                      <div class="w-full h-[40px] p-4 flex justify-between items-center rounded-t-lg bg-[#0EA976]">
+                        <div class="font-sans text-[14px] font-semibold text-white">
+                          Review Legal
+                        </div>
+                      </div>
+                      <div class="flex flex-col ml-4 mt-[10px]">
+                        <div class="flex">
+                          <div>
+                            <div class="font-sans text-[#333333] text-[12px] font-normal">
+                              Dokumen Review Legal
+                            </div>
+                            <div class="flex">
+                              <svg
+                                class="w-[30px] h-[30px] mt-[12px]"
+                                viewBox="0 0 30 30"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <circle
+                                  cx="15"
+                                  cy="15"
+                                  r="14.5652"
+                                  class="fill-[#E2FCF3]"
+                                />
+                                <g transform="translate(9, 8)">
+                                  <path
+                                    class="fill-[#0EA976]"
+                                    d="M10.4206 4.70885C10.4143 4.65309 10.4021 4.59817 10.3842 4.54499V4.49037C10.355 4.42797 10.3161 4.37061 10.2689 4.32044L6.62757 0.679135C6.5774 0.63193 6.52004 0.593007 6.45764 0.563827H6.40302C6.34137 0.528471 6.27328 0.505776 6.20275 0.49707H2.5311C2.04823 0.49707 1.58514 0.688889 1.24371 1.03033C0.902267 1.37177 0.710449 1.83486 0.710449 2.31772V10.8141C0.710449 11.297 0.902267 11.7601 1.24371 12.1015C1.58514 12.4429 2.04823 12.6348 2.5311 12.6348H8.59994C9.08281 12.6348 9.5459 12.4429 9.88734 12.1015C10.2288 11.7601 10.4206 11.297 10.4206 10.8141V4.74526V4.70885ZM6.77929 2.56654L8.35112 4.13837H7.38617C7.22522 4.13837 7.07085 4.07443 6.95704 3.96062C6.84323 3.84681 6.77929 3.69245 6.77929 3.53149V2.56654ZM9.20683 10.8141C9.20683 10.9751 9.14289 11.1294 9.02907 11.2432C8.91526 11.357 8.7609 11.421 8.59994 11.421H2.5311C2.37015 11.421 2.21578 11.357 2.10197 11.2432C1.98816 11.1294 1.92422 10.9751 1.92422 10.8141V2.31772C1.92422 2.15677 1.98816 2.0024 2.10197 1.88859C2.21578 1.77478 2.37015 1.71084 2.5311 1.71084H5.56552V3.53149C5.56552 4.01436 5.75734 4.47745 6.09878 4.81889C6.44022 5.16032 6.90331 5.35214 7.38617 5.35214H9.20683V10.8141Z"
+                                  />
+                                </g>
+                              </svg>
+                              <div class="mt-[12px] ml-2">
+                                <p class="w-[200px] h[-12px] text-[#333333] text-[9.06px] truncate">
+                                  {{ fileName9 }}                                  
+                                </p>
+                                <p class="w-[200px] h-[11px] text-[#9E9E9E] text-[7.77px]">
+                                  {{ fileSize9 }}                                    
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="text-[#0EA976] bg-[#E2FCF3] rounded-full w-[15px] h-[15px]"
+                            viewBox="0 0 21 19"
+                            fill="currentColor"
+                          >
+                            <path
+                              fill-rule="evenodd"
+                              d="M16.707 4.293a1 1 0 00-1.414 0L8 11.586 4.707 8.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z"
+                              clip-rule="evenodd"
+                            />
+                          </svg>
+                        </div>
+                      </div>
+                    </a>
+                    <div v-else class="w-[289px] h-[130px] border-[1px] rounded-t-lg rounded-b-lg">
+                      <div class="w-auto h-[40px] bg-[#bcc6d2] rounded-t-lg flex justify-start items-center px-4"><span
+                          class="text-white font-semibold">Review Legal</span></div>
+                      <div class="w-[265px] h-[18px] flex justify-between ml-3 mt-[10px]">
+                        <span class="text-[#333333] text-xs">Dokumen Review Legal</span>
+                      </div>
+                      <div class="w-[265px] h-auto flex ml-3 py-[10px]">
+                        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <circle cx="14.5652" cy="14.5652" r="14.5652" fill="#bcc6d2" />
+                          <path
+                            d="M19.4206 12.7088C19.4143 12.6531 19.4021 12.5982 19.3842 12.545V12.4904C19.355 12.428 19.3161 12.3706 19.2689 12.3204L15.6276 8.67914C15.5774 8.63193 15.52 8.59301 15.4576 8.56383H15.403C15.3414 8.52847 15.2733 8.50578 15.2027 8.49707H11.5311C11.0482 8.49707 10.5851 8.68889 10.2437 9.03033C9.90227 9.37177 9.71045 9.83486 9.71045 10.3177V18.8141C9.71045 19.297 9.90227 19.7601 10.2437 20.1015C10.5851 20.4429 11.0482 20.6348 11.5311 20.6348H17.5999C18.0828 20.6348 18.5459 20.4429 18.8873 20.1015C19.2288 19.7601 19.4206 19.297 19.4206 18.8141V12.7453V12.7088ZM15.7793 10.5665L17.3511 12.1384H16.3862C16.2252 12.1384 16.0709 12.0744 15.957 11.9606C15.8432 11.8468 15.7793 11.6924 15.7793 11.5315V10.5665ZM18.2068 18.8141C18.2068 18.9751 18.1429 19.1294 18.0291 19.2432C17.9153 19.357 17.7609 19.421 17.5999 19.421H11.5311C11.3701 19.421 11.2158 19.357 11.102 19.2432C10.9882 19.1294 10.9242 18.9751 10.9242 18.8141V10.3177C10.9242 10.1568 10.9882 10.0024 11.102 9.88859C11.2158 9.77478 11.3701 9.71084 11.5311 9.71084H14.5655V11.5315C14.5655 12.0144 14.7573 12.4774 15.0988 12.8189C15.4402 13.1603 15.9033 13.3521 16.3862 13.3521H18.2068V18.8141Z"
+                            fill="white" />
+                        </svg>
+                        <div class="ml-[13px] -translate-y-2 pt-1">
+                          <span class="text-[#333333] text-[9.06px] font-semibold">Belum ada</span>
+                        </div>
                       </div>
                     </div>
                   </div>
-                  <svg
+
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-[289px] h-[32px] ml-auto my-4"
+                      viewBox="0 0 32 33" fill="none">
+                      <path d="M20.2017 24.75L13.4201 31.8317L6.63857 24.75" stroke="#292D32" stroke-width="1.5"
+                        stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                      <path d="M13.4204 1L13.4204 30.64" stroke="#292D32" stroke-width="1.5" stroke-miterlimit="10"
+                        stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+
+                  <div class="flex items-center gap-4">
+                    <a :href="linkDownloadFile11" v-if="fileName11" class="flex flex-col w-[289px] h-[130px] rounded-lg border-[1px] border-[#DEDEDE] ml-auto">
+                      <div class="w-full h-[40px] p-4 flex justify-between items-center rounded-t-lg bg-[#0EA976]">
+                        <div class="font-sans text-[14px] font-semibold text-white">
+                          PKS
+                        </div>
+                      </div>
+                      <div class="flex flex-col ml-4 mt-[10px]">
+                        <div class="flex">
+                          <div>
+                            <div class="font-sans text-[#333333] text-[12px] font-normal">
+                              Dokumen PKS
+                            </div>
+                            <div class="flex">
+                              <svg
+                                class="w-[30px] h-[30px] mt-[12px]"
+                                viewBox="0 0 30 30"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <circle
+                                  cx="15"
+                                  cy="15"
+                                  r="14.5652"
+                                  class="fill-[#E2FCF3]"
+                                />
+                                <g transform="translate(9, 8)">
+                                  <path
+                                    class="fill-[#0EA976]"
+                                    d="M10.4206 4.70885C10.4143 4.65309 10.4021 4.59817 10.3842 4.54499V4.49037C10.355 4.42797 10.3161 4.37061 10.2689 4.32044L6.62757 0.679135C6.5774 0.63193 6.52004 0.593007 6.45764 0.563827H6.40302C6.34137 0.528471 6.27328 0.505776 6.20275 0.49707H2.5311C2.04823 0.49707 1.58514 0.688889 1.24371 1.03033C0.902267 1.37177 0.710449 1.83486 0.710449 2.31772V10.8141C0.710449 11.297 0.902267 11.7601 1.24371 12.1015C1.58514 12.4429 2.04823 12.6348 2.5311 12.6348H8.59994C9.08281 12.6348 9.5459 12.4429 9.88734 12.1015C10.2288 11.7601 10.4206 11.297 10.4206 10.8141V4.74526V4.70885ZM6.77929 2.56654L8.35112 4.13837H7.38617C7.22522 4.13837 7.07085 4.07443 6.95704 3.96062C6.84323 3.84681 6.77929 3.69245 6.77929 3.53149V2.56654ZM9.20683 10.8141C9.20683 10.9751 9.14289 11.1294 9.02907 11.2432C8.91526 11.357 8.7609 11.421 8.59994 11.421H2.5311C2.37015 11.421 2.21578 11.357 2.10197 11.2432C1.98816 11.1294 1.92422 10.9751 1.92422 10.8141V2.31772C1.92422 2.15677 1.98816 2.0024 2.10197 1.88859C2.21578 1.77478 2.37015 1.71084 2.5311 1.71084H5.56552V3.53149C5.56552 4.01436 5.75734 4.47745 6.09878 4.81889C6.44022 5.16032 6.90331 5.35214 7.38617 5.35214H9.20683V10.8141Z"
+                                  />
+                                </g>
+                              </svg>
+                              <div class="mt-[12px] ml-2">
+                                <p class="w-[200px] h[-12px] text-[#333333] text-[9.06px] truncate">
+                                  {{ fileName11 }}                                 
+                                </p>
+                                <p class="w-[200px] h-[11px] text-[#9E9E9E] text-[7.77px]">
+                                  {{ fileSize11 }}                                   
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="text-[#0EA976] bg-[#E2FCF3] rounded-full w-[15px] h-[15px]"
+                            viewBox="0 0 21 19"
+                            fill="currentColor"
+                          >
+                            <path
+                              fill-rule="evenodd"
+                              d="M16.707 4.293a1 1 0 00-1.414 0L8 11.586 4.707 8.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z"
+                              clip-rule="evenodd"
+                            />
+                          </svg>
+                        </div>
+                      </div>
+                    </a>
+                    <div v-else class="w-[289px] h-[130px] border-[1px] rounded-t-lg rounded-b-lg">
+                      <div class="w-auto h-[40px] bg-[#bcc6d2] rounded-t-lg flex justify-start items-center px-4"><span
+                          class="text-white font-semibold">PKS</span></div>
+                      <div class="w-[265px] h-[18px] flex justify-between ml-3 mt-[10px]">
+                        <span class="text-[#333333] text-xs">Dokumen PKS</span>
+                      </div>
+                      <div class="w-[265px] h-auto flex ml-3 py-[10px]">
+                        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <circle cx="14.5652" cy="14.5652" r="14.5652" fill="#bcc6d2" />
+                          <path
+                            d="M19.4206 12.7088C19.4143 12.6531 19.4021 12.5982 19.3842 12.545V12.4904C19.355 12.428 19.3161 12.3706 19.2689 12.3204L15.6276 8.67914C15.5774 8.63193 15.52 8.59301 15.4576 8.56383H15.403C15.3414 8.52847 15.2733 8.50578 15.2027 8.49707H11.5311C11.0482 8.49707 10.5851 8.68889 10.2437 9.03033C9.90227 9.37177 9.71045 9.83486 9.71045 10.3177V18.8141C9.71045 19.297 9.90227 19.7601 10.2437 20.1015C10.5851 20.4429 11.0482 20.6348 11.5311 20.6348H17.5999C18.0828 20.6348 18.5459 20.4429 18.8873 20.1015C19.2288 19.7601 19.4206 19.297 19.4206 18.8141V12.7453V12.7088ZM15.7793 10.5665L17.3511 12.1384H16.3862C16.2252 12.1384 16.0709 12.0744 15.957 11.9606C15.8432 11.8468 15.7793 11.6924 15.7793 11.5315V10.5665ZM18.2068 18.8141C18.2068 18.9751 18.1429 19.1294 18.0291 19.2432C17.9153 19.357 17.7609 19.421 17.5999 19.421H11.5311C11.3701 19.421 11.2158 19.357 11.102 19.2432C10.9882 19.1294 10.9242 18.9751 10.9242 18.8141V10.3177C10.9242 10.1568 10.9882 10.0024 11.102 9.88859C11.2158 9.77478 11.3701 9.71084 11.5311 9.71084H14.5655V11.5315C14.5655 12.0144 14.7573 12.4774 15.0988 12.8189C15.4402 13.1603 15.9033 13.3521 16.3862 13.3521H18.2068V18.8141Z"
+                            fill="white" />
+                        </svg>
+                        <div class="ml-[13px] -translate-y-2 pt-1">
+                          <span class="text-[#333333] text-[9.06px] font-semibold">Belum ada</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <svg
+                      width="33"
+                      height="29"
+                      class="w-[33px] h-[28px]"
+                      viewBox="0 0 33 29"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M8.09082 7.83984L1.00915 14.9215L8.09082 22.0032"
+                        stroke="#292D32"
+                        stroke-width="1.5"
+                        stroke-miterlimit="10"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M31.8408 14.9209H2.20082"
+                        stroke="#292D32"
+                        stroke-width="1.5"
+                        stroke-miterlimit="10"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+
+                    <a :href="linkDownloadFile10" v-if="fileName10" class="flex flex-col w-[289px] h-[130px] rounded-lg border-[1px] border-[#DEDEDE]">
+                      <div class="w-full h-[40px] p-4 flex justify-between items-center rounded-t-lg bg-[#0EA976]">
+                        <div class="font-sans text-[14px] font-semibold text-white">
+                          Review Mitra
+                        </div>
+                      </div>
+                      <div class="flex flex-col ml-4 mt-[10px]">
+                        <div class="flex">
+                          <div>
+                            <div class="font-sans text-[#333333] text-[12px] font-normal">
+                              Dokumen Review Mitra
+                            </div>
+                            <div class="flex">
+                              <svg
+                                class="w-[30px] h-[30px] mt-[12px]"
+                                viewBox="0 0 30 30"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <circle
+                                  cx="15"
+                                  cy="15"
+                                  r="14.5652"
+                                  class="fill-[#E2FCF3]"
+                                />
+                                <g transform="translate(9, 8)">
+                                  <path
+                                    class="fill-[#0EA976]"
+                                    d="M10.4206 4.70885C10.4143 4.65309 10.4021 4.59817 10.3842 4.54499V4.49037C10.355 4.42797 10.3161 4.37061 10.2689 4.32044L6.62757 0.679135C6.5774 0.63193 6.52004 0.593007 6.45764 0.563827H6.40302C6.34137 0.528471 6.27328 0.505776 6.20275 0.49707H2.5311C2.04823 0.49707 1.58514 0.688889 1.24371 1.03033C0.902267 1.37177 0.710449 1.83486 0.710449 2.31772V10.8141C0.710449 11.297 0.902267 11.7601 1.24371 12.1015C1.58514 12.4429 2.04823 12.6348 2.5311 12.6348H8.59994C9.08281 12.6348 9.5459 12.4429 9.88734 12.1015C10.2288 11.7601 10.4206 11.297 10.4206 10.8141V4.74526V4.70885ZM6.77929 2.56654L8.35112 4.13837H7.38617C7.22522 4.13837 7.07085 4.07443 6.95704 3.96062C6.84323 3.84681 6.77929 3.69245 6.77929 3.53149V2.56654ZM9.20683 10.8141C9.20683 10.9751 9.14289 11.1294 9.02907 11.2432C8.91526 11.357 8.7609 11.421 8.59994 11.421H2.5311C2.37015 11.421 2.21578 11.357 2.10197 11.2432C1.98816 11.1294 1.92422 10.9751 1.92422 10.8141V2.31772C1.92422 2.15677 1.98816 2.0024 2.10197 1.88859C2.21578 1.77478 2.37015 1.71084 2.5311 1.71084H5.56552V3.53149C5.56552 4.01436 5.75734 4.47745 6.09878 4.81889C6.44022 5.16032 6.90331 5.35214 7.38617 5.35214H9.20683V10.8141Z"
+                                  />
+                                </g>
+                              </svg>
+                              <div class="mt-[12px] ml-2">
+                                <p class="w-[200px] h[-12px] text-[#333333] text-[9.06px] truncate">
+                                  {{ fileName10 }}                                 
+                                </p>
+                                <p class="w-[200px] h-[11px] text-[#9E9E9E] text-[7.77px]">
+                                  {{ fileSize10 }}                                   
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="text-[#0EA976] bg-[#E2FCF3] rounded-full w-[15px] h-[15px]"
+                            viewBox="0 0 21 19"
+                            fill="currentColor"
+                          >
+                            <path
+                              fill-rule="evenodd"
+                              d="M16.707 4.293a1 1 0 00-1.414 0L8 11.586 4.707 8.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z"
+                              clip-rule="evenodd"
+                            />
+                          </svg>
+                        </div>
+                      </div>
+                    </a>
+                    <div v-else class="w-[289px] h-[130px] border-[1px] rounded-t-lg rounded-b-lg">
+                      <div class="w-full flex justify-start items-center h-[40px] bg-[#bcc6d2] rounded-t-lg px-4"><span
+                          class="text-white font-semibold">Review Mitra</span></div>
+                      <div class="w-[265px] h-[18px] flex justify-between ml-3 mt-[10px]">
+                        <span class="text-[#333333] text-xs">Dokumen Review Mitra</span>
+                      </div>
+                      <div class="w-[265px] h-auto flex ml-3 py-[10px]">
+                        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <circle cx="14.5652" cy="14.5652" r="14.5652" fill="#bcc6d2" />
+                          <path
+                            d="M19.4206 12.7088C19.4143 12.6531 19.4021 12.5982 19.3842 12.545V12.4904C19.355 12.428 19.3161 12.3706 19.2689 12.3204L15.6276 8.67914C15.5774 8.63193 15.52 8.59301 15.4576 8.56383H15.403C15.3414 8.52847 15.2733 8.50578 15.2027 8.49707H11.5311C11.0482 8.49707 10.5851 8.68889 10.2437 9.03033C9.90227 9.37177 9.71045 9.83486 9.71045 10.3177V18.8141C9.71045 19.297 9.90227 19.7601 10.2437 20.1015C10.5851 20.4429 11.0482 20.6348 11.5311 20.6348H17.5999C18.0828 20.6348 18.5459 20.4429 18.8873 20.1015C19.2288 19.7601 19.4206 19.297 19.4206 18.8141V12.7453V12.7088ZM15.7793 10.5665L17.3511 12.1384H16.3862C16.2252 12.1384 16.0709 12.0744 15.957 11.9606C15.8432 11.8468 15.7793 11.6924 15.7793 11.5315V10.5665ZM18.2068 18.8141C18.2068 18.9751 18.1429 19.1294 18.0291 19.2432C17.9153 19.357 17.7609 19.421 17.5999 19.421H11.5311C11.3701 19.421 11.2158 19.357 11.102 19.2432C10.9882 19.1294 10.9242 18.9751 10.9242 18.8141V10.3177C10.9242 10.1568 10.9882 10.0024 11.102 9.88859C11.2158 9.77478 11.3701 9.71084 11.5311 9.71084H14.5655V11.5315C14.5655 12.0144 14.7573 12.4774 15.0988 12.8189C15.4402 13.1603 15.9033 13.3521 16.3862 13.3521H18.2068V18.8141Z"
+                            fill="white" />
+                        </svg>
+                        <div class="ml-[13px] -translate-y-2 pt-1">
+                          <span class="text-[#333333] text-[9.06px] font-semibold">Belum ada</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- <svg
                     width="33"
                     height="29"
                     class="w-[33px] h-[28px] absolute ml-[670px] mt-[280px]"
@@ -471,300 +1352,8 @@ import { dateParsing } from '@/utils/helper';
                       stroke-linecap="round"
                       stroke-linejoin="round"
                     />
-                  </svg>
-                  <div class="absolute flex flex-col w-[289px] h-[130px] rounded-lg mt-[215px] ml-[710px] border-[1px] border-[#DEDEDE]">
-                    <div class="w-full h-[40px] p-4 flex justify-between items-center rounded-t-lg bg-[#0EA976]">
-                      <div class="font-sans text-[14px] font-semibold text-white">
-                        Negosiasi
-                      </div>
-                    </div>
-                    <div class="flex flex-col ml-4 mt-[10px]">
-                      <div class="flex items-center">
-                        <div>
-                          <div class="font-sans text-[#333333] text-[12px] font-normal">
-                            Dokumen Negosiasi
-                          </div>
-                          <div class="mt-[12px] ml-[38px]">
-                            <p class="w-[200px] h[-12px] text-[#333333] text-[9.06px] truncate">
-                              {{ fileName4 }}
-                            </p>
-                            <p class="w-[200px] h-[11px] text-[#9E9E9E] text-[7.77px]">
-                              {{ fileSize4 }}
-                            </p>
-                          </div>
-                        </div>
-                        <svg
-                          class="w-[30px] h-[30px] absolute mt-[30px]"
-                          viewBox="0 0 30 30"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <circle
-                            cx="15"
-                            cy="15"
-                            r="14.5652"
-                            class="fill-[#E2FCF3]"
-                          />
-                          <g transform="translate(9, 8)">
-                            <path
-                              class="fill-[#0EA976]"
-                              d="M10.4206 4.70885C10.4143 4.65309 10.4021 4.59817 10.3842 4.54499V4.49037C10.355 4.42797 10.3161 4.37061 10.2689 4.32044L6.62757 0.679135C6.5774 0.63193 6.52004 0.593007 6.45764 0.563827H6.40302C6.34137 0.528471 6.27328 0.505776 6.20275 0.49707H2.5311C2.04823 0.49707 1.58514 0.688889 1.24371 1.03033C0.902267 1.37177 0.710449 1.83486 0.710449 2.31772V10.8141C0.710449 11.297 0.902267 11.7601 1.24371 12.1015C1.58514 12.4429 2.04823 12.6348 2.5311 12.6348H8.59994C9.08281 12.6348 9.5459 12.4429 9.88734 12.1015C10.2288 11.7601 10.4206 11.297 10.4206 10.8141V4.74526V4.70885ZM6.77929 2.56654L8.35112 4.13837H7.38617C7.22522 4.13837 7.07085 4.07443 6.95704 3.96062C6.84323 3.84681 6.77929 3.69245 6.77929 3.53149V2.56654ZM9.20683 10.8141C9.20683 10.9751 9.14289 11.1294 9.02907 11.2432C8.91526 11.357 8.7609 11.421 8.59994 11.421H2.5311C2.37015 11.421 2.21578 11.357 2.10197 11.2432C1.98816 11.1294 1.92422 10.9751 1.92422 10.8141V2.31772C1.92422 2.15677 1.98816 2.0024 2.10197 1.88859C2.21578 1.77478 2.37015 1.71084 2.5311 1.71084H5.56552V3.53149C5.56552 4.01436 5.75734 4.47745 6.09878 4.81889C6.44022 5.16032 6.90331 5.35214 7.38617 5.35214H9.20683V10.8141Z"
-                            />
-                          </g>
-                        </svg>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          class="text-[#0EA976] bg-[#E2FCF3] rounded-full w-[15px] h-[15px] absolute top-[53.5px] left-[255px]"
-                          viewBox="0 0 21 19"
-                          fill="currentColor"
-                        >
-                          <path
-                            fill-rule="evenodd"
-                            d="M16.707 4.293a1 1 0 00-1.414 0L8 11.586 4.707 8.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z"
-                            clip-rule="evenodd"
-                          />
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="w-[33px] h-[32px] absolute mt-[170px] ml-[840px]"
-                    viewBox="0 0 32 33"
-                    fill="none"
-                  >
-                    <path
-                      d="M20.2017 24.75L13.4201 31.8317L6.63857 24.75"
-                      stroke="#292D32"
-                      stroke-width="1.5"
-                      stroke-miterlimit="10"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                    <path
-                      d="M13.4204 1L13.4204 30.64"
-                      stroke="#292D32"
-                      stroke-width="1.5"
-                      stroke-miterlimit="10"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                  <div class="flex flex-col w-[289px] h-[130px] rounded-lg mt-[215px] ml-[370px] absolute border-[1px] border-[#DEDEDE]">
-                    <div class="w-full h-[40px] p-4 flex justify-between items-center rounded-t-lg bg-[#0EA976]">
-                      <div class="font-sans text-[14px] font-semibold text-white">
-                        BAK Pemilihan Mitra
-                      </div>
-                    </div>
-                    <div class="flex flex-col ml-4 mt-[10px]">
-                      <div class="flex items-center">
-                        <div>
-                          <div class="font-sans text-[#333333] text-[12px] font-normal">
-                            Dokumen BAK Pemilihan Mitra
-                          </div>
-                          <div class="mt-[12px] ml-[38px]">
-                            <p class="w-[200px] h[-12px] text-[#333333] text-[9.06px] truncate">
-                              {{ fileName5 }}
-                            </p>
-                            <p class="w-[200px] h-[11px] text-[#9E9E9E] text-[7.77px]">
-                              {{ fileSize5 }}
-                            </p>
-                          </div>
-                        </div>
-                        <svg
-                          class="w-[30px] h-[30px] absolute mt-[30px]"
-                          viewBox="0 0 30 30"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <circle
-                            cx="15"
-                            cy="15"
-                            r="14.5652"
-                            class="fill-[#E2FCF3]"
-                          />
-                          <g transform="translate(9, 8)">
-                            <path
-                              class="fill-[#0EA976]"
-                              d="M10.4206 4.70885C10.4143 4.65309 10.4021 4.59817 10.3842 4.54499V4.49037C10.355 4.42797 10.3161 4.37061 10.2689 4.32044L6.62757 0.679135C6.5774 0.63193 6.52004 0.593007 6.45764 0.563827H6.40302C6.34137 0.528471 6.27328 0.505776 6.20275 0.49707H2.5311C2.04823 0.49707 1.58514 0.688889 1.24371 1.03033C0.902267 1.37177 0.710449 1.83486 0.710449 2.31772V10.8141C0.710449 11.297 0.902267 11.7601 1.24371 12.1015C1.58514 12.4429 2.04823 12.6348 2.5311 12.6348H8.59994C9.08281 12.6348 9.5459 12.4429 9.88734 12.1015C10.2288 11.7601 10.4206 11.297 10.4206 10.8141V4.74526V4.70885ZM6.77929 2.56654L8.35112 4.13837H7.38617C7.22522 4.13837 7.07085 4.07443 6.95704 3.96062C6.84323 3.84681 6.77929 3.69245 6.77929 3.53149V2.56654ZM9.20683 10.8141C9.20683 10.9751 9.14289 11.1294 9.02907 11.2432C8.91526 11.357 8.7609 11.421 8.59994 11.421H2.5311C2.37015 11.421 2.21578 11.357 2.10197 11.2432C1.98816 11.1294 1.92422 10.9751 1.92422 10.8141V2.31772C1.92422 2.15677 1.98816 2.0024 2.10197 1.88859C2.21578 1.77478 2.37015 1.71084 2.5311 1.71084H5.56552V3.53149C5.56552 4.01436 5.75734 4.47745 6.09878 4.81889C6.44022 5.16032 6.90331 5.35214 7.38617 5.35214H9.20683V10.8141Z"
-                            />
-                          </g>
-                        </svg>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          class="text-[#0EA976] bg-[#E2FCF3] rounded-full w-[15px] h-[15px] absolute top-[53.5px] left-[255px]"
-                          viewBox="0 0 21 19"
-                          fill="currentColor"
-                        >
-                          <path
-                            fill-rule="evenodd"
-                            d="M16.707 4.293a1 1 0 00-1.414 0L8 11.586 4.707 8.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z"
-                            clip-rule="evenodd"
-                          />
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-                  <svg
-                    width="33"
-                    height="29"
-                    class="w-[33px] h-[28px] absolute mt-[280px] ml-[325px]"
-                    viewBox="0 0 33 29"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M8.09082 7.83984L1.00915 14.9215L8.09082 22.0032"
-                      stroke="#292D32"
-                      stroke-width="1.5"
-                      stroke-miterlimit="10"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                    <path
-                      d="M31.8408 14.9209H2.20082"
-                      stroke="#292D32"
-                      stroke-width="1.5"
-                      stroke-miterlimit="10"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                  <div class="flex flex-col w-[289px] h-[130px] rounded-lg mt-[215px] ml-5 absolute border-[1px] border-[#DEDEDE]">
-                    <div class="w-full h-[40px] p-4 flex justify-between items-center rounded-t-lg bg-[#0EA976]">
-                      <div class="font-sans text-[14px] font-semibold text-white">
-                        Surat Pesanan
-                      </div>
-                    </div>
-                    <div class="flex items-center ml-4 mt-[10px]">
-                      <div class="flex items-center">
-                        <div>
-                          <div class="font-sans text-[#333333] text-[12px] font-normal">
-                            Dokumen Surat Pesanan
-                          </div>
-                          <div class="mt-[12px] ml-[38px]">
-                            <p class="w-[200px] h[-12px] text-[#333333] text-[9.06px] truncate">
-                              {{ fileName6 }}
-                            </p>
-                            <p class="w-[200px] h-[11px] text-[#9E9E9E] text-[7.77px]">
-                              {{ fileSize6 }}
-                            </p>
-                          </div>
-                        </div>
-                        <svg
-                          class="w-[30px] h-[30px] absolute mt-[30px]"
-                          viewBox="0 0 30 30"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <circle
-                            cx="15"
-                            cy="15"
-                            r="14.5652"
-                            class="fill-[#E2FCF3]"
-                          />
-                          <g transform="translate(9, 8)">
-                            <path
-                              class="fill-[#0EA976]"
-                              d="M10.4206 4.70885C10.4143 4.65309 10.4021 4.59817 10.3842 4.54499V4.49037C10.355 4.42797 10.3161 4.37061 10.2689 4.32044L6.62757 0.679135C6.5774 0.63193 6.52004 0.593007 6.45764 0.563827H6.40302C6.34137 0.528471 6.27328 0.505776 6.20275 0.49707H2.5311C2.04823 0.49707 1.58514 0.688889 1.24371 1.03033C0.902267 1.37177 0.710449 1.83486 0.710449 2.31772V10.8141C0.710449 11.297 0.902267 11.7601 1.24371 12.1015C1.58514 12.4429 2.04823 12.6348 2.5311 12.6348H8.59994C9.08281 12.6348 9.5459 12.4429 9.88734 12.1015C10.2288 11.7601 10.4206 11.297 10.4206 10.8141V4.74526V4.70885ZM6.77929 2.56654L8.35112 4.13837H7.38617C7.22522 4.13837 7.07085 4.07443 6.95704 3.96062C6.84323 3.84681 6.77929 3.69245 6.77929 3.53149V2.56654ZM9.20683 10.8141C9.20683 10.9751 9.14289 11.1294 9.02907 11.2432C8.91526 11.357 8.7609 11.421 8.59994 11.421H2.5311C2.37015 11.421 2.21578 11.357 2.10197 11.2432C1.98816 11.1294 1.92422 10.9751 1.92422 10.8141V2.31772C1.92422 2.15677 1.98816 2.0024 2.10197 1.88859C2.21578 1.77478 2.37015 1.71084 2.5311 1.71084H5.56552V3.53149C5.56552 4.01436 5.75734 4.47745 6.09878 4.81889C6.44022 5.16032 6.90331 5.35214 7.38617 5.35214H9.20683V10.8141Z"
-                            />
-                          </g>
-                        </svg>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          class="text-[#0EA976] bg-[#E2FCF3] rounded-full w-[15px] h-[15px] absolute top-[53.5px] left-[255px]"
-                          viewBox="0 0 21 19"
-                          fill="currentColor"
-                        >
-                          <path
-                            fill-rule="evenodd"
-                            d="M16.707 4.293a1 1 0 00-1.414 0L8 11.586 4.707 8.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z"
-                            clip-rule="evenodd"
-                          />
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-                  <svg
-                    width="28"
-                    height="33"
-                    class="w-[33px] h-[28px] absolute mt-[360px] ml-[150px]"
-                    viewBox="0 0 28 33"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M21.1221 24.75L14.3405 31.8317L7.55898 24.75"
-                      stroke="#292D32"
-                      stroke-width="1.5"
-                      stroke-miterlimit="10"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                    <path
-                      d="M14.3408 1L14.3408 30.64"
-                      stroke="#292D32"
-                      stroke-width="1.5"
-                      stroke-miterlimit="10"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                  <div class="flex flex-col w-[289px] h-[130px] rounded-lg mt-[400px] ml-5 absolute border-[1px] border-[#DEDEDE]">
-                    <div class="w-full h-[40px] p-4 flex justify-between items-center rounded-t-lg bg-[#0EA976]">
-                      <div class="font-sans text-[14px] font-semibold text-white">
-                        PKS
-                      </div>
-                    </div>
-                    <div class="flex items-center ml-4 mt-[10px]">
-                      <div class="flex items-center">
-                        <div>
-                          <div class="font-sans text-[#333333] text-[12px] font-normal">
-                            Dokumen PKS
-                          </div>
-                          <div class="mt-[12px] ml-[38px]">
-                            <p class="w-[200px] h[-12px] text-[#333333] text-[9.06px] truncate">
-                              {{ fileName7 }}
-                            </p>
-                            <p class="w-[200px] h-[11px] text-[#9E9E9E] text-[7.77px]">
-                              {{ fileSize7 }}
-                            </p>
-                          </div>
-                        </div>
-                        <svg
-                          class="w-[30px] h-[30px] absolute mt-[30px]"
-                          viewBox="0 0 30 30"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <circle
-                            cx="15"
-                            cy="15"
-                            r="14.5652"
-                            class="fill-[#E2FCF3]"
-                          />
-                          <g transform="translate(9, 8)">
-                            <path
-                              class="fill-[#0EA976]"
-                              d="M10.4206 4.70885C10.4143 4.65309 10.4021 4.59817 10.3842 4.54499V4.49037C10.355 4.42797 10.3161 4.37061 10.2689 4.32044L6.62757 0.679135C6.5774 0.63193 6.52004 0.593007 6.45764 0.563827H6.40302C6.34137 0.528471 6.27328 0.505776 6.20275 0.49707H2.5311C2.04823 0.49707 1.58514 0.688889 1.24371 1.03033C0.902267 1.37177 0.710449 1.83486 0.710449 2.31772V10.8141C0.710449 11.297 0.902267 11.7601 1.24371 12.1015C1.58514 12.4429 2.04823 12.6348 2.5311 12.6348H8.59994C9.08281 12.6348 9.5459 12.4429 9.88734 12.1015C10.2288 11.7601 10.4206 11.297 10.4206 10.8141V4.74526V4.70885ZM6.77929 2.56654L8.35112 4.13837H7.38617C7.22522 4.13837 7.07085 4.07443 6.95704 3.96062C6.84323 3.84681 6.77929 3.69245 6.77929 3.53149V2.56654ZM9.20683 10.8141C9.20683 10.9751 9.14289 11.1294 9.02907 11.2432C8.91526 11.357 8.7609 11.421 8.59994 11.421H2.5311C2.37015 11.421 2.21578 11.357 2.10197 11.2432C1.98816 11.1294 1.92422 10.9751 1.92422 10.8141V2.31772C1.92422 2.15677 1.98816 2.0024 2.10197 1.88859C2.21578 1.77478 2.37015 1.71084 2.5311 1.71084H5.56552V3.53149C5.56552 4.01436 5.75734 4.47745 6.09878 4.81889C6.44022 5.16032 6.90331 5.35214 7.38617 5.35214H9.20683V10.8141Z"
-                            />
-                          </g>
-                        </svg>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          class="text-[#0EA976] bg-[#E2FCF3] rounded-full w-[15px] h-[15px] absolute top-[53.5px] left-[255px]"
-                          viewBox="0 0 21 19"
-                          fill="currentColor"
-                        >
-                          <path
-                            fill-rule="evenodd"
-                            d="M16.707 4.293a1 1 0 00-1.414 0L8 11.586 4.707 8.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z"
-                            clip-rule="evenodd"
-                          />
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
+                  </svg> -->
+
                 </div>
               </div>
             </div>
@@ -1595,7 +2184,7 @@ import { dateParsing } from '@/utils/helper';
         <transition name="fade">
           <div
             v-if="isDropdownArrowOpen4"
-            class="flex flex-wrap w-[1046px] bg-[#FFFFFF] border-[#E5E7E9] border-[1px] ml-4 px-5 py-6 rounded-bl-md rounded-br-md gap-6"
+            class="grid grid-cols-3 w-[1046px] bg-[#FFFFFF] border-[#E5E7E9] border-[1px] ml-4 px-5 py-6 rounded-bl-md rounded-br-md gap-6"
           >
             <!-- Surat Penawaran -->
             <div class="flex flex-col w-[316.6px]">
@@ -1855,11 +2444,12 @@ import { dateParsing } from '@/utils/helper';
                 <span class="text-[#9E9E9E] text-sm font-semibold">File belum diupload</span>
               </div>
             </div>
-            <!-- PKS -->
+
+            <!-- Draf PKS -->
             <div class="flex flex-col w-[316.6px]">
               <div class="flex items-center">
                 <h1 class="font-sans text-[#4D5E80] text-[16px] font-semibold">
-                  PKS
+                  Draf PKS
                 </h1>
               </div>
               <a
@@ -1889,6 +2479,179 @@ import { dateParsing } from '@/utils/helper';
                 <div class="py-2 w-[200px] flex-grow truncate pe-3">
                   <span class="text-[#333333] text-sm font-semibold">{{ fileName7 }}</span>
                   <p class="text-[#9E9E9E] text-xs">{{ fileSize7 }}</p>
+                </div>
+              </a>
+              <div
+                v-else
+                class="w-[333px] h-auto"
+              >
+                <span class="text-[#9E9E9E] text-sm font-semibold">File belum diupload</span>
+              </div>
+            </div>
+            <!-- Review User -->
+            <div class="flex flex-col w-[316.6px]">
+              <div class="flex items-center">
+                <h1 class="font-sans text-[#4D5E80] text-[16px] font-semibold">
+                  Review User
+                </h1>
+              </div>
+              <a
+                v-if="fileName8"
+                :href="linkDownloadFile8"
+                class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center"
+              >
+                <svg
+                  width="45"
+                  height="46"
+                  class="mx-4 my-2"
+                  viewBox="0 0 45 46"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle
+                    cx="22.5"
+                    cy="23"
+                    r="22.5"
+                    fill="#E9F1FB"
+                  />
+                  <path
+                    d="M30 20.1312C29.9902 20.0451 29.9714 19.9603 29.9437 19.8781V19.7937C29.8987 19.6974 29.8385 19.6087 29.7656 19.5313L24.1406 13.9062C24.0631 13.8333 23.9745 13.7732 23.8781 13.7281H23.7937C23.6985 13.6735 23.5933 13.6384 23.4844 13.625H17.8125C17.0666 13.625 16.3512 13.9213 15.8238 14.4488C15.2963 14.9762 15 15.6916 15 16.4375V29.5625C15 30.3084 15.2963 31.0238 15.8238 31.5512C16.3512 32.0787 17.0666 32.375 17.8125 32.375H27.1875C27.9334 32.375 28.6488 32.0787 29.1762 31.5512C29.7037 31.0238 30 30.3084 30 29.5625V20.1875V20.1312ZM24.375 16.8219L26.8031 19.25H25.3125C25.0639 19.25 24.8254 19.1512 24.6496 18.9754C24.4738 18.7996 24.375 18.5611 24.375 18.3125V16.8219ZM28.125 29.5625C28.125 29.8111 28.0262 30.0496 27.8504 30.2254C27.6746 30.4012 27.4361 30.5 27.1875 30.5H17.8125C17.5639 30.5 17.3254 30.4012 17.1496 30.2254C16.9738 30.0496 16.875 29.8111 16.875 29.5625V16.4375C16.875 16.1889 16.9738 15.9504 17.1496 15.7746C17.3254 15.5988 17.5639 15.5 17.8125 15.5H22.5V18.3125C22.5 19.0584 22.7963 19.7738 23.3238 20.3012C23.8512 20.8287 24.5666 21.125 25.3125 21.125H28.125V29.5625Z"
+                    fill="#2671D9"
+                  />
+                </svg>
+                <div class="py-2 w-[200px] flex-grow truncate pe-3">
+                  <span class="text-[#333333] text-sm font-semibold">{{ fileName8 }}</span>
+                  <p class="text-[#9E9E9E] text-xs">{{ fileSize8 }}</p>
+                </div>
+              </a>
+              <div
+                v-else
+                class="w-[333px] h-auto"
+              >
+                <span class="text-[#9E9E9E] text-sm font-semibold">File belum diupload</span>
+              </div>
+            </div>
+            <!-- Review Legal -->
+            <div class="flex flex-col w-[316.6px]">
+              <div class="flex items-center">
+                <h1 class="font-sans text-[#4D5E80] text-[16px] font-semibold">
+                  Review Legal
+                </h1>
+              </div>
+              <a
+                v-if="fileName9"
+                :href="linkDownloadFile9"
+                class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center"
+              >
+                <svg
+                  width="45"
+                  height="46"
+                  class="mx-4 my-2"
+                  viewBox="0 0 45 46"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle
+                    cx="22.5"
+                    cy="23"
+                    r="22.5"
+                    fill="#E9F1FB"
+                  />
+                  <path
+                    d="M30 20.1312C29.9902 20.0451 29.9714 19.9603 29.9437 19.8781V19.7937C29.8987 19.6974 29.8385 19.6087 29.7656 19.5313L24.1406 13.9062C24.0631 13.8333 23.9745 13.7732 23.8781 13.7281H23.7937C23.6985 13.6735 23.5933 13.6384 23.4844 13.625H17.8125C17.0666 13.625 16.3512 13.9213 15.8238 14.4488C15.2963 14.9762 15 15.6916 15 16.4375V29.5625C15 30.3084 15.2963 31.0238 15.8238 31.5512C16.3512 32.0787 17.0666 32.375 17.8125 32.375H27.1875C27.9334 32.375 28.6488 32.0787 29.1762 31.5512C29.7037 31.0238 30 30.3084 30 29.5625V20.1875V20.1312ZM24.375 16.8219L26.8031 19.25H25.3125C25.0639 19.25 24.8254 19.1512 24.6496 18.9754C24.4738 18.7996 24.375 18.5611 24.375 18.3125V16.8219ZM28.125 29.5625C28.125 29.8111 28.0262 30.0496 27.8504 30.2254C27.6746 30.4012 27.4361 30.5 27.1875 30.5H17.8125C17.5639 30.5 17.3254 30.4012 17.1496 30.2254C16.9738 30.0496 16.875 29.8111 16.875 29.5625V16.4375C16.875 16.1889 16.9738 15.9504 17.1496 15.7746C17.3254 15.5988 17.5639 15.5 17.8125 15.5H22.5V18.3125C22.5 19.0584 22.7963 19.7738 23.3238 20.3012C23.8512 20.8287 24.5666 21.125 25.3125 21.125H28.125V29.5625Z"
+                    fill="#2671D9"
+                  />
+                </svg>
+                <div class="py-2 w-[200px] flex-grow truncate pe-3">
+                  <span class="text-[#333333] text-sm font-semibold">{{ fileName9 }}</span>
+                  <p class="text-[#9E9E9E] text-xs">{{ fileSize9 }}</p>
+                </div>
+              </a>
+              <div
+                v-else
+                class="w-[333px] h-auto"
+              >
+                <span class="text-[#9E9E9E] text-sm font-semibold">File belum diupload</span>
+              </div>
+            </div>
+            <!-- Review Mitra -->
+            <div class="flex flex-col w-[316.6px]">
+              <div class="flex items-center">
+                <h1 class="font-sans text-[#4D5E80] text-[16px] font-semibold">
+                  Review Mitra
+                </h1>
+              </div>
+              <a
+                v-if="fileName10"
+                :href="linkDownloadFile10"
+                class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center"
+              >
+                <svg
+                  width="45"
+                  height="46"
+                  class="mx-4 my-2"
+                  viewBox="0 0 45 46"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle
+                    cx="22.5"
+                    cy="23"
+                    r="22.5"
+                    fill="#E9F1FB"
+                  />
+                  <path
+                    d="M30 20.1312C29.9902 20.0451 29.9714 19.9603 29.9437 19.8781V19.7937C29.8987 19.6974 29.8385 19.6087 29.7656 19.5313L24.1406 13.9062C24.0631 13.8333 23.9745 13.7732 23.8781 13.7281H23.7937C23.6985 13.6735 23.5933 13.6384 23.4844 13.625H17.8125C17.0666 13.625 16.3512 13.9213 15.8238 14.4488C15.2963 14.9762 15 15.6916 15 16.4375V29.5625C15 30.3084 15.2963 31.0238 15.8238 31.5512C16.3512 32.0787 17.0666 32.375 17.8125 32.375H27.1875C27.9334 32.375 28.6488 32.0787 29.1762 31.5512C29.7037 31.0238 30 30.3084 30 29.5625V20.1875V20.1312ZM24.375 16.8219L26.8031 19.25H25.3125C25.0639 19.25 24.8254 19.1512 24.6496 18.9754C24.4738 18.7996 24.375 18.5611 24.375 18.3125V16.8219ZM28.125 29.5625C28.125 29.8111 28.0262 30.0496 27.8504 30.2254C27.6746 30.4012 27.4361 30.5 27.1875 30.5H17.8125C17.5639 30.5 17.3254 30.4012 17.1496 30.2254C16.9738 30.0496 16.875 29.8111 16.875 29.5625V16.4375C16.875 16.1889 16.9738 15.9504 17.1496 15.7746C17.3254 15.5988 17.5639 15.5 17.8125 15.5H22.5V18.3125C22.5 19.0584 22.7963 19.7738 23.3238 20.3012C23.8512 20.8287 24.5666 21.125 25.3125 21.125H28.125V29.5625Z"
+                    fill="#2671D9"
+                  />
+                </svg>
+                <div class="py-2 w-[200px] flex-grow truncate pe-3">
+                  <span class="text-[#333333] text-sm font-semibold">{{ fileName10 }}</span>
+                  <p class="text-[#9E9E9E] text-xs">{{ fileSize10 }}</p>
+                </div>
+              </a>
+              <div
+                v-else
+                class="w-[333px] h-auto"
+              >
+                <span class="text-[#9E9E9E] text-sm font-semibold">File belum diupload</span>
+              </div>
+            </div>
+
+            <!-- PKS -->
+            <div class="flex flex-col w-[316.6px]">
+              <div class="flex items-center">
+                <h1 class="font-sans text-[#4D5E80] text-[16px] font-semibold">
+                  PKS
+                </h1>
+              </div>
+              <a
+                v-if="fileName11"
+                :href="linkDownloadFile11"
+                class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center"
+              >
+                <svg
+                  width="45"
+                  height="46"
+                  class="mx-4 my-2"
+                  viewBox="0 0 45 46"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle
+                    cx="22.5"
+                    cy="23"
+                    r="22.5"
+                    fill="#E9F1FB"
+                  />
+                  <path
+                    d="M30 20.1312C29.9902 20.0451 29.9714 19.9603 29.9437 19.8781V19.7937C29.8987 19.6974 29.8385 19.6087 29.7656 19.5313L24.1406 13.9062C24.0631 13.8333 23.9745 13.7732 23.8781 13.7281H23.7937C23.6985 13.6735 23.5933 13.6384 23.4844 13.625H17.8125C17.0666 13.625 16.3512 13.9213 15.8238 14.4488C15.2963 14.9762 15 15.6916 15 16.4375V29.5625C15 30.3084 15.2963 31.0238 15.8238 31.5512C16.3512 32.0787 17.0666 32.375 17.8125 32.375H27.1875C27.9334 32.375 28.6488 32.0787 29.1762 31.5512C29.7037 31.0238 30 30.3084 30 29.5625V20.1875V20.1312ZM24.375 16.8219L26.8031 19.25H25.3125C25.0639 19.25 24.8254 19.1512 24.6496 18.9754C24.4738 18.7996 24.375 18.5611 24.375 18.3125V16.8219ZM28.125 29.5625C28.125 29.8111 28.0262 30.0496 27.8504 30.2254C27.6746 30.4012 27.4361 30.5 27.1875 30.5H17.8125C17.5639 30.5 17.3254 30.4012 17.1496 30.2254C16.9738 30.0496 16.875 29.8111 16.875 29.5625V16.4375C16.875 16.1889 16.9738 15.9504 17.1496 15.7746C17.3254 15.5988 17.5639 15.5 17.8125 15.5H22.5V18.3125C22.5 19.0584 22.7963 19.7738 23.3238 20.3012C23.8512 20.8287 24.5666 21.125 25.3125 21.125H28.125V29.5625Z"
+                    fill="#2671D9"
+                  />
+                </svg>
+                <div class="py-2 w-[200px] flex-grow truncate pe-3">
+                  <span class="text-[#333333] text-sm font-semibold">{{ fileName11 }}</span>
+                  <p class="text-[#9E9E9E] text-xs">{{ fileSize11 }}</p>
                 </div>
               </a>
               <div
@@ -1971,6 +2734,22 @@ export default {
       fileName7: "",
       fileSize7: "",
       linkDownloadFile7: "",
+      fileUploaded8: false,
+      fileName8: "",
+      fileSize8: "",
+      linkDownloadFile8: "",
+      fileUploaded9: false,
+      fileName9: "",
+      fileSize9: "",
+      linkDownloadFile9: "",
+      fileUploaded10: false,
+      fileName10: "",
+      fileSize10: "",
+      linkDownloadFile10: "",
+      fileUploaded11: false,
+      fileName11: "",
+      fileSize11: "",
+      linkDownloadFile11: "",
 
       fileDetails: {
         KKB: { fileName: "", fileSize: "", linkDownload: "" },
@@ -1986,6 +2765,11 @@ export default {
         Negosiasi: { fileName: "", fileSize: "", linkDownload: "" },
         BAKPemilihanMitra: { fileName: "", fileSize: "", linkDownload: "" },
         SuratPesanan: { fileName: "", fileSize: "", linkDownload: "" },
+        // baru
+        DrafPKS: { fileName: "", fileSize: "", linkDownload: "" },
+        ReviewUser: { fileName: "", fileSize: "", linkDownload: "" },
+        ReviewLegal: { fileName: "", fileSize: "", linkDownload: "" },
+        ReviewMitra: { fileName: "", fileSize: "", linkDownload: "" },
         PKS: { fileName: "", fileSize: "", linkDownload: "" },
       },
       isDropdownArrowOpen: false,
@@ -2076,6 +2860,30 @@ export default {
     },
     headerClass7() {
       return this.fileUploaded7 ? "bg-[#0EA976]" : "bg-[#FFC107]";
+    },
+    boxClass8() {
+      return this.fileUploaded8 ? "border-[#0EA976]" : "border-[#FFC107]";
+    },
+    headerClass8() {
+      return this.fileUploaded8 ? "bg-[#0EA976]" : "bg-[#FFC107]";
+    },
+    boxClass9() {
+      return this.fileUploaded9 ? "border-[#0EA976]" : "border-[#FFC107]";
+    },
+    headerClass9() {
+      return this.fileUploaded9 ? "bg-[#0EA976]" : "bg-[#FFC107]";
+    },
+    boxClass10() {
+      return this.fileUploaded10 ? "border-[#0EA976]" : "border-[#FFC107]";
+    },
+    headerClass10() {
+      return this.fileUploaded10 ? "bg-[#0EA976]" : "bg-[#FFC107]";
+    },
+    boxClass11() {
+      return this.fileUploaded11 ? "border-[#0EA976]" : "border-[#FFC107]";
+    },
+    headerClass11() {
+      return this.fileUploaded11 ? "bg-[#0EA976]" : "bg-[#FFC107]";
     },
   },
   mounted() {
@@ -2352,10 +3160,32 @@ export default {
             this.fileSize6 = item.fileSize;
             this.linkDownloadFile6 = `${baseURL.replace('/api',"")}/download/file/${item.id}`;
           }
-          if (item.fileType == 'PKS') {
+
+          if (item.fileType == "Draf MoU/NDA") {
             this.fileName7 = item.fileName;
             this.fileSize7 = item.fileSize;
-            this.linkDownloadFile7 = `${baseURL.replace('/api',"")}/download/file/${item.id}`;
+            this.linkDownloadFile7 = `${baseURL.replace('/api', "")}/download/file/${item.id}`;
+          }
+          if (item.fileType == "Review User") {
+            this.fileName8 = item.fileName;
+            this.fileSize8 = item.fileSize;
+            this.linkDownloadFile8 = `${baseURL.replace('/api', "")}/download/file/${item.id}`;
+          }
+          if (item.fileType == "Review Legal") {
+            this.fileName9 = item.fileName;
+            this.fileSize9 = item.fileSize;
+            this.linkDownloadFile9 = `${baseURL.replace('/api', "")}/download/file/${item.id}`;
+          }
+          if (item.fileType == "Review Mitra") {
+            this.fileName10 = item.fileName;
+            this.fileSize10 = item.fileSize;
+            this.linkDownloadFile10 = `${baseURL.replace('/api', "")}/download/file/${item.id}`;
+          }
+
+          if (item.fileType == 'PKS') {
+            this.fileName11 = item.fileName;
+            this.fileSize11 = item.fileSize;
+            this.linkDownloadFile11 = `${baseURL.replace('/api',"")}/download/file/${item.id}`;
           }
           if (res.data.officialUndersign) {
           const choosenStaff = res1.data.find(item => item.fullName == res.data.officialUndersign);
