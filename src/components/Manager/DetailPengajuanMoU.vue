@@ -9,12 +9,25 @@ import { dateParsing } from '@/utils/helper';
 
 <template>
   <Loading :is-visible="isLoading" />
-  <ModalFailed :is-visible="modalFailed.isVisible" :title="modalFailed.title" :message="modalFailed.message"
-    @close="closeModalFailed" />
-  <ModalSuccess :is-visible="modalSuccess.isVisible" :title="modalSuccess.title" :message="modalSuccess.message"
-    @close="modalSuccess.closeFunction" />
-  <ModalDialog :is-visible="modalDialog.isVisible" :title="modalDialog.title" :message="modalDialog.message"
-    @close="modalDialog.closeFunction" @ok="modalDialog.okFunction" />
+  <ModalFailed
+    :is-visible="modalFailed.isVisible"
+    :title="modalFailed.title"
+    :message="modalFailed.message"
+    @close="closeModalFailed"
+  />
+  <ModalSuccess
+    :is-visible="modalSuccess.isVisible"
+    :title="modalSuccess.title"
+    :message="modalSuccess.message"
+    @close="modalSuccess.closeFunction"
+  />
+  <ModalDialog
+    :is-visible="modalDialog.isVisible"
+    :title="modalDialog.title"
+    :message="modalDialog.message"
+    @close="modalDialog.closeFunction"
+    @ok="modalDialog.okFunction"
+  />
   <div>
     <div class="flex w-auto h-[54px] rounded-lg bg-[#FFFFFF] border-collapse">
       <button @click="navigateToDetail">
@@ -22,11 +35,20 @@ import { dateParsing } from '@/utils/helper';
           Proses
         </h1>
       </button>
-      <svg width="8" height="12" class="mt-[21px] mr-1" viewBox="0 0 8 12" fill="none"
-        xmlns="http://www.w3.org/2000/svg">
-        <path fill-rule="evenodd" clip-rule="evenodd"
+      <svg
+        width="8"
+        height="12"
+        class="mt-[21px] mr-1"
+        viewBox="0 0 8 12"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
           d="M7.20711 5.29289C7.59763 5.68342 7.59763 6.31658 7.20711 6.70711L2.20711 11.7071C1.81658 12.0976 1.18342 12.0976 0.792892 11.7071C0.402369 11.3166 0.402369 10.6834 0.792892 10.2929L5.08579 6L0.792893 1.70711C0.402369 1.31658 0.402369 0.683417 0.792893 0.292893C1.18342 -0.0976314 1.81658 -0.0976313 2.20711 0.292893L7.20711 5.29289Z"
-          fill="#7F7F80" />
+          fill="#7F7F80"
+        />
       </svg>
       <span class="w-[119px] h-[22px] font-sans text-[#7F7F80] text-[14px] font-semibold ml-2 mt-[17px]">Detail
         Pengajuan</span>
@@ -34,94 +56,203 @@ import { dateParsing } from '@/utils/helper';
     <div class="px-4 py-3">
       <div class="relative h-auto w-[1086px] rounded-lg bg-[#FFFFFF] border-collapse mx-auto">
         <div class="flex">
-          <svg class="ml-4 mt-[18px]" width="6" height="28" viewBox="0 0 6 28" fill="none"
-            xmlns="http://www.w3.org/2000/svg">
-            <rect width="6" height="28" fill="#1F5AAD" />
+          <svg
+            class="ml-4 mt-[18px]"
+            width="6"
+            height="28"
+            viewBox="0 0 6 28"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect
+              width="6"
+              height="28"
+              fill="#1F5AAD"
+            />
           </svg>
           <h1 class="w-[825px] h-[28px] font-sans text-[20px] text-[#333333] mt-4 ml-[5px] font-semibold">
             Detail Pengajuan {{
               dataBerkas?.base || 'PKS' }}
           </h1>
           <div class="relative mt-4 mb-4 items-start w-[209px] min-h-[72px] border-[1px] border-[#E5E7E9] rounded-md">
-            <div :class="{ 'bg-[#FFB200]': !isProgressFinish, 'bg-[#0ea976]': isProgressFinish }"
-              class="w-[209px] h-[29px] border-[1px] border-[#E5E7E9] rounded-tl-md rounded-tr-md">
+            <div
+              :class="{ 'bg-[#FFB200]': !isProgressFinish, 'bg-[#0ea976]': isProgressFinish }"
+              class="w-[209px] h-[29px] border-[1px] border-[#E5E7E9] rounded-tl-md rounded-tr-md"
+            >
               <h1 class="mt-[7px] ml-4 w-[177px] h-[15px] font-sans text-[10px] text-[#333333] font-medium">
                 Progress Kemitraan {{
                   dataBerkas?.base || 'PKS' }}
               </h1>
             </div>
             <div class="flex items-center">
-              <h1 :class="{ 'text-[#FFB200]': !isProgressFinish, 'text-[#0ea976]': isProgressFinish }"
-                class="w-[150px] h-auto font-sans text-[18px] font-bold ml-4 my-2">
+              <h1
+                :class="{ 'text-[#FFB200]': !isProgressFinish, 'text-[#0ea976]': isProgressFinish }"
+                class="w-[150px] h-auto font-sans text-[18px] font-bold ml-4 my-2"
+              >
                 {{ progress }}
               </h1>
-              <button class="ml-[9px]" @click="showProgressMoUPopup = true">
-                <svg v-if="!isProgressFinish" width="46" height="45" viewBox="0 0 46 45" fill="none"
-                  xmlns="http://www.w3.org/2000/svg">
+              <button
+                class="ml-[9px]"
+                @click="showProgressMoUPopup = true"
+              >
+                <svg
+                  v-if="!isProgressFinish"
+                  width="46"
+                  height="45"
+                  viewBox="0 0 46 45"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
                   <g filter="url(#filter0_d_1290_16355)">
-                    <g opacity="0.4" filter="url(#filter1_d_1290_16355)">
+                    <g
+                      opacity="0.4"
+                      filter="url(#filter1_d_1290_16355)"
+                    >
                       <path
                         d="M19 26C23.1421 26 26.5 22.6421 26.5 18.5C26.5 14.3579 23.1421 11 19 11C14.8579 11 11.5 14.3579 11.5 18.5C11.5 22.6421 14.8579 26 19 26Z"
-                        fill="#FFB200" />
+                        fill="#FFB200"
+                      />
                     </g>
-                    <path fill-rule="evenodd" clip-rule="evenodd"
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
                       d="M21.3536 18.6464C21.5488 18.8417 21.5488 19.1583 21.3536 19.3536L18.8536 21.8536C18.6583 22.0488 18.3417 22.0488 18.1464 21.8536C17.9512 21.6583 17.9512 21.3417 18.1464 21.1464L20.2929 19L18.1464 16.8536C17.9512 16.6583 17.9512 16.3417 18.1464 16.1464C18.3417 15.9512 18.6583 15.9512 18.8536 16.1464L21.3536 18.6464Z"
-                      fill="#F08800" />
+                      fill="#F08800"
+                    />
                   </g>
                   <defs>
-                    <filter id="filter0_d_1290_16355" x="6" y="6.5" width="26" height="26" filterUnits="userSpaceOnUse"
-                      color-interpolation-filters="sRGB">
-                      <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                        result="hardAlpha" />
+                    <filter
+                      id="filter0_d_1290_16355"
+                      x="6"
+                      y="6.5"
+                      width="26"
+                      height="26"
+                      filterUnits="userSpaceOnUse"
+                      color-interpolation-filters="sRGB"
+                    >
+                      <feFlood
+                        flood-opacity="0"
+                        result="BackgroundImageFix"
+                      />
+                      <feColorMatrix
+                        in="SourceAlpha"
+                        type="matrix"
+                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                        result="hardAlpha"
+                      />
                       <feOffset dy="1" />
                       <feGaussianBlur stdDeviation="2" />
-                      <feComposite in2="hardAlpha" operator="out" />
-                      <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 0.778759 0 0 0 0 0.267318 0 0 0 1 0" />
-                      <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1290_16355" />
-                      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1290_16355" result="shape" />
+                      <feComposite
+                        in2="hardAlpha"
+                        operator="out"
+                      />
+                      <feColorMatrix
+                        type="matrix"
+                        values="0 0 0 0 1 0 0 0 0 0.778759 0 0 0 0 0.267318 0 0 0 1 0"
+                      />
+                      <feBlend
+                        mode="normal"
+                        in2="BackgroundImageFix"
+                        result="effect1_dropShadow_1290_16355"
+                      />
+                      <feBlend
+                        mode="normal"
+                        in="SourceGraphic"
+                        in2="effect1_dropShadow_1290_16355"
+                        result="shape"
+                      />
                     </filter>
-                    <filter id="filter1_d_1290_16355" x="0.5" y="0" width="45" height="45" filterUnits="userSpaceOnUse"
-                      color-interpolation-filters="sRGB">
-                      <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                        result="hardAlpha" />
-                      <feOffset dx="4" dy="4" />
+                    <filter
+                      id="filter1_d_1290_16355"
+                      x="0.5"
+                      y="0"
+                      width="45"
+                      height="45"
+                      filterUnits="userSpaceOnUse"
+                      color-interpolation-filters="sRGB"
+                    >
+                      <feFlood
+                        flood-opacity="0"
+                        result="BackgroundImageFix"
+                      />
+                      <feColorMatrix
+                        in="SourceAlpha"
+                        type="matrix"
+                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                        result="hardAlpha"
+                      />
+                      <feOffset
+                        dx="4"
+                        dy="4"
+                      />
                       <feGaussianBlur stdDeviation="7.5" />
-                      <feComposite in2="hardAlpha" operator="out" />
-                      <feColorMatrix type="matrix"
-                        values="0 0 0 0 0.763946 0 0 0 0 0.970231 0 0 0 0 0.498223 0 0 0 0.5 0" />
-                      <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1290_16355" />
-                      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1290_16355" result="shape" />
+                      <feComposite
+                        in2="hardAlpha"
+                        operator="out"
+                      />
+                      <feColorMatrix
+                        type="matrix"
+                        values="0 0 0 0 0.763946 0 0 0 0 0.970231 0 0 0 0 0.498223 0 0 0 0.5 0"
+                      />
+                      <feBlend
+                        mode="normal"
+                        in2="BackgroundImageFix"
+                        result="effect1_dropShadow_1290_16355"
+                      />
+                      <feBlend
+                        mode="normal"
+                        in="SourceGraphic"
+                        in2="effect1_dropShadow_1290_16355"
+                        result="shape"
+                      />
                     </filter>
                   </defs>
                 </svg>
-                <svg v-else xmlns="http://www.w3.org/2000/svg"
+                <svg
+                  v-else
+                  xmlns="http://www.w3.org/2000/svg"
                   class="text-[#0EA976] bg-[#E2FCF3] rounded-full w-[15px] h-[15px] absolute top-[42px] ml-[5px]"
-                  viewBox="0 0 21 19" fill="currentColor">
-                  <path fill-rule="evenodd"
+                  viewBox="0 0 21 19"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
                     d="M16.707 4.293a1 1 0 00-1.414 0L8 11.586 4.707 8.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z"
-                    clip-rule="evenodd" />
+                    clip-rule="evenodd"
+                  />
                 </svg>
               </button>
             </div>
-            <div v-if="showProgressMoUPopup"
-              class="fixed inset-0 flex items-center justify-center bg-[#1F2937] bg-opacity-50">
+            <div
+              v-if="showProgressMoUPopup"
+              class="fixed inset-0 flex items-center justify-center bg-[#1F2937] bg-opacity-50"
+            >
               <div class="w-auto h-[84%] rounded-lg shadow-lg bg-[#FFFFFF] border-collapse overflow-scroll">
-                
                 <div class="flex mt-[8px] justify-between px-6 ">
                   <div class="flex">
-                      <svg class="mt-[10px]" width="6" height="28" viewBox="0 0 6 28" fill="none"
-                      xmlns="http://www.w3.org/2000/svg">
-                      <rect width="6" height="28" fill="#1F5AAD" />
+                    <svg
+                      class="mt-[10px]"
+                      width="6"
+                      height="28"
+                      viewBox="0 0 6 28"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <rect
+                        width="6"
+                        height="28"
+                        fill="#1F5AAD"
+                      />
                     </svg>
                     <h1 class="font-sans text-[20px] text-[#333333] mt-2 ml-[5px] font-semibold">
                       Progress Kemitraan
                     </h1>
                   </div>
                   
-                  <button class="text-[#2671D9] w-[14px] h-[14px] text-[20px]"
-                    @click="closePopup">
+                  <button
+                    class="text-[#2671D9] w-[14px] h-[14px] text-[20px]"
+                    @click="closePopup"
+                  >
                     &times;
                   </button>
                 </div>
@@ -131,8 +262,11 @@ import { dateParsing } from '@/utils/helper';
                 <div class="p-6">
                   <div class="flex items-center gap-4">
                     <!-- surat penawaran -->
-                    <a :href="linkDownloadFile1" v-if="fileName1"
-                      class="flex flex-col w-[289px] h-[130px] rounded-lg border-[1px] border-[#E5E7E9]">
+                    <a
+                      v-if="fileName1"
+                      :href="linkDownloadFile1"
+                      class="flex flex-col w-[289px] h-[130px] rounded-lg border-[1px] border-[#E5E7E9]"
+                    >
                       <div class="w-full h-[40px] p-4 flex justify-between items-center rounded-t-lg bg-[#0EA976]">
                         <div class="font-sans text-[14px] font-semibold text-white">
                           Surat Penawaran
@@ -145,12 +279,23 @@ import { dateParsing } from '@/utils/helper';
                               Dokumen Surat Penawaran
                             </div>
                             <div class="flex">
-                              <svg class="w-[30px] h-[30px] mt-[12px]" viewBox="0 0 30 30" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="15" cy="15" r="14.5652" class="fill-[#E2FCF3]" />
+                              <svg
+                                class="w-[30px] h-[30px] mt-[12px]"
+                                viewBox="0 0 30 30"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <circle
+                                  cx="15"
+                                  cy="15"
+                                  r="14.5652"
+                                  class="fill-[#E2FCF3]"
+                                />
                                 <g transform="translate(9, 8)">
-                                  <path class="fill-[#0EA976]"
-                                    d="M10.4206 4.70885C10.4143 4.65309 10.4021 4.59817 10.3842 4.54499V4.49037C10.355 4.42797 10.3161 4.37061 10.2689 4.32044L6.62757 0.679135C6.5774 0.63193 6.52004 0.593007 6.45764 0.563827H6.40302C6.34137 0.528471 6.27328 0.505776 6.20275 0.49707H2.5311C2.04823 0.49707 1.58514 0.688889 1.24371 1.03033C0.902267 1.37177 0.710449 1.83486 0.710449 2.31772V10.8141C0.710449 11.297 0.902267 11.7601 1.24371 12.1015C1.58514 12.4429 2.04823 12.6348 2.5311 12.6348H8.59994C9.08281 12.6348 9.5459 12.4429 9.88734 12.1015C10.2288 11.7601 10.4206 11.297 10.4206 10.8141V4.74526V4.70885ZM6.77929 2.56654L8.35112 4.13837H7.38617C7.22522 4.13837 7.07085 4.07443 6.95704 3.96062C6.84323 3.84681 6.77929 3.69245 6.77929 3.53149V2.56654ZM9.20683 10.8141C9.20683 10.9751 9.14289 11.1294 9.02907 11.2432C8.91526 11.357 8.7609 11.421 8.59994 11.421H2.5311C2.37015 11.421 2.21578 11.357 2.10197 11.2432C1.98816 11.1294 1.92422 10.9751 1.92422 10.8141V2.31772C1.92422 2.15677 1.98816 2.0024 2.10197 1.88859C2.21578 1.77478 2.37015 1.71084 2.5311 1.71084H5.56552V3.53149C5.56552 4.01436 5.75734 4.47745 6.09878 4.81889C6.44022 5.16032 6.90331 5.35214 7.38617 5.35214H9.20683V10.8141Z" />
+                                  <path
+                                    class="fill-[#0EA976]"
+                                    d="M10.4206 4.70885C10.4143 4.65309 10.4021 4.59817 10.3842 4.54499V4.49037C10.355 4.42797 10.3161 4.37061 10.2689 4.32044L6.62757 0.679135C6.5774 0.63193 6.52004 0.593007 6.45764 0.563827H6.40302C6.34137 0.528471 6.27328 0.505776 6.20275 0.49707H2.5311C2.04823 0.49707 1.58514 0.688889 1.24371 1.03033C0.902267 1.37177 0.710449 1.83486 0.710449 2.31772V10.8141C0.710449 11.297 0.902267 11.7601 1.24371 12.1015C1.58514 12.4429 2.04823 12.6348 2.5311 12.6348H8.59994C9.08281 12.6348 9.5459 12.4429 9.88734 12.1015C10.2288 11.7601 10.4206 11.297 10.4206 10.8141V4.74526V4.70885ZM6.77929 2.56654L8.35112 4.13837H7.38617C7.22522 4.13837 7.07085 4.07443 6.95704 3.96062C6.84323 3.84681 6.77929 3.69245 6.77929 3.53149V2.56654ZM9.20683 10.8141C9.20683 10.9751 9.14289 11.1294 9.02907 11.2432C8.91526 11.357 8.7609 11.421 8.59994 11.421H2.5311C2.37015 11.421 2.21578 11.357 2.10197 11.2432C1.98816 11.1294 1.92422 10.9751 1.92422 10.8141V2.31772C1.92422 2.15677 1.98816 2.0024 2.10197 1.88859C2.21578 1.77478 2.37015 1.71084 2.5311 1.71084H5.56552V3.53149C5.56552 4.01436 5.75734 4.47745 6.09878 4.81889C6.44022 5.16032 6.90331 5.35214 7.38617 5.35214H9.20683V10.8141Z"
+                                  />
                                 </g>
                               </svg>
                               <div class="mt-[12px] ml-2">
@@ -164,28 +309,51 @@ import { dateParsing } from '@/utils/helper';
                             </div>
                             
                           </div>
-                          <svg xmlns="http://www.w3.org/2000/svg"
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
                             class="text-[#0EA976] bg-[#E2FCF3] rounded-full w-[15px] h-[15px]"
-                            viewBox="0 0 21 19" fill="currentColor">
-                            <path fill-rule="evenodd"
+                            viewBox="0 0 21 19"
+                            fill="currentColor"
+                          >
+                            <path
+                              fill-rule="evenodd"
                               d="M16.707 4.293a1 1 0 00-1.414 0L8 11.586 4.707 8.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z"
-                              clip-rule="evenodd" />
+                              clip-rule="evenodd"
+                            />
                           </svg>
                         </div>
                       </div>
                     </a>
-                    <div v-else class="w-[289px] h-[130px] border-[1px] rounded-t-lg rounded-b-lg">
-                      <div class="w-auto h-[40px] bg-[#bcc6d2] rounded-t-lg flex justify-start items-center px-4"><span
-                          class="text-white font-semibold">Surat Penawaran</span></div>
+                    <div
+                      v-else
+                      class="w-[289px] h-[130px] border-[1px] rounded-t-lg rounded-b-lg"
+                    >
+                      <div class="w-auto h-[40px] bg-[#bcc6d2] rounded-t-lg flex justify-start items-center px-4">
+                        <span
+                          class="text-white font-semibold"
+                        >Surat Penawaran</span>
+                      </div>
                       <div class="w-[265px] h-[18px] flex justify-between ml-3 mt-[10px]">
                         <span class="text-[#333333] text-xs">Dokumen Surat Penawaran</span>
                       </div>
                       <div class="w-[265px] h-auto flex ml-3 py-[10px]">
-                        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <circle cx="14.5652" cy="14.5652" r="14.5652" fill="#bcc6d2" />
+                        <svg
+                          width="30"
+                          height="30"
+                          viewBox="0 0 30 30"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <circle
+                            cx="14.5652"
+                            cy="14.5652"
+                            r="14.5652"
+                            fill="#bcc6d2"
+                          />
                           <path
                             d="M19.4206 12.7088C19.4143 12.6531 19.4021 12.5982 19.3842 12.545V12.4904C19.355 12.428 19.3161 12.3706 19.2689 12.3204L15.6276 8.67914C15.5774 8.63193 15.52 8.59301 15.4576 8.56383H15.403C15.3414 8.52847 15.2733 8.50578 15.2027 8.49707H11.5311C11.0482 8.49707 10.5851 8.68889 10.2437 9.03033C9.90227 9.37177 9.71045 9.83486 9.71045 10.3177V18.8141C9.71045 19.297 9.90227 19.7601 10.2437 20.1015C10.5851 20.4429 11.0482 20.6348 11.5311 20.6348H17.5999C18.0828 20.6348 18.5459 20.4429 18.8873 20.1015C19.2288 19.7601 19.4206 19.297 19.4206 18.8141V12.7453V12.7088ZM15.7793 10.5665L17.3511 12.1384H16.3862C16.2252 12.1384 16.0709 12.0744 15.957 11.9606C15.8432 11.8468 15.7793 11.6924 15.7793 11.5315V10.5665ZM18.2068 18.8141C18.2068 18.9751 18.1429 19.1294 18.0291 19.2432C17.9153 19.357 17.7609 19.421 17.5999 19.421H11.5311C11.3701 19.421 11.2158 19.357 11.102 19.2432C10.9882 19.1294 10.9242 18.9751 10.9242 18.8141V10.3177C10.9242 10.1568 10.9882 10.0024 11.102 9.88859C11.2158 9.77478 11.3701 9.71084 11.5311 9.71084H14.5655V11.5315C14.5655 12.0144 14.7573 12.4774 15.0988 12.8189C15.4402 13.1603 15.9033 13.3521 16.3862 13.3521H18.2068V18.8141Z"
-                            fill="white" />
+                            fill="white"
+                          />
                         </svg>
                         <div class="ml-[13px] -translate-y-2 pt-1">
                           <span class="text-[#333333] text-[9.06px] font-semibold">Belum ada</span>
@@ -193,15 +361,36 @@ import { dateParsing } from '@/utils/helper';
                       </div>
                     </div>
 
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-[33px] h-[28px]" viewBox="0 0 33 28" fill="none">
-                      <path d="M24.75 6.91797L31.8317 13.9996L24.75 21.0813" stroke="#292D32" stroke-width="1.5"
-                        stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                      <path d="M1 14H30.64" stroke="#292D32" stroke-width="1.5" stroke-miterlimit="10"
-                        stroke-linecap="round" stroke-linejoin="round" />
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="w-[33px] h-[28px]"
+                      viewBox="0 0 33 28"
+                      fill="none"
+                    >
+                      <path
+                        d="M24.75 6.91797L31.8317 13.9996L24.75 21.0813"
+                        stroke="#292D32"
+                        stroke-width="1.5"
+                        stroke-miterlimit="10"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M1 14H30.64"
+                        stroke="#292D32"
+                        stroke-width="1.5"
+                        stroke-miterlimit="10"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
                     </svg>
 
                     <!-- profosal -->
-                    <a :href="linkDownloadFile2" v-if="fileName2" class="flex flex-col w-[289px] h-[130px] rounded-lg border-[1px] border-[#DEDEDE]">
+                    <a
+                      v-if="fileName2"
+                      :href="linkDownloadFile2"
+                      class="flex flex-col w-[289px] h-[130px] rounded-lg border-[1px] border-[#DEDEDE]"
+                    >
                       <div class="w-full h-[40px] p-4 flex justify-between items-center rounded-t-lg bg-[#0EA976]">
                         <div class="font-sans text-[14px] font-semibold text-white">
                           Proposal
@@ -214,12 +403,23 @@ import { dateParsing } from '@/utils/helper';
                               Dokumen Proposal
                             </div>
                             <div class="flex">
-                              <svg class="w-[30px] h-[30px] mt-[12px]" viewBox="0 0 30 30" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="15" cy="15" r="14.5652" class="fill-[#E2FCF3]" />
+                              <svg
+                                class="w-[30px] h-[30px] mt-[12px]"
+                                viewBox="0 0 30 30"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <circle
+                                  cx="15"
+                                  cy="15"
+                                  r="14.5652"
+                                  class="fill-[#E2FCF3]"
+                                />
                                 <g transform="translate(9, 8)">
-                                  <path class="fill-[#0EA976]"
-                                    d="M10.4206 4.70885C10.4143 4.65309 10.4021 4.59817 10.3842 4.54499V4.49037C10.355 4.42797 10.3161 4.37061 10.2689 4.32044L6.62757 0.679135C6.5774 0.63193 6.52004 0.593007 6.45764 0.563827H6.40302C6.34137 0.528471 6.27328 0.505776 6.20275 0.49707H2.5311C2.04823 0.49707 1.58514 0.688889 1.24371 1.03033C0.902267 1.37177 0.710449 1.83486 0.710449 2.31772V10.8141C0.710449 11.297 0.902267 11.7601 1.24371 12.1015C1.58514 12.4429 2.04823 12.6348 2.5311 12.6348H8.59994C9.08281 12.6348 9.5459 12.4429 9.88734 12.1015C10.2288 11.7601 10.4206 11.297 10.4206 10.8141V4.74526V4.70885ZM6.77929 2.56654L8.35112 4.13837H7.38617C7.22522 4.13837 7.07085 4.07443 6.95704 3.96062C6.84323 3.84681 6.77929 3.69245 6.77929 3.53149V2.56654ZM9.20683 10.8141C9.20683 10.9751 9.14289 11.1294 9.02907 11.2432C8.91526 11.357 8.7609 11.421 8.59994 11.421H2.5311C2.37015 11.421 2.21578 11.357 2.10197 11.2432C1.98816 11.1294 1.92422 10.9751 1.92422 10.8141V2.31772C1.92422 2.15677 1.98816 2.0024 2.10197 1.88859C2.21578 1.77478 2.37015 1.71084 2.5311 1.71084H5.56552V3.53149C5.56552 4.01436 5.75734 4.47745 6.09878 4.81889C6.44022 5.16032 6.90331 5.35214 7.38617 5.35214H9.20683V10.8141Z" />
+                                  <path
+                                    class="fill-[#0EA976]"
+                                    d="M10.4206 4.70885C10.4143 4.65309 10.4021 4.59817 10.3842 4.54499V4.49037C10.355 4.42797 10.3161 4.37061 10.2689 4.32044L6.62757 0.679135C6.5774 0.63193 6.52004 0.593007 6.45764 0.563827H6.40302C6.34137 0.528471 6.27328 0.505776 6.20275 0.49707H2.5311C2.04823 0.49707 1.58514 0.688889 1.24371 1.03033C0.902267 1.37177 0.710449 1.83486 0.710449 2.31772V10.8141C0.710449 11.297 0.902267 11.7601 1.24371 12.1015C1.58514 12.4429 2.04823 12.6348 2.5311 12.6348H8.59994C9.08281 12.6348 9.5459 12.4429 9.88734 12.1015C10.2288 11.7601 10.4206 11.297 10.4206 10.8141V4.74526V4.70885ZM6.77929 2.56654L8.35112 4.13837H7.38617C7.22522 4.13837 7.07085 4.07443 6.95704 3.96062C6.84323 3.84681 6.77929 3.69245 6.77929 3.53149V2.56654ZM9.20683 10.8141C9.20683 10.9751 9.14289 11.1294 9.02907 11.2432C8.91526 11.357 8.7609 11.421 8.59994 11.421H2.5311C2.37015 11.421 2.21578 11.357 2.10197 11.2432C1.98816 11.1294 1.92422 10.9751 1.92422 10.8141V2.31772C1.92422 2.15677 1.98816 2.0024 2.10197 1.88859C2.21578 1.77478 2.37015 1.71084 2.5311 1.71084H5.56552V3.53149C5.56552 4.01436 5.75734 4.47745 6.09878 4.81889C6.44022 5.16032 6.90331 5.35214 7.38617 5.35214H9.20683V10.8141Z"
+                                  />
                                 </g>
                               </svg>
                               <div class="mt-[12px] ml-2">
@@ -233,28 +433,51 @@ import { dateParsing } from '@/utils/helper';
                             </div>
                             
                           </div>
-                          <svg xmlns="http://www.w3.org/2000/svg"
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
                             class="text-[#0EA976] bg-[#E2FCF3] rounded-full w-[15px] h-[15px]"
-                            viewBox="0 0 21 19" fill="currentColor">
-                            <path fill-rule="evenodd"
+                            viewBox="0 0 21 19"
+                            fill="currentColor"
+                          >
+                            <path
+                              fill-rule="evenodd"
                               d="M16.707 4.293a1 1 0 00-1.414 0L8 11.586 4.707 8.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z"
-                              clip-rule="evenodd" />
+                              clip-rule="evenodd"
+                            />
                           </svg>
                         </div>
                       </div>
                     </a>
-                    <div v-else class="w-[289px] h-[130px] border-[1px] rounded-t-lg rounded-b-lg">
-                      <div class="w-auto h-[40px] bg-[#bcc6d2] rounded-t-lg flex justify-start items-center px-4"><span
-                          class="text-white font-semibold">Profosal</span></div>
+                    <div
+                      v-else
+                      class="w-[289px] h-[130px] border-[1px] rounded-t-lg rounded-b-lg"
+                    >
+                      <div class="w-auto h-[40px] bg-[#bcc6d2] rounded-t-lg flex justify-start items-center px-4">
+                        <span
+                          class="text-white font-semibold"
+                        >Profosal</span>
+                      </div>
                       <div class="w-[265px] h-[18px] flex justify-between ml-3 mt-[10px]">
                         <span class="text-[#333333] text-xs">Dokumen Proposal</span>
                       </div>
                       <div class="w-[265px] h-auto flex ml-3 py-[10px]">
-                        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <circle cx="14.5652" cy="14.5652" r="14.5652" fill="#bcc6d2" />
+                        <svg
+                          width="30"
+                          height="30"
+                          viewBox="0 0 30 30"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <circle
+                            cx="14.5652"
+                            cy="14.5652"
+                            r="14.5652"
+                            fill="#bcc6d2"
+                          />
                           <path
                             d="M19.4206 12.7088C19.4143 12.6531 19.4021 12.5982 19.3842 12.545V12.4904C19.355 12.428 19.3161 12.3706 19.2689 12.3204L15.6276 8.67914C15.5774 8.63193 15.52 8.59301 15.4576 8.56383H15.403C15.3414 8.52847 15.2733 8.50578 15.2027 8.49707H11.5311C11.0482 8.49707 10.5851 8.68889 10.2437 9.03033C9.90227 9.37177 9.71045 9.83486 9.71045 10.3177V18.8141C9.71045 19.297 9.90227 19.7601 10.2437 20.1015C10.5851 20.4429 11.0482 20.6348 11.5311 20.6348H17.5999C18.0828 20.6348 18.5459 20.4429 18.8873 20.1015C19.2288 19.7601 19.4206 19.297 19.4206 18.8141V12.7453V12.7088ZM15.7793 10.5665L17.3511 12.1384H16.3862C16.2252 12.1384 16.0709 12.0744 15.957 11.9606C15.8432 11.8468 15.7793 11.6924 15.7793 11.5315V10.5665ZM18.2068 18.8141C18.2068 18.9751 18.1429 19.1294 18.0291 19.2432C17.9153 19.357 17.7609 19.421 17.5999 19.421H11.5311C11.3701 19.421 11.2158 19.357 11.102 19.2432C10.9882 19.1294 10.9242 18.9751 10.9242 18.8141V10.3177C10.9242 10.1568 10.9882 10.0024 11.102 9.88859C11.2158 9.77478 11.3701 9.71084 11.5311 9.71084H14.5655V11.5315C14.5655 12.0144 14.7573 12.4774 15.0988 12.8189C15.4402 13.1603 15.9033 13.3521 16.3862 13.3521H18.2068V18.8141Z"
-                            fill="white" />
+                            fill="white"
+                          />
                         </svg>
                         <div class="ml-[13px] -translate-y-2 pt-1">
                           <span class="text-[#333333] text-[9.06px] font-semibold">Belum ada</span>
@@ -262,16 +485,36 @@ import { dateParsing } from '@/utils/helper';
                       </div>
                     </div>
 
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-[33px] h-[28px]" viewBox="0 0 33 28" fill="none">
-                      <path d="M24.75 6.91797L31.8317 13.9996L24.75 21.0813" stroke="#292D32" stroke-width="1.5"
-                        stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                      <path d="M1 14H30.64" stroke="#292D32" stroke-width="1.5" stroke-miterlimit="10"
-                        stroke-linecap="round" stroke-linejoin="round" />
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="w-[33px] h-[28px]"
+                      viewBox="0 0 33 28"
+                      fill="none"
+                    >
+                      <path
+                        d="M24.75 6.91797L31.8317 13.9996L24.75 21.0813"
+                        stroke="#292D32"
+                        stroke-width="1.5"
+                        stroke-miterlimit="10"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M1 14H30.64"
+                        stroke="#292D32"
+                        stroke-width="1.5"
+                        stroke-miterlimit="10"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
                     </svg>
                    
                     <!-- draf MoU/NDA -->
-                    <a :href="linkDownloadFile3" v-if="fileName3"
-                      class="flex flex-col w-[289px] h-[130px] rounded-lg border-[1px] border-[#E5E7E9]">
+                    <a
+                      v-if="fileName3"
+                      :href="linkDownloadFile3"
+                      class="flex flex-col w-[289px] h-[130px] rounded-lg border-[1px] border-[#E5E7E9]"
+                    >
                       <div class="w-full h-[40px] p-4 flex justify-between items-center rounded-t-lg bg-[#0EA976]">
                         <div class="font-sans text-[14px] font-semibold text-white">
                           Draft MoU/NDA
@@ -284,12 +527,23 @@ import { dateParsing } from '@/utils/helper';
                               Draft MoU/NDA
                             </div>
                             <div class="flex">
-                              <svg class="w-[30px] h-[30px] mt-[12px]" viewBox="0 0 30 30" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="15" cy="15" r="14.5652" class="fill-[#E2FCF3]" />
+                              <svg
+                                class="w-[30px] h-[30px] mt-[12px]"
+                                viewBox="0 0 30 30"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <circle
+                                  cx="15"
+                                  cy="15"
+                                  r="14.5652"
+                                  class="fill-[#E2FCF3]"
+                                />
                                 <g transform="translate(9, 8)">
-                                  <path class="fill-[#0EA976]"
-                                    d="M10.4206 4.70885C10.4143 4.65309 10.4021 4.59817 10.3842 4.54499V4.49037C10.355 4.42797 10.3161 4.37061 10.2689 4.32044L6.62757 0.679135C6.5774 0.63193 6.52004 0.593007 6.45764 0.563827H6.40302C6.34137 0.528471 6.27328 0.505776 6.20275 0.49707H2.5311C2.04823 0.49707 1.58514 0.688889 1.24371 1.03033C0.902267 1.37177 0.710449 1.83486 0.710449 2.31772V10.8141C0.710449 11.297 0.902267 11.7601 1.24371 12.1015C1.58514 12.4429 2.04823 12.6348 2.5311 12.6348H8.59994C9.08281 12.6348 9.5459 12.4429 9.88734 12.1015C10.2288 11.7601 10.4206 11.297 10.4206 10.8141V4.74526V4.70885ZM6.77929 2.56654L8.35112 4.13837H7.38617C7.22522 4.13837 7.07085 4.07443 6.95704 3.96062C6.84323 3.84681 6.77929 3.69245 6.77929 3.53149V2.56654ZM9.20683 10.8141C9.20683 10.9751 9.14289 11.1294 9.02907 11.2432C8.91526 11.357 8.7609 11.421 8.59994 11.421H2.5311C2.37015 11.421 2.21578 11.357 2.10197 11.2432C1.98816 11.1294 1.92422 10.9751 1.92422 10.8141V2.31772C1.92422 2.15677 1.98816 2.0024 2.10197 1.88859C2.21578 1.77478 2.37015 1.71084 2.5311 1.71084H5.56552V3.53149C5.56552 4.01436 5.75734 4.47745 6.09878 4.81889C6.44022 5.16032 6.90331 5.35214 7.38617 5.35214H9.20683V10.8141Z" />
+                                  <path
+                                    class="fill-[#0EA976]"
+                                    d="M10.4206 4.70885C10.4143 4.65309 10.4021 4.59817 10.3842 4.54499V4.49037C10.355 4.42797 10.3161 4.37061 10.2689 4.32044L6.62757 0.679135C6.5774 0.63193 6.52004 0.593007 6.45764 0.563827H6.40302C6.34137 0.528471 6.27328 0.505776 6.20275 0.49707H2.5311C2.04823 0.49707 1.58514 0.688889 1.24371 1.03033C0.902267 1.37177 0.710449 1.83486 0.710449 2.31772V10.8141C0.710449 11.297 0.902267 11.7601 1.24371 12.1015C1.58514 12.4429 2.04823 12.6348 2.5311 12.6348H8.59994C9.08281 12.6348 9.5459 12.4429 9.88734 12.1015C10.2288 11.7601 10.4206 11.297 10.4206 10.8141V4.74526V4.70885ZM6.77929 2.56654L8.35112 4.13837H7.38617C7.22522 4.13837 7.07085 4.07443 6.95704 3.96062C6.84323 3.84681 6.77929 3.69245 6.77929 3.53149V2.56654ZM9.20683 10.8141C9.20683 10.9751 9.14289 11.1294 9.02907 11.2432C8.91526 11.357 8.7609 11.421 8.59994 11.421H2.5311C2.37015 11.421 2.21578 11.357 2.10197 11.2432C1.98816 11.1294 1.92422 10.9751 1.92422 10.8141V2.31772C1.92422 2.15677 1.98816 2.0024 2.10197 1.88859C2.21578 1.77478 2.37015 1.71084 2.5311 1.71084H5.56552V3.53149C5.56552 4.01436 5.75734 4.47745 6.09878 4.81889C6.44022 5.16032 6.90331 5.35214 7.38617 5.35214H9.20683V10.8141Z"
+                                  />
                                 </g>
                               </svg>
                               <div class="mt-[12px] ml-2">
@@ -304,28 +558,51 @@ import { dateParsing } from '@/utils/helper';
                            
                           </div>
                          
-                          <svg xmlns="http://www.w3.org/2000/svg"
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
                             class="text-[#0EA976] bg-[#E2FCF3] rounded-full w-[15px] h-[15px]"
-                            viewBox="0 0 21 19" fill="currentColor">
-                            <path fill-rule="evenodd"
+                            viewBox="0 0 21 19"
+                            fill="currentColor"
+                          >
+                            <path
+                              fill-rule="evenodd"
                               d="M16.707 4.293a1 1 0 00-1.414 0L8 11.586 4.707 8.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z"
-                              clip-rule="evenodd" />
+                              clip-rule="evenodd"
+                            />
                           </svg>
                         </div>
                       </div>
                     </a>
-                    <div v-else class="w-[289px] h-[130px] border-[1px] rounded-t-lg rounded-b-lg">
-                      <div class="w-auto h-[40px] bg-[#bcc6d2] rounded-t-lg flex justify-start items-center px-4"><span
-                          class="text-white font-semibold">Draf MoU/NDA</span></div>
+                    <div
+                      v-else
+                      class="w-[289px] h-[130px] border-[1px] rounded-t-lg rounded-b-lg"
+                    >
+                      <div class="w-auto h-[40px] bg-[#bcc6d2] rounded-t-lg flex justify-start items-center px-4">
+                        <span
+                          class="text-white font-semibold"
+                        >Draf MoU/NDA</span>
+                      </div>
                       <div class="w-[265px] h-[18px] flex justify-between ml-3 mt-[10px]">
                         <span class="text-[#333333] text-xs">Dokumen Draft MoU/NDA</span>
                       </div>
                       <div class="w-[265px] h-auto flex ml-3 py-[10px]">
-                        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <circle cx="14.5652" cy="14.5652" r="14.5652" fill="#bcc6d2" />
+                        <svg
+                          width="30"
+                          height="30"
+                          viewBox="0 0 30 30"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <circle
+                            cx="14.5652"
+                            cy="14.5652"
+                            r="14.5652"
+                            fill="#bcc6d2"
+                          />
                           <path
                             d="M19.4206 12.7088C19.4143 12.6531 19.4021 12.5982 19.3842 12.545V12.4904C19.355 12.428 19.3161 12.3706 19.2689 12.3204L15.6276 8.67914C15.5774 8.63193 15.52 8.59301 15.4576 8.56383H15.403C15.3414 8.52847 15.2733 8.50578 15.2027 8.49707H11.5311C11.0482 8.49707 10.5851 8.68889 10.2437 9.03033C9.90227 9.37177 9.71045 9.83486 9.71045 10.3177V18.8141C9.71045 19.297 9.90227 19.7601 10.2437 20.1015C10.5851 20.4429 11.0482 20.6348 11.5311 20.6348H17.5999C18.0828 20.6348 18.5459 20.4429 18.8873 20.1015C19.2288 19.7601 19.4206 19.297 19.4206 18.8141V12.7453V12.7088ZM15.7793 10.5665L17.3511 12.1384H16.3862C16.2252 12.1384 16.0709 12.0744 15.957 11.9606C15.8432 11.8468 15.7793 11.6924 15.7793 11.5315V10.5665ZM18.2068 18.8141C18.2068 18.9751 18.1429 19.1294 18.0291 19.2432C17.9153 19.357 17.7609 19.421 17.5999 19.421H11.5311C11.3701 19.421 11.2158 19.357 11.102 19.2432C10.9882 19.1294 10.9242 18.9751 10.9242 18.8141V10.3177C10.9242 10.1568 10.9882 10.0024 11.102 9.88859C11.2158 9.77478 11.3701 9.71084 11.5311 9.71084H14.5655V11.5315C14.5655 12.0144 14.7573 12.4774 15.0988 12.8189C15.4402 13.1603 15.9033 13.3521 16.3862 13.3521H18.2068V18.8141Z"
-                            fill="white" />
+                            fill="white"
+                          />
                         </svg>
                         <div class="ml-[13px] -translate-y-2 pt-1">
                           <span class="text-[#333333] text-[9.06px] font-semibold">Belum ada</span>
@@ -334,18 +611,37 @@ import { dateParsing } from '@/utils/helper';
                     </div>
                   </div>
 
-                   <svg xmlns="http://www.w3.org/2000/svg" class="w-[289px] h-[32px] ml-auto my-4"
-                      viewBox="0 0 32 33" fill="none">
-                      <path d="M20.2017 24.75L13.4201 31.8317L6.63857 24.75" stroke="#292D32" stroke-width="1.5"
-                        stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                      <path d="M13.4204 1L13.4204 30.64" stroke="#292D32" stroke-width="1.5" stroke-miterlimit="10"
-                        stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="w-[289px] h-[32px] ml-auto my-4"
+                    viewBox="0 0 32 33"
+                    fill="none"
+                  >
+                    <path
+                      d="M20.2017 24.75L13.4201 31.8317L6.63857 24.75"
+                      stroke="#292D32"
+                      stroke-width="1.5"
+                      stroke-miterlimit="10"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M13.4204 1L13.4204 30.64"
+                      stroke="#292D32"
+                      stroke-width="1.5"
+                      stroke-miterlimit="10"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
 
                   <div class="flex items-center gap-4">
                     <!-- review user -->
-                    <a :href="linkDownloadFile6" v-if="fileName6"
-                      class="flex flex-col w-[289px] h-[130px] rounded-lg border-[1px] border-[#E5E7E9]">
+                    <a
+                      v-if="fileName6"
+                      :href="linkDownloadFile6"
+                      class="flex flex-col w-[289px] h-[130px] rounded-lg border-[1px] border-[#E5E7E9]"
+                    >
                       <div class="w-full h-[40px] p-4 flex justify-between items-center rounded-t-lg bg-[#0EA976]">
                         <div class="font-sans text-[14px] font-semibold text-white">
                           Review Mitra
@@ -358,12 +654,23 @@ import { dateParsing } from '@/utils/helper';
                               Dokumen Review Mitra
                             </div>
                             <div class="flex">
-                              <svg class="w-[30px] h-[30px] mt-[12px]" viewBox="0 0 30 30" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="15" cy="15" r="14.5652" class="fill-[#E2FCF3]" />
+                              <svg
+                                class="w-[30px] h-[30px] mt-[12px]"
+                                viewBox="0 0 30 30"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <circle
+                                  cx="15"
+                                  cy="15"
+                                  r="14.5652"
+                                  class="fill-[#E2FCF3]"
+                                />
                                 <g transform="translate(9, 8)">
-                                  <path class="fill-[#0EA976]"
-                                    d="M10.4206 4.70885C10.4143 4.65309 10.4021 4.59817 10.3842 4.54499V4.49037C10.355 4.42797 10.3161 4.37061 10.2689 4.32044L6.62757 0.679135C6.5774 0.63193 6.52004 0.593007 6.45764 0.563827H6.40302C6.34137 0.528471 6.27328 0.505776 6.20275 0.49707H2.5311C2.04823 0.49707 1.58514 0.688889 1.24371 1.03033C0.902267 1.37177 0.710449 1.83486 0.710449 2.31772V10.8141C0.710449 11.297 0.902267 11.7601 1.24371 12.1015C1.58514 12.4429 2.04823 12.6348 2.5311 12.6348H8.59994C9.08281 12.6348 9.5459 12.4429 9.88734 12.1015C10.2288 11.7601 10.4206 11.297 10.4206 10.8141V4.74526V4.70885ZM6.77929 2.56654L8.35112 4.13837H7.38617C7.22522 4.13837 7.07085 4.07443 6.95704 3.96062C6.84323 3.84681 6.77929 3.69245 6.77929 3.53149V2.56654ZM9.20683 10.8141C9.20683 10.9751 9.14289 11.1294 9.02907 11.2432C8.91526 11.357 8.7609 11.421 8.59994 11.421H2.5311C2.37015 11.421 2.21578 11.357 2.10197 11.2432C1.98816 11.1294 1.92422 10.9751 1.92422 10.8141V2.31772C1.92422 2.15677 1.98816 2.0024 2.10197 1.88859C2.21578 1.77478 2.37015 1.71084 2.5311 1.71084H5.56552V3.53149C5.56552 4.01436 5.75734 4.47745 6.09878 4.81889C6.44022 5.16032 6.90331 5.35214 7.38617 5.35214H9.20683V10.8141Z" />
+                                  <path
+                                    class="fill-[#0EA976]"
+                                    d="M10.4206 4.70885C10.4143 4.65309 10.4021 4.59817 10.3842 4.54499V4.49037C10.355 4.42797 10.3161 4.37061 10.2689 4.32044L6.62757 0.679135C6.5774 0.63193 6.52004 0.593007 6.45764 0.563827H6.40302C6.34137 0.528471 6.27328 0.505776 6.20275 0.49707H2.5311C2.04823 0.49707 1.58514 0.688889 1.24371 1.03033C0.902267 1.37177 0.710449 1.83486 0.710449 2.31772V10.8141C0.710449 11.297 0.902267 11.7601 1.24371 12.1015C1.58514 12.4429 2.04823 12.6348 2.5311 12.6348H8.59994C9.08281 12.6348 9.5459 12.4429 9.88734 12.1015C10.2288 11.7601 10.4206 11.297 10.4206 10.8141V4.74526V4.70885ZM6.77929 2.56654L8.35112 4.13837H7.38617C7.22522 4.13837 7.07085 4.07443 6.95704 3.96062C6.84323 3.84681 6.77929 3.69245 6.77929 3.53149V2.56654ZM9.20683 10.8141C9.20683 10.9751 9.14289 11.1294 9.02907 11.2432C8.91526 11.357 8.7609 11.421 8.59994 11.421H2.5311C2.37015 11.421 2.21578 11.357 2.10197 11.2432C1.98816 11.1294 1.92422 10.9751 1.92422 10.8141V2.31772C1.92422 2.15677 1.98816 2.0024 2.10197 1.88859C2.21578 1.77478 2.37015 1.71084 2.5311 1.71084H5.56552V3.53149C5.56552 4.01436 5.75734 4.47745 6.09878 4.81889C6.44022 5.16032 6.90331 5.35214 7.38617 5.35214H9.20683V10.8141Z"
+                                  />
                                 </g>
                               </svg>
                               <div class="mt-[12px] ml-2">
@@ -376,28 +683,51 @@ import { dateParsing } from '@/utils/helper';
                               </div>
                             </div>
                           </div>
-                          <svg xmlns="http://www.w3.org/2000/svg"
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
                             class="text-[#0EA976] bg-[#E2FCF3] rounded-full w-[15px] h-[15px]"
-                            viewBox="0 0 21 19" fill="currentColor">
-                            <path fill-rule="evenodd"
+                            viewBox="0 0 21 19"
+                            fill="currentColor"
+                          >
+                            <path
+                              fill-rule="evenodd"
                               d="M16.707 4.293a1 1 0 00-1.414 0L8 11.586 4.707 8.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z"
-                              clip-rule="evenodd" />
+                              clip-rule="evenodd"
+                            />
                           </svg>
                         </div>
                       </div>
                     </a>
-                    <div v-else class="w-[289px] h-[130px] border-[1px] rounded-t-lg rounded-b-lg">
-                      <div class="w-auto h-[40px] bg-[#bcc6d2] rounded-t-lg flex justify-start items-center px-4"><span
-                          class="text-white font-semibold">Review Mitra</span></div>
+                    <div
+                      v-else
+                      class="w-[289px] h-[130px] border-[1px] rounded-t-lg rounded-b-lg"
+                    >
+                      <div class="w-auto h-[40px] bg-[#bcc6d2] rounded-t-lg flex justify-start items-center px-4">
+                        <span
+                          class="text-white font-semibold"
+                        >Review Mitra</span>
+                      </div>
                       <div class="w-[265px] h-[18px] flex justify-between ml-3 mt-[10px]">
                         <span class="text-[#333333] text-xs">Dokumen Review Mitra</span>
                       </div>
                       <div class="w-[265px] h-auto flex ml-3 py-[10px]">
-                        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <circle cx="14.5652" cy="14.5652" r="14.5652" fill="#bcc6d2" />
+                        <svg
+                          width="30"
+                          height="30"
+                          viewBox="0 0 30 30"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <circle
+                            cx="14.5652"
+                            cy="14.5652"
+                            r="14.5652"
+                            fill="#bcc6d2"
+                          />
                           <path
                             d="M19.4206 12.7088C19.4143 12.6531 19.4021 12.5982 19.3842 12.545V12.4904C19.355 12.428 19.3161 12.3706 19.2689 12.3204L15.6276 8.67914C15.5774 8.63193 15.52 8.59301 15.4576 8.56383H15.403C15.3414 8.52847 15.2733 8.50578 15.2027 8.49707H11.5311C11.0482 8.49707 10.5851 8.68889 10.2437 9.03033C9.90227 9.37177 9.71045 9.83486 9.71045 10.3177V18.8141C9.71045 19.297 9.90227 19.7601 10.2437 20.1015C10.5851 20.4429 11.0482 20.6348 11.5311 20.6348H17.5999C18.0828 20.6348 18.5459 20.4429 18.8873 20.1015C19.2288 19.7601 19.4206 19.297 19.4206 18.8141V12.7453V12.7088ZM15.7793 10.5665L17.3511 12.1384H16.3862C16.2252 12.1384 16.0709 12.0744 15.957 11.9606C15.8432 11.8468 15.7793 11.6924 15.7793 11.5315V10.5665ZM18.2068 18.8141C18.2068 18.9751 18.1429 19.1294 18.0291 19.2432C17.9153 19.357 17.7609 19.421 17.5999 19.421H11.5311C11.3701 19.421 11.2158 19.357 11.102 19.2432C10.9882 19.1294 10.9242 18.9751 10.9242 18.8141V10.3177C10.9242 10.1568 10.9882 10.0024 11.102 9.88859C11.2158 9.77478 11.3701 9.71084 11.5311 9.71084H14.5655V11.5315C14.5655 12.0144 14.7573 12.4774 15.0988 12.8189C15.4402 13.1603 15.9033 13.3521 16.3862 13.3521H18.2068V18.8141Z"
-                            fill="white" />
+                            fill="white"
+                          />
                         </svg>
                         <div class="ml-[13px] -translate-y-2 pt-1">
                           <span class="text-[#333333] text-[9.06px] font-semibold">Belum ada</span>
@@ -405,15 +735,36 @@ import { dateParsing } from '@/utils/helper';
                       </div>
                     </div>
 
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-[33px] h-[28px] rotate-180" viewBox="0 0 33 28" fill="none">
-                      <path d="M24.75 6.91797L31.8317 13.9996L24.75 21.0813" stroke="#292D32" stroke-width="1.5"
-                        stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                      <path d="M1 14H30.64" stroke="#292D32" stroke-width="1.5" stroke-miterlimit="10"
-                        stroke-linecap="round" stroke-linejoin="round" />
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="w-[33px] h-[28px] rotate-180"
+                      viewBox="0 0 33 28"
+                      fill="none"
+                    >
+                      <path
+                        d="M24.75 6.91797L31.8317 13.9996L24.75 21.0813"
+                        stroke="#292D32"
+                        stroke-width="1.5"
+                        stroke-miterlimit="10"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M1 14H30.64"
+                        stroke="#292D32"
+                        stroke-width="1.5"
+                        stroke-miterlimit="10"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
                     </svg>
 
                     <!-- review legal -->
-                    <a :href="linkDownloadFile5" v-if="fileName5" class="flex flex-col w-[289px] h-[130px] rounded-lg border-[1px] border-[#DEDEDE]">
+                    <a
+                      v-if="fileName5"
+                      :href="linkDownloadFile5"
+                      class="flex flex-col w-[289px] h-[130px] rounded-lg border-[1px] border-[#DEDEDE]"
+                    >
                       <div class="w-full h-[40px] p-4 flex justify-between items-center rounded-t-lg bg-[#0EA976]">
                         <div class="font-sans text-[14px] font-semibold text-white">
                           Review Legal
@@ -426,12 +777,23 @@ import { dateParsing } from '@/utils/helper';
                               Dokumen Review Legal
                             </div>
                             <div class="flex">
-                              <svg class="w-[30px] h-[30px] mt-[12px]" viewBox="0 0 30 30" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="15" cy="15" r="14.5652" class="fill-[#E2FCF3]" />
+                              <svg
+                                class="w-[30px] h-[30px] mt-[12px]"
+                                viewBox="0 0 30 30"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <circle
+                                  cx="15"
+                                  cy="15"
+                                  r="14.5652"
+                                  class="fill-[#E2FCF3]"
+                                />
                                 <g transform="translate(9, 8)">
-                                  <path class="fill-[#0EA976]"
-                                    d="M10.4206 4.70885C10.4143 4.65309 10.4021 4.59817 10.3842 4.54499V4.49037C10.355 4.42797 10.3161 4.37061 10.2689 4.32044L6.62757 0.679135C6.5774 0.63193 6.52004 0.593007 6.45764 0.563827H6.40302C6.34137 0.528471 6.27328 0.505776 6.20275 0.49707H2.5311C2.04823 0.49707 1.58514 0.688889 1.24371 1.03033C0.902267 1.37177 0.710449 1.83486 0.710449 2.31772V10.8141C0.710449 11.297 0.902267 11.7601 1.24371 12.1015C1.58514 12.4429 2.04823 12.6348 2.5311 12.6348H8.59994C9.08281 12.6348 9.5459 12.4429 9.88734 12.1015C10.2288 11.7601 10.4206 11.297 10.4206 10.8141V4.74526V4.70885ZM6.77929 2.56654L8.35112 4.13837H7.38617C7.22522 4.13837 7.07085 4.07443 6.95704 3.96062C6.84323 3.84681 6.77929 3.69245 6.77929 3.53149V2.56654ZM9.20683 10.8141C9.20683 10.9751 9.14289 11.1294 9.02907 11.2432C8.91526 11.357 8.7609 11.421 8.59994 11.421H2.5311C2.37015 11.421 2.21578 11.357 2.10197 11.2432C1.98816 11.1294 1.92422 10.9751 1.92422 10.8141V2.31772C1.92422 2.15677 1.98816 2.0024 2.10197 1.88859C2.21578 1.77478 2.37015 1.71084 2.5311 1.71084H5.56552V3.53149C5.56552 4.01436 5.75734 4.47745 6.09878 4.81889C6.44022 5.16032 6.90331 5.35214 7.38617 5.35214H9.20683V10.8141Z" />
+                                  <path
+                                    class="fill-[#0EA976]"
+                                    d="M10.4206 4.70885C10.4143 4.65309 10.4021 4.59817 10.3842 4.54499V4.49037C10.355 4.42797 10.3161 4.37061 10.2689 4.32044L6.62757 0.679135C6.5774 0.63193 6.52004 0.593007 6.45764 0.563827H6.40302C6.34137 0.528471 6.27328 0.505776 6.20275 0.49707H2.5311C2.04823 0.49707 1.58514 0.688889 1.24371 1.03033C0.902267 1.37177 0.710449 1.83486 0.710449 2.31772V10.8141C0.710449 11.297 0.902267 11.7601 1.24371 12.1015C1.58514 12.4429 2.04823 12.6348 2.5311 12.6348H8.59994C9.08281 12.6348 9.5459 12.4429 9.88734 12.1015C10.2288 11.7601 10.4206 11.297 10.4206 10.8141V4.74526V4.70885ZM6.77929 2.56654L8.35112 4.13837H7.38617C7.22522 4.13837 7.07085 4.07443 6.95704 3.96062C6.84323 3.84681 6.77929 3.69245 6.77929 3.53149V2.56654ZM9.20683 10.8141C9.20683 10.9751 9.14289 11.1294 9.02907 11.2432C8.91526 11.357 8.7609 11.421 8.59994 11.421H2.5311C2.37015 11.421 2.21578 11.357 2.10197 11.2432C1.98816 11.1294 1.92422 10.9751 1.92422 10.8141V2.31772C1.92422 2.15677 1.98816 2.0024 2.10197 1.88859C2.21578 1.77478 2.37015 1.71084 2.5311 1.71084H5.56552V3.53149C5.56552 4.01436 5.75734 4.47745 6.09878 4.81889C6.44022 5.16032 6.90331 5.35214 7.38617 5.35214H9.20683V10.8141Z"
+                                  />
                                 </g>
                               </svg>
                               <div class="mt-[12px] ml-2">
@@ -445,28 +807,51 @@ import { dateParsing } from '@/utils/helper';
                             </div>
                             
                           </div>
-                          <svg xmlns="http://www.w3.org/2000/svg"
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
                             class="text-[#0EA976] bg-[#E2FCF3] rounded-full w-[15px] h-[15px]"
-                            viewBox="0 0 21 19" fill="currentColor">
-                            <path fill-rule="evenodd"
+                            viewBox="0 0 21 19"
+                            fill="currentColor"
+                          >
+                            <path
+                              fill-rule="evenodd"
                               d="M16.707 4.293a1 1 0 00-1.414 0L8 11.586 4.707 8.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z"
-                              clip-rule="evenodd" />
+                              clip-rule="evenodd"
+                            />
                           </svg>
                         </div>
                       </div>
                     </a>
-                    <div v-else class="w-[289px] h-[130px] border-[1px] rounded-t-lg rounded-b-lg">
-                      <div class="w-auto h-[40px] bg-[#bcc6d2] rounded-t-lg flex justify-start items-center px-4"><span
-                          class="text-white font-semibold">Review Legal</span></div>
+                    <div
+                      v-else
+                      class="w-[289px] h-[130px] border-[1px] rounded-t-lg rounded-b-lg"
+                    >
+                      <div class="w-auto h-[40px] bg-[#bcc6d2] rounded-t-lg flex justify-start items-center px-4">
+                        <span
+                          class="text-white font-semibold"
+                        >Review Legal</span>
+                      </div>
                       <div class="w-[265px] h-[18px] flex justify-between ml-3 mt-[10px]">
                         <span class="text-[#333333] text-xs">Dokumen Review Legal</span>
                       </div>
                       <div class="w-[265px] h-auto flex ml-3 py-[10px]">
-                        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <circle cx="14.5652" cy="14.5652" r="14.5652" fill="#bcc6d2" />
+                        <svg
+                          width="30"
+                          height="30"
+                          viewBox="0 0 30 30"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <circle
+                            cx="14.5652"
+                            cy="14.5652"
+                            r="14.5652"
+                            fill="#bcc6d2"
+                          />
                           <path
                             d="M19.4206 12.7088C19.4143 12.6531 19.4021 12.5982 19.3842 12.545V12.4904C19.355 12.428 19.3161 12.3706 19.2689 12.3204L15.6276 8.67914C15.5774 8.63193 15.52 8.59301 15.4576 8.56383H15.403C15.3414 8.52847 15.2733 8.50578 15.2027 8.49707H11.5311C11.0482 8.49707 10.5851 8.68889 10.2437 9.03033C9.90227 9.37177 9.71045 9.83486 9.71045 10.3177V18.8141C9.71045 19.297 9.90227 19.7601 10.2437 20.1015C10.5851 20.4429 11.0482 20.6348 11.5311 20.6348H17.5999C18.0828 20.6348 18.5459 20.4429 18.8873 20.1015C19.2288 19.7601 19.4206 19.297 19.4206 18.8141V12.7453V12.7088ZM15.7793 10.5665L17.3511 12.1384H16.3862C16.2252 12.1384 16.0709 12.0744 15.957 11.9606C15.8432 11.8468 15.7793 11.6924 15.7793 11.5315V10.5665ZM18.2068 18.8141C18.2068 18.9751 18.1429 19.1294 18.0291 19.2432C17.9153 19.357 17.7609 19.421 17.5999 19.421H11.5311C11.3701 19.421 11.2158 19.357 11.102 19.2432C10.9882 19.1294 10.9242 18.9751 10.9242 18.8141V10.3177C10.9242 10.1568 10.9882 10.0024 11.102 9.88859C11.2158 9.77478 11.3701 9.71084 11.5311 9.71084H14.5655V11.5315C14.5655 12.0144 14.7573 12.4774 15.0988 12.8189C15.4402 13.1603 15.9033 13.3521 16.3862 13.3521H18.2068V18.8141Z"
-                            fill="white" />
+                            fill="white"
+                          />
                         </svg>
                         <div class="ml-[13px] -translate-y-2 pt-1">
                           <span class="text-[#333333] text-[9.06px] font-semibold">Belum ada</span>
@@ -474,15 +859,35 @@ import { dateParsing } from '@/utils/helper';
                       </div>
                     </div>
 
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-[33px] h-[28px] rotate-180" viewBox="0 0 33 28" fill="none">
-                      <path d="M24.75 6.91797L31.8317 13.9996L24.75 21.0813" stroke="#292D32" stroke-width="1.5"
-                        stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                      <path d="M1 14H30.64" stroke="#292D32" stroke-width="1.5" stroke-miterlimit="10"
-                        stroke-linecap="round" stroke-linejoin="round" />
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="w-[33px] h-[28px] rotate-180"
+                      viewBox="0 0 33 28"
+                      fill="none"
+                    >
+                      <path
+                        d="M24.75 6.91797L31.8317 13.9996L24.75 21.0813"
+                        stroke="#292D32"
+                        stroke-width="1.5"
+                        stroke-miterlimit="10"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M1 14H30.64"
+                        stroke="#292D32"
+                        stroke-width="1.5"
+                        stroke-miterlimit="10"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
                     </svg>
                     
-                    <a :href="linkDownloadFile4" v-if="fileName4"
-                      class="flex flex-col w-[289px] h-[130px] rounded-lg border-[1px] border-[#E5E7E9]">
+                    <a
+                      v-if="fileName4"
+                      :href="linkDownloadFile4"
+                      class="flex flex-col w-[289px] h-[130px] rounded-lg border-[1px] border-[#E5E7E9]"
+                    >
                       <div class="w-full h-[40px] p-4 flex justify-between items-center rounded-t-lg bg-[#0EA976]">
                         <div class="font-sans text-[14px] font-semibold text-white">
                           Review User
@@ -495,12 +900,23 @@ import { dateParsing } from '@/utils/helper';
                               Review User
                             </div>
                             <div class="flex">
-                              <svg class="w-[30px] h-[30px] mt-[12px]" viewBox="0 0 30 30" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="15" cy="15" r="14.5652" class="fill-[#E2FCF3]" />
+                              <svg
+                                class="w-[30px] h-[30px] mt-[12px]"
+                                viewBox="0 0 30 30"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <circle
+                                  cx="15"
+                                  cy="15"
+                                  r="14.5652"
+                                  class="fill-[#E2FCF3]"
+                                />
                                 <g transform="translate(9, 8)">
-                                  <path class="fill-[#0EA976]"
-                                    d="M10.4206 4.70885C10.4143 4.65309 10.4021 4.59817 10.3842 4.54499V4.49037C10.355 4.42797 10.3161 4.37061 10.2689 4.32044L6.62757 0.679135C6.5774 0.63193 6.52004 0.593007 6.45764 0.563827H6.40302C6.34137 0.528471 6.27328 0.505776 6.20275 0.49707H2.5311C2.04823 0.49707 1.58514 0.688889 1.24371 1.03033C0.902267 1.37177 0.710449 1.83486 0.710449 2.31772V10.8141C0.710449 11.297 0.902267 11.7601 1.24371 12.1015C1.58514 12.4429 2.04823 12.6348 2.5311 12.6348H8.59994C9.08281 12.6348 9.5459 12.4429 9.88734 12.1015C10.2288 11.7601 10.4206 11.297 10.4206 10.8141V4.74526V4.70885ZM6.77929 2.56654L8.35112 4.13837H7.38617C7.22522 4.13837 7.07085 4.07443 6.95704 3.96062C6.84323 3.84681 6.77929 3.69245 6.77929 3.53149V2.56654ZM9.20683 10.8141C9.20683 10.9751 9.14289 11.1294 9.02907 11.2432C8.91526 11.357 8.7609 11.421 8.59994 11.421H2.5311C2.37015 11.421 2.21578 11.357 2.10197 11.2432C1.98816 11.1294 1.92422 10.9751 1.92422 10.8141V2.31772C1.92422 2.15677 1.98816 2.0024 2.10197 1.88859C2.21578 1.77478 2.37015 1.71084 2.5311 1.71084H5.56552V3.53149C5.56552 4.01436 5.75734 4.47745 6.09878 4.81889C6.44022 5.16032 6.90331 5.35214 7.38617 5.35214H9.20683V10.8141Z" />
+                                  <path
+                                    class="fill-[#0EA976]"
+                                    d="M10.4206 4.70885C10.4143 4.65309 10.4021 4.59817 10.3842 4.54499V4.49037C10.355 4.42797 10.3161 4.37061 10.2689 4.32044L6.62757 0.679135C6.5774 0.63193 6.52004 0.593007 6.45764 0.563827H6.40302C6.34137 0.528471 6.27328 0.505776 6.20275 0.49707H2.5311C2.04823 0.49707 1.58514 0.688889 1.24371 1.03033C0.902267 1.37177 0.710449 1.83486 0.710449 2.31772V10.8141C0.710449 11.297 0.902267 11.7601 1.24371 12.1015C1.58514 12.4429 2.04823 12.6348 2.5311 12.6348H8.59994C9.08281 12.6348 9.5459 12.4429 9.88734 12.1015C10.2288 11.7601 10.4206 11.297 10.4206 10.8141V4.74526V4.70885ZM6.77929 2.56654L8.35112 4.13837H7.38617C7.22522 4.13837 7.07085 4.07443 6.95704 3.96062C6.84323 3.84681 6.77929 3.69245 6.77929 3.53149V2.56654ZM9.20683 10.8141C9.20683 10.9751 9.14289 11.1294 9.02907 11.2432C8.91526 11.357 8.7609 11.421 8.59994 11.421H2.5311C2.37015 11.421 2.21578 11.357 2.10197 11.2432C1.98816 11.1294 1.92422 10.9751 1.92422 10.8141V2.31772C1.92422 2.15677 1.98816 2.0024 2.10197 1.88859C2.21578 1.77478 2.37015 1.71084 2.5311 1.71084H5.56552V3.53149C5.56552 4.01436 5.75734 4.47745 6.09878 4.81889C6.44022 5.16032 6.90331 5.35214 7.38617 5.35214H9.20683V10.8141Z"
+                                  />
                                 </g>
                               </svg>
                               <div class="mt-[12px] ml-2">
@@ -513,28 +929,51 @@ import { dateParsing } from '@/utils/helper';
                               </div>
                             </div>
                           </div>
-                          <svg xmlns="http://www.w3.org/2000/svg"
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
                             class="text-[#0EA976] bg-[#E2FCF3] rounded-full w-[15px] h-[15px]"
-                            viewBox="0 0 21 19" fill="currentColor">
-                            <path fill-rule="evenodd"
+                            viewBox="0 0 21 19"
+                            fill="currentColor"
+                          >
+                            <path
+                              fill-rule="evenodd"
                               d="M16.707 4.293a1 1 0 00-1.414 0L8 11.586 4.707 8.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z"
-                              clip-rule="evenodd" />
+                              clip-rule="evenodd"
+                            />
                           </svg>
                         </div>
                       </div>
                     </a>
-                    <div v-else class="w-[289px] h-[130px] border-[1px] rounded-t-lg rounded-b-lg">
-                      <div class="w-auto h-[40px] bg-[#bcc6d2] rounded-t-lg flex justify-start items-center px-4"><span
-                          class="text-white font-semibold">Review Mitra</span></div>
+                    <div
+                      v-else
+                      class="w-[289px] h-[130px] border-[1px] rounded-t-lg rounded-b-lg"
+                    >
+                      <div class="w-auto h-[40px] bg-[#bcc6d2] rounded-t-lg flex justify-start items-center px-4">
+                        <span
+                          class="text-white font-semibold"
+                        >Review Mitra</span>
+                      </div>
                       <div class="w-[265px] h-[18px] flex justify-between ml-3 mt-[10px]">
                         <span class="text-[#333333] text-xs">Dokumen Review User</span>
                       </div>
                       <div class="w-[265px] h-auto flex ml-3 py-[10px]">
-                        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <circle cx="14.5652" cy="14.5652" r="14.5652" fill="#bcc6d2" />
+                        <svg
+                          width="30"
+                          height="30"
+                          viewBox="0 0 30 30"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <circle
+                            cx="14.5652"
+                            cy="14.5652"
+                            r="14.5652"
+                            fill="#bcc6d2"
+                          />
                           <path
                             d="M19.4206 12.7088C19.4143 12.6531 19.4021 12.5982 19.3842 12.545V12.4904C19.355 12.428 19.3161 12.3706 19.2689 12.3204L15.6276 8.67914C15.5774 8.63193 15.52 8.59301 15.4576 8.56383H15.403C15.3414 8.52847 15.2733 8.50578 15.2027 8.49707H11.5311C11.0482 8.49707 10.5851 8.68889 10.2437 9.03033C9.90227 9.37177 9.71045 9.83486 9.71045 10.3177V18.8141C9.71045 19.297 9.90227 19.7601 10.2437 20.1015C10.5851 20.4429 11.0482 20.6348 11.5311 20.6348H17.5999C18.0828 20.6348 18.5459 20.4429 18.8873 20.1015C19.2288 19.7601 19.4206 19.297 19.4206 18.8141V12.7453V12.7088ZM15.7793 10.5665L17.3511 12.1384H16.3862C16.2252 12.1384 16.0709 12.0744 15.957 11.9606C15.8432 11.8468 15.7793 11.6924 15.7793 11.5315V10.5665ZM18.2068 18.8141C18.2068 18.9751 18.1429 19.1294 18.0291 19.2432C17.9153 19.357 17.7609 19.421 17.5999 19.421H11.5311C11.3701 19.421 11.2158 19.357 11.102 19.2432C10.9882 19.1294 10.9242 18.9751 10.9242 18.8141V10.3177C10.9242 10.1568 10.9882 10.0024 11.102 9.88859C11.2158 9.77478 11.3701 9.71084 11.5311 9.71084H14.5655V11.5315C14.5655 12.0144 14.7573 12.4774 15.0988 12.8189C15.4402 13.1603 15.9033 13.3521 16.3862 13.3521H18.2068V18.8141Z"
-                            fill="white" />
+                            fill="white"
+                          />
                         </svg>
                         <div class="ml-[13px] -translate-y-2 pt-1">
                           <span class="text-[#333333] text-[9.06px] font-semibold">Belum ada</span>
@@ -543,18 +982,37 @@ import { dateParsing } from '@/utils/helper';
                     </div>
                   </div>
 
-                  <svg xmlns="http://www.w3.org/2000/svg" class="w-[289px] h-[32px] mr-auto my-4"
-                      viewBox="0 0 32 33" fill="none">
-                      <path d="M20.2017 24.75L13.4201 31.8317L6.63857 24.75" stroke="#292D32" stroke-width="1.5"
-                        stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                      <path d="M13.4204 1L13.4204 30.64" stroke="#292D32" stroke-width="1.5" stroke-miterlimit="10"
-                        stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="w-[289px] h-[32px] mr-auto my-4"
+                    viewBox="0 0 32 33"
+                    fill="none"
+                  >
+                    <path
+                      d="M20.2017 24.75L13.4201 31.8317L6.63857 24.75"
+                      stroke="#292D32"
+                      stroke-width="1.5"
+                      stroke-miterlimit="10"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M13.4204 1L13.4204 30.64"
+                      stroke="#292D32"
+                      stroke-width="1.5"
+                      stroke-miterlimit="10"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
 
                   <div class="flex items-center gap-4">
                     <!-- MoU/NDA -->
-                    <a :href="linkDownloadFile7" v-if="fileName7"
-                      class="flex flex-col w-[289px] h-[130px] rounded-lg border-[1px] border-[#E5E7E9]">
+                    <a
+                      v-if="fileName7"
+                      :href="linkDownloadFile7"
+                      class="flex flex-col w-[289px] h-[130px] rounded-lg border-[1px] border-[#E5E7E9]"
+                    >
                       <div class="w-full h-[40px] p-4 flex justify-between items-center rounded-t-lg bg-[#0EA976]">
                         <div class="font-sans text-[14px] font-semibold text-white">
                           MoU/NDA
@@ -567,12 +1025,23 @@ import { dateParsing } from '@/utils/helper';
                               Dokumen MoU/NDA
                             </div>
                             <div class="flex">
-                              <svg class="w-[30px] h-[30px] mt-[12px]" viewBox="0 0 30 30" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="15" cy="15" r="14.5652" class="fill-[#E2FCF3]" />
+                              <svg
+                                class="w-[30px] h-[30px] mt-[12px]"
+                                viewBox="0 0 30 30"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <circle
+                                  cx="15"
+                                  cy="15"
+                                  r="14.5652"
+                                  class="fill-[#E2FCF3]"
+                                />
                                 <g transform="translate(9, 8)">
-                                  <path class="fill-[#0EA976]"
-                                    d="M10.4206 4.70885C10.4143 4.65309 10.4021 4.59817 10.3842 4.54499V4.49037C10.355 4.42797 10.3161 4.37061 10.2689 4.32044L6.62757 0.679135C6.5774 0.63193 6.52004 0.593007 6.45764 0.563827H6.40302C6.34137 0.528471 6.27328 0.505776 6.20275 0.49707H2.5311C2.04823 0.49707 1.58514 0.688889 1.24371 1.03033C0.902267 1.37177 0.710449 1.83486 0.710449 2.31772V10.8141C0.710449 11.297 0.902267 11.7601 1.24371 12.1015C1.58514 12.4429 2.04823 12.6348 2.5311 12.6348H8.59994C9.08281 12.6348 9.5459 12.4429 9.88734 12.1015C10.2288 11.7601 10.4206 11.297 10.4206 10.8141V4.74526V4.70885ZM6.77929 2.56654L8.35112 4.13837H7.38617C7.22522 4.13837 7.07085 4.07443 6.95704 3.96062C6.84323 3.84681 6.77929 3.69245 6.77929 3.53149V2.56654ZM9.20683 10.8141C9.20683 10.9751 9.14289 11.1294 9.02907 11.2432C8.91526 11.357 8.7609 11.421 8.59994 11.421H2.5311C2.37015 11.421 2.21578 11.357 2.10197 11.2432C1.98816 11.1294 1.92422 10.9751 1.92422 10.8141V2.31772C1.92422 2.15677 1.98816 2.0024 2.10197 1.88859C2.21578 1.77478 2.37015 1.71084 2.5311 1.71084H5.56552V3.53149C5.56552 4.01436 5.75734 4.47745 6.09878 4.81889C6.44022 5.16032 6.90331 5.35214 7.38617 5.35214H9.20683V10.8141Z" />
+                                  <path
+                                    class="fill-[#0EA976]"
+                                    d="M10.4206 4.70885C10.4143 4.65309 10.4021 4.59817 10.3842 4.54499V4.49037C10.355 4.42797 10.3161 4.37061 10.2689 4.32044L6.62757 0.679135C6.5774 0.63193 6.52004 0.593007 6.45764 0.563827H6.40302C6.34137 0.528471 6.27328 0.505776 6.20275 0.49707H2.5311C2.04823 0.49707 1.58514 0.688889 1.24371 1.03033C0.902267 1.37177 0.710449 1.83486 0.710449 2.31772V10.8141C0.710449 11.297 0.902267 11.7601 1.24371 12.1015C1.58514 12.4429 2.04823 12.6348 2.5311 12.6348H8.59994C9.08281 12.6348 9.5459 12.4429 9.88734 12.1015C10.2288 11.7601 10.4206 11.297 10.4206 10.8141V4.74526V4.70885ZM6.77929 2.56654L8.35112 4.13837H7.38617C7.22522 4.13837 7.07085 4.07443 6.95704 3.96062C6.84323 3.84681 6.77929 3.69245 6.77929 3.53149V2.56654ZM9.20683 10.8141C9.20683 10.9751 9.14289 11.1294 9.02907 11.2432C8.91526 11.357 8.7609 11.421 8.59994 11.421H2.5311C2.37015 11.421 2.21578 11.357 2.10197 11.2432C1.98816 11.1294 1.92422 10.9751 1.92422 10.8141V2.31772C1.92422 2.15677 1.98816 2.0024 2.10197 1.88859C2.21578 1.77478 2.37015 1.71084 2.5311 1.71084H5.56552V3.53149C5.56552 4.01436 5.75734 4.47745 6.09878 4.81889C6.44022 5.16032 6.90331 5.35214 7.38617 5.35214H9.20683V10.8141Z"
+                                  />
                                 </g>
                               </svg>
                               <div class="mt-[12px] ml-[12px]">
@@ -585,28 +1054,51 @@ import { dateParsing } from '@/utils/helper';
                               </div>
                             </div>
                           </div>
-                          <svg xmlns="http://www.w3.org/2000/svg"
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
                             class="text-[#0EA976] bg-[#E2FCF3] rounded-full w-[15px] h-[15px]"
-                            viewBox="0 0 21 19" fill="currentColor">
-                            <path fill-rule="evenodd"
+                            viewBox="0 0 21 19"
+                            fill="currentColor"
+                          >
+                            <path
+                              fill-rule="evenodd"
                               d="M16.707 4.293a1 1 0 00-1.414 0L8 11.586 4.707 8.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z"
-                              clip-rule="evenodd" />
+                              clip-rule="evenodd"
+                            />
                           </svg>
                         </div>
                       </div>
                     </a>
-                    <div v-else class="w-[289px] h-[130px] border-[1px] rounded-t-lg rounded-b-lg">
-                      <div class="w-auto h-[40px] bg-[#bcc6d2] rounded-t-lg flex justify-start items-center px-4"><span
-                          class="text-white font-semibold">MoU/NDA</span></div>
+                    <div
+                      v-else
+                      class="w-[289px] h-[130px] border-[1px] rounded-t-lg rounded-b-lg"
+                    >
+                      <div class="w-auto h-[40px] bg-[#bcc6d2] rounded-t-lg flex justify-start items-center px-4">
+                        <span
+                          class="text-white font-semibold"
+                        >MoU/NDA</span>
+                      </div>
                       <div class="w-[265px] h-[18px] flex justify-between ml-3 mt-[10px]">
                         <span class="text-[#333333] text-xs">Dokumen MoU/NDA</span>
                       </div>
                       <div class="w-[265px] h-auto flex ml-3 py-[10px]">
-                        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <circle cx="14.5652" cy="14.5652" r="14.5652" fill="#bcc6d2" />
+                        <svg
+                          width="30"
+                          height="30"
+                          viewBox="0 0 30 30"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <circle
+                            cx="14.5652"
+                            cy="14.5652"
+                            r="14.5652"
+                            fill="#bcc6d2"
+                          />
                           <path
                             d="M19.4206 12.7088C19.4143 12.6531 19.4021 12.5982 19.3842 12.545V12.4904C19.355 12.428 19.3161 12.3706 19.2689 12.3204L15.6276 8.67914C15.5774 8.63193 15.52 8.59301 15.4576 8.56383H15.403C15.3414 8.52847 15.2733 8.50578 15.2027 8.49707H11.5311C11.0482 8.49707 10.5851 8.68889 10.2437 9.03033C9.90227 9.37177 9.71045 9.83486 9.71045 10.3177V18.8141C9.71045 19.297 9.90227 19.7601 10.2437 20.1015C10.5851 20.4429 11.0482 20.6348 11.5311 20.6348H17.5999C18.0828 20.6348 18.5459 20.4429 18.8873 20.1015C19.2288 19.7601 19.4206 19.297 19.4206 18.8141V12.7453V12.7088ZM15.7793 10.5665L17.3511 12.1384H16.3862C16.2252 12.1384 16.0709 12.0744 15.957 11.9606C15.8432 11.8468 15.7793 11.6924 15.7793 11.5315V10.5665ZM18.2068 18.8141C18.2068 18.9751 18.1429 19.1294 18.0291 19.2432C17.9153 19.357 17.7609 19.421 17.5999 19.421H11.5311C11.3701 19.421 11.2158 19.357 11.102 19.2432C10.9882 19.1294 10.9242 18.9751 10.9242 18.8141V10.3177C10.9242 10.1568 10.9882 10.0024 11.102 9.88859C11.2158 9.77478 11.3701 9.71084 11.5311 9.71084H14.5655V11.5315C14.5655 12.0144 14.7573 12.4774 15.0988 12.8189C15.4402 13.1603 15.9033 13.3521 16.3862 13.3521H18.2068V18.8141Z"
-                            fill="white" />
+                            fill="white"
+                          />
                         </svg>
                         <div class="ml-[13px] -translate-y-2 pt-1">
                           <span class="text-[#333333] text-[9.06px] font-semibold">Belum ada</span>
@@ -620,21 +1112,38 @@ import { dateParsing } from '@/utils/helper';
           </div>
         </div>
         <div
-          class="flex items-center mt-4 ml-4 w-[1046px] h-[48px] rounded-lg bg-[#FFFFFF] border-[#E5E7E9] border-[1px]">
+          class="flex items-center mt-4 ml-4 w-[1046px] h-[48px] rounded-lg bg-[#FFFFFF] border-[#E5E7E9] border-[1px]"
+        >
           <div class="w-[30px] h-[48px] bg-[#4791F2] rounded-tl-md rounded-bl-md" />
           <div class="text-[16px] font-sans font-semibold text-[#333333] ml-[10px] mt-[14.5px] mb-[14.5px]">
             Informasi Umum
           </div>
-          <button class="ml-auto mr-4 flex py-1 px-1 rounded-full hover:bg-[#FFFFFF]" @click="toggleDropdownArrow">
-            <svg :class="{ 'rotate-180': isDropdownArrowOpen }" class="w-4 h-4 text-[#2671D9]" fill="none"
-              stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          <button
+            class="ml-auto mr-4 flex py-1 px-1 rounded-full hover:bg-[#FFFFFF]"
+            @click="toggleDropdownArrow"
+          >
+            <svg
+              :class="{ 'rotate-180': isDropdownArrowOpen }"
+              class="w-4 h-4 text-[#2671D9]"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"
+              />
             </svg>
           </button>
         </div>
         <transition name="fade">
-          <div v-if="isDropdownArrowOpen"
-            class="flex flex-col w-[1046px] bg-[#FFFFFF] border-collapse rounded-bl-md rounded-br-md border-[#E5E7E9] border-[1px] ml-4 px-6 py-6">
+          <div
+            v-if="isDropdownArrowOpen"
+            class="flex flex-col w-[1046px] bg-[#FFFFFF] border-collapse rounded-bl-md rounded-br-md border-[#E5E7E9] border-[1px] ml-4 px-6 py-6"
+          >
             <div class="flex items-center">
               <h1 class="w-[130px] h-[17px] font-sans text-[#333333] text-[14px] font-semibold">
                 No. Permintaan
@@ -722,7 +1231,7 @@ import { dateParsing } from '@/utils/helper';
                 </h1>
                 <span class="w-auto min-h-[17px] font-sans font-thin text-[#7F7F80] text-[14px] ml-4">{{
                   dataBerkas?.note
-                  || '-' }}</span>
+                    || '-' }}</span>
               </div>
             </div>
             <div class="flex items-center mt-6">
@@ -745,7 +1254,7 @@ import { dateParsing } from '@/utils/helper';
               </h1>
               <span class="w-[92px] h-[17px] text-[#7F7F80] font-sans font-thin text-[14px] ml-4">{{
                 dateParsing(dataBerkas?.dueDateStaff) ||
-                '-' }}</span>
+                  '-' }}</span>
               <div class="flex">
                 <h1 class="w-[130px] h-[17px] font-sans text-[14px] text-[#333333] font-semibold ml-[300px]">
                   Tanggal Diharapkan Selesai
@@ -757,21 +1266,38 @@ import { dateParsing } from '@/utils/helper';
           </div>
         </transition>
         <div
-          class="flex items-center mt-4 ml-4 w-[1046px] h-[48px] rounded-lg bg-[#FFFFFF] border-[#E5E7E9] border-[1px]">
+          class="flex items-center mt-4 ml-4 w-[1046px] h-[48px] rounded-lg bg-[#FFFFFF] border-[#E5E7E9] border-[1px]"
+        >
           <div class="w-[30px] h-[48px] bg-[#FFA229] rounded-tl-md rounded-bl-md" />
           <div class="text-[16px] font-sans font-semibold text-[#333333] ml-[10px] mt-[14.5px] mb-[14.5px]">
             Lingkup Pekerjaan
           </div>
-          <button class="ml-auto mr-4 flex py-1 px-1 rounded-full hover:bg-[#FFFFFF]" @click="toggleDropdownArrow1">
-            <svg :class="{ 'rotate-180': isDropdownArrowOpen1 }" class="w-4 h-4 text-[#2671D9]" fill="none"
-              stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          <button
+            class="ml-auto mr-4 flex py-1 px-1 rounded-full hover:bg-[#FFFFFF]"
+            @click="toggleDropdownArrow1"
+          >
+            <svg
+              :class="{ 'rotate-180': isDropdownArrowOpen1 }"
+              class="w-4 h-4 text-[#2671D9]"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"
+              />
             </svg>
           </button>
         </div>
         <transition name="fade">
-          <div v-if="isDropdownArrowOpen1"
-            class="flex flex-col w-[1046px] h-[270px] bg-[#FFFFFF] border-[#E5E7E9] border-[1px] ml-4 px-6 py-6 rounded-bl-md rounded-br-md">
+          <div
+            v-if="isDropdownArrowOpen1"
+            class="flex flex-col w-[1046px] h-[270px] bg-[#FFFFFF] border-[#E5E7E9] border-[1px] ml-4 px-6 py-6 rounded-bl-md rounded-br-md"
+          >
             <div class="flex items-center justify-between w-full px-4">
               <div class="flex flex-col gap-2 items-center">
                 <h1 class="w-[130px] h-[17px] font-sans text-[#333333] text-[14px] font-semibold">
@@ -804,52 +1330,86 @@ import { dateParsing } from '@/utils/helper';
                   <th class="p-2 border border-[#E5E7E9] w-[74px] h-[48px]">
                     <div class="flex items-center w-[74px]">
                       <span>No.</span>
-                      <svg width="14" height="10" class="ml-3" viewBox="0 0 14 10" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" clip-rule="evenodd"
+                      <svg
+                        width="14"
+                        height="10"
+                        class="ml-3"
+                        viewBox="0 0 14 10"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
                           d="M10.4252 0.144043C10.7073 0.144043 10.9359 0.364674 10.9359 0.636836L10.9359 8.3174L13.1282 6.20189C13.3276 6.00944 13.651 6.00944 13.8504 6.20189C14.0499 6.39434 14.0499 6.70636 13.8504 6.89881L10.7863 9.85556C10.6906 9.94798 10.5607 9.9999 10.4252 9.9999C10.2898 9.9999 10.1599 9.94798 10.0641 9.85556L7.00001 6.89881C6.80057 6.70636 6.80057 6.39434 7.00001 6.20189C7.19944 6.00944 7.52279 6.00944 7.72223 6.20189L9.91454 8.3174L9.91454 0.636836C9.91454 0.364674 10.1432 0.144043 10.4252 0.144043Z"
-                          fill="#93B8EC" />
+                          fill="#93B8EC"
+                        />
                         <path
                           d="M3.21369 0.144824C3.41312 -0.0476236 3.73647 -0.0476236 3.9359 0.144824L7.00001 3.10158C7.19945 3.29403 7.19945 3.60605 7.00001 3.79849C6.80058 3.99094 6.47723 3.99094 6.27779 3.79849L4.08548 1.68299V9.36355C4.08548 9.63571 3.85684 9.85634 3.57479 9.85634C3.29275 9.85634 3.06411 9.63571 3.06411 9.36355V1.68299L0.871794 3.79849C0.672359 3.99094 0.349011 3.99094 0.149576 3.79849C-0.0498587 3.60605 -0.0498587 3.29403 0.149576 3.10158L3.21369 0.144824Z"
-                          fill="#93B8EC" />
+                          fill="#93B8EC"
+                        />
                       </svg>
                     </div>
                   </th>
                   <th class="p-2 border border-[#E5E7E9]">
                     <div class="flex items-center justify-between">
                       <span class="px-3">Pekerjaan</span>
-                      <svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" clip-rule="evenodd"
+                      <svg
+                        width="14"
+                        height="10"
+                        viewBox="0 0 14 10"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
                           d="M10.4252 0.144043C10.7073 0.144043 10.9359 0.364674 10.9359 0.636836L10.9359 8.3174L13.1282 6.20189C13.3276 6.00944 13.651 6.00944 13.8504 6.20189C14.0499 6.39434 14.0499 6.70636 13.8504 6.89881L10.7863 9.85556C10.6906 9.94798 10.5607 9.9999 10.4252 9.9999C10.2898 9.9999 10.1599 9.94798 10.0641 9.85556L7.00001 6.89881C6.80057 6.70636 6.80057 6.39434 7.00001 6.20189C7.19944 6.00944 7.52279 6.00944 7.72223 6.20189L9.91454 8.3174L9.91454 0.636836C9.91454 0.364674 10.1432 0.144043 10.4252 0.144043Z"
-                          fill="#93B8EC" />
+                          fill="#93B8EC"
+                        />
                         <path
                           d="M3.21369 0.144824C3.41312 -0.0476236 3.73647 -0.0476236 3.9359 0.144824L7.00001 3.10158C7.19945 3.29403 7.19945 3.60605 7.00001 3.79849C6.80058 3.99094 6.47723 3.99094 6.27779 3.79849L4.08548 1.68299V9.36355C4.08548 9.63571 3.85684 9.85634 3.57479 9.85634C3.29275 9.85634 3.06411 9.63571 3.06411 9.36355V1.68299L0.871794 3.79849C0.672359 3.99094 0.349011 3.99094 0.149576 3.79849C-0.0498587 3.60605 -0.0498587 3.29403 0.149576 3.10158L3.21369 0.144824Z"
-                          fill="#93B8EC" />
+                          fill="#93B8EC"
+                        />
                       </svg>
                     </div>
                   </th>
                 </tr>
               </thead>
-              <tbody v-if="base == 'PKS'" class="h-[54px] w-[998px]">
-                <tr v-for="(item, index) in dataBerkas?.scopesPks" :key="index"
-                  class="bg-[#FFFFFF] border border-[#E5E7E9] text-[#333333] font-sans text-[14px] font-normal w-[900px] h-[22px]">
+              <tbody
+                v-if="base == 'PKS'"
+                class="h-[54px] w-[998px]"
+              >
+                <tr
+                  v-for="(item, index) in dataBerkas?.scopesPks"
+                  :key="index"
+                  class="bg-[#FFFFFF] border border-[#E5E7E9] text-[#333333] font-sans text-[14px] font-normal w-[900px] h-[22px]"
+                >
                   <td class="p-2 border border-[#E5E7E9]">
                     {{ index + 1 }}
                   </td>
                   <td
-                    class="p-2 border border-[#E5E7E9] text-[14px] text-left pl-5 font-sans font-normal text-[#333333]">
+                    class="p-2 border border-[#E5E7E9] text-[14px] text-left pl-5 font-sans font-normal text-[#333333]"
+                  >
                     {{ item.scopeName }}
                   </td>
                 </tr>
               </tbody>
-              <tbody v-else class="h-[54px] w-[998px]">
-                <tr v-for="(item, index) in dataBerkas?.scopesMou" :key="index"
-                  class="bg-[#FFFFFF] border border-[#E5E7E9] text-[#333333] font-sans text-[14px] font-normal w-[900px] h-[22px]">
+              <tbody
+                v-else
+                class="h-[54px] w-[998px]"
+              >
+                <tr
+                  v-for="(item, index) in dataBerkas?.scopesMou"
+                  :key="index"
+                  class="bg-[#FFFFFF] border border-[#E5E7E9] text-[#333333] font-sans text-[14px] font-normal w-[900px] h-[22px]"
+                >
                   <td class="p-2 border border-[#E5E7E9]">
                     {{ index + 1 }}
                   </td>
                   <td
-                    class="p-2 border border-[#E5E7E9] text-[14px] text-left pl-5 font-sans font-normal text-[#333333]">
+                    class="p-2 border border-[#E5E7E9] text-[14px] text-left pl-5 font-sans font-normal text-[#333333]"
+                  >
                     {{ item.scopeName }}
                   </td>
                 </tr>
@@ -858,21 +1418,38 @@ import { dateParsing } from '@/utils/helper';
           </div>
         </transition>
         <div
-          class="flex items-center mt-4 ml-4 w-[1046px] h-[48px] rounded-lg bg-[#FFFFFF] border-[#E5E7E9] border-[1px]">
+          class="flex items-center mt-4 ml-4 w-[1046px] h-[48px] rounded-lg bg-[#FFFFFF] border-[#E5E7E9] border-[1px]"
+        >
           <div class="w-[30px] h-[48px] bg-[#F42495] rounded-tl-md rounded-bl-md" />
           <div class="text-[16px] font-sans font-semibold text-[#333333] ml-[10px] mt-[14.5px] mb-[14.5px]">
             Berkas Lampiran
           </div>
-          <button class="ml-auto mr-4 flex py-1 px-1 rounded-full hover:bg-[#FFFFFF]" @click="toggleDropdownArrow3">
-            <svg :class="{ 'rotate-180': isDropdownArrowOpen3 }" class="w-4 h-4 text-[#2671D9]" fill="none"
-              stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          <button
+            class="ml-auto mr-4 flex py-1 px-1 rounded-full hover:bg-[#FFFFFF]"
+            @click="toggleDropdownArrow3"
+          >
+            <svg
+              :class="{ 'rotate-180': isDropdownArrowOpen3 }"
+              class="w-4 h-4 text-[#2671D9]"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"
+              />
             </svg>
           </button>
         </div>
         <transition name="fade">
-          <div v-if="isDropdownArrowOpen3"
-            class="flex flex-wrap w-[1046px] bg-[#FFFFFF] border-[#E5E7E9] border-[1px] ml-4 px-5 py-6 rounded-bl-md rounded-br-md gap-6">
+          <div
+            v-if="isDropdownArrowOpen3"
+            class="flex flex-wrap w-[1046px] bg-[#FFFFFF] border-[#E5E7E9] border-[1px] ml-4 px-5 py-6 rounded-bl-md rounded-br-md gap-6"
+          >
             <!-- Proposal Mitra -->
             <div class="flex flex-col w-[316.6px]">
               <div class="flex items-center">
@@ -881,21 +1458,39 @@ import { dateParsing } from '@/utils/helper';
                 </h1>
                 <span class="text-[#B3B3B3] font-sans text-[12px] font-light mt-1 ml-1">(Opsional)</span>
               </div>
-              <a v-if="fileDetails.ProposalMitra.fileName" :href="fileDetails.ProposalMitra.linkDownload"
-                class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center">
-                <svg width="45" height="46" class="mx-4 my-2" viewBox="0 0 45 46" fill="none"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="22.5" cy="23" r="22.5" fill="#E9F1FB" />
+              <a
+                v-if="fileDetails.ProposalMitra.fileName"
+                :href="fileDetails.ProposalMitra.linkDownload"
+                class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center"
+              >
+                <svg
+                  width="45"
+                  height="46"
+                  class="mx-4 my-2"
+                  viewBox="0 0 45 46"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle
+                    cx="22.5"
+                    cy="23"
+                    r="22.5"
+                    fill="#E9F1FB"
+                  />
                   <path
                     d="M30 20.1312C29.9902 20.0451 29.9714 19.9603 29.9437 19.8781V19.7937C29.8987 19.6974 29.8385 19.6087 29.7656 19.5313L24.1406 13.9062C24.0631 13.8333 23.9745 13.7732 23.8781 13.7281H23.7937C23.6985 13.6735 23.5933 13.6384 23.4844 13.625H17.8125C17.0666 13.625 16.3512 13.9213 15.8238 14.4488C15.2963 14.9762 15 15.6916 15 16.4375V29.5625C15 30.3084 15.2963 31.0238 15.8238 31.5512C16.3512 32.0787 17.0666 32.375 17.8125 32.375H27.1875C27.9334 32.375 28.6488 32.0787 29.1762 31.5512C29.7037 31.0238 30 30.3084 30 29.5625V20.1875V20.1312ZM24.375 16.8219L26.8031 19.25H25.3125C25.0639 19.25 24.8254 19.1512 24.6496 18.9754C24.4738 18.7996 24.375 18.5611 24.375 18.3125V16.8219ZM28.125 29.5625C28.125 29.8111 28.0262 30.0496 27.8504 30.2254C27.6746 30.4012 27.4361 30.5 27.1875 30.5H17.8125C17.5639 30.5 17.3254 30.4012 17.1496 30.2254C16.9738 30.0496 16.875 29.8111 16.875 29.5625V16.4375C16.875 16.1889 16.9738 15.9504 17.1496 15.7746C17.3254 15.5988 17.5639 15.5 17.8125 15.5H22.5V18.3125C22.5 19.0584 22.7963 19.7738 23.3238 20.3012C23.8512 20.8287 24.5666 21.125 25.3125 21.125H28.125V29.5625Z"
-                    fill="#2671D9" />
+                    fill="#2671D9"
+                  />
                 </svg>
                 <div class="py-2 w-[200px] flex-grow truncate pe-3">
                   <span class="text-[#333333] text-sm font-semibold">{{ fileDetails.ProposalMitra.fileName }}</span>
                   <p class="text-[#9E9E9E] text-xs">{{ fileDetails.ProposalMitra.fileSize }}</p>
                 </div>
               </a>
-              <div v-else class="w-[333px] h-auto">
+              <div
+                v-else
+                class="w-[333px] h-auto"
+              >
                 <span class="text-[#9E9E9E] text-sm font-semibold">File belum diupload</span>
               </div>
             </div>
@@ -907,22 +1502,40 @@ import { dateParsing } from '@/utils/helper';
                 </h1>
                 <span class="text-[#B3B3B3] font-sans text-[12px] font-light mt-1 ml-1">(Opsional)</span>
               </div>
-              <a v-if="fileDetails.DokumenSuratMenyurat.fileName" :href="fileDetails.DokumenSuratMenyurat.linkDownload"
-                class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center">
-                <svg width="45" height="46" class="mx-4 my-2" viewBox="0 0 45 46" fill="none"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="22.5" cy="23" r="22.5" fill="#E9F1FB" />
+              <a
+                v-if="fileDetails.DokumenSuratMenyurat.fileName"
+                :href="fileDetails.DokumenSuratMenyurat.linkDownload"
+                class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center"
+              >
+                <svg
+                  width="45"
+                  height="46"
+                  class="mx-4 my-2"
+                  viewBox="0 0 45 46"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle
+                    cx="22.5"
+                    cy="23"
+                    r="22.5"
+                    fill="#E9F1FB"
+                  />
                   <path
                     d="M30 20.1312C29.9902 20.0451 29.9714 19.9603 29.9437 19.8781V19.7937C29.8987 19.6974 29.8385 19.6087 29.7656 19.5313L24.1406 13.9062C24.0631 13.8333 23.9745 13.7732 23.8781 13.7281H23.7937C23.6985 13.6735 23.5933 13.6384 23.4844 13.625H17.8125C17.0666 13.625 16.3512 13.9213 15.8238 14.4488C15.2963 14.9762 15 15.6916 15 16.4375V29.5625C15 30.3084 15.2963 31.0238 15.8238 31.5512C16.3512 32.0787 17.0666 32.375 17.8125 32.375H27.1875C27.9334 32.375 28.6488 32.0787 29.1762 31.5512C29.7037 31.0238 30 30.3084 30 29.5625V20.1875V20.1312ZM24.375 16.8219L26.8031 19.25H25.3125C25.0639 19.25 24.8254 19.1512 24.6496 18.9754C24.4738 18.7996 24.375 18.5611 24.375 18.3125V16.8219ZM28.125 29.5625C28.125 29.8111 28.0262 30.0496 27.8504 30.2254C27.6746 30.4012 27.4361 30.5 27.1875 30.5H17.8125C17.5639 30.5 17.3254 30.4012 17.1496 30.2254C16.9738 30.0496 16.875 29.8111 16.875 29.5625V16.4375C16.875 16.1889 16.9738 15.9504 17.1496 15.7746C17.3254 15.5988 17.5639 15.5 17.8125 15.5H22.5V18.3125C22.5 19.0584 22.7963 19.7738 23.3238 20.3012C23.8512 20.8287 24.5666 21.125 25.3125 21.125H28.125V29.5625Z"
-                    fill="#2671D9" />
+                    fill="#2671D9"
+                  />
                 </svg>
                 <div class="py-2 w-[200px] flex-grow truncate pe-3">
                   <span class="text-[#333333] text-sm font-semibold">{{ fileDetails.DokumenSuratMenyurat.fileName
-                    }}</span>
+                  }}</span>
                   <p class="text-[#9E9E9E] text-xs">{{ fileDetails.DokumenSuratMenyurat.fileSize }}</p>
                 </div>
               </a>
-              <div v-else class="w-[333px] h-auto">
+              <div
+                v-else
+                class="w-[333px] h-auto"
+              >
                 <span class="text-[#9E9E9E] text-sm font-semibold">File belum diupload</span>
               </div>
             </div>
@@ -934,42 +1547,77 @@ import { dateParsing } from '@/utils/helper';
                 </h1>
                 <span class="text-[#B3B3B3] font-sans text-[12px] font-light mt-1 ml-1">(Opsional)</span>
               </div>
-              <a v-if="fileDetails.DokumenLainnya.fileName" :href="fileDetails.DokumenLainnya.linkDownload"
-                class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center">
-                <svg width="45" height="46" class="mx-4 my-2" viewBox="0 0 45 46" fill="none"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="22.5" cy="23" r="22.5" fill="#E9F1FB" />
+              <a
+                v-if="fileDetails.DokumenLainnya.fileName"
+                :href="fileDetails.DokumenLainnya.linkDownload"
+                class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center"
+              >
+                <svg
+                  width="45"
+                  height="46"
+                  class="mx-4 my-2"
+                  viewBox="0 0 45 46"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle
+                    cx="22.5"
+                    cy="23"
+                    r="22.5"
+                    fill="#E9F1FB"
+                  />
                   <path
                     d="M30 20.1312C29.9902 20.0451 29.9714 19.9603 29.9437 19.8781V19.7937C29.8987 19.6974 29.8385 19.6087 29.7656 19.5313L24.1406 13.9062C24.0631 13.8333 23.9745 13.7732 23.8781 13.7281H23.7937C23.6985 13.6735 23.5933 13.6384 23.4844 13.625H17.8125C17.0666 13.625 16.3512 13.9213 15.8238 14.4488C15.2963 14.9762 15 15.6916 15 16.4375V29.5625C15 30.3084 15.2963 31.0238 15.8238 31.5512C16.3512 32.0787 17.0666 32.375 17.8125 32.375H27.1875C27.9334 32.375 28.6488 32.0787 29.1762 31.5512C29.7037 31.0238 30 30.3084 30 29.5625V20.1875V20.1312ZM24.375 16.8219L26.8031 19.25H25.3125C25.0639 19.25 24.8254 19.1512 24.6496 18.9754C24.4738 18.7996 24.375 18.5611 24.375 18.3125V16.8219ZM28.125 29.5625C28.125 29.8111 28.0262 30.0496 27.8504 30.2254C27.6746 30.4012 27.4361 30.5 27.1875 30.5H17.8125C17.5639 30.5 17.3254 30.4012 17.1496 30.2254C16.9738 30.0496 16.875 29.8111 16.875 29.5625V16.4375C16.875 16.1889 16.9738 15.9504 17.1496 15.7746C17.3254 15.5988 17.5639 15.5 17.8125 15.5H22.5V18.3125C22.5 19.0584 22.7963 19.7738 23.3238 20.3012C23.8512 20.8287 24.5666 21.125 25.3125 21.125H28.125V29.5625Z"
-                    fill="#2671D9" />
+                    fill="#2671D9"
+                  />
                 </svg>
                 <div class="py-2 w-[200px] flex-grow truncate pe-3">
                   <span class="text-[#333333] text-sm font-semibold">{{ fileDetails.DokumenLainnya.fileName }}</span>
                   <p class="text-[#9E9E9E] text-xs">{{ fileDetails.DokumenLainnya.fileSize }}</p>
                 </div>
               </a>
-              <div v-else class="w-[333px] h-auto">
+              <div
+                v-else
+                class="w-[333px] h-auto"
+              >
                 <span class="text-[#9E9E9E] text-sm font-semibold">File belum diupload</span>
               </div>
             </div>
           </div>
         </transition>
         <div
-          class="flex items-center mt-4 ml-4 w-[1046px] h-[48px] rounded-lg bg-[#FFFFFF] border-[#E5E7E9] border-[1px]">
+          class="flex items-center mt-4 ml-4 w-[1046px] h-[48px] rounded-lg bg-[#FFFFFF] border-[#E5E7E9] border-[1px]"
+        >
           <div class="w-[30px] h-[48px] bg-[#CE8861] rounded-tl-md rounded-bl-md" />
           <div class="text-[16px] font-sans font-semibold text-[#333333] ml-[10px] mt-[14.5px] mb-[14.5px]">
             Dokumen Progress Kemitraan
           </div>
-          <button class="ml-auto mr-4 flex py-1 px-1 rounded-full hover:bg-[#FFFFFF]" @click="toggleDropdownArrow4">
-            <svg :class="{ 'rotate-180': isDropdownArrowOpen4 }" class="w-4 h-4 text-[#2671D9]" fill="none"
-              stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          <button
+            class="ml-auto mr-4 flex py-1 px-1 rounded-full hover:bg-[#FFFFFF]"
+            @click="toggleDropdownArrow4"
+          >
+            <svg
+              :class="{ 'rotate-180': isDropdownArrowOpen4 }"
+              class="w-4 h-4 text-[#2671D9]"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"
+              />
             </svg>
           </button>
         </div>
         <transition name="fade">
-          <div v-if="isDropdownArrowOpen4"
-            class="grid grid-cols-3 w-[1046px] bg-[#FFFFFF] border-[#E5E7E9] border-[1px] ml-4 px-5 py-6 rounded-bl-md rounded-br-md gap-6">
+          <div
+            v-if="isDropdownArrowOpen4"
+            class="grid grid-cols-3 w-[1046px] bg-[#FFFFFF] border-[#E5E7E9] border-[1px] ml-4 px-5 py-6 rounded-bl-md rounded-br-md gap-6"
+          >
             <!-- Surat Penawaran -->
             <div class="flex flex-col w-[316.6px]">
               <div class="flex items-center">
@@ -977,21 +1625,39 @@ import { dateParsing } from '@/utils/helper';
                   Surat Penawaran
                 </h1>
               </div>
-              <a v-if="fileName1" :href="linkDownloadFile1"
-                class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center">
-                <svg width="45" height="46" class="mx-4 my-2" viewBox="0 0 45 46" fill="none"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="22.5" cy="23" r="22.5" fill="#E9F1FB" />
+              <a
+                v-if="fileName1"
+                :href="linkDownloadFile1"
+                class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center"
+              >
+                <svg
+                  width="45"
+                  height="46"
+                  class="mx-4 my-2"
+                  viewBox="0 0 45 46"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle
+                    cx="22.5"
+                    cy="23"
+                    r="22.5"
+                    fill="#E9F1FB"
+                  />
                   <path
                     d="M30 20.1312C29.9902 20.0451 29.9714 19.9603 29.9437 19.8781V19.7937C29.8987 19.6974 29.8385 19.6087 29.7656 19.5313L24.1406 13.9062C24.0631 13.8333 23.9745 13.7732 23.8781 13.7281H23.7937C23.6985 13.6735 23.5933 13.6384 23.4844 13.625H17.8125C17.0666 13.625 16.3512 13.9213 15.8238 14.4488C15.2963 14.9762 15 15.6916 15 16.4375V29.5625C15 30.3084 15.2963 31.0238 15.8238 31.5512C16.3512 32.0787 17.0666 32.375 17.8125 32.375H27.1875C27.9334 32.375 28.6488 32.0787 29.1762 31.5512C29.7037 31.0238 30 30.3084 30 29.5625V20.1875V20.1312ZM24.375 16.8219L26.8031 19.25H25.3125C25.0639 19.25 24.8254 19.1512 24.6496 18.9754C24.4738 18.7996 24.375 18.5611 24.375 18.3125V16.8219ZM28.125 29.5625C28.125 29.8111 28.0262 30.0496 27.8504 30.2254C27.6746 30.4012 27.4361 30.5 27.1875 30.5H17.8125C17.5639 30.5 17.3254 30.4012 17.1496 30.2254C16.9738 30.0496 16.875 29.8111 16.875 29.5625V16.4375C16.875 16.1889 16.9738 15.9504 17.1496 15.7746C17.3254 15.5988 17.5639 15.5 17.8125 15.5H22.5V18.3125C22.5 19.0584 22.7963 19.7738 23.3238 20.3012C23.8512 20.8287 24.5666 21.125 25.3125 21.125H28.125V29.5625Z"
-                    fill="#2671D9" />
+                    fill="#2671D9"
+                  />
                 </svg>
                 <div class="py-2 w-[200px] flex-grow truncate pe-3">
                   <span class="text-[#333333] text-sm font-semibold">{{ fileName1 }}</span>
                   <p class="text-[#9E9E9E] text-xs">{{ fileSize1 }}</p>
                 </div>
               </a>
-              <div v-else class="w-[333px] h-auto">
+              <div
+                v-else
+                class="w-[333px] h-auto"
+              >
                 <span class="text-[#9E9E9E] text-sm font-semibold">File belum diupload</span>
               </div>
             </div>
@@ -1002,21 +1668,39 @@ import { dateParsing } from '@/utils/helper';
                   Proposal
                 </h1>
               </div>
-              <a v-if="fileName2" :href="linkDownloadFile2"
-                class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center">
-                <svg width="45" height="46" class="mx-4 my-2" viewBox="0 0 45 46" fill="none"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="22.5" cy="23" r="22.5" fill="#E9F1FB" />
+              <a
+                v-if="fileName2"
+                :href="linkDownloadFile2"
+                class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center"
+              >
+                <svg
+                  width="45"
+                  height="46"
+                  class="mx-4 my-2"
+                  viewBox="0 0 45 46"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle
+                    cx="22.5"
+                    cy="23"
+                    r="22.5"
+                    fill="#E9F1FB"
+                  />
                   <path
                     d="M30 20.1312C29.9902 20.0451 29.9714 19.9603 29.9437 19.8781V19.7937C29.8987 19.6974 29.8385 19.6087 29.7656 19.5313L24.1406 13.9062C24.0631 13.8333 23.9745 13.7732 23.8781 13.7281H23.7937C23.6985 13.6735 23.5933 13.6384 23.4844 13.625H17.8125C17.0666 13.625 16.3512 13.9213 15.8238 14.4488C15.2963 14.9762 15 15.6916 15 16.4375V29.5625C15 30.3084 15.2963 31.0238 15.8238 31.5512C16.3512 32.0787 17.0666 32.375 17.8125 32.375H27.1875C27.9334 32.375 28.6488 32.0787 29.1762 31.5512C29.7037 31.0238 30 30.3084 30 29.5625V20.1875V20.1312ZM24.375 16.8219L26.8031 19.25H25.3125C25.0639 19.25 24.8254 19.1512 24.6496 18.9754C24.4738 18.7996 24.375 18.5611 24.375 18.3125V16.8219ZM28.125 29.5625C28.125 29.8111 28.0262 30.0496 27.8504 30.2254C27.6746 30.4012 27.4361 30.5 27.1875 30.5H17.8125C17.5639 30.5 17.3254 30.4012 17.1496 30.2254C16.9738 30.0496 16.875 29.8111 16.875 29.5625V16.4375C16.875 16.1889 16.9738 15.9504 17.1496 15.7746C17.3254 15.5988 17.5639 15.5 17.8125 15.5H22.5V18.3125C22.5 19.0584 22.7963 19.7738 23.3238 20.3012C23.8512 20.8287 24.5666 21.125 25.3125 21.125H28.125V29.5625Z"
-                    fill="#2671D9" />
+                    fill="#2671D9"
+                  />
                 </svg>
                 <div class="py-2 w-[200px] flex-grow truncate pe-3">
                   <span class="text-[#333333] text-sm font-semibold">{{ fileName2 }}</span>
                   <p class="text-[#9E9E9E] text-xs">{{ fileSize2 }}</p>
                 </div>
               </a>
-              <div v-else class="w-[333px] h-auto">
+              <div
+                v-else
+                class="w-[333px] h-auto"
+              >
                 <span class="text-[#9E9E9E] text-sm font-semibold">File belum diupload</span>
               </div>
             </div>
@@ -1028,21 +1712,39 @@ import { dateParsing } from '@/utils/helper';
                   Draft MoU/NDA
                 </h1>
               </div>
-              <a v-if="fileName3" :href="linkDownloadFile3"
-                class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center">
-                <svg width="45" height="46" class="mx-4 my-2" viewBox="0 0 45 46" fill="none"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="22.5" cy="23" r="22.5" fill="#E9F1FB" />
+              <a
+                v-if="fileName3"
+                :href="linkDownloadFile3"
+                class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center"
+              >
+                <svg
+                  width="45"
+                  height="46"
+                  class="mx-4 my-2"
+                  viewBox="0 0 45 46"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle
+                    cx="22.5"
+                    cy="23"
+                    r="22.5"
+                    fill="#E9F1FB"
+                  />
                   <path
                     d="M30 20.1312C29.9902 20.0451 29.9714 19.9603 29.9437 19.8781V19.7937C29.8987 19.6974 29.8385 19.6087 29.7656 19.5313L24.1406 13.9062C24.0631 13.8333 23.9745 13.7732 23.8781 13.7281H23.7937C23.6985 13.6735 23.5933 13.6384 23.4844 13.625H17.8125C17.0666 13.625 16.3512 13.9213 15.8238 14.4488C15.2963 14.9762 15 15.6916 15 16.4375V29.5625C15 30.3084 15.2963 31.0238 15.8238 31.5512C16.3512 32.0787 17.0666 32.375 17.8125 32.375H27.1875C27.9334 32.375 28.6488 32.0787 29.1762 31.5512C29.7037 31.0238 30 30.3084 30 29.5625V20.1875V20.1312ZM24.375 16.8219L26.8031 19.25H25.3125C25.0639 19.25 24.8254 19.1512 24.6496 18.9754C24.4738 18.7996 24.375 18.5611 24.375 18.3125V16.8219ZM28.125 29.5625C28.125 29.8111 28.0262 30.0496 27.8504 30.2254C27.6746 30.4012 27.4361 30.5 27.1875 30.5H17.8125C17.5639 30.5 17.3254 30.4012 17.1496 30.2254C16.9738 30.0496 16.875 29.8111 16.875 29.5625V16.4375C16.875 16.1889 16.9738 15.9504 17.1496 15.7746C17.3254 15.5988 17.5639 15.5 17.8125 15.5H22.5V18.3125C22.5 19.0584 22.7963 19.7738 23.3238 20.3012C23.8512 20.8287 24.5666 21.125 25.3125 21.125H28.125V29.5625Z"
-                    fill="#2671D9" />
+                    fill="#2671D9"
+                  />
                 </svg>
                 <div class="py-2 w-[200px] flex-grow truncate pe-3">
                   <span class="text-[#333333] text-sm font-semibold">{{ fileName3 }}</span>
                   <p class="text-[#9E9E9E] text-xs">{{ fileSize3 }}</p>
                 </div>
               </a>
-              <div v-else class="w-[333px] h-auto">
+              <div
+                v-else
+                class="w-[333px] h-auto"
+              >
                 <span class="text-[#9E9E9E] text-sm font-semibold">File belum diupload</span>
               </div>
             </div>
@@ -1053,21 +1755,39 @@ import { dateParsing } from '@/utils/helper';
                   Review User
                 </h1>
               </div>
-              <a v-if="fileName4" :href="linkDownloadFile4"
-                class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center">
-                <svg width="45" height="46" class="mx-4 my-2" viewBox="0 0 45 46" fill="none"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="22.5" cy="23" r="22.5" fill="#E9F1FB" />
+              <a
+                v-if="fileName4"
+                :href="linkDownloadFile4"
+                class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center"
+              >
+                <svg
+                  width="45"
+                  height="46"
+                  class="mx-4 my-2"
+                  viewBox="0 0 45 46"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle
+                    cx="22.5"
+                    cy="23"
+                    r="22.5"
+                    fill="#E9F1FB"
+                  />
                   <path
                     d="M30 20.1312C29.9902 20.0451 29.9714 19.9603 29.9437 19.8781V19.7937C29.8987 19.6974 29.8385 19.6087 29.7656 19.5313L24.1406 13.9062C24.0631 13.8333 23.9745 13.7732 23.8781 13.7281H23.7937C23.6985 13.6735 23.5933 13.6384 23.4844 13.625H17.8125C17.0666 13.625 16.3512 13.9213 15.8238 14.4488C15.2963 14.9762 15 15.6916 15 16.4375V29.5625C15 30.3084 15.2963 31.0238 15.8238 31.5512C16.3512 32.0787 17.0666 32.375 17.8125 32.375H27.1875C27.9334 32.375 28.6488 32.0787 29.1762 31.5512C29.7037 31.0238 30 30.3084 30 29.5625V20.1875V20.1312ZM24.375 16.8219L26.8031 19.25H25.3125C25.0639 19.25 24.8254 19.1512 24.6496 18.9754C24.4738 18.7996 24.375 18.5611 24.375 18.3125V16.8219ZM28.125 29.5625C28.125 29.8111 28.0262 30.0496 27.8504 30.2254C27.6746 30.4012 27.4361 30.5 27.1875 30.5H17.8125C17.5639 30.5 17.3254 30.4012 17.1496 30.2254C16.9738 30.0496 16.875 29.8111 16.875 29.5625V16.4375C16.875 16.1889 16.9738 15.9504 17.1496 15.7746C17.3254 15.5988 17.5639 15.5 17.8125 15.5H22.5V18.3125C22.5 19.0584 22.7963 19.7738 23.3238 20.3012C23.8512 20.8287 24.5666 21.125 25.3125 21.125H28.125V29.5625Z"
-                    fill="#2671D9" />
+                    fill="#2671D9"
+                  />
                 </svg>
                 <div class="py-2 w-[200px] flex-grow truncate pe-3">
                   <span class="text-[#333333] text-sm font-semibold">{{ fileName4 }}</span>
                   <p class="text-[#9E9E9E] text-xs">{{ fileSize4 }}</p>
                 </div>
               </a>
-              <div v-else class="w-[333px] h-auto">
+              <div
+                v-else
+                class="w-[333px] h-auto"
+              >
                 <span class="text-[#9E9E9E] text-sm font-semibold">File belum diupload</span>
               </div>
             </div>
@@ -1078,21 +1798,39 @@ import { dateParsing } from '@/utils/helper';
                   Review Legal
                 </h1>
               </div>
-              <a v-if="fileName5" :href="linkDownloadFile5"
-                class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center">
-                <svg width="45" height="46" class="mx-4 my-2" viewBox="0 0 45 46" fill="none"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="22.5" cy="23" r="22.5" fill="#E9F1FB" />
+              <a
+                v-if="fileName5"
+                :href="linkDownloadFile5"
+                class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center"
+              >
+                <svg
+                  width="45"
+                  height="46"
+                  class="mx-4 my-2"
+                  viewBox="0 0 45 46"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle
+                    cx="22.5"
+                    cy="23"
+                    r="22.5"
+                    fill="#E9F1FB"
+                  />
                   <path
                     d="M30 20.1312C29.9902 20.0451 29.9714 19.9603 29.9437 19.8781V19.7937C29.8987 19.6974 29.8385 19.6087 29.7656 19.5313L24.1406 13.9062C24.0631 13.8333 23.9745 13.7732 23.8781 13.7281H23.7937C23.6985 13.6735 23.5933 13.6384 23.4844 13.625H17.8125C17.0666 13.625 16.3512 13.9213 15.8238 14.4488C15.2963 14.9762 15 15.6916 15 16.4375V29.5625C15 30.3084 15.2963 31.0238 15.8238 31.5512C16.3512 32.0787 17.0666 32.375 17.8125 32.375H27.1875C27.9334 32.375 28.6488 32.0787 29.1762 31.5512C29.7037 31.0238 30 30.3084 30 29.5625V20.1875V20.1312ZM24.375 16.8219L26.8031 19.25H25.3125C25.0639 19.25 24.8254 19.1512 24.6496 18.9754C24.4738 18.7996 24.375 18.5611 24.375 18.3125V16.8219ZM28.125 29.5625C28.125 29.8111 28.0262 30.0496 27.8504 30.2254C27.6746 30.4012 27.4361 30.5 27.1875 30.5H17.8125C17.5639 30.5 17.3254 30.4012 17.1496 30.2254C16.9738 30.0496 16.875 29.8111 16.875 29.5625V16.4375C16.875 16.1889 16.9738 15.9504 17.1496 15.7746C17.3254 15.5988 17.5639 15.5 17.8125 15.5H22.5V18.3125C22.5 19.0584 22.7963 19.7738 23.3238 20.3012C23.8512 20.8287 24.5666 21.125 25.3125 21.125H28.125V29.5625Z"
-                    fill="#2671D9" />
+                    fill="#2671D9"
+                  />
                 </svg>
                 <div class="py-2 w-[200px] flex-grow truncate pe-3">
                   <span class="text-[#333333] text-sm font-semibold">{{ fileName5 }}</span>
                   <p class="text-[#9E9E9E] text-xs">{{ fileSize5 }}</p>
                 </div>
               </a>
-              <div v-else class="w-[333px] h-auto">
+              <div
+                v-else
+                class="w-[333px] h-auto"
+              >
                 <span class="text-[#9E9E9E] text-sm font-semibold">File belum diupload</span>
               </div>
             </div>
@@ -1103,21 +1841,39 @@ import { dateParsing } from '@/utils/helper';
                   Riview Mitra
                 </h1>
               </div>
-              <a v-if="fileName6" :href="linkDownloadFile6"
-                class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center">
-                <svg width="45" height="46" class="mx-4 my-2" viewBox="0 0 45 46" fill="none"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="22.5" cy="23" r="22.5" fill="#E9F1FB" />
+              <a
+                v-if="fileName6"
+                :href="linkDownloadFile6"
+                class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center"
+              >
+                <svg
+                  width="45"
+                  height="46"
+                  class="mx-4 my-2"
+                  viewBox="0 0 45 46"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle
+                    cx="22.5"
+                    cy="23"
+                    r="22.5"
+                    fill="#E9F1FB"
+                  />
                   <path
                     d="M30 20.1312C29.9902 20.0451 29.9714 19.9603 29.9437 19.8781V19.7937C29.8987 19.6974 29.8385 19.6087 29.7656 19.5313L24.1406 13.9062C24.0631 13.8333 23.9745 13.7732 23.8781 13.7281H23.7937C23.6985 13.6735 23.5933 13.6384 23.4844 13.625H17.8125C17.0666 13.625 16.3512 13.9213 15.8238 14.4488C15.2963 14.9762 15 15.6916 15 16.4375V29.5625C15 30.3084 15.2963 31.0238 15.8238 31.5512C16.3512 32.0787 17.0666 32.375 17.8125 32.375H27.1875C27.9334 32.375 28.6488 32.0787 29.1762 31.5512C29.7037 31.0238 30 30.3084 30 29.5625V20.1875V20.1312ZM24.375 16.8219L26.8031 19.25H25.3125C25.0639 19.25 24.8254 19.1512 24.6496 18.9754C24.4738 18.7996 24.375 18.5611 24.375 18.3125V16.8219ZM28.125 29.5625C28.125 29.8111 28.0262 30.0496 27.8504 30.2254C27.6746 30.4012 27.4361 30.5 27.1875 30.5H17.8125C17.5639 30.5 17.3254 30.4012 17.1496 30.2254C16.9738 30.0496 16.875 29.8111 16.875 29.5625V16.4375C16.875 16.1889 16.9738 15.9504 17.1496 15.7746C17.3254 15.5988 17.5639 15.5 17.8125 15.5H22.5V18.3125C22.5 19.0584 22.7963 19.7738 23.3238 20.3012C23.8512 20.8287 24.5666 21.125 25.3125 21.125H28.125V29.5625Z"
-                    fill="#2671D9" />
+                    fill="#2671D9"
+                  />
                 </svg>
                 <div class="py-2 w-[200px] flex-grow truncate pe-3">
                   <span class="text-[#333333] text-sm font-semibold">{{ fileName6 }}</span>
                   <p class="text-[#9E9E9E] text-xs">{{ fileSize6 }}</p>
                 </div>
               </a>
-              <div v-else class="w-[333px] h-auto">
+              <div
+                v-else
+                class="w-[333px] h-auto"
+              >
                 <span class="text-[#9E9E9E] text-sm font-semibold">File belum diupload</span>
               </div>
             </div>
@@ -1129,21 +1885,39 @@ import { dateParsing } from '@/utils/helper';
                   MoU/NDA
                 </h1>
               </div>
-              <a v-if="fileName7" :href="linkDownloadFile7"
-                class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center">
-                <svg width="45" height="46" class="mx-4 my-2" viewBox="0 0 45 46" fill="none"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="22.5" cy="23" r="22.5" fill="#E9F1FB" />
+              <a
+                v-if="fileName7"
+                :href="linkDownloadFile7"
+                class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center"
+              >
+                <svg
+                  width="45"
+                  height="46"
+                  class="mx-4 my-2"
+                  viewBox="0 0 45 46"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle
+                    cx="22.5"
+                    cy="23"
+                    r="22.5"
+                    fill="#E9F1FB"
+                  />
                   <path
                     d="M30 20.1312C29.9902 20.0451 29.9714 19.9603 29.9437 19.8781V19.7937C29.8987 19.6974 29.8385 19.6087 29.7656 19.5313L24.1406 13.9062C24.0631 13.8333 23.9745 13.7732 23.8781 13.7281H23.7937C23.6985 13.6735 23.5933 13.6384 23.4844 13.625H17.8125C17.0666 13.625 16.3512 13.9213 15.8238 14.4488C15.2963 14.9762 15 15.6916 15 16.4375V29.5625C15 30.3084 15.2963 31.0238 15.8238 31.5512C16.3512 32.0787 17.0666 32.375 17.8125 32.375H27.1875C27.9334 32.375 28.6488 32.0787 29.1762 31.5512C29.7037 31.0238 30 30.3084 30 29.5625V20.1875V20.1312ZM24.375 16.8219L26.8031 19.25H25.3125C25.0639 19.25 24.8254 19.1512 24.6496 18.9754C24.4738 18.7996 24.375 18.5611 24.375 18.3125V16.8219ZM28.125 29.5625C28.125 29.8111 28.0262 30.0496 27.8504 30.2254C27.6746 30.4012 27.4361 30.5 27.1875 30.5H17.8125C17.5639 30.5 17.3254 30.4012 17.1496 30.2254C16.9738 30.0496 16.875 29.8111 16.875 29.5625V16.4375C16.875 16.1889 16.9738 15.9504 17.1496 15.7746C17.3254 15.5988 17.5639 15.5 17.8125 15.5H22.5V18.3125C22.5 19.0584 22.7963 19.7738 23.3238 20.3012C23.8512 20.8287 24.5666 21.125 25.3125 21.125H28.125V29.5625Z"
-                    fill="#2671D9" />
+                    fill="#2671D9"
+                  />
                 </svg>
                 <div class="py-2 w-[200px] flex-grow truncate pe-3">
                   <span class="text-[#333333] text-sm font-semibold">{{ fileName7 }}</span>
                   <p class="text-[#9E9E9E] text-xs">{{ fileSize7 }}</p>
                 </div>
               </a>
-              <div v-else class="w-[333px] h-auto">
+              <div
+                v-else
+                class="w-[333px] h-auto"
+              >
                 <span class="text-[#9E9E9E] text-sm font-semibold">File belum diupload</span>
               </div>
             </div>
@@ -1157,7 +1931,8 @@ import { dateParsing } from '@/utils/helper';
               </h1>
             </div>
             <div
-              class="w-full h-[88px] bg-[#E0E0E0] border-[#E5E7E9] border-[1px] rounded-lg mt-2 flex items-start justify-start">
+              class="w-full h-[88px] bg-[#E0E0E0] border-[#E5E7E9] border-[1px] rounded-lg mt-2 flex items-start justify-start"
+            >
               <div class="flex p-4">
                 <div class="ml-4">
                   <span class="block text-[#333333] font-sans text-[14px]">{{ dataBerkas?.responseText }}</span>
@@ -1172,7 +1947,8 @@ import { dateParsing } from '@/utils/helper';
               </h1>
             </div>
             <div
-              class="w-full h-[88px] bg-[#E0E0E0] border-[#E5E7E9] border-[1px] rounded-lg mt-2 flex items-start justify-start">
+              class="w-full h-[88px] bg-[#E0E0E0] border-[#E5E7E9] border-[1px] rounded-lg mt-2 flex items-start justify-start"
+            >
               <div class="flex p-4">
                 <div class="ml-4">
                   <span class="block text-[#333333] font-sans text-[14px]">{{ dataBerkas?.approvalNote }}</span>
@@ -1518,54 +2294,54 @@ export default {
           if (item.fileType == 'Dokumen Surat Menyurat') {
             this.fileDetails.DokumenSuratMenyurat.fileName = item.fileName;
             this.fileDetails.DokumenSuratMenyurat.fileSize = item.fileSize;
-            this.fileDetails.DokumenSuratMenyurat.linkDownload = `${baseURL.replace('/api', "")}/download/file/${item.id}`
+            this.fileDetails.DokumenSuratMenyurat.linkDownload = `${baseURL}/download/file/${item.id}`
           }
           if (item.fileType == 'Proposal Mitra') {
             this.fileDetails.ProposalMitra.fileName = item.fileName;
             this.fileDetails.ProposalMitra.fileSize = item.fileSize;
-            this.fileDetails.ProposalMitra.linkDownload = `${baseURL.replace('/api', "")}/download/file/${item.id}`
+            this.fileDetails.ProposalMitra.linkDownload = `${baseURL}/download/file/${item.id}`
           }
           if (item.fileType == 'Dokumen Lainnya') {
             this.fileDetails.DokumenLainnya.fileName = item.fileName;
             this.fileDetails.DokumenLainnya.fileSize = item.fileSize;
-            this.fileDetails.DokumenLainnya.linkDownload = `${baseURL.replace('/api', "")}/download/file/${item.id}`
+            this.fileDetails.DokumenLainnya.linkDownload = `${baseURL}/download/file/${item.id}`
           }
           if (item.fileType == 'Surat Penawaran') {
             this.fileName1 = item.fileName;
             this.fileSize1 = item.fileSize;
-            this.linkDownloadFile1 = `${baseURL.replace('/api', "")}/download/file/${item.id}`;
+            this.linkDownloadFile1 = `${baseURL}/download/file/${item.id}`;
           }
           if (item.fileType == 'Proposal') {
             this.fileName2 = item.fileName;
             this.fileSize2 = item.fileSize;
-            this.linkDownloadFile2 = `${baseURL.replace('/api', "")}/download/file/${item.id}`;
+            this.linkDownloadFile2 = `${baseURL}/download/file/${item.id}`;
           }
 
           if (item.fileType == "Draft MoU/NDA") {
             this.fileName3 = item.fileName;
             this.fileSize3 = item.fileSize;
-            this.linkDownloadFile3 = `${baseURL.replace('/api', "")}/download/file/${item.id}`;
+            this.linkDownloadFile3 = `${baseURL}/download/file/${item.id}`;
           }
           if (item.fileType == "Review User") {
             this.fileName4 = item.fileName;
             this.fileSize4 = item.fileSize;
-            this.linkDownloadFile4 = `${baseURL.replace('/api', "")}/download/file/${item.id}`;
+            this.linkDownloadFile4 = `${baseURL}/download/file/${item.id}`;
           }
           if (item.fileType == "Review Legal") {
             this.fileName5 = item.fileName;
             this.fileSize5 = item.fileSize;
-            this.linkDownloadFile5 = `${baseURL.replace('/api', "")}/download/file/${item.id}`;
+            this.linkDownloadFile5 = `${baseURL}/download/file/${item.id}`;
           }
           if (item.fileType == "Review Mitra") {
             this.fileName6 = item.fileName;
             this.fileSize6 = item.fileSize;
-            this.linkDownloadFile6 = `${baseURL.replace('/api', "")}/download/file/${item.id}`;
+            this.linkDownloadFile6 = `${baseURL}/download/file/${item.id}`;
           }
 
           if (item.fileType == "MoU/NDA") {
             this.fileName7 = item.fileName;
             this.fileSize7 = item.fileSize;
-            this.linkDownloadFile7 = `${baseURL.replace('/api', "")}/download/file/${item.id}`;
+            this.linkDownloadFile7 = `${baseURL}/download/file/${item.id}`;
           }
         })
         if (res.data.officialUndersign) {

@@ -247,11 +247,11 @@ import { dateParsing } from '@/utils/helper';
                     </h1>
                     <button
                       class="text-[#2671D9] w-[14px] h-[14px] text-[20px] ml-auto"
-                      @click="closePopup">
+                      @click="closePopup"
+                    >
                       &times;
                     </button>
                   </div>
-                  
                 </div>
                 <h1 class="items-start justify-center ml-4 px-2 text-[#9C9C9C]">
                   {{ dataBerkas?.partnershipTitle }}
@@ -259,8 +259,8 @@ import { dateParsing } from '@/utils/helper';
                 <div class="p-6">
                   <div class="flex items-center gap-4">
                     <div
-                    :class="boxClass1"
-                    class="flex flex-col w-[289px] h-[130px] rounded-lg border-[1px] border-[#DEDEDE]"
+                      :class="boxClass1"
+                      class="flex flex-col w-[289px] h-[130px] rounded-lg border-[1px] border-[#DEDEDE]"
                     >
                       <div
                         :class="headerClass1"
@@ -350,7 +350,6 @@ import { dateParsing } from '@/utils/helper';
                                 </p>
                               </div>
                             </div>
-                            
                           </div>
                           
                           <svg
@@ -493,7 +492,6 @@ import { dateParsing } from '@/utils/helper';
                                 </p>
                               </div>
                             </div>
-                            
                           </div>
                           
                           <svg
@@ -655,29 +653,29 @@ import { dateParsing } from '@/utils/helper';
                     </div>
                   </div>
 
-                 <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="w-[289px] h-[32px] ml-auto my-4"
-                      viewBox="0 0 32 33"
-                      fill="none"
-                    >
-                      <path
-                        d="M20.2017 24.75L13.4201 31.8317L6.63857 24.75"
-                        stroke="#292D32"
-                        stroke-width="1.5"
-                        stroke-miterlimit="10"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                      <path
-                        d="M13.4204 1L13.4204 30.64"
-                        stroke="#292D32"
-                        stroke-width="1.5"
-                        stroke-miterlimit="10"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="w-[289px] h-[32px] ml-auto my-4"
+                    viewBox="0 0 32 33"
+                    fill="none"
+                  >
+                    <path
+                      d="M20.2017 24.75L13.4201 31.8317L6.63857 24.75"
+                      stroke="#292D32"
+                      stroke-width="1.5"
+                      stroke-miterlimit="10"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M13.4204 1L13.4204 30.64"
+                      stroke="#292D32"
+                      stroke-width="1.5"
+                      stroke-miterlimit="10"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
                   
                   <div class="flex items-center gap-4">
                     <div
@@ -755,24 +753,24 @@ import { dateParsing } from '@/utils/helper';
                             </div>
                             <div class="flex">
                               <svg
-                                  class="w-[30px] h-[30px] mt-[12px]"
-                                  viewBox="0 0 30 30"
-                                  fill="none"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <circle
-                                    cx="15"
-                                    cy="15"
-                                    r="14.5652"
-                                    class="fill-[#E2FCF3]"
+                                class="w-[30px] h-[30px] mt-[12px]"
+                                viewBox="0 0 30 30"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <circle
+                                  cx="15"
+                                  cy="15"
+                                  r="14.5652"
+                                  class="fill-[#E2FCF3]"
+                                />
+                                <g transform="translate(9, 8)">
+                                  <path
+                                    class="fill-[#0EA976]"
+                                    d="M10.4206 4.70885C10.4143 4.65309 10.4021 4.59817 10.3842 4.54499V4.49037C10.355 4.42797 10.3161 4.37061 10.2689 4.32044L6.62757 0.679135C6.5774 0.63193 6.52004 0.593007 6.45764 0.563827H6.40302C6.34137 0.528471 6.27328 0.505776 6.20275 0.49707H2.5311C2.04823 0.49707 1.58514 0.688889 1.24371 1.03033C0.902267 1.37177 0.710449 1.83486 0.710449 2.31772V10.8141C0.710449 11.297 0.902267 11.7601 1.24371 12.1015C1.58514 12.4429 2.04823 12.6348 2.5311 12.6348H8.59994C9.08281 12.6348 9.5459 12.4429 9.88734 12.1015C10.2288 11.7601 10.4206 11.297 10.4206 10.8141V4.74526V4.70885ZM6.77929 2.56654L8.35112 4.13837H7.38617C7.22522 4.13837 7.07085 4.07443 6.95704 3.96062C6.84323 3.84681 6.77929 3.69245 6.77929 3.53149V2.56654ZM9.20683 10.8141C9.20683 10.9751 9.14289 11.1294 9.02907 11.2432C8.91526 11.357 8.7609 11.421 8.59994 11.421H2.5311C2.37015 11.421 2.21578 11.357 2.10197 11.2432C1.98816 11.1294 1.92422 10.9751 1.92422 10.8141V2.31772C1.92422 2.15677 1.98816 2.0024 2.10197 1.88859C2.21578 1.77478 2.37015 1.71084 2.5311 1.71084H5.56552V3.53149C5.56552 4.01436 5.75734 4.47745 6.09878 4.81889C6.44022 5.16032 6.90331 5.35214 7.38617 5.35214H9.20683V10.8141Z"
                                   />
-                                  <g transform="translate(9, 8)">
-                                    <path
-                                      class="fill-[#0EA976]"
-                                      d="M10.4206 4.70885C10.4143 4.65309 10.4021 4.59817 10.3842 4.54499V4.49037C10.355 4.42797 10.3161 4.37061 10.2689 4.32044L6.62757 0.679135C6.5774 0.63193 6.52004 0.593007 6.45764 0.563827H6.40302C6.34137 0.528471 6.27328 0.505776 6.20275 0.49707H2.5311C2.04823 0.49707 1.58514 0.688889 1.24371 1.03033C0.902267 1.37177 0.710449 1.83486 0.710449 2.31772V10.8141C0.710449 11.297 0.902267 11.7601 1.24371 12.1015C1.58514 12.4429 2.04823 12.6348 2.5311 12.6348H8.59994C9.08281 12.6348 9.5459 12.4429 9.88734 12.1015C10.2288 11.7601 10.4206 11.297 10.4206 10.8141V4.74526V4.70885ZM6.77929 2.56654L8.35112 4.13837H7.38617C7.22522 4.13837 7.07085 4.07443 6.95704 3.96062C6.84323 3.84681 6.77929 3.69245 6.77929 3.53149V2.56654ZM9.20683 10.8141C9.20683 10.9751 9.14289 11.1294 9.02907 11.2432C8.91526 11.357 8.7609 11.421 8.59994 11.421H2.5311C2.37015 11.421 2.21578 11.357 2.10197 11.2432C1.98816 11.1294 1.92422 10.9751 1.92422 10.8141V2.31772C1.92422 2.15677 1.98816 2.0024 2.10197 1.88859C2.21578 1.77478 2.37015 1.71084 2.5311 1.71084H5.56552V3.53149C5.56552 4.01436 5.75734 4.47745 6.09878 4.81889C6.44022 5.16032 6.90331 5.35214 7.38617 5.35214H9.20683V10.8141Z"
-                                    />
-                                  </g>
-                                </svg>
+                                </g>
+                              </svg>
                               <div class="mt-[12px] ml-2">
                                 <p class="w-[200px] h[-12px] text-[#333333] text-[9.06px] truncate">
                                   {{ fileName6 }}
@@ -782,7 +780,6 @@ import { dateParsing } from '@/utils/helper';
                                 </p>
                               </div>
                             </div>
-                           
                           </div>
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -1089,28 +1086,28 @@ import { dateParsing } from '@/utils/helper';
                   </div>
 
                   <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="w-[289px] h-[32px] mr-auto my-4"
-                      viewBox="0 0 32 33"
-                      fill="none"
-                    >
-                      <path
-                        d="M20.2017 24.75L13.4201 31.8317L6.63857 24.75"
-                        stroke="#292D32"
-                        stroke-width="1.5"
-                        stroke-miterlimit="10"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                      <path
-                        d="M13.4204 1L13.4204 30.64"
-                        stroke="#292D32"
-                        stroke-width="1.5"
-                        stroke-miterlimit="10"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="w-[289px] h-[32px] mr-auto my-4"
+                    viewBox="0 0 32 33"
+                    fill="none"
+                  >
+                    <path
+                      d="M20.2017 24.75L13.4201 31.8317L6.63857 24.75"
+                      stroke="#292D32"
+                      stroke-width="1.5"
+                      stroke-miterlimit="10"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M13.4204 1L13.4204 30.64"
+                      stroke="#292D32"
+                      stroke-width="1.5"
+                      stroke-miterlimit="10"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
 
                   <div class="flex items-center gap-4">
                     <div
@@ -1214,9 +1211,7 @@ import { dateParsing } from '@/utils/helper';
                                   {{ fileSize7 }} MB
                                 </p>
                               </div>
-
                             </div>
-                            
                           </div>
                           
                           <svg
@@ -1504,7 +1499,6 @@ import { dateParsing } from '@/utils/helper';
                                 </p>
                               </div>
                             </div>
-                            
                           </div>
                           
                           <svg
@@ -1525,840 +1519,8 @@ import { dateParsing } from '@/utils/helper';
                   </div>
 
                   <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="w-[289px] h-[32px] ml-auto my-4"
-                      viewBox="0 0 32 33"
-                      fill="none"
-                    >
-                      <path
-                        d="M20.2017 24.75L13.4201 31.8317L6.63857 24.75"
-                        stroke="#292D32"
-                        stroke-width="1.5"
-                        stroke-miterlimit="10"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                      <path
-                        d="M13.4204 1L13.4204 30.64"
-                        stroke="#292D32"
-                        stroke-width="1.5"
-                        stroke-miterlimit="10"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-
-                    <div class="flex items-center gap-4">
-                      <div
-                        :class="[!fileUploaded10 ? 'bg-[#FFFFFF]' : boxClass11]"
-                        class="flex flex-col w-[289px] h-[130px] rounded-lg border-[1px] border-[#DEDEDE] ml-auto"
-                      >
-                        <div
-                          :class="!fileUploaded10 ? 'bg-[#E0E0E0]' : headerClass11"
-                          class="w-full h-[40px] p-4 flex justify-between items-center rounded-t-lg"
-                        >
-                          <div
-                            :class="!fileUploaded10 ? 'text-[#333333]' : 'text-[#FFFFFF]'"
-                            class="font-sans text-[14px] font-semibold"
-                          >
-                            {{ fileUploaded11 ? "PKS" : "PKS" }}
-                          </div>
-                        </div>
-                        <div
-                          v-if="!fileUploaded11"
-                          class="flex flex-col ml-4 mt-[10px]"
-                        >
-                          <p
-                            :class="!fileUploaded10 ? 'text-[#7F7F80]' : 'text-[#333333]'"
-                            class="font-sans text-[12px] font-normal"
-                          >
-                            Dokumen PKS
-                          </p>
-                          <label
-                            :class="[!fileUploaded10 ? 'cursor-not-allowed bg-[#E6E6E6] text-[#7F7F80]' : 'cursor-pointer bg-[#2671D9] hover:bg-[#1E5BB7] text-[#FFFFFF]']"
-                            class="w-[73px] h-[25px] rounded mt-[12px] inline-flex items-center justify-center text-[8.75px] font-sans font-semibold"
-                          >
-                            <div class="flex items-center">
-                              <svg
-                                class="mr-1"
-                                width="9"
-                                height="7"
-                                viewBox="0 0 9 7"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <path
-                                  :fill="!fileUploaded10 ? '#7F7F80' : '#FFFFFF'"
-                                  fill-rule="evenodd"
-                                  clip-rule="evenodd"
-                                  d="M3.87337 1.13053C3.01762 1.13053 2.32389 1.82426 2.32389 2.68001C2.32389 2.77881 2.33309 2.87512 2.35059 2.96824C2.38432 3.14782 2.27992 3.32463 2.10638 3.38182C1.59703 3.54968 1.23014 4.02951 1.23014 4.59407C1.23014 5.29881 1.80145 5.87012 2.50618 5.87012H6.60775C7.16147 5.87012 7.61035 5.42124 7.61035 4.86751C7.61035 4.43975 7.3423 4.07368 6.96375 3.92985C6.77894 3.85963 6.68377 3.65491 6.74921 3.46836C6.77555 3.39326 6.79004 3.31216 6.79004 3.22689C6.79004 2.82418 6.46358 2.49772 6.06087 2.49772C5.98167 2.49772 5.9061 2.51022 5.83562 2.53308C5.74043 2.56395 5.63673 2.55433 5.54884 2.50649C5.46095 2.45864 5.39658 2.37677 5.37084 2.28007C5.19455 1.61791 4.59041 1.13053 3.87337 1.13053ZM1.59473 2.68001C1.59473 1.42155 2.61491 0.401367 3.87337 0.401367C4.80935 0.401367 5.61285 0.965434 5.96369 1.77176C5.99584 1.76963 6.02825 1.76855 6.06087 1.76855C6.86629 1.76855 7.51921 2.42147 7.51921 3.22689C7.51921 3.28171 7.51616 3.33591 7.51023 3.3893C8.00728 3.69338 8.33952 4.24132 8.33952 4.86751C8.33952 5.82394 7.56418 6.59928 6.60775 6.59928H2.50618C1.39874 6.59928 0.500977 5.70152 0.500977 4.59407C0.500977 3.81305 0.947312 3.13701 1.59815 2.80588C1.59588 2.76418 1.59473 2.72222 1.59473 2.68001ZM4.16245 2.42221C4.30483 2.27983 4.53567 2.27983 4.67805 2.42221L5.7718 3.51596C5.91418 3.65834 5.91418 3.88918 5.7718 4.03156C5.62942 4.17394 5.39858 4.17394 5.2562 4.03156L4.78483 3.56019L4.78483 5.14095C4.78483 5.3423 4.6216 5.50553 4.42025 5.50553C4.21889 5.50553 4.05566 5.3423 4.05566 5.14095L4.05566 3.56019L3.5843 4.03156C3.44192 4.17394 3.21108 4.17394 3.0687 4.03156C2.92632 3.88918 2.92632 3.65834 3.0687 3.51596L4.16245 2.42221Z"
-                                />
-                              </svg>
-                              <span>Upload</span>
-                            </div>
-                            <input
-                              type="file"
-                              class="hidden"
-                              :disabled="!fileUploaded10"
-                              @change="handleFileUpload11"
-                            >
-                          </label>
-                        </div>
-                        <div
-                          v-else
-                          class="flex items-center ml-4 mt-[10px]"
-                        >
-                          <div class="flex">
-                            <input
-                              ref="fileInputKemitraan6"
-                              type="file"
-                              class="hidden"
-                              @change="handleFileUpload11"
-                            >
-                            <div
-                              class="cursor-pointer"
-                              @click="openFileDialog('Kemitraan11')"
-                            >
-                              <div class="font-sans text-[#333333] text-[12px] font-normal">
-                                Dokumen PKS
-                              </div>
-                              <div class="flex">
-                                <svg
-                                  class="w-[30px] h-[30px] mt-[12px]"
-                                  viewBox="0 0 30 30"
-                                  fill="none"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <circle
-                                    cx="15"
-                                    cy="15"
-                                    r="14.5652"
-                                    class="fill-[#E2FCF3]"
-                                  />
-                                  <g transform="translate(9, 8)">
-                                    <path
-                                      class="fill-[#0EA976]"
-                                      d="M10.4206 4.70885C10.4143 4.65309 10.4021 4.59817 10.3842 4.54499V4.49037C10.355 4.42797 10.3161 4.37061 10.2689 4.32044L6.62757 0.679135C6.5774 0.63193 6.52004 0.593007 6.45764 0.563827H6.40302C6.34137 0.528471 6.27328 0.505776 6.20275 0.49707H2.5311C2.04823 0.49707 1.58514 0.688889 1.24371 1.03033C0.902267 1.37177 0.710449 1.83486 0.710449 2.31772V10.8141C0.710449 11.297 0.902267 11.7601 1.24371 12.1015C1.58514 12.4429 2.04823 12.6348 2.5311 12.6348H8.59994C9.08281 12.6348 9.5459 12.4429 9.88734 12.1015C10.2288 11.7601 10.4206 11.297 10.4206 10.8141V4.74526V4.70885ZM6.77929 2.56654L8.35112 4.13837H7.38617C7.22522 4.13837 7.07085 4.07443 6.95704 3.96062C6.84323 3.84681 6.77929 3.69245 6.77929 3.53149V2.56654ZM9.20683 10.8141C9.20683 10.9751 9.14289 11.1294 9.02907 11.2432C8.91526 11.357 8.7609 11.421 8.59994 11.421H2.5311C2.37015 11.421 2.21578 11.357 2.10197 11.2432C1.98816 11.1294 1.92422 10.9751 1.92422 10.8141V2.31772C1.92422 2.15677 1.98816 2.0024 2.10197 1.88859C2.21578 1.77478 2.37015 1.71084 2.5311 1.71084H5.56552V3.53149C5.56552 4.01436 5.75734 4.47745 6.09878 4.81889C6.44022 5.16032 6.90331 5.35214 7.38617 5.35214H9.20683V10.8141Z"
-                                    />
-                                  </g>
-                                </svg>
-                                <div class="mt-[12px] ml-2">
-                                  <p class="w-[200px] h[-12px] text-[#333333] text-[9.06px] truncate">
-                                    {{ fileName11 }}
-                                  </p>
-                                  <p class="w-[200px] h-[11px] text-[#9E9E9E] text-[7.77px]">
-                                    {{ fileSize11 }} MB
-                                  </p>
-                                </div>
-                              </div>
-                            </div>
-                            
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              class="text-[#0EA976] bg-[#E2FCF3] rounded-full w-[15px] h-[15px]"
-                              viewBox="0 0 21 19"
-                              fill="currentColor"
-                            >
-                              <path
-                                fill-rule="evenodd"
-                                d="M16.707 4.293a1 1 0 00-1.414 0L8 11.586 4.707 8.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z"
-                                clip-rule="evenodd"
-                              />
-                            </svg>
-                          </div>
-                        </div>
-                      </div>
-                      <svg
-                        width="33"
-                        height="29"
-                        class="w-[33px] h-[28px]"
-                        viewBox="0 0 33 29"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M8.09082 7.83984L1.00915 14.9215L8.09082 22.0032"
-                          stroke="#292D32"
-                          stroke-width="1.5"
-                          stroke-miterlimit="10"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                        <path
-                          d="M31.8408 14.9209H2.20082"
-                          stroke="#292D32"
-                          stroke-width="1.5"
-                          stroke-miterlimit="10"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                      </svg>
-                      <div
-                        :class="[!fileUploaded9 ? 'bg-[#FFFFFF]' : boxClass10]"
-                        class="flex flex-col w-[289px] h-[130px] rounded-lg border-[1px] border-[#DEDEDE]"
-                      >
-                        <div
-                          :class="!fileUploaded9 ? 'bg-[#E0E0E0]' : headerClass10"
-                          class="w-full h-[40px] p-4 flex justify-between items-center rounded-t-lg"
-                        >
-                          <div
-                            :class="!fileUploaded9 ? 'text-[#333333]' : 'text-[#FFFFFF]'"
-                            class="font-sans text-[14px] font-semibold"
-                          >
-                            {{ fileUploaded10 ? "Review Mitra" : "Review Mitra" }}
-                          </div>
-                        </div>
-                        <div
-                          v-if="!fileUploaded10"
-                          class="flex flex-col ml-4 mt-[10px]"
-                        >
-                          <p
-                            :class="!fileUploaded9 ? 'text-[#7F7F80]' : 'text-[#333333]'"
-                            class="font-sans text-[12px] font-normal"
-                          >
-                            Dokumen Review Mitra
-                          </p>
-                          <label
-                            :class="[!fileUploaded9 ? 'cursor-not-allowed bg-[#E6E6E6] text-[#7F7F80]' : 'cursor-pointer bg-[#2671D9] hover:bg-[#1E5BB7] text-[#FFFFFF]']"
-                            class="w-[73px] h-[25px] rounded mt-[12px] inline-flex items-center justify-center text-[8.75px] font-sans font-semibold"
-                          >
-                            <div class="flex items-center">
-                              <svg
-                                class="mr-1"
-                                width="9"
-                                height="7"
-                                viewBox="0 0 9 7"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <path
-                                  :fill="!fileUploaded9 ? '#7F7F80' : '#FFFFFF'"
-                                  fill-rule="evenodd"
-                                  clip-rule="evenodd"
-                                  d="M3.87337 1.13053C3.01762 1.13053 2.32389 1.82426 2.32389 2.68001C2.32389 2.77881 2.33309 2.87512 2.35059 2.96824C2.38432 3.14782 2.27992 3.32463 2.10638 3.38182C1.59703 3.54968 1.23014 4.02951 1.23014 4.59407C1.23014 5.29881 1.80145 5.87012 2.50618 5.87012H6.60775C7.16147 5.87012 7.61035 5.42124 7.61035 4.86751C7.61035 4.43975 7.3423 4.07368 6.96375 3.92985C6.77894 3.85963 6.68377 3.65491 6.74921 3.46836C6.77555 3.39326 6.79004 3.31216 6.79004 3.22689C6.79004 2.82418 6.46358 2.49772 6.06087 2.49772C5.98167 2.49772 5.9061 2.51022 5.83562 2.53308C5.74043 2.56395 5.63673 2.55433 5.54884 2.50649C5.46095 2.45864 5.39658 2.37677 5.37084 2.28007C5.19455 1.61791 4.59041 1.13053 3.87337 1.13053ZM1.59473 2.68001C1.59473 1.42155 2.61491 0.401367 3.87337 0.401367C4.80935 0.401367 5.61285 0.965434 5.96369 1.77176C5.99584 1.76963 6.02825 1.76855 6.06087 1.76855C6.86629 1.76855 7.51921 2.42147 7.51921 3.22689C7.51921 3.28171 7.51616 3.33591 7.51023 3.3893C8.00728 3.69338 8.33952 4.24132 8.33952 4.86751C8.33952 5.82394 7.56418 6.59928 6.60775 6.59928H2.50618C1.39874 6.59928 0.500977 5.70152 0.500977 4.59407C0.500977 3.81305 0.947312 3.13701 1.59815 2.80588C1.59588 2.76418 1.59473 2.72222 1.59473 2.68001ZM4.16245 2.42221C4.30483 2.27983 4.53567 2.27983 4.67805 2.42221L5.7718 3.51596C5.91418 3.65834 5.91418 3.88918 5.7718 4.03156C5.62942 4.17394 5.39858 4.17394 5.2562 4.03156L4.78483 3.56019L4.78483 5.14095C4.78483 5.3423 4.6216 5.50553 4.42025 5.50553C4.21889 5.50553 4.05566 5.3423 4.05566 5.14095L4.05566 3.56019L3.5843 4.03156C3.44192 4.17394 3.21108 4.17394 3.0687 4.03156C2.92632 3.88918 2.92632 3.65834 3.0687 3.51596L4.16245 2.42221Z"
-                                />
-                              </svg>
-                              <span>Upload</span>
-                            </div>
-                            <input
-                              type="file"
-                              class="hidden"
-                              :disabled="!fileUploaded9"
-                              @change="handleFileUpload10"
-                            >
-                          </label>
-                        </div>
-                        <div
-                          v-else
-                          class="flex items-center ml-4 mt-[10px]"
-                        >
-                          <div class="flex">
-                            <input
-                              ref="fileInputKemitraan10"
-                              type="file"
-                              class="hidden"
-                              @change="handleFileUpload10"
-                            >
-                            <div
-                              class="cursor-pointer"
-                              @click="openFileDialog('Kemitraan10')"
-                            >
-                              <div class="font-sans text-[#333333] text-[12px] font-normal">
-                                Dokumen Review Mitra
-                              </div>
-                              <div class="flex">
-                                <svg
-                                  class="w-[30px] h-[30px] mt-[12px]"
-                                  viewBox="0 0 30 30"
-                                  fill="none"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <circle
-                                    cx="15"
-                                    cy="15"
-                                    r="14.5652"
-                                    class="fill-[#E2FCF3]"
-                                  />
-                                  <g transform="translate(9, 8)">
-                                    <path
-                                      class="fill-[#0EA976]"
-                                      d="M10.4206 4.70885C10.4143 4.65309 10.4021 4.59817 10.3842 4.54499V4.49037C10.355 4.42797 10.3161 4.37061 10.2689 4.32044L6.62757 0.679135C6.5774 0.63193 6.52004 0.593007 6.45764 0.563827H6.40302C6.34137 0.528471 6.27328 0.505776 6.20275 0.49707H2.5311C2.04823 0.49707 1.58514 0.688889 1.24371 1.03033C0.902267 1.37177 0.710449 1.83486 0.710449 2.31772V10.8141C0.710449 11.297 0.902267 11.7601 1.24371 12.1015C1.58514 12.4429 2.04823 12.6348 2.5311 12.6348H8.59994C9.08281 12.6348 9.5459 12.4429 9.88734 12.1015C10.2288 11.7601 10.4206 11.297 10.4206 10.8141V4.74526V4.70885ZM6.77929 2.56654L8.35112 4.13837H7.38617C7.22522 4.13837 7.07085 4.07443 6.95704 3.96062C6.84323 3.84681 6.77929 3.69245 6.77929 3.53149V2.56654ZM9.20683 10.8141C9.20683 10.9751 9.14289 11.1294 9.02907 11.2432C8.91526 11.357 8.7609 11.421 8.59994 11.421H2.5311C2.37015 11.421 2.21578 11.357 2.10197 11.2432C1.98816 11.1294 1.92422 10.9751 1.92422 10.8141V2.31772C1.92422 2.15677 1.98816 2.0024 2.10197 1.88859C2.21578 1.77478 2.37015 1.71084 2.5311 1.71084H5.56552V3.53149C5.56552 4.01436 5.75734 4.47745 6.09878 4.81889C6.44022 5.16032 6.90331 5.35214 7.38617 5.35214H9.20683V10.8141Z"
-                                    />
-                                  </g>
-                                </svg>
-                                <div class="mt-[12px] ml-2">
-                                  <p class="w-[200px] h[-12px] text-[#333333] text-[9.06px] truncate">
-                                    {{ fileName10 }}
-                                  </p>
-                                  <p class="w-[200px] h-[11px] text-[#9E9E9E] text-[7.77px]">
-                                    {{ fileSize10 }} MB
-                                  </p>
-                                </div>
-                              </div>
-                              
-                            </div>
-                            
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              class="text-[#0EA976] bg-[#E2FCF3] rounded-full w-[15px] h-[15px] "
-                              viewBox="0 0 21 19"
-                              fill="currentColor"
-                            >
-                              <path
-                                fill-rule="evenodd"
-                                d="M16.707 4.293a1 1 0 00-1.414 0L8 11.586 4.707 8.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z"
-                                clip-rule="evenodd"
-                              />
-                            </svg>
-                          </div>
-                        </div>
-                      </div>
-                      
-                  </div>
-
-                  <button
-                    v-if="!allFilesUploaded"
-                    class="flex bg-[#2671D9] hover:bg-[#1E5BB7] text-[#FFFFFF] rounded-lg border-[#FFFFFF] border-[1px] ml-auto mt-4"
-                    @click="SendFile"
-                  >
-                    <div
-                      class="flex items-center justify-center w-[83px] h-[40px] rounded-lg border-[#FFFFFF] border-[1px]"
-                    >
-                      <span class="text-[14px] font-sans font-semibold ml-3 mt-[9px] mr-3 mb-[9px]">Submit</span>
-                    </div>
-                  </button>
-                </div>
-
-                <!-- <div class="flex items-center gap-4">
-                  <div
-                    :class="boxClass1"
-                    class="flex flex-col w-[289px] h-[130px] rounded-lg mt-6 ml-5 border-[1px] border-[#DEDEDE]"
-                  >
-                    <div
-                      :class="headerClass1"
-                      class="w-[289px] h-[40px] p-4 flex justify-between items-center rounded-t-lg"
-                    >
-                      <div class="font-sans text-[14px] font-semibold text-white">
-                        {{ fileUploaded1 ? "Surat Penawaran" : "Surat Penawaran" }}
-                      </div>
-                    </div>
-                    <div
-                      v-if="!fileUploaded1"
-                      class="flex flex-col ml-4 mt-[10px]"
-                    >
-                      <p class="font-sans text-[#333333] text-[12px] font-normal">
-                        Dokumen Surat Penawaran
-                      </p>
-                      <label class="bg-[#2671D9] hover:bg-[#1E5BB7] text-white w-[73px] h-[25px] rounded mt-[12px] cursor-pointer inline-flex items-center justify-center text-[8.75px] font-sans font-semibold">
-                        <div class="flex items-center">
-                          <svg
-                            class="mr-1"
-                            width="9"
-                            height="7"
-                            viewBox="0 0 9 7"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              fill-rule="evenodd"
-                              clip-rule="evenodd"
-                              d="M3.87337 1.13053C3.01762 1.13053 2.32389 1.82426 2.32389 2.68001C2.32389 2.77881 2.33309 2.87512 2.35059 2.96824C2.38432 3.14782 2.27992 3.32463 2.10638 3.38182C1.59703 3.54968 1.23014 4.02951 1.23014 4.59407C1.23014 5.29881 1.80145 5.87012 2.50618 5.87012H6.60775C7.16147 5.87012 7.61035 5.42124 7.61035 4.86751C7.61035 4.43975 7.3423 4.07368 6.96375 3.92985C6.77894 3.85963 6.68377 3.65491 6.74921 3.46836C6.77555 3.39326 6.79004 3.31216 6.79004 3.22689C6.79004 2.82418 6.46358 2.49772 6.06087 2.49772C5.98167 2.49772 5.9061 2.51022 5.83562 2.53308C5.74043 2.56395 5.63673 2.55433 5.54884 2.50649C5.46095 2.45864 5.39658 2.37677 5.37084 2.28007C5.19455 1.61791 4.59041 1.13053 3.87337 1.13053ZM1.59473 2.68001C1.59473 1.42155 2.61491 0.401367 3.87337 0.401367C4.80935 0.401367 5.61285 0.965434 5.96369 1.77176C5.99584 1.76963 6.02825 1.76855 6.06087 1.76855C6.86629 1.76855 7.51921 2.42147 7.51921 3.22689C7.51921 3.28171 7.51616 3.33591 7.51023 3.3893C8.00728 3.69338 8.33952 4.24132 8.33952 4.86751C8.33952 5.82394 7.56418 6.59928 6.60775 6.59928H2.50618C1.39874 6.59928 0.500977 5.70152 0.500977 4.59407C0.500977 3.81305 0.947312 3.13701 1.59815 2.80588C1.59588 2.76418 1.59473 2.72222 1.59473 2.68001ZM4.16245 2.42221C4.30483 2.27983 4.53567 2.27983 4.67805 2.42221L5.7718 3.51596C5.91418 3.65834 5.91418 3.88918 5.7718 4.03156C5.62942 4.17394 5.39858 4.17394 5.2562 4.03156L4.78483 3.56019L4.78483 5.14095C4.78483 5.3423 4.6216 5.50553 4.42025 5.50553C4.21889 5.50553 4.05566 5.3423 4.05566 5.14095L4.05566 3.56019L3.5843 4.03156C3.44192 4.17394 3.21108 4.17394 3.0687 4.03156C2.92632 3.88918 2.92632 3.65834 3.0687 3.51596L4.16245 2.42221Z"
-                              fill="white"
-                            />
-                          </svg>
-                          <span>Upload</span>
-                        </div>
-                        <input
-                          type="file"
-                          class="hidden"
-                          @change="handleFileUpload1"
-                        >
-                      </label>
-                    </div>
-                    <div
-                      v-else
-                      class="flex items-center ml-4 mt-[10px]"
-                    >
-                      <div class="flex items-center">
-                        <input
-                          ref="fileInputKemitraan1"
-                          type="file"
-                          class="hidden"
-                          @change="handleFileUpload1"
-                        >
-                        <div
-                          class="cursor-pointer"
-                          @click="openFileDialog('Kemitraan1')"
-                        >
-                          <div class="font-sans text-[#333333] text-[12px] font-normal">
-                            Dokumen Surat Penawaran
-                          </div>
-                          <div class="mt-[12px] ml-[38px]">
-                            <p class="w-[200px] h[-12px] text-[#333333] text-[9.06px] truncate">
-                              {{ fileName1 }}
-                            </p>
-                            <p class="w-[200px] h-[11px] text-[#9E9E9E] text-[7.77px]">
-                              {{ fileSize1 }} MB
-                            </p>
-                          </div>
-                        </div>
-                        <svg
-                          class="w-[30px] h-[30px] absolute ml-[2px] mt-[30px]"
-                          viewBox="0 0 30 30"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <circle
-                            cx="15"
-                            cy="15"
-                            r="14.5652"
-                            class="fill-[#E2FCF3]"
-                          />
-                          <g transform="translate(9, 8)">
-                            <path
-                              class="fill-[#0EA976]"
-                              d="M10.4206 4.70885C10.4143 4.65309 10.4021 4.59817 10.3842 4.54499V4.49037C10.355 4.42797 10.3161 4.37061 10.2689 4.32044L6.62757 0.679135C6.5774 0.63193 6.52004 0.593007 6.45764 0.563827H6.40302C6.34137 0.528471 6.27328 0.505776 6.20275 0.49707H2.5311C2.04823 0.49707 1.58514 0.688889 1.24371 1.03033C0.902267 1.37177 0.710449 1.83486 0.710449 2.31772V10.8141C0.710449 11.297 0.902267 11.7601 1.24371 12.1015C1.58514 12.4429 2.04823 12.6348 2.5311 12.6348H8.59994C9.08281 12.6348 9.5459 12.4429 9.88734 12.1015C10.2288 11.7601 10.4206 11.297 10.4206 10.8141V4.74526V4.70885ZM6.77929 2.56654L8.35112 4.13837H7.38617C7.22522 4.13837 7.07085 4.07443 6.95704 3.96062C6.84323 3.84681 6.77929 3.69245 6.77929 3.53149V2.56654ZM9.20683 10.8141C9.20683 10.9751 9.14289 11.1294 9.02907 11.2432C8.91526 11.357 8.7609 11.421 8.59994 11.421H2.5311C2.37015 11.421 2.21578 11.357 2.10197 11.2432C1.98816 11.1294 1.92422 10.9751 1.92422 10.8141V2.31772C1.92422 2.15677 1.98816 2.0024 2.10197 1.88859C2.21578 1.77478 2.37015 1.71084 2.5311 1.71084H5.56552V3.53149C5.56552 4.01436 5.75734 4.47745 6.09878 4.81889C6.44022 5.16032 6.90331 5.35214 7.38617 5.35214H9.20683V10.8141Z"
-                            />
-                          </g>
-                        </svg>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          class="text-[#0EA976] bg-[#E2FCF3] rounded-full w-[15px] h-[15px] absolute mb-[35px] ml-[240px]"
-                          viewBox="0 0 21 19"
-                          fill="currentColor"
-                        >
-                          <path
-                            fill-rule="evenodd"
-                            d="M16.707 4.293a1 1 0 00-1.414 0L8 11.586 4.707 8.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z"
-                            clip-rule="evenodd"
-                          />
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-                  <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    class="w-[33px] h-[28px] absolute ml-[325px] mt-[90px]"
-                    viewBox="0 0 33 28"
-                    fill="none"
-                  >
-                    <path
-                      d="M24.75 6.91797L31.8317 13.9996L24.75 21.0813"
-                      stroke="#292D32"
-                      stroke-width="1.5"
-                      stroke-miterlimit="10"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                    <path
-                      d="M1 14H30.64"
-                      stroke="#292D32"
-                      stroke-width="1.5"
-                      stroke-miterlimit="10"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                  <div
-                    :class="[!fileUploaded1 ? 'bg-[#FFFFFF]' : boxClass2]"
-                    class="flex flex-col w-[289px] h-[130px] rounded-lg mt-6 ml-[370px] absolute border-[1px] border-[#DEDEDE]"
-                  >
-                    <div
-                      :class="!fileUploaded1 ? 'bg-[#E0E0E0]' : headerClass2"
-                      class="w-full h-[40px] p-4 flex justify-between items-center rounded-t-lg"
-                    >
-                      <div
-                        :class="!fileUploaded1 ? 'text-[#333333]' : 'text-[#FFFFFF]'"
-                        class="font-sans text-[14px] font-semibold"
-                      >
-                        {{ fileUploaded3 ? "Proposal" : "Proposal" }}
-                      </div>
-                    </div>
-                    <div
-                      v-if="!fileUploaded2"
-                      class="flex flex-col ml-4 mt-[10px]"
-                    >
-                      <p
-                        :class="!fileUploaded1 ? 'text-[#7F7F80]' : 'text-[#333333]'"
-                        class="font-sans text-[12px] font-normal"
-                      >
-                        Dokumen Proposal
-                      </p>
-                      <label
-                        :class="[!fileUploaded1 ? 'cursor-not-allowed bg-[#E6E6E6] text-[#7F7F80]' : 'cursor-pointer bg-[#2671D9] hover:bg-[#1E5BB7] text-[#FFFFFF]']"
-                        class="w-[73px] h-[25px] rounded mt-[12px] inline-flex items-center justify-center text-[8.75px] font-sans font-semibold"
-                      >
-                        <div class="flex items-center">
-                          <svg
-                            class="mr-1"
-                            width="9"
-                            height="7"
-                            viewBox="0 0 9 7"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              :fill="!fileUploaded1 ? '#7F7F80' : '#FFFFFF'"
-                              fill-rule="evenodd"
-                              clip-rule="evenodd"
-                              d="M3.87337 1.13053C3.01762 1.13053 2.32389 1.82426 2.32389 2.68001C2.32389 2.77881 2.33309 2.87512 2.35059 2.96824C2.38432 3.14782 2.27992 3.32463 2.10638 3.38182C1.59703 3.54968 1.23014 4.02951 1.23014 4.59407C1.23014 5.29881 1.80145 5.87012 2.50618 5.87012H6.60775C7.16147 5.87012 7.61035 5.42124 7.61035 4.86751C7.61035 4.43975 7.3423 4.07368 6.96375 3.92985C6.77894 3.85963 6.68377 3.65491 6.74921 3.46836C6.77555 3.39326 6.79004 3.31216 6.79004 3.22689C6.79004 2.82418 6.46358 2.49772 6.06087 2.49772C5.98167 2.49772 5.9061 2.51022 5.83562 2.53308C5.74043 2.56395 5.63673 2.55433 5.54884 2.50649C5.46095 2.45864 5.39658 2.37677 5.37084 2.28007C5.19455 1.61791 4.59041 1.13053 3.87337 1.13053ZM1.59473 2.68001C1.59473 1.42155 2.61491 0.401367 3.87337 0.401367C4.80935 0.401367 5.61285 0.965434 5.96369 1.77176C5.99584 1.76963 6.02825 1.76855 6.06087 1.76855C6.86629 1.76855 7.51921 2.42147 7.51921 3.22689C7.51921 3.28171 7.51616 3.33591 7.51023 3.3893C8.00728 3.69338 8.33952 4.24132 8.33952 4.86751C8.33952 5.82394 7.56418 6.59928 6.60775 6.59928H2.50618C1.39874 6.59928 0.500977 5.70152 0.500977 4.59407C0.500977 3.81305 0.947312 3.13701 1.59815 2.80588C1.59588 2.76418 1.59473 2.72222 1.59473 2.68001ZM4.16245 2.42221C4.30483 2.27983 4.53567 2.27983 4.67805 2.42221L5.7718 3.51596C5.91418 3.65834 5.91418 3.88918 5.7718 4.03156C5.62942 4.17394 5.39858 4.17394 5.2562 4.03156L4.78483 3.56019L4.78483 5.14095C4.78483 5.3423 4.6216 5.50553 4.42025 5.50553C4.21889 5.50553 4.05566 5.3423 4.05566 5.14095L4.05566 3.56019L3.5843 4.03156C3.44192 4.17394 3.21108 4.17394 3.0687 4.03156C2.92632 3.88918 2.92632 3.65834 3.0687 3.51596L4.16245 2.42221Z"
-                            />
-                          </svg>
-                          <span>Upload</span>
-                        </div>
-                        <input
-                          type="file"
-                          class="hidden"
-                          :disabled="!fileUploaded1"
-                          @change="handleFileUpload2"
-                        >
-                      </label>
-                    </div>
-                    <div
-                      v-else
-                      class="flex items-center ml-4 mt-[10px]"
-                    >
-                      <div class="flex items-center">
-                        <input
-                          ref="fileInputKemitraan2"
-                          type="file"
-                          class="hidden"
-                          @change="handleFileUpload2"
-                        >
-                        <div
-                          class="cursor-pointer"
-                          @click="openFileDialog('Kemitraan2')"
-                        >
-                          <div class="font-sans text-[#333333] text-[12px] font-normal">
-                            Dokumen Proposal
-                          </div>
-                          <div class="mt-[12px] ml-[38px]">
-                            <p class="w-[200px] h[-12px] text-[#333333] text-[9.06px] truncate">
-                              {{ fileName2 }}
-                            </p>
-                            <p class="w-[200px] h-[11px] text-[#9E9E9E] text-[7.77px]">
-                              {{ fileSize2 }} MB
-                            </p>
-                          </div>
-                        </div>
-                        <svg
-                          class="w-[30px] h-[30px] absolute mt-[30px]"
-                          viewBox="0 0 30 30"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <circle
-                            cx="15"
-                            cy="15"
-                            r="14.5652"
-                            class="fill-[#E2FCF3]"
-                          />
-                          <g transform="translate(9, 8)">
-                            <path
-                              class="fill-[#0EA976]"
-                              d="M10.4206 4.70885C10.4143 4.65309 10.4021 4.59817 10.3842 4.54499V4.49037C10.355 4.42797 10.3161 4.37061 10.2689 4.32044L6.62757 0.679135C6.5774 0.63193 6.52004 0.593007 6.45764 0.563827H6.40302C6.34137 0.528471 6.27328 0.505776 6.20275 0.49707H2.5311C2.04823 0.49707 1.58514 0.688889 1.24371 1.03033C0.902267 1.37177 0.710449 1.83486 0.710449 2.31772V10.8141C0.710449 11.297 0.902267 11.7601 1.24371 12.1015C1.58514 12.4429 2.04823 12.6348 2.5311 12.6348H8.59994C9.08281 12.6348 9.5459 12.4429 9.88734 12.1015C10.2288 11.7601 10.4206 11.297 10.4206 10.8141V4.74526V4.70885ZM6.77929 2.56654L8.35112 4.13837H7.38617C7.22522 4.13837 7.07085 4.07443 6.95704 3.96062C6.84323 3.84681 6.77929 3.69245 6.77929 3.53149V2.56654ZM9.20683 10.8141C9.20683 10.9751 9.14289 11.1294 9.02907 11.2432C8.91526 11.357 8.7609 11.421 8.59994 11.421H2.5311C2.37015 11.421 2.21578 11.357 2.10197 11.2432C1.98816 11.1294 1.92422 10.9751 1.92422 10.8141V2.31772C1.92422 2.15677 1.98816 2.0024 2.10197 1.88859C2.21578 1.77478 2.37015 1.71084 2.5311 1.71084H5.56552V3.53149C5.56552 4.01436 5.75734 4.47745 6.09878 4.81889C6.44022 5.16032 6.90331 5.35214 7.38617 5.35214H9.20683V10.8141Z"
-                            />
-                          </g>
-                        </svg>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          class="text-[#0EA976] bg-[#E2FCF3] rounded-full w-[15px] h-[15px] absolute top-[53.5px] left-[255px]"
-                          viewBox="0 0 21 19"
-                          fill="currentColor"
-                        >
-                          <path
-                            fill-rule="evenodd"
-                            d="M16.707 4.293a1 1 0 00-1.414 0L8 11.586 4.707 8.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z"
-                            clip-rule="evenodd"
-                          />
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="w-[33px] h-[28px] absolute ml-[670px] mt-[90px]"
-                    viewBox="0 0 33 28"
-                    fill="none"
-                  >
-                    <path
-                      d="M24.75 6.91797L31.8317 13.9996L24.75 21.0813"
-                      stroke="#292D32"
-                      stroke-width="1.5"
-                      stroke-miterlimit="10"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                    <path
-                      d="M1 14H30.64"
-                      stroke="#292D32"
-                      stroke-width="1.5"
-                      stroke-miterlimit="10"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                  <div
-                    :class="[!fileUploaded2 ? 'bg-[#FFFFFF]' : boxClass3]"
-                    class="absolute flex flex-col w-[289px] h-[130px] rounded-lg mt-[24px] ml-[710px] border-[1px] border-[#DEDEDE]"
-                  >
-                    <div
-                      :class="!fileUploaded2 ? 'bg-[#E0E0E0]' : headerClass3"
-                      class="w-full h-[40px] p-4 flex justify-between items-center rounded-t-lg"
-                    >
-                      <div
-                        :class="!fileUploaded2 ? 'text-[#333333]' : 'text-[#FFFFFF]'"
-                        class="font-sans text-[14px] font-semibold"
-                      >
-                        {{ fileUploaded3 ? "Evaluasi" : "Evaluasi" }}
-                      </div>
-                    </div>
-                    <div
-                      v-if="!fileUploaded3"
-                      class="flex flex-col ml-4 mt-[10px]"
-                    >
-                      <p
-                        :class="!fileUploaded2 ? 'text-[#7F7F80]' : 'text-[#333333]'"
-                        class="font-sans text-[12px] font-normal"
-                      >
-                        Dokumen Evaluasi
-                      </p>
-                      <label
-                        :class="[!fileUploaded2 ? 'cursor-not-allowed bg-[#E6E6E6] text-[#7F7F80]' : 'cursor-pointer bg-[#2671D9] hover:bg-[#1E5BB7] text-[#FFFFFF]']"
-                        class="w-[73px] h-[25px] rounded mt-[12px] inline-flex items-center justify-center text-[8.75px] font-sans font-semibold"
-                      >
-                        <div class="flex items-center">
-                          <svg
-                            class="mr-1"
-                            width="9"
-                            height="7"
-                            viewBox="0 0 9 7"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              :fill="!fileUploaded2 ? '#7F7F80' : '#FFFFFF'"
-                              fill-rule="evenodd"
-                              clip-rule="evenodd"
-                              d="M3.87337 1.13053C3.01762 1.13053 2.32389 1.82426 2.32389 2.68001C2.32389 2.77881 2.33309 2.87512 2.35059 2.96824C2.38432 3.14782 2.27992 3.32463 2.10638 3.38182C1.59703 3.54968 1.23014 4.02951 1.23014 4.59407C1.23014 5.29881 1.80145 5.87012 2.50618 5.87012H6.60775C7.16147 5.87012 7.61035 5.42124 7.61035 4.86751C7.61035 4.43975 7.3423 4.07368 6.96375 3.92985C6.77894 3.85963 6.68377 3.65491 6.74921 3.46836C6.77555 3.39326 6.79004 3.31216 6.79004 3.22689C6.79004 2.82418 6.46358 2.49772 6.06087 2.49772C5.98167 2.49772 5.9061 2.51022 5.83562 2.53308C5.74043 2.56395 5.63673 2.55433 5.54884 2.50649C5.46095 2.45864 5.39658 2.37677 5.37084 2.28007C5.19455 1.61791 4.59041 1.13053 3.87337 1.13053ZM1.59473 2.68001C1.59473 1.42155 2.61491 0.401367 3.87337 0.401367C4.80935 0.401367 5.61285 0.965434 5.96369 1.77176C5.99584 1.76963 6.02825 1.76855 6.06087 1.76855C6.86629 1.76855 7.51921 2.42147 7.51921 3.22689C7.51921 3.28171 7.51616 3.33591 7.51023 3.3893C8.00728 3.69338 8.33952 4.24132 8.33952 4.86751C8.33952 5.82394 7.56418 6.59928 6.60775 6.59928H2.50618C1.39874 6.59928 0.500977 5.70152 0.500977 4.59407C0.500977 3.81305 0.947312 3.13701 1.59815 2.80588C1.59588 2.76418 1.59473 2.72222 1.59473 2.68001ZM4.16245 2.42221C4.30483 2.27983 4.53567 2.27983 4.67805 2.42221L5.7718 3.51596C5.91418 3.65834 5.91418 3.88918 5.7718 4.03156C5.62942 4.17394 5.39858 4.17394 5.2562 4.03156L4.78483 3.56019L4.78483 5.14095C4.78483 5.3423 4.6216 5.50553 4.42025 5.50553C4.21889 5.50553 4.05566 5.3423 4.05566 5.14095L4.05566 3.56019L3.5843 4.03156C3.44192 4.17394 3.21108 4.17394 3.0687 4.03156C2.92632 3.88918 2.92632 3.65834 3.0687 3.51596L4.16245 2.42221Z"
-                            />
-                          </svg>
-                          <span>Upload</span>
-                        </div>
-                        <input
-                          type="file"
-                          class="hidden"
-                          :disabled="!fileUploaded2"
-                          @change="handleFileUpload3"
-                        >
-                      </label>
-                    </div>
-                    <div
-                      v-else
-                      class="flex items-center ml-4 mt-[10px]"
-                    >
-                      <div class="flex items-center">
-                        <input
-                          ref="fileInputKemitraan3"
-                          type="file"
-                          class="hidden"
-                          @change="handleFileUpload3"
-                        >
-                        <div
-                          class="cursor-pointer"
-                          @click="openFileDialog('Kemitraan3')"
-                        >
-                          <div class="font-sans text-[#333333] text-[12px] font-normal">
-                            Dokumen Evaluasi
-                          </div>
-                          <div class="mt-[12px] ml-[38px]">
-                            <p class="w-[200px] h[-12px] text-[#333333] text-[9.06px] truncate">
-                              {{ fileName3 }}
-                            </p>
-                            <p class="w-[200px] h-[11px] text-[#9E9E9E] text-[7.77px]">
-                              {{ fileSize3 }} MB
-                            </p>
-                          </div>
-                        </div>
-                        <svg
-                          class="w-[30px] h-[30px] absolute mt-[30px]"
-                          viewBox="0 0 30 30"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <circle
-                            cx="15"
-                            cy="15"
-                            r="14.5652"
-                            class="fill-[#E2FCF3]"
-                          />
-                          <g transform="translate(9, 8)">
-                            <path
-                              class="fill-[#0EA976]"
-                              d="M10.4206 4.70885C10.4143 4.65309 10.4021 4.59817 10.3842 4.54499V4.49037C10.355 4.42797 10.3161 4.37061 10.2689 4.32044L6.62757 0.679135C6.5774 0.63193 6.52004 0.593007 6.45764 0.563827H6.40302C6.34137 0.528471 6.27328 0.505776 6.20275 0.49707H2.5311C2.04823 0.49707 1.58514 0.688889 1.24371 1.03033C0.902267 1.37177 0.710449 1.83486 0.710449 2.31772V10.8141C0.710449 11.297 0.902267 11.7601 1.24371 12.1015C1.58514 12.4429 2.04823 12.6348 2.5311 12.6348H8.59994C9.08281 12.6348 9.5459 12.4429 9.88734 12.1015C10.2288 11.7601 10.4206 11.297 10.4206 10.8141V4.74526V4.70885ZM6.77929 2.56654L8.35112 4.13837H7.38617C7.22522 4.13837 7.07085 4.07443 6.95704 3.96062C6.84323 3.84681 6.77929 3.69245 6.77929 3.53149V2.56654ZM9.20683 10.8141C9.20683 10.9751 9.14289 11.1294 9.02907 11.2432C8.91526 11.357 8.7609 11.421 8.59994 11.421H2.5311C2.37015 11.421 2.21578 11.357 2.10197 11.2432C1.98816 11.1294 1.92422 10.9751 1.92422 10.8141V2.31772C1.92422 2.15677 1.98816 2.0024 2.10197 1.88859C2.21578 1.77478 2.37015 1.71084 2.5311 1.71084H5.56552V3.53149C5.56552 4.01436 5.75734 4.47745 6.09878 4.81889C6.44022 5.16032 6.90331 5.35214 7.38617 5.35214H9.20683V10.8141Z"
-                            />
-                          </g>
-                        </svg>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          class="text-[#0EA976] bg-[#E2FCF3] rounded-full w-[15px] h-[15px] absolute top-[53.5px] left-[255px]"
-                          viewBox="0 0 21 19"
-                          fill="currentColor"
-                        >
-                          <path
-                            fill-rule="evenodd"
-                            d="M16.707 4.293a1 1 0 00-1.414 0L8 11.586 4.707 8.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z"
-                            clip-rule="evenodd"
-                          />
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-                  <svg
-                    width="33"
-                    height="29"
-                    class="w-[33px] h-[28px] absolute ml-[670px] mt-[280px]"
-                    viewBox="0 0 33 29"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M8.09082 7.83984L1.00915 14.9215L8.09082 22.0032"
-                      stroke="#292D32"
-                      stroke-width="1.5"
-                      stroke-miterlimit="10"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                    <path
-                      d="M31.8408 14.9209H2.20082"
-                      stroke="#292D32"
-                      stroke-width="1.5"
-                      stroke-miterlimit="10"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-
-                  <div
-                    :class="[!fileUploaded3 ? 'bg-[#FFFFFF]' : boxClass4]"
-                    class="absolute flex flex-col w-[289px] h-[130px] rounded-lg mt-[215px] ml-[710px] border-[1px] border-[#DEDEDE]"
-                  >
-                    <div
-                      :class="!fileUploaded3 ? 'bg-[#E0E0E0]' : headerClass4"
-                      class="w-full h-[40px] p-4 flex justify-between items-center rounded-t-lg"
-                    >
-                      <div
-                        :class="!fileUploaded3 ? 'text-[#333333]' : 'text-[#FFFFFF]'"
-                        class="font-sans text-[14px] font-semibold"
-                      >
-                        {{ fileUploaded4 ? "Negosiasi" : "Negosiasi" }}
-                      </div>
-                    </div>
-                    <div
-                      v-if="!fileUploaded4"
-                      class="flex flex-col ml-4 mt-[10px]"
-                    >
-                      <p
-                        :class="!fileUploaded3 ? 'text-[#7F7F80]' : 'text-[#333333]'"
-                        class="font-sans text-[12px] font-normal"
-                      >
-                        Dokumen Negosiasi
-                      </p>
-                      <label
-                        :class="[!fileUploaded3 ? 'cursor-not-allowed bg-[#E6E6E6] text-[#7F7F80]' : 'cursor-pointer bg-[#2671D9] hover:bg-[#1E5BB7] text-[#FFFFFF]']"
-                        class="w-[73px] h-[25px] rounded mt-[12px] inline-flex items-center justify-center text-[8.75px] font-sans font-semibold"
-                      >
-                        <div class="flex items-center">
-                          <svg
-                            class="mr-1"
-                            width="9"
-                            height="7"
-                            viewBox="0 0 9 7"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              :fill="!fileUploaded3 ? '#7F7F80' : '#FFFFFF'"
-                              fill-rule="evenodd"
-                              clip-rule="evenodd"
-                              d="M3.87337 1.13053C3.01762 1.13053 2.32389 1.82426 2.32389 2.68001C2.32389 2.77881 2.33309 2.87512 2.35059 2.96824C2.38432 3.14782 2.27992 3.32463 2.10638 3.38182C1.59703 3.54968 1.23014 4.02951 1.23014 4.59407C1.23014 5.29881 1.80145 5.87012 2.50618 5.87012H6.60775C7.16147 5.87012 7.61035 5.42124 7.61035 4.86751C7.61035 4.43975 7.3423 4.07368 6.96375 3.92985C6.77894 3.85963 6.68377 3.65491 6.74921 3.46836C6.77555 3.39326 6.79004 3.31216 6.79004 3.22689C6.79004 2.82418 6.46358 2.49772 6.06087 2.49772C5.98167 2.49772 5.9061 2.51022 5.83562 2.53308C5.74043 2.56395 5.63673 2.55433 5.54884 2.50649C5.46095 2.45864 5.39658 2.37677 5.37084 2.28007C5.19455 1.61791 4.59041 1.13053 3.87337 1.13053ZM1.59473 2.68001C1.59473 1.42155 2.61491 0.401367 3.87337 0.401367C4.80935 0.401367 5.61285 0.965434 5.96369 1.77176C5.99584 1.76963 6.02825 1.76855 6.06087 1.76855C6.86629 1.76855 7.51921 2.42147 7.51921 3.22689C7.51921 3.28171 7.51616 3.33591 7.51023 3.3893C8.00728 3.69338 8.33952 4.24132 8.33952 4.86751C8.33952 5.82394 7.56418 6.59928 6.60775 6.59928H2.50618C1.39874 6.59928 0.500977 5.70152 0.500977 4.59407C0.500977 3.81305 0.947312 3.13701 1.59815 2.80588C1.59588 2.76418 1.59473 2.72222 1.59473 2.68001ZM4.16245 2.42221C4.30483 2.27983 4.53567 2.27983 4.67805 2.42221L5.7718 3.51596C5.91418 3.65834 5.91418 3.88918 5.7718 4.03156C5.62942 4.17394 5.39858 4.17394 5.2562 4.03156L4.78483 3.56019L4.78483 5.14095C4.78483 5.3423 4.6216 5.50553 4.42025 5.50553C4.21889 5.50553 4.05566 5.3423 4.05566 5.14095L4.05566 3.56019L3.5843 4.03156C3.44192 4.17394 3.21108 4.17394 3.0687 4.03156C2.92632 3.88918 2.92632 3.65834 3.0687 3.51596L4.16245 2.42221Z"
-                            />
-                          </svg>
-                          <span>Upload</span>
-                        </div>
-                        <input
-                          type="file"
-                          class="hidden"
-                          :disabled="!fileUploaded3"
-                          @change="handleFileUpload4"
-                        >
-                      </label>
-                    </div>
-                    <div
-                      v-else
-                      class="flex items-center ml-4 mt-[10px]"
-                    >
-                      <div class="flex items-center">
-                        <input
-                          ref="fileInputKemitraan4"
-                          type="file"
-                          class="hidden"
-                          @change="handleFileUpload4"
-                        >
-                        <div
-                          class="cursor-pointer"
-                          @click="openFileDialog('Kemitraan4')"
-                        >
-                          <div class="font-sans text-[#333333] text-[12px] font-normal">
-                            Dokumen Negosiasi
-                          </div>
-                          <div class="mt-[12px] ml-[38px]">
-                            <p class="w-[200px] h[-12px] text-[#333333] text-[9.06px] truncate">
-                              {{ fileName4 }}
-                            </p>
-                            <p class="w-[200px] h-[11px] text-[#9E9E9E] text-[7.77px]">
-                              {{ fileSize4 }} MB
-                            </p>
-                          </div>
-                        </div>
-                        <svg
-                          class="w-[30px] h-[30px] absolute mt-[30px]"
-                          viewBox="0 0 30 30"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <circle
-                            cx="15"
-                            cy="15"
-                            r="14.5652"
-                            class="fill-[#E2FCF3]"
-                          />
-                          <g transform="translate(9, 8)">
-                            <path
-                              class="fill-[#0EA976]"
-                              d="M10.4206 4.70885C10.4143 4.65309 10.4021 4.59817 10.3842 4.54499V4.49037C10.355 4.42797 10.3161 4.37061 10.2689 4.32044L6.62757 0.679135C6.5774 0.63193 6.52004 0.593007 6.45764 0.563827H6.40302C6.34137 0.528471 6.27328 0.505776 6.20275 0.49707H2.5311C2.04823 0.49707 1.58514 0.688889 1.24371 1.03033C0.902267 1.37177 0.710449 1.83486 0.710449 2.31772V10.8141C0.710449 11.297 0.902267 11.7601 1.24371 12.1015C1.58514 12.4429 2.04823 12.6348 2.5311 12.6348H8.59994C9.08281 12.6348 9.5459 12.4429 9.88734 12.1015C10.2288 11.7601 10.4206 11.297 10.4206 10.8141V4.74526V4.70885ZM6.77929 2.56654L8.35112 4.13837H7.38617C7.22522 4.13837 7.07085 4.07443 6.95704 3.96062C6.84323 3.84681 6.77929 3.69245 6.77929 3.53149V2.56654ZM9.20683 10.8141C9.20683 10.9751 9.14289 11.1294 9.02907 11.2432C8.91526 11.357 8.7609 11.421 8.59994 11.421H2.5311C2.37015 11.421 2.21578 11.357 2.10197 11.2432C1.98816 11.1294 1.92422 10.9751 1.92422 10.8141V2.31772C1.92422 2.15677 1.98816 2.0024 2.10197 1.88859C2.21578 1.77478 2.37015 1.71084 2.5311 1.71084H5.56552V3.53149C5.56552 4.01436 5.75734 4.47745 6.09878 4.81889C6.44022 5.16032 6.90331 5.35214 7.38617 5.35214H9.20683V10.8141Z"
-                            />
-                          </g>
-                        </svg>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          class="text-[#0EA976] bg-[#E2FCF3] rounded-full w-[15px] h-[15px] absolute top-[53.5px] left-[255px]"
-                          viewBox="0 0 21 19"
-                          fill="currentColor"
-                        >
-                          <path
-                            fill-rule="evenodd"
-                            d="M16.707 4.293a1 1 0 00-1.414 0L8 11.586 4.707 8.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z"
-                            clip-rule="evenodd"
-                          />
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="w-[33px] h-[32px] absolute mt-[170px] ml-[840px]"
+                    class="w-[289px] h-[32px] ml-auto my-4"
                     viewBox="0 0 32 33"
                     fill="none"
                   >
@@ -2379,409 +1541,276 @@ import { dateParsing } from '@/utils/helper';
                       stroke-linejoin="round"
                     />
                   </svg>
-                  <div
-                    :class="[!fileUploaded4 ? 'bg-[#FFFFFF]' : boxClass5]"
-                    class="flex flex-col w-[289px] h-[130px] rounded-lg mt-[215px] ml-[370px] absolute border-[1px] border-[#DEDEDE]"
-                  >
+
+                  <div class="flex items-center gap-4">
                     <div
-                      :class="!fileUploaded4 ? 'bg-[#E0E0E0]' : headerClass5"
-                      class="w-full h-[40px] p-4 flex justify-between items-center rounded-t-lg"
+                      :class="[!fileUploaded10 ? 'bg-[#FFFFFF]' : boxClass11]"
+                      class="flex flex-col w-[289px] h-[130px] rounded-lg border-[1px] border-[#DEDEDE] ml-auto"
                     >
                       <div
-                        :class="!fileUploaded4 ? 'text-[#333333]' : 'text-[#FFFFFF]'"
-                        class="font-sans text-[14px] font-semibold"
+                        :class="!fileUploaded10 ? 'bg-[#E0E0E0]' : headerClass11"
+                        class="w-full h-[40px] p-4 flex justify-between items-center rounded-t-lg"
                       >
-                        {{ fileUploaded5 ? "BAK Pemilihan Mitra" : "BAK Pemilihan Mitra" }}
+                        <div
+                          :class="!fileUploaded10 ? 'text-[#333333]' : 'text-[#FFFFFF]'"
+                          class="font-sans text-[14px] font-semibold"
+                        >
+                          {{ fileUploaded11 ? "PKS" : "PKS" }}
+                        </div>
                       </div>
-                    </div>
-                    <div
-                      v-if="!fileUploaded5"
-                      class="flex flex-col ml-4 mt-[10px]"
-                    >
-                      <p
-                        :class="!fileUploaded4 ? 'text-[#7F7F80]' : 'text-[#333333]'"
-                        class="font-sans text-[12px] font-normal"
+                      <div
+                        v-if="!fileUploaded11"
+                        class="flex flex-col ml-4 mt-[10px]"
                       >
-                        Dokumen BAK Pemilihan Mitra
-                      </p>
-                      <label
-                        :class="[!fileUploaded4 ? 'cursor-not-allowed bg-[#E6E6E6] text-[#7F7F80]' : 'cursor-pointer bg-[#2671D9] hover:bg-[#1E5BB7] text-[#FFFFFF]']"
-                        class="w-[73px] h-[25px] rounded mt-[12px] inline-flex items-center justify-center text-[8.75px] font-sans font-semibold"
+                        <p
+                          :class="!fileUploaded10 ? 'text-[#7F7F80]' : 'text-[#333333]'"
+                          class="font-sans text-[12px] font-normal"
+                        >
+                          Dokumen PKS
+                        </p>
+                        <label
+                          :class="[!fileUploaded10 ? 'cursor-not-allowed bg-[#E6E6E6] text-[#7F7F80]' : 'cursor-pointer bg-[#2671D9] hover:bg-[#1E5BB7] text-[#FFFFFF]']"
+                          class="w-[73px] h-[25px] rounded mt-[12px] inline-flex items-center justify-center text-[8.75px] font-sans font-semibold"
+                        >
+                          <div class="flex items-center">
+                            <svg
+                              class="mr-1"
+                              width="9"
+                              height="7"
+                              viewBox="0 0 9 7"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                :fill="!fileUploaded10 ? '#7F7F80' : '#FFFFFF'"
+                                fill-rule="evenodd"
+                                clip-rule="evenodd"
+                                d="M3.87337 1.13053C3.01762 1.13053 2.32389 1.82426 2.32389 2.68001C2.32389 2.77881 2.33309 2.87512 2.35059 2.96824C2.38432 3.14782 2.27992 3.32463 2.10638 3.38182C1.59703 3.54968 1.23014 4.02951 1.23014 4.59407C1.23014 5.29881 1.80145 5.87012 2.50618 5.87012H6.60775C7.16147 5.87012 7.61035 5.42124 7.61035 4.86751C7.61035 4.43975 7.3423 4.07368 6.96375 3.92985C6.77894 3.85963 6.68377 3.65491 6.74921 3.46836C6.77555 3.39326 6.79004 3.31216 6.79004 3.22689C6.79004 2.82418 6.46358 2.49772 6.06087 2.49772C5.98167 2.49772 5.9061 2.51022 5.83562 2.53308C5.74043 2.56395 5.63673 2.55433 5.54884 2.50649C5.46095 2.45864 5.39658 2.37677 5.37084 2.28007C5.19455 1.61791 4.59041 1.13053 3.87337 1.13053ZM1.59473 2.68001C1.59473 1.42155 2.61491 0.401367 3.87337 0.401367C4.80935 0.401367 5.61285 0.965434 5.96369 1.77176C5.99584 1.76963 6.02825 1.76855 6.06087 1.76855C6.86629 1.76855 7.51921 2.42147 7.51921 3.22689C7.51921 3.28171 7.51616 3.33591 7.51023 3.3893C8.00728 3.69338 8.33952 4.24132 8.33952 4.86751C8.33952 5.82394 7.56418 6.59928 6.60775 6.59928H2.50618C1.39874 6.59928 0.500977 5.70152 0.500977 4.59407C0.500977 3.81305 0.947312 3.13701 1.59815 2.80588C1.59588 2.76418 1.59473 2.72222 1.59473 2.68001ZM4.16245 2.42221C4.30483 2.27983 4.53567 2.27983 4.67805 2.42221L5.7718 3.51596C5.91418 3.65834 5.91418 3.88918 5.7718 4.03156C5.62942 4.17394 5.39858 4.17394 5.2562 4.03156L4.78483 3.56019L4.78483 5.14095C4.78483 5.3423 4.6216 5.50553 4.42025 5.50553C4.21889 5.50553 4.05566 5.3423 4.05566 5.14095L4.05566 3.56019L3.5843 4.03156C3.44192 4.17394 3.21108 4.17394 3.0687 4.03156C2.92632 3.88918 2.92632 3.65834 3.0687 3.51596L4.16245 2.42221Z"
+                              />
+                            </svg>
+                            <span>Upload</span>
+                          </div>
+                          <input
+                            type="file"
+                            class="hidden"
+                            :disabled="!fileUploaded10"
+                            @change="handleFileUpload11"
+                          >
+                        </label>
+                      </div>
+                      <div
+                        v-else
+                        class="flex items-center ml-4 mt-[10px]"
                       >
-                        <div class="flex items-center">
+                        <div class="flex">
+                          <input
+                            ref="fileInputKemitraan6"
+                            type="file"
+                            class="hidden"
+                            @change="handleFileUpload11"
+                          >
+                          <div
+                            class="cursor-pointer"
+                            @click="openFileDialog('Kemitraan11')"
+                          >
+                            <div class="font-sans text-[#333333] text-[12px] font-normal">
+                              Dokumen PKS
+                            </div>
+                            <div class="flex">
+                              <svg
+                                class="w-[30px] h-[30px] mt-[12px]"
+                                viewBox="0 0 30 30"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <circle
+                                  cx="15"
+                                  cy="15"
+                                  r="14.5652"
+                                  class="fill-[#E2FCF3]"
+                                />
+                                <g transform="translate(9, 8)">
+                                  <path
+                                    class="fill-[#0EA976]"
+                                    d="M10.4206 4.70885C10.4143 4.65309 10.4021 4.59817 10.3842 4.54499V4.49037C10.355 4.42797 10.3161 4.37061 10.2689 4.32044L6.62757 0.679135C6.5774 0.63193 6.52004 0.593007 6.45764 0.563827H6.40302C6.34137 0.528471 6.27328 0.505776 6.20275 0.49707H2.5311C2.04823 0.49707 1.58514 0.688889 1.24371 1.03033C0.902267 1.37177 0.710449 1.83486 0.710449 2.31772V10.8141C0.710449 11.297 0.902267 11.7601 1.24371 12.1015C1.58514 12.4429 2.04823 12.6348 2.5311 12.6348H8.59994C9.08281 12.6348 9.5459 12.4429 9.88734 12.1015C10.2288 11.7601 10.4206 11.297 10.4206 10.8141V4.74526V4.70885ZM6.77929 2.56654L8.35112 4.13837H7.38617C7.22522 4.13837 7.07085 4.07443 6.95704 3.96062C6.84323 3.84681 6.77929 3.69245 6.77929 3.53149V2.56654ZM9.20683 10.8141C9.20683 10.9751 9.14289 11.1294 9.02907 11.2432C8.91526 11.357 8.7609 11.421 8.59994 11.421H2.5311C2.37015 11.421 2.21578 11.357 2.10197 11.2432C1.98816 11.1294 1.92422 10.9751 1.92422 10.8141V2.31772C1.92422 2.15677 1.98816 2.0024 2.10197 1.88859C2.21578 1.77478 2.37015 1.71084 2.5311 1.71084H5.56552V3.53149C5.56552 4.01436 5.75734 4.47745 6.09878 4.81889C6.44022 5.16032 6.90331 5.35214 7.38617 5.35214H9.20683V10.8141Z"
+                                  />
+                                </g>
+                              </svg>
+                              <div class="mt-[12px] ml-2">
+                                <p class="w-[200px] h[-12px] text-[#333333] text-[9.06px] truncate">
+                                  {{ fileName11 }}
+                                </p>
+                                <p class="w-[200px] h-[11px] text-[#9E9E9E] text-[7.77px]">
+                                  {{ fileSize11 }} MB
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                            
                           <svg
-                            class="mr-1"
-                            width="9"
-                            height="7"
-                            viewBox="0 0 9 7"
-                            fill="none"
                             xmlns="http://www.w3.org/2000/svg"
+                            class="text-[#0EA976] bg-[#E2FCF3] rounded-full w-[15px] h-[15px]"
+                            viewBox="0 0 21 19"
+                            fill="currentColor"
                           >
                             <path
-                              :fill="!fileUploaded4 ? '#7F7F80' : '#FFFFFF'"
                               fill-rule="evenodd"
+                              d="M16.707 4.293a1 1 0 00-1.414 0L8 11.586 4.707 8.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z"
                               clip-rule="evenodd"
-                              d="M3.87337 1.13053C3.01762 1.13053 2.32389 1.82426 2.32389 2.68001C2.32389 2.77881 2.33309 2.87512 2.35059 2.96824C2.38432 3.14782 2.27992 3.32463 2.10638 3.38182C1.59703 3.54968 1.23014 4.02951 1.23014 4.59407C1.23014 5.29881 1.80145 5.87012 2.50618 5.87012H6.60775C7.16147 5.87012 7.61035 5.42124 7.61035 4.86751C7.61035 4.43975 7.3423 4.07368 6.96375 3.92985C6.77894 3.85963 6.68377 3.65491 6.74921 3.46836C6.77555 3.39326 6.79004 3.31216 6.79004 3.22689C6.79004 2.82418 6.46358 2.49772 6.06087 2.49772C5.98167 2.49772 5.9061 2.51022 5.83562 2.53308C5.74043 2.56395 5.63673 2.55433 5.54884 2.50649C5.46095 2.45864 5.39658 2.37677 5.37084 2.28007C5.19455 1.61791 4.59041 1.13053 3.87337 1.13053ZM1.59473 2.68001C1.59473 1.42155 2.61491 0.401367 3.87337 0.401367C4.80935 0.401367 5.61285 0.965434 5.96369 1.77176C5.99584 1.76963 6.02825 1.76855 6.06087 1.76855C6.86629 1.76855 7.51921 2.42147 7.51921 3.22689C7.51921 3.28171 7.51616 3.33591 7.51023 3.3893C8.00728 3.69338 8.33952 4.24132 8.33952 4.86751C8.33952 5.82394 7.56418 6.59928 6.60775 6.59928H2.50618C1.39874 6.59928 0.500977 5.70152 0.500977 4.59407C0.500977 3.81305 0.947312 3.13701 1.59815 2.80588C1.59588 2.76418 1.59473 2.72222 1.59473 2.68001ZM4.16245 2.42221C4.30483 2.27983 4.53567 2.27983 4.67805 2.42221L5.7718 3.51596C5.91418 3.65834 5.91418 3.88918 5.7718 4.03156C5.62942 4.17394 5.39858 4.17394 5.2562 4.03156L4.78483 3.56019L4.78483 5.14095C4.78483 5.3423 4.6216 5.50553 4.42025 5.50553C4.21889 5.50553 4.05566 5.3423 4.05566 5.14095L4.05566 3.56019L3.5843 4.03156C3.44192 4.17394 3.21108 4.17394 3.0687 4.03156C2.92632 3.88918 2.92632 3.65834 3.0687 3.51596L4.16245 2.42221Z"
                             />
                           </svg>
-                          <span>Upload</span>
                         </div>
-                        <input
-                          type="file"
-                          class="hidden"
-                          :disabled="!fileUploaded4"
-                          @change="handleFileUpload5"
-                        >
-                      </label>
-                    </div>
-                    <div
-                      v-else
-                      class="flex items-center ml-4 mt-[10px]"
-                    >
-                      <div class="flex items-center">
-                        <input
-                          ref="fileInputKemitraan5"
-                          type="file"
-                          class="hidden"
-                          @change="handleFileUpload5"
-                        >
-                        <div
-                          class="cursor-pointer"
-                          @click="openFileDialog('Kemitraan5')"
-                        >
-                          <div class="font-sans text-[#333333] text-[12px] font-normal">
-                            Dokumen BAK Pemilihan Mitra
-                          </div>
-                          <div class="mt-[12px] ml-[38px]">
-                            <p class="w-[200px] h[-12px] text-[#333333] text-[9.06px] truncate">
-                              {{ fileName5 }}
-                            </p>
-                            <p class="w-[200px] h-[11px] text-[#9E9E9E] text-[7.77px]">
-                              {{ fileSize5 }} MB
-                            </p>
-                          </div>
-                        </div>
-                        <svg
-                          class="w-[30px] h-[30px] absolute mt-[30px]"
-                          viewBox="0 0 30 30"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <circle
-                            cx="15"
-                            cy="15"
-                            r="14.5652"
-                            class="fill-[#E2FCF3]"
-                          />
-                          <g transform="translate(9, 8)">
-                            <path
-                              class="fill-[#0EA976]"
-                              d="M10.4206 4.70885C10.4143 4.65309 10.4021 4.59817 10.3842 4.54499V4.49037C10.355 4.42797 10.3161 4.37061 10.2689 4.32044L6.62757 0.679135C6.5774 0.63193 6.52004 0.593007 6.45764 0.563827H6.40302C6.34137 0.528471 6.27328 0.505776 6.20275 0.49707H2.5311C2.04823 0.49707 1.58514 0.688889 1.24371 1.03033C0.902267 1.37177 0.710449 1.83486 0.710449 2.31772V10.8141C0.710449 11.297 0.902267 11.7601 1.24371 12.1015C1.58514 12.4429 2.04823 12.6348 2.5311 12.6348H8.59994C9.08281 12.6348 9.5459 12.4429 9.88734 12.1015C10.2288 11.7601 10.4206 11.297 10.4206 10.8141V4.74526V4.70885ZM6.77929 2.56654L8.35112 4.13837H7.38617C7.22522 4.13837 7.07085 4.07443 6.95704 3.96062C6.84323 3.84681 6.77929 3.69245 6.77929 3.53149V2.56654ZM9.20683 10.8141C9.20683 10.9751 9.14289 11.1294 9.02907 11.2432C8.91526 11.357 8.7609 11.421 8.59994 11.421H2.5311C2.37015 11.421 2.21578 11.357 2.10197 11.2432C1.98816 11.1294 1.92422 10.9751 1.92422 10.8141V2.31772C1.92422 2.15677 1.98816 2.0024 2.10197 1.88859C2.21578 1.77478 2.37015 1.71084 2.5311 1.71084H5.56552V3.53149C5.56552 4.01436 5.75734 4.47745 6.09878 4.81889C6.44022 5.16032 6.90331 5.35214 7.38617 5.35214H9.20683V10.8141Z"
-                            />
-                          </g>
-                        </svg>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          class="text-[#0EA976] bg-[#E2FCF3] rounded-full w-[15px] h-[15px] absolute top-[53.5px] left-[255px]"
-                          viewBox="0 0 21 19"
-                          fill="currentColor"
-                        >
-                          <path
-                            fill-rule="evenodd"
-                            d="M16.707 4.293a1 1 0 00-1.414 0L8 11.586 4.707 8.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z"
-                            clip-rule="evenodd"
-                          />
-                        </svg>
                       </div>
                     </div>
-                  </div>
-                  <svg
-                    width="33"
-                    height="29"
-                    class="w-[33px] h-[28px] absolute mt-[280px] ml-[325px]"
-                    viewBox="0 0 33 29"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M8.09082 7.83984L1.00915 14.9215L8.09082 22.0032"
-                      stroke="#292D32"
-                      stroke-width="1.5"
-                      stroke-miterlimit="10"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                    <path
-                      d="M31.8408 14.9209H2.20082"
-                      stroke="#292D32"
-                      stroke-width="1.5"
-                      stroke-miterlimit="10"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                  <div
-                    :class="[!fileUploaded5 ? 'bg-[#FFFFFF]' : boxClass6]"
-                    class="flex flex-col w-[289px] h-[130px] rounded-lg mt-[215px] ml-5 absolute border-[1px] border-[#DEDEDE]"
-                  >
+                    <svg
+                      width="33"
+                      height="29"
+                      class="w-[33px] h-[28px]"
+                      viewBox="0 0 33 29"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M8.09082 7.83984L1.00915 14.9215L8.09082 22.0032"
+                        stroke="#292D32"
+                        stroke-width="1.5"
+                        stroke-miterlimit="10"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M31.8408 14.9209H2.20082"
+                        stroke="#292D32"
+                        stroke-width="1.5"
+                        stroke-miterlimit="10"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
                     <div
-                      :class="!fileUploaded5 ? 'bg-[#E0E0E0]' : headerClass6"
-                      class="w-full h-[40px] p-4 flex justify-between items-center rounded-t-lg"
+                      :class="[!fileUploaded9 ? 'bg-[#FFFFFF]' : boxClass10]"
+                      class="flex flex-col w-[289px] h-[130px] rounded-lg border-[1px] border-[#DEDEDE]"
                     >
                       <div
-                        :class="!fileUploaded5 ? 'text-[#333333]' : 'text-[#FFFFFF]'"
-                        class="font-sans text-[14px] font-semibold"
+                        :class="!fileUploaded9 ? 'bg-[#E0E0E0]' : headerClass10"
+                        class="w-full h-[40px] p-4 flex justify-between items-center rounded-t-lg"
                       >
-                        {{ fileUploaded6 ? "Surat Pesanan" : "Surat Pesanan" }}
+                        <div
+                          :class="!fileUploaded9 ? 'text-[#333333]' : 'text-[#FFFFFF]'"
+                          class="font-sans text-[14px] font-semibold"
+                        >
+                          {{ fileUploaded10 ? "Review Mitra" : "Review Mitra" }}
+                        </div>
                       </div>
-                    </div>
-                    <div
-                      v-if="!fileUploaded6"
-                      class="flex flex-col ml-4 mt-[10px]"
-                    >
-                      <p
-                        :class="!fileUploaded5 ? 'text-[#7F7F80]' : 'text-[#333333]'"
-                        class="font-sans text-[12px] font-normal"
+                      <div
+                        v-if="!fileUploaded10"
+                        class="flex flex-col ml-4 mt-[10px]"
                       >
-                        Dokumen Surat Pesanan
-                      </p>
-                      <label
-                        :class="[!fileUploaded5 ? 'cursor-not-allowed bg-[#E6E6E6] text-[#7F7F80]' : 'cursor-pointer bg-[#2671D9] hover:bg-[#1E5BB7] text-[#FFFFFF]']"
-                        class="w-[73px] h-[25px] rounded mt-[12px] inline-flex items-center justify-center text-[8.75px] font-sans font-semibold"
+                        <p
+                          :class="!fileUploaded9 ? 'text-[#7F7F80]' : 'text-[#333333]'"
+                          class="font-sans text-[12px] font-normal"
+                        >
+                          Dokumen Review Mitra
+                        </p>
+                        <label
+                          :class="[!fileUploaded9 ? 'cursor-not-allowed bg-[#E6E6E6] text-[#7F7F80]' : 'cursor-pointer bg-[#2671D9] hover:bg-[#1E5BB7] text-[#FFFFFF]']"
+                          class="w-[73px] h-[25px] rounded mt-[12px] inline-flex items-center justify-center text-[8.75px] font-sans font-semibold"
+                        >
+                          <div class="flex items-center">
+                            <svg
+                              class="mr-1"
+                              width="9"
+                              height="7"
+                              viewBox="0 0 9 7"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                :fill="!fileUploaded9 ? '#7F7F80' : '#FFFFFF'"
+                                fill-rule="evenodd"
+                                clip-rule="evenodd"
+                                d="M3.87337 1.13053C3.01762 1.13053 2.32389 1.82426 2.32389 2.68001C2.32389 2.77881 2.33309 2.87512 2.35059 2.96824C2.38432 3.14782 2.27992 3.32463 2.10638 3.38182C1.59703 3.54968 1.23014 4.02951 1.23014 4.59407C1.23014 5.29881 1.80145 5.87012 2.50618 5.87012H6.60775C7.16147 5.87012 7.61035 5.42124 7.61035 4.86751C7.61035 4.43975 7.3423 4.07368 6.96375 3.92985C6.77894 3.85963 6.68377 3.65491 6.74921 3.46836C6.77555 3.39326 6.79004 3.31216 6.79004 3.22689C6.79004 2.82418 6.46358 2.49772 6.06087 2.49772C5.98167 2.49772 5.9061 2.51022 5.83562 2.53308C5.74043 2.56395 5.63673 2.55433 5.54884 2.50649C5.46095 2.45864 5.39658 2.37677 5.37084 2.28007C5.19455 1.61791 4.59041 1.13053 3.87337 1.13053ZM1.59473 2.68001C1.59473 1.42155 2.61491 0.401367 3.87337 0.401367C4.80935 0.401367 5.61285 0.965434 5.96369 1.77176C5.99584 1.76963 6.02825 1.76855 6.06087 1.76855C6.86629 1.76855 7.51921 2.42147 7.51921 3.22689C7.51921 3.28171 7.51616 3.33591 7.51023 3.3893C8.00728 3.69338 8.33952 4.24132 8.33952 4.86751C8.33952 5.82394 7.56418 6.59928 6.60775 6.59928H2.50618C1.39874 6.59928 0.500977 5.70152 0.500977 4.59407C0.500977 3.81305 0.947312 3.13701 1.59815 2.80588C1.59588 2.76418 1.59473 2.72222 1.59473 2.68001ZM4.16245 2.42221C4.30483 2.27983 4.53567 2.27983 4.67805 2.42221L5.7718 3.51596C5.91418 3.65834 5.91418 3.88918 5.7718 4.03156C5.62942 4.17394 5.39858 4.17394 5.2562 4.03156L4.78483 3.56019L4.78483 5.14095C4.78483 5.3423 4.6216 5.50553 4.42025 5.50553C4.21889 5.50553 4.05566 5.3423 4.05566 5.14095L4.05566 3.56019L3.5843 4.03156C3.44192 4.17394 3.21108 4.17394 3.0687 4.03156C2.92632 3.88918 2.92632 3.65834 3.0687 3.51596L4.16245 2.42221Z"
+                              />
+                            </svg>
+                            <span>Upload</span>
+                          </div>
+                          <input
+                            type="file"
+                            class="hidden"
+                            :disabled="!fileUploaded9"
+                            @change="handleFileUpload10"
+                          >
+                        </label>
+                      </div>
+                      <div
+                        v-else
+                        class="flex items-center ml-4 mt-[10px]"
                       >
-                        <div class="flex items-center">
+                        <div class="flex">
+                          <input
+                            ref="fileInputKemitraan10"
+                            type="file"
+                            class="hidden"
+                            @change="handleFileUpload10"
+                          >
+                          <div
+                            class="cursor-pointer"
+                            @click="openFileDialog('Kemitraan10')"
+                          >
+                            <div class="font-sans text-[#333333] text-[12px] font-normal">
+                              Dokumen Review Mitra
+                            </div>
+                            <div class="flex">
+                              <svg
+                                class="w-[30px] h-[30px] mt-[12px]"
+                                viewBox="0 0 30 30"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <circle
+                                  cx="15"
+                                  cy="15"
+                                  r="14.5652"
+                                  class="fill-[#E2FCF3]"
+                                />
+                                <g transform="translate(9, 8)">
+                                  <path
+                                    class="fill-[#0EA976]"
+                                    d="M10.4206 4.70885C10.4143 4.65309 10.4021 4.59817 10.3842 4.54499V4.49037C10.355 4.42797 10.3161 4.37061 10.2689 4.32044L6.62757 0.679135C6.5774 0.63193 6.52004 0.593007 6.45764 0.563827H6.40302C6.34137 0.528471 6.27328 0.505776 6.20275 0.49707H2.5311C2.04823 0.49707 1.58514 0.688889 1.24371 1.03033C0.902267 1.37177 0.710449 1.83486 0.710449 2.31772V10.8141C0.710449 11.297 0.902267 11.7601 1.24371 12.1015C1.58514 12.4429 2.04823 12.6348 2.5311 12.6348H8.59994C9.08281 12.6348 9.5459 12.4429 9.88734 12.1015C10.2288 11.7601 10.4206 11.297 10.4206 10.8141V4.74526V4.70885ZM6.77929 2.56654L8.35112 4.13837H7.38617C7.22522 4.13837 7.07085 4.07443 6.95704 3.96062C6.84323 3.84681 6.77929 3.69245 6.77929 3.53149V2.56654ZM9.20683 10.8141C9.20683 10.9751 9.14289 11.1294 9.02907 11.2432C8.91526 11.357 8.7609 11.421 8.59994 11.421H2.5311C2.37015 11.421 2.21578 11.357 2.10197 11.2432C1.98816 11.1294 1.92422 10.9751 1.92422 10.8141V2.31772C1.92422 2.15677 1.98816 2.0024 2.10197 1.88859C2.21578 1.77478 2.37015 1.71084 2.5311 1.71084H5.56552V3.53149C5.56552 4.01436 5.75734 4.47745 6.09878 4.81889C6.44022 5.16032 6.90331 5.35214 7.38617 5.35214H9.20683V10.8141Z"
+                                  />
+                                </g>
+                              </svg>
+                              <div class="mt-[12px] ml-2">
+                                <p class="w-[200px] h[-12px] text-[#333333] text-[9.06px] truncate">
+                                  {{ fileName10 }}
+                                </p>
+                                <p class="w-[200px] h-[11px] text-[#9E9E9E] text-[7.77px]">
+                                  {{ fileSize10 }} MB
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                            
                           <svg
-                            class="mr-1"
-                            width="9"
-                            height="7"
-                            viewBox="0 0 9 7"
-                            fill="none"
                             xmlns="http://www.w3.org/2000/svg"
+                            class="text-[#0EA976] bg-[#E2FCF3] rounded-full w-[15px] h-[15px] "
+                            viewBox="0 0 21 19"
+                            fill="currentColor"
                           >
                             <path
-                              :fill="!fileUploaded5 ? '#7F7F80' : '#FFFFFF'"
                               fill-rule="evenodd"
+                              d="M16.707 4.293a1 1 0 00-1.414 0L8 11.586 4.707 8.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z"
                               clip-rule="evenodd"
-                              d="M3.87337 1.13053C3.01762 1.13053 2.32389 1.82426 2.32389 2.68001C2.32389 2.77881 2.33309 2.87512 2.35059 2.96824C2.38432 3.14782 2.27992 3.32463 2.10638 3.38182C1.59703 3.54968 1.23014 4.02951 1.23014 4.59407C1.23014 5.29881 1.80145 5.87012 2.50618 5.87012H6.60775C7.16147 5.87012 7.61035 5.42124 7.61035 4.86751C7.61035 4.43975 7.3423 4.07368 6.96375 3.92985C6.77894 3.85963 6.68377 3.65491 6.74921 3.46836C6.77555 3.39326 6.79004 3.31216 6.79004 3.22689C6.79004 2.82418 6.46358 2.49772 6.06087 2.49772C5.98167 2.49772 5.9061 2.51022 5.83562 2.53308C5.74043 2.56395 5.63673 2.55433 5.54884 2.50649C5.46095 2.45864 5.39658 2.37677 5.37084 2.28007C5.19455 1.61791 4.59041 1.13053 3.87337 1.13053ZM1.59473 2.68001C1.59473 1.42155 2.61491 0.401367 3.87337 0.401367C4.80935 0.401367 5.61285 0.965434 5.96369 1.77176C5.99584 1.76963 6.02825 1.76855 6.06087 1.76855C6.86629 1.76855 7.51921 2.42147 7.51921 3.22689C7.51921 3.28171 7.51616 3.33591 7.51023 3.3893C8.00728 3.69338 8.33952 4.24132 8.33952 4.86751C8.33952 5.82394 7.56418 6.59928 6.60775 6.59928H2.50618C1.39874 6.59928 0.500977 5.70152 0.500977 4.59407C0.500977 3.81305 0.947312 3.13701 1.59815 2.80588C1.59588 2.76418 1.59473 2.72222 1.59473 2.68001ZM4.16245 2.42221C4.30483 2.27983 4.53567 2.27983 4.67805 2.42221L5.7718 3.51596C5.91418 3.65834 5.91418 3.88918 5.7718 4.03156C5.62942 4.17394 5.39858 4.17394 5.2562 4.03156L4.78483 3.56019L4.78483 5.14095C4.78483 5.3423 4.6216 5.50553 4.42025 5.50553C4.21889 5.50553 4.05566 5.3423 4.05566 5.14095L4.05566 3.56019L3.5843 4.03156C3.44192 4.17394 3.21108 4.17394 3.0687 4.03156C2.92632 3.88918 2.92632 3.65834 3.0687 3.51596L4.16245 2.42221Z"
                             />
                           </svg>
-                          <span>Upload</span>
                         </div>
-                        <input
-                          type="file"
-                          class="hidden"
-                          :disabled="!fileUploaded5"
-                          @change="handleFileUpload6"
-                        >
-                      </label>
-                    </div>
-                    <div
-                      v-else
-                      class="flex items-center ml-4 mt-[10px]"
-                    >
-                      <div class="flex items-center">
-                        <input
-                          ref="fileInputKemitraan6"
-                          type="file"
-                          class="hidden"
-                          @change="handleFileUpload6"
-                        >
-                        <div
-                          class="cursor-pointer"
-                          @click="openFileDialog('Kemitraan6')"
-                        >
-                          <div class="font-sans text-[#333333] text-[12px] font-normal">
-                            Dokumen Surat Pesanan
-                          </div>
-                          <div class="mt-[12px] ml-[38px]">
-                            <p class="w-[200px] h[-12px] text-[#333333] text-[9.06px] truncate">
-                              {{ fileName6 }}
-                            </p>
-                            <p class="w-[200px] h-[11px] text-[#9E9E9E] text-[7.77px]">
-                              {{ fileSize6 }} MB
-                            </p>
-                          </div>
-                        </div>
-                        <svg
-                          class="w-[30px] h-[30px] absolute mt-[30px]"
-                          viewBox="0 0 30 30"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <circle
-                            cx="15"
-                            cy="15"
-                            r="14.5652"
-                            class="fill-[#E2FCF3]"
-                          />
-                          <g transform="translate(9, 8)">
-                            <path
-                              class="fill-[#0EA976]"
-                              d="M10.4206 4.70885C10.4143 4.65309 10.4021 4.59817 10.3842 4.54499V4.49037C10.355 4.42797 10.3161 4.37061 10.2689 4.32044L6.62757 0.679135C6.5774 0.63193 6.52004 0.593007 6.45764 0.563827H6.40302C6.34137 0.528471 6.27328 0.505776 6.20275 0.49707H2.5311C2.04823 0.49707 1.58514 0.688889 1.24371 1.03033C0.902267 1.37177 0.710449 1.83486 0.710449 2.31772V10.8141C0.710449 11.297 0.902267 11.7601 1.24371 12.1015C1.58514 12.4429 2.04823 12.6348 2.5311 12.6348H8.59994C9.08281 12.6348 9.5459 12.4429 9.88734 12.1015C10.2288 11.7601 10.4206 11.297 10.4206 10.8141V4.74526V4.70885ZM6.77929 2.56654L8.35112 4.13837H7.38617C7.22522 4.13837 7.07085 4.07443 6.95704 3.96062C6.84323 3.84681 6.77929 3.69245 6.77929 3.53149V2.56654ZM9.20683 10.8141C9.20683 10.9751 9.14289 11.1294 9.02907 11.2432C8.91526 11.357 8.7609 11.421 8.59994 11.421H2.5311C2.37015 11.421 2.21578 11.357 2.10197 11.2432C1.98816 11.1294 1.92422 10.9751 1.92422 10.8141V2.31772C1.92422 2.15677 1.98816 2.0024 2.10197 1.88859C2.21578 1.77478 2.37015 1.71084 2.5311 1.71084H5.56552V3.53149C5.56552 4.01436 5.75734 4.47745 6.09878 4.81889C6.44022 5.16032 6.90331 5.35214 7.38617 5.35214H9.20683V10.8141Z"
-                            />
-                          </g>
-                        </svg>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          class="text-[#0EA976] bg-[#E2FCF3] rounded-full w-[15px] h-[15px] absolute top-[53.5px] left-[255px]"
-                          viewBox="0 0 21 19"
-                          fill="currentColor"
-                        >
-                          <path
-                            fill-rule="evenodd"
-                            d="M16.707 4.293a1 1 0 00-1.414 0L8 11.586 4.707 8.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z"
-                            clip-rule="evenodd"
-                          />
-                        </svg>
                       </div>
                     </div>
                   </div>
 
-                  <svg
-                    width="28"
-                    height="33"
-                    class="w-[33px] h-[28px] absolute mt-[360px] ml-[150px]"
-                    viewBox="0 0 28 33"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M21.1221 24.75L14.3405 31.8317L7.55898 24.75"
-                      stroke="#292D32"
-                      stroke-width="1.5"
-                      stroke-miterlimit="10"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                    <path
-                      d="M14.3408 1L14.3408 30.64"
-                      stroke="#292D32"
-                      stroke-width="1.5"
-                      stroke-miterlimit="10"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                   
-                  <div
-                    :class="[!fileUploaded6 ? 'bg-[#FFFFFF]' : boxClass7]"
-                    class="flex flex-col w-[289px] h-[130px] rounded-lg mt-[400px] ml-5 absolute border-[1px] border-[#DEDEDE]"
-                  >
-                    <div
-                      :class="!fileUploaded6 ? 'bg-[#E0E0E0]' : headerClass7"
-                      class="w-full h-[40px] p-4 flex justify-between items-center rounded-t-lg"
-                    >
-                      <div
-                        :class="!fileUploaded6 ? 'text-[#333333]' : 'text-[#FFFFFF]'"
-                        class="font-sans text-[14px] font-semibold"
-                      >
-                        {{ fileUploaded7 ? "PKS" : "PKS" }}
-                      </div>
-                    </div>
-                    <div
-                      v-if="!fileUploaded7"
-                      class="flex flex-col ml-4 mt-[10px]"
-                    >
-                      <p
-                        :class="!fileUploaded6 ? 'text-[#7F7F80]' : 'text-[#333333]'"
-                        class="font-sans text-[12px] font-normal"
-                      >
-                        Dokumen PKS
-                      </p>
-                      <label
-                        :class="[!fileUploaded6 ? 'cursor-not-allowed bg-[#E6E6E6] text-[#7F7F80]' : 'cursor-pointer bg-[#2671D9] hover:bg-[#1E5BB7] text-[#FFFFFF]']"
-                        class="w-[73px] h-[25px] rounded mt-[12px] inline-flex items-center justify-center text-[8.75px] font-sans font-semibold"
-                      >
-                        <div class="flex items-center">
-                          <svg
-                            class="mr-1"
-                            width="9"
-                            height="7"
-                            viewBox="0 0 9 7"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              :fill="!fileUploaded6 ? '#7F7F80' : '#FFFFFF'"
-                              fill-rule="evenodd"
-                              clip-rule="evenodd"
-                              d="M3.87337 1.13053C3.01762 1.13053 2.32389 1.82426 2.32389 2.68001C2.32389 2.77881 2.33309 2.87512 2.35059 2.96824C2.38432 3.14782 2.27992 3.32463 2.10638 3.38182C1.59703 3.54968 1.23014 4.02951 1.23014 4.59407C1.23014 5.29881 1.80145 5.87012 2.50618 5.87012H6.60775C7.16147 5.87012 7.61035 5.42124 7.61035 4.86751C7.61035 4.43975 7.3423 4.07368 6.96375 3.92985C6.77894 3.85963 6.68377 3.65491 6.74921 3.46836C6.77555 3.39326 6.79004 3.31216 6.79004 3.22689C6.79004 2.82418 6.46358 2.49772 6.06087 2.49772C5.98167 2.49772 5.9061 2.51022 5.83562 2.53308C5.74043 2.56395 5.63673 2.55433 5.54884 2.50649C5.46095 2.45864 5.39658 2.37677 5.37084 2.28007C5.19455 1.61791 4.59041 1.13053 3.87337 1.13053ZM1.59473 2.68001C1.59473 1.42155 2.61491 0.401367 3.87337 0.401367C4.80935 0.401367 5.61285 0.965434 5.96369 1.77176C5.99584 1.76963 6.02825 1.76855 6.06087 1.76855C6.86629 1.76855 7.51921 2.42147 7.51921 3.22689C7.51921 3.28171 7.51616 3.33591 7.51023 3.3893C8.00728 3.69338 8.33952 4.24132 8.33952 4.86751C8.33952 5.82394 7.56418 6.59928 6.60775 6.59928H2.50618C1.39874 6.59928 0.500977 5.70152 0.500977 4.59407C0.500977 3.81305 0.947312 3.13701 1.59815 2.80588C1.59588 2.76418 1.59473 2.72222 1.59473 2.68001ZM4.16245 2.42221C4.30483 2.27983 4.53567 2.27983 4.67805 2.42221L5.7718 3.51596C5.91418 3.65834 5.91418 3.88918 5.7718 4.03156C5.62942 4.17394 5.39858 4.17394 5.2562 4.03156L4.78483 3.56019L4.78483 5.14095C4.78483 5.3423 4.6216 5.50553 4.42025 5.50553C4.21889 5.50553 4.05566 5.3423 4.05566 5.14095L4.05566 3.56019L3.5843 4.03156C3.44192 4.17394 3.21108 4.17394 3.0687 4.03156C2.92632 3.88918 2.92632 3.65834 3.0687 3.51596L4.16245 2.42221Z"
-                            />
-                          </svg>
-                          <span>Upload</span>
-                        </div>
-                        <input
-                          type="file"
-                          class="hidden"
-                          :disabled="!fileUploaded6"
-                          @change="handleFileUpload7"
-                        >
-                      </label>
-                    </div>
-                    <div
-                      v-else
-                      class="flex items-center ml-4 mt-[10px]"
-                    >
-                      <div class="flex items-center">
-                        <input
-                          ref="fileInputKemitraan7"
-                          type="file"
-                          class="hidden"
-                          @change="handleFileUpload7"
-                        >
-                        <div
-                          class="cursor-pointer"
-                          @click="openFileDialog('Kemitraan7')"
-                        >
-                          <div class="font-sans text-[#333333] text-[12px] font-normal">
-                            Dokumen PKS
-                          </div>
-                          <div class="mt-[12px] ml-[38px]">
-                            <p class="w-[200px] h[-12px] text-[#333333] text-[9.06px] truncate">
-                              {{ fileName7 }}
-                            </p>
-                            <p class="w-[200px] h-[11px] text-[#9E9E9E] text-[7.77px]">
-                              {{ fileSize7 }} MB
-                            </p>
-                          </div>
-                        </div>
-                        <svg
-                          class="w-[30px] h-[30px] absolute mt-[30px]"
-                          viewBox="0 0 30 30"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <circle
-                            cx="15"
-                            cy="15"
-                            r="14.5652"
-                            class="fill-[#E2FCF3]"
-                          />
-                          <g transform="translate(9, 8)">
-                            <path
-                              class="fill-[#0EA976]"
-                              d="M10.4206 4.70885C10.4143 4.65309 10.4021 4.59817 10.3842 4.54499V4.49037C10.355 4.42797 10.3161 4.37061 10.2689 4.32044L6.62757 0.679135C6.5774 0.63193 6.52004 0.593007 6.45764 0.563827H6.40302C6.34137 0.528471 6.27328 0.505776 6.20275 0.49707H2.5311C2.04823 0.49707 1.58514 0.688889 1.24371 1.03033C0.902267 1.37177 0.710449 1.83486 0.710449 2.31772V10.8141C0.710449 11.297 0.902267 11.7601 1.24371 12.1015C1.58514 12.4429 2.04823 12.6348 2.5311 12.6348H8.59994C9.08281 12.6348 9.5459 12.4429 9.88734 12.1015C10.2288 11.7601 10.4206 11.297 10.4206 10.8141V4.74526V4.70885ZM6.77929 2.56654L8.35112 4.13837H7.38617C7.22522 4.13837 7.07085 4.07443 6.95704 3.96062C6.84323 3.84681 6.77929 3.69245 6.77929 3.53149V2.56654ZM9.20683 10.8141C9.20683 10.9751 9.14289 11.1294 9.02907 11.2432C8.91526 11.357 8.7609 11.421 8.59994 11.421H2.5311C2.37015 11.421 2.21578 11.357 2.10197 11.2432C1.98816 11.1294 1.92422 10.9751 1.92422 10.8141V2.31772C1.92422 2.15677 1.98816 2.0024 2.10197 1.88859C2.21578 1.77478 2.37015 1.71084 2.5311 1.71084H5.56552V3.53149C5.56552 4.01436 5.75734 4.47745 6.09878 4.81889C6.44022 5.16032 6.90331 5.35214 7.38617 5.35214H9.20683V10.8141Z"
-                            />
-                          </g>
-                        </svg>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          class="text-[#0EA976] bg-[#E2FCF3] rounded-full w-[15px] h-[15px] absolute top-[53.5px] left-[255px]"
-                          viewBox="0 0 21 19"
-                          fill="currentColor"
-                        >
-                          <path
-                            fill-rule="evenodd"
-                            d="M16.707 4.293a1 1 0 00-1.414 0L8 11.586 4.707 8.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z"
-                            clip-rule="evenodd"
-                          />
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
                   <button
                     v-if="!allFilesUploaded"
-                    class="absolute mt-[518px] ml-[915px] flex bg-[#2671D9] hover:bg-[#1E5BB7] text-[#FFFFFF] rounded-lg border-[#FFFFFF] border-[1px]"
+                    class="flex bg-[#2671D9] hover:bg-[#1E5BB7] text-[#FFFFFF] rounded-lg border-[#FFFFFF] border-[1px] ml-auto mt-4"
                     @click="SendFile"
                   >
                     <div
@@ -2790,7 +1819,7 @@ import { dateParsing } from '@/utils/helper';
                       <span class="text-[14px] font-sans font-semibold ml-3 mt-[9px] mr-3 mb-[9px]">Submit</span>
                     </div>
                   </button>
-                </div> -->
+                </div>
               </div>
             </div>
           </div>
@@ -2826,6 +1855,26 @@ import { dateParsing } from '@/utils/helper';
             v-if="isDropdownArrowOpen"
             class="flex flex-col w-[1046px] bg-[#FFFFFF] border-collapse rounded-bl-md rounded-br-md border-[#E5E7E9] border-[1px] ml-4 px-6 py-6"
           >
+            <div
+              v-if="dataBerkas?.mouNumber"
+              class="flex items-center mb-6"
+            >
+              <h1 class="w-[130px] h-[17px] font-sans text-[#333333] text-[14px] font-semibold">
+                MoU Sebelumnya
+              </h1>
+              <span class="w-[92px] h-[17px] text-[#7F7F80] font-sans font-thin text-[14px] ml-4">{{
+                dataBerkas?.mouNumber }}</span>
+            </div>
+            <div
+              v-if="dataBerkas?.lastPKSNumber"
+              class="flex items-center mb-6"
+            >
+              <h1 class="w-[130px] h-[17px] font-sans text-[#333333] text-[14px] font-semibold">
+                PKS Sebelumnya
+              </h1>
+              <span class="w-[92px] h-[17px] text-[#7F7F80] font-sans font-thin text-[14px] ml-4">{{
+                dataBerkas?.lastPKSNumber }}</span>
+            </div>
             <div class="flex items-center">
               <h1 class="w-[130px] h-[17px] font-sans text-[#333333] text-[14px] font-semibold">
                 No. Permintaan
@@ -3989,7 +3038,7 @@ import { dateParsing } from '@/utils/helper';
               </div>
             </div>
             <!-- kode baru -->
-             <!-- Draf PKS -->
+            <!-- Draf PKS -->
             <div class="flex flex-col w-[316.6px]">
               <div class="flex items-center">
                 <h1 class="font-sans text-[#4D5E80] text-[16px] font-semibold">
@@ -4157,8 +3206,8 @@ import { dateParsing } from '@/utils/helper';
               </div>
             </div>
 
-              <!-- review Review Mitra -->
-              <div class="flex flex-col w-[316.6px]">
+            <!-- review Review Mitra -->
+            <div class="flex flex-col w-[316.6px]">
               <div class="flex items-center">
                 <h1 class="font-sans text-[#4D5E80] text-[16px] font-semibold">
                   Review Mitra
@@ -5336,49 +4385,49 @@ export default {
             this.fileDetails.KKB.fileSize = item.fileSize;
             this.fileDetails.KKB.fileId = item.id;
             this.fileDetails.KKB.file = null;
-            this.fileDetails.KKB.linkDownload = `${baseURL.replace('/api',"")}/download/file/${item.id}`;
+            this.fileDetails.KKB.linkDownload = `${baseURL}/download/file/${item.id}`;
           }
           if (item.fileType == 'KKR') {
             this.fileDetails.KKR.fileName = item.fileName;
             this.fileDetails.KKR.fileSize = item.fileSize;
             this.fileDetails.KKR.fileId = item.id;
             this.fileDetails.KKR.file = null;
-            this.fileDetails.KKR.linkDownload = `${baseURL.replace('/api',"")}/download/file/${item.id}`;
+            this.fileDetails.KKR.linkDownload = `${baseURL}/download/file/${item.id}`;
           }
           if (item.fileType == 'KKF') {
             this.fileDetails.KKF.fileName = item.fileName;
             this.fileDetails.KKF.fileSize = item.fileSize;
             this.fileDetails.KKF.fileId = item.id;
             this.fileDetails.KKF.file = null;
-            this.fileDetails.KKF.linkDownload = `${baseURL.replace('/api',"")}/download/file/${item.id}`;
+            this.fileDetails.KKF.linkDownload = `${baseURL}/download/file/${item.id}`;
           }
           if (item.fileType == 'KKO') {
             this.fileDetails.KKO.fileName = item.fileName;
             this.fileDetails.KKO.fileSize = item.fileSize;
             this.fileDetails.KKO.fileId = item.id;
             this.fileDetails.KKO.file = null;
-            this.fileDetails.KKO.linkDownload = `${baseURL.replace('/api',"")}/download/file/${item.id}`;
+            this.fileDetails.KKO.linkDownload = `${baseURL}/download/file/${item.id}`;
           }
           if (item.fileType == 'Dokumen Surat Menyurat') {
             this.fileDetails.DokumenSuratMenyurat.fileName = item.fileName;
             this.fileDetails.DokumenSuratMenyurat.fileSize = item.fileSize;
             this.fileDetails.DokumenSuratMenyurat.fileId = item.id;
             this.fileDetails.DokumenSuratMenyurat.file = null;
-            this.fileDetails.DokumenSuratMenyurat.linkDownload = `${baseURL.replace('/api',"")}/download/file/${item.id}`;
+            this.fileDetails.DokumenSuratMenyurat.linkDownload = `${baseURL}/download/file/${item.id}`;
           }
           if (item.fileType == 'Proposal Mitra') {
             this.fileDetails.ProposalMitra.fileName = item.fileName;
             this.fileDetails.ProposalMitra.fileSize = item.fileSize;
             this.fileDetails.ProposalMitra.fileId = item.id;
             this.fileDetails.ProposalMitra.file = null;
-            this.fileDetails.ProposalMitra.linkDownload = `${baseURL.replace('/api',"")}/download/file/${item.id}`;
+            this.fileDetails.ProposalMitra.linkDownload = `${baseURL}/download/file/${item.id}`;
           }
           if (item.fileType == 'Dokumen Lainnya') {
             this.fileDetails.DokumenLainnya.fileName = item.fileName;
             this.fileDetails.DokumenLainnya.fileSize = item.fileSize;
             this.fileDetails.DokumenLainnya.fileId = item.id;
             this.fileDetails.DokumenLainnya.file = null;
-            this.fileDetails.DokumenLainnya.linkDownload = `${baseURL.replace('/api',"")}/download/file/${item.id}`;
+            this.fileDetails.DokumenLainnya.linkDownload = `${baseURL}/download/file/${item.id}`;
           }
           if (item.fileType == 'Surat Penawaran') {
             this.fileName1 = item.fileName;
@@ -5386,7 +4435,7 @@ export default {
             this.fileId1 = item.id;
             this.file1 = null;
             this.fileUploaded1 = true;
-            this.linkDownloadFile1 = `${baseURL.replace('/api',"")}/download/file/${item.id}`;
+            this.linkDownloadFile1 = `${baseURL}/download/file/${item.id}`;
           }
           if (item.fileType == 'Proposal') {
             this.fileName2 = item.fileName;
@@ -5394,7 +4443,7 @@ export default {
             this.fileId2 = item.id;
             this.file2 = null;
             this.fileUploaded2 = true;
-            this.linkDownloadFile2 = `${baseURL.replace('/api',"")}/download/file/${item.id}`;
+            this.linkDownloadFile2 = `${baseURL}/download/file/${item.id}`;
           }
           if (item.fileType == 'Evaluasi') {
             this.fileName3 = item.fileName;
@@ -5402,7 +4451,7 @@ export default {
             this.fileId3 = item.id;
             this.file3 = null;
             this.fileUploaded3 = true;
-            this.linkDownloadFile3 = `${baseURL.replace('/api',"")}/download/file/${item.id}`;
+            this.linkDownloadFile3 = `${baseURL}/download/file/${item.id}`;
           }
           if (item.fileType == 'Negosiasi') {
             this.fileName4 = item.fileName;
@@ -5410,7 +4459,7 @@ export default {
             this.fileId4 = item.id;
             this.file4 = null;
             this.fileUploaded4 = true;
-            this.linkDownloadFile4 = `${baseURL.replace('/api',"")}/download/file/${item.id}`;
+            this.linkDownloadFile4 = `${baseURL}/download/file/${item.id}`;
           }
           if (item.fileType == 'BAK Pemilihan Mitra') {
             this.fileName5 = item.fileName;
@@ -5418,7 +4467,7 @@ export default {
             this.fileId5 = item.id;
             this.file5 = null;
             this.fileUploaded5 = true;
-            this.linkDownloadFile5 = `${baseURL.replace('/api',"")}/download/file/${item.id}`;
+            this.linkDownloadFile5 = `${baseURL}/download/file/${item.id}`;
           }
           if (item.fileType == 'Surat Pesanan') {
             this.fileName6 = item.fileName;
@@ -5426,7 +4475,7 @@ export default {
             this.fileId6 = item.id;
             this.file6 = null;
             this.fileUploaded6 = true;
-            this.linkDownloadFile6 = `${baseURL.replace('/api',"")}/download/file/${item.id}`;
+            this.linkDownloadFile6 = `${baseURL}/download/file/${item.id}`;
           }
 
           if (item.fileType == "Draft PKS") {
@@ -5480,7 +4529,7 @@ export default {
             this.fileId11 = item.id;
             this.file11 = null;
             this.fileUploaded11 = true;
-            this.linkDownloadFile11 = `${baseURL.replace('/api',"")}/download/file/${item.id}`;
+            this.linkDownloadFile11 = `${baseURL}/download/file/${item.id}`;
           }
         })
         if (res.data.officialUndersign) {
