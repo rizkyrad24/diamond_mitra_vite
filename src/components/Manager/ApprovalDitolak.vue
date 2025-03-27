@@ -680,16 +680,16 @@
         if (tipe == 'MoU') {
           base = 'MOU'
         }
-        this.$router.push(`/approval/approvalditolak/detailpengajuanapprovalditolak/${base}/${id}`);
+        this.$router.push(`/mitra/approval/approvalditolak/detailpengajuanapprovalditolak/${base}/${id}`);
       },
       navigateToApprovalSelesai() {
-        this.$router.push("/approval");
+        this.$router.push("/mitra/approval");
       },
       navigateToApprovalStopclock() {
-        this.$router.push("/approval/approvalstopclock");
+        this.$router.push("/mitra/approval/approvalstopclock");
       },
       navigateToApprovalDitolak() {
-      this.$router.push("/approval/approvalditolak");
+      this.$router.push("/mitra/approval/approvalditolak");
     },
       toggleDropdown() {
         this.showDropdown = !this.showDropdown;

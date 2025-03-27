@@ -330,25 +330,25 @@ export default {
   },
   methods: {
     navigateToDetail() {
-      this.$router.push("/homepage");
+      this.$router.push("/mitra/homepage");
     },
     navigateTo(menu) {
       this.selectedMenu = menu;
       switch (menu) {
         case "User":
-          this.$router.push("/user");
+          this.$router.push("/mitra/user");
           break;
         case "Pejabat":
-          this.$router.push("/pejabat");
+          this.$router.push("/mitra/pejabat");
           break;
         case "Pelanggan":
-          this.$router.push("/pelanggan");
+          this.$router.push("/mitra/pelanggan");
           break;
         case "Produk":
-          this.$router.push("/produk");
+          this.$router.push("/mitra/produk");
           break;
         case "Candidate":
-          this.$router.push("/candidate");
+          this.$router.push("/mitra/candidate");
           break;
         default:
           break;

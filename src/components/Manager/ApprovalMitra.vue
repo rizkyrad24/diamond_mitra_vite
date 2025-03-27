@@ -686,16 +686,16 @@ export default {
       if (tipe == 'MoU') {
         base = 'MOU'
       }
-      this.$router.push(`/approval/detailpengajuanapproval/${base}/${id}`);
+      this.$router.push(`/mitra/approval/detailpengajuanapproval/${base}/${id}`);
     },
     navigateToApprovalSelesai() {
-      this.$router.push("/approval");
+      this.$router.push("/mitra/approval");
     },
     navigateToApprovalStopclock() {
-      this.$router.push("/approval/approvalstopclock");
+      this.$router.push("/mitra/approval/approvalstopclock");
     },
     navigateToApprovalDitolak() {
-      this.$router.push("/approval/approvalditolak");
+      this.$router.push("/mitra/approval/approvalditolak");
     },
     toggleDropdown() {
       this.showDropdown = !this.showDropdown;
@@ -785,28 +785,30 @@ export default {
           message: "Posisi anda tidak dapat mengakses halaman ini"
         }
       }
-			const res = await fetchGet(url, params, this.$router);
-			if (res.status == 200) {
-				const cleanData = res.data.map((item) => ({
-					judul: item.partnershipTitle,
-					nomor: item.submissionNumber,
-					tipe: item.base == "MOU" ? "MoU" : item.base,
-          bisnis_type: item.bisnisType,
-          due_date: item.isStopClock? "-": dueDateParsing(item.dueDateStaff),
-					pelaksana: item.disposedStaff,
-					status: parseStatusAproval(item.positionLevel, item.status),
-          did: item.id
-				}))
-				console.log(res.data)
-				boxResult = boxResult.concat(cleanData)
-			} else {
-				this.isLoading = false;
-        this.modalFailed = {
-          isVisible: true,
-          title: 'Gagal',
-          message: res.data.message ? res.data.message : "Silahkan hubungi admin"
+      if (positionLevel != "PartnershipDirector") {
+        const res = await fetchGet(url, params, this.$router);
+        if (res.status == 200) {
+          const cleanData = res.data.map((item) => ({
+            judul: item.partnershipTitle,
+            nomor: item.submissionNumber,
+            tipe: item.base == "MOU" ? "MoU" : item.base,
+            bisnis_type: item.bisnisType,
+            due_date: item.isStopClock? "-": dueDateParsing(item.dueDateStaff),
+            pelaksana: item.disposedStaff,
+            status: parseStatusAproval(item.positionLevel, item.status),
+            did: item.id
+          }))
+          console.log(res.data)
+          boxResult = boxResult.concat(cleanData)
+        } else {
+          this.isLoading = false;
+          this.modalFailed = {
+            isVisible: true,
+            title: 'Gagal',
+            message: res.data.message ? res.data.message : "Silahkan hubungi admin"
+          }
         }
-			}
+      }
       let url2 = null;
       if (positionLevel == "PartnershipManager") {
         url2 = "mitra/manager/pks/approval";
@@ -847,7 +849,7 @@ export default {
         this.modalFailed = {
           isVisible: true,
           title: 'Gagal',
-          message: res.data.message ? res.data.message : "Silahkan hubungi admin"
+          message: res2.data.message ? res2.data.message : "Silahkan hubungi admin"
         }
 			}
 			this.tableData = boxResult;

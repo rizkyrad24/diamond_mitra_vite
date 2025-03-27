@@ -112,6 +112,26 @@ import { dateParsing } from '@/utils/helper';
             v-if="isDropdownArrowOpen"
             class="flex flex-col w-[1046px] bg-[#FFFFFF] border-collapse rounded-bl-md rounded-br-md border-[#E5E7E9] border-[1px] ml-4 px-6 py-6"
           >
+            <div
+              v-if="dataBerkas?.mouNumber"
+              class="flex items-center mb-6"
+            >
+              <h1 class="w-[130px] h-[17px] font-sans text-[#333333] text-[14px] font-semibold">
+                MoU Sebelumnya
+              </h1>
+              <span class="w-[92px] h-[17px] text-[#7F7F80] font-sans font-thin text-[14px] ml-4">{{
+                dataBerkas?.mouNumber }}</span>
+            </div>
+            <div
+              v-if="dataBerkas?.lastPKSNumber"
+              class="flex items-center mb-6"
+            >
+              <h1 class="w-[130px] h-[17px] font-sans text-[#333333] text-[14px] font-semibold">
+                PKS Sebelumnya
+              </h1>
+              <span class="w-[92px] h-[17px] text-[#7F7F80] font-sans font-thin text-[14px] ml-4">{{
+                dataBerkas?.lastPKSNumber }}</span>
+            </div>
             <div class="flex items-center">
               <h1 class="w-[130px] h-[17px] font-sans text-[#333333] text-[14px] font-semibold">
                 No. Permintaan
@@ -1458,7 +1478,7 @@ export default {
       this.isDropdownArrowOpen3 = !this.isDropdownArrowOpen3;
     },
     navigateToDetail() {
-      this.$router.push("/approval/approvalstopclock");
+      this.$router.push("/mitra/approval/approvalstopclock");
     },
     closeApprovalStopclockPopup() {
       this.showApprovalStopclockPopup = false;
@@ -1504,7 +1524,7 @@ export default {
     },
     closeSelesaiApprovStopClock() {
       this.closeModalSuccess()
-      this.$router.push('/approval/approvalstopclock')
+      this.$router.push('/mitra/approval/approvalstopclock')
     },
     // Popup Reject StopClock
     SendRejectStopClock() {
@@ -1540,7 +1560,7 @@ export default {
     },
     closeSelesaiRejectStopClock() {
       this.closeModalSuccess()
-      this.$router.push('/approval/approvalstopclock')
+      this.$router.push('/mitra/approval/approvalstopclock')
     },
     // Popup Approve StartClock
     SendApprovStartClock() {
@@ -1576,7 +1596,7 @@ export default {
     },
     closeSelesaiApprovStartClock() {
       this.closeModalSuccess()
-      this.$router.push('/approval/approvalstopclock')
+      this.$router.push('/mitra/approval/approvalstopclock')
     },
     // Popup Reject StartClock
     SendRejectStartClock() {
@@ -1612,7 +1632,7 @@ export default {
     },
     closeSelesaiRejectStartClock() {
       this.closeModalSuccess()
-      this.$router.push('/approval/approvalstopclock')
+      this.$router.push('/mitra/approval/approvalstopclock')
     },
     // api
     async getDataApi(base, id) {
@@ -1635,37 +1655,37 @@ export default {
             if (item.fileType == 'KKO') {
               this.fileNameKKO = item.fileName;
               this.fileSizeKKO = item.fileSize;
-              this.linkDownloadKKO = `${baseURL.replace('/api',"")}/download/file/${item.id}`;
+              this.linkDownloadKKO = `${baseURL}/download/file/${item.id}`;
             }
             if (item.fileType == 'KKF') {
               this.fileNameKKF = item.fileName;
               this.fileSizeKKF = item.fileSize;
-              this.linkDownloadKKF = `${baseURL.replace('/api',"")}/download/file/${item.id}`;
+              this.linkDownloadKKF = `${baseURL}/download/file/${item.id}`;
             }
             if (item.fileType == 'KKR') {
               this.fileNameKKR = item.fileName;
               this.fileSizeKKR = item.fileSize;
-              this.linkDownloadKKR = `${baseURL.replace('/api',"")}/download/file/${item.id}`;
+              this.linkDownloadKKR = `${baseURL}/download/file/${item.id}`;
             }
             if (item.fileType == 'KKB') {
               this.fileNameKKB = item.fileName;
               this.fileSizeKKB = item.fileSize;
-              this.linkDownloadKKB = `${baseURL.replace('/api',"")}/download/file/${item.id}`;
+              this.linkDownloadKKB = `${baseURL}/download/file/${item.id}`;
             }
             if (item.fileType == 'Dokumen Surat Menyurat') {
               this.fileNamesurat = item.fileName;
               this.fileSizesurat = item.fileSize;
-              this.linkDownloadsurat = `${baseURL.replace('/api',"")}/download/file/${item.id}`;
+              this.linkDownloadsurat = `${baseURL}/download/file/${item.id}`;
             }
             if (item.fileType == 'Proposal Mitra') {
               this.fileNamemitra = item.fileName;
               this.fileSizemitra = item.fileSize;
-              this.linkDownloadmitra = `${baseURL.replace('/api',"")}/download/file/${item.id}`;
+              this.linkDownloadmitra = `${baseURL}/download/file/${item.id}`;
             }
             if (item.fileType == 'Dokumen Lainnya') {
               this.fileNamelainnya = item.fileName;
               this.fileSizelainnya = item.fileSize;
-              this.linkDownloadlainnya = `${baseURL.replace('/api',"")}/download/file/${item.id}`;
+              this.linkDownloadlainnya = `${baseURL}/download/file/${item.id}`;
             }
           })
           this.responseText = res.data.responseText;
@@ -1689,17 +1709,17 @@ export default {
             if (item.fileType == 'Dokumen Surat Menyurat') {
               this.fileNamesurat = item.fileName;
               this.fileSizesurat = item.fileSize;
-              this.linkDownloadsurat = `${baseURL.replace('/api',"")}/download/file/${item.id}`;
+              this.linkDownloadsurat = `${baseURL}/download/file/${item.id}`;
             }
             if (item.fileType == 'Proposal Mitra') {
               this.fileNamemitra = item.fileName;
               this.fileSizemitra = item.fileSize;
-              this.linkDownloadmitra = `${baseURL.replace('/api',"")}/download/file/${item.id}`;
+              this.linkDownloadmitra = `${baseURL}/download/file/${item.id}`;
             }
             if (item.fileType == 'Dokumen Lainnya') {
               this.fileNamelainnya = item.fileName;
               this.fileSizelainnya = item.fileSize;
-              this.linkDownloadlainnya = `${baseURL.replace('/api',"")}/download/file/${item.id}`;
+              this.linkDownloadlainnya = `${baseURL}/download/file/${item.id}`;
             }
           })
           this.responseText = res.data.responseText;

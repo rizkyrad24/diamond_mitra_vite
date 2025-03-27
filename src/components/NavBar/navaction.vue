@@ -21,6 +21,6 @@ const router = useRouter();
 
 function logout() {
     clearDataLogin();
-    router.push("/login");
+    router.push("/mitra/login");
 }
 </script>

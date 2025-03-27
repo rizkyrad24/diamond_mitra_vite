@@ -2725,7 +2725,7 @@ export default {
       this.isDropdownArrowOpen4 = !this.isDropdownArrowOpen4;
     },
     navigateToDetail() {
-      this.$router.push("/prosesstaff");
+      this.$router.push("/mitra/prosesstaff");
     },
     removeFile(type) {
       this.fileDetails[type] = { fileName: "", fileSize: "" };
@@ -2903,8 +2903,8 @@ export default {
       };
     },
     closeSelesaiApprov() {
-      this.closeModalSuccess();
-      this.$router.push("/prosesstaff");
+      this.closeModalSuccess()
+      this.$router.push('/mitra/prosesstaff')
     },
 
     // Popup Kirim File
@@ -2980,8 +2980,8 @@ export default {
       };
     },
     closeSelesaiRevisiMinor() {
-      this.closeModalSuccess();
-      this.$router.push("/prosesstaff");
+      this.closeModalSuccess()
+      this.$router.push('/mitra/prosesstaff')
     },
 
     // Popup Request Stop Clock

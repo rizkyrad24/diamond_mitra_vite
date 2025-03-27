@@ -568,10 +568,10 @@ export default {
       });
     },
     navigateToSelesai() {
-      this.$router.push("/selesai");
+      this.$router.push("/mitra/selesai");
     },
     navigateToDitolak() {
-      this.$router.push("/selesai/ditolak");
+      this.$router.push("/mitra/selesai/ditolak");
     },
     toggleDropdown() {
       this.showDropdown = !this.showDropdown;

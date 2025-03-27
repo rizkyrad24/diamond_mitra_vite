@@ -237,7 +237,7 @@ watch(
 );
 
 function navigateToDetail() {
-  router.push("/login");
+  router.push("/mitra/login");
 }
 
 function togglePasswordVisibility() {
@@ -271,15 +271,15 @@ async function submit() {
     if (res.data.role == "PartnershipStaff") {
       saveDataLogin(res.data);
       isLoading.value = false;
-      router.push('/dashboardstaff')
+      router.push('/mitra/dashboardstaff')
     } else if (res.data.role == "PartnershipManager" || res.data.role == "PartnershipVP" || res.data.role == "PartnershipDirector") {
       saveDataLogin(res.data);
       isLoading.value = false;
-      router.push('/dashboard')
+      router.push('/mitra/dashboard')
     } else if (res.data.role == "Admin") {
       saveDataLogin(res.data);
       isLoading.value = false;
-      router.push('/user')
+      router.push('/mitra/user')
     } else {
       isLoading.value = false;
       modalFailed.value = {
@@ -314,7 +314,7 @@ async function submit() {
 //   },
 //   methods: {
 //     navigateToDetail() {
-//       this.$router.push("/homepage");
+//       this.$router.push("/mitra/homepage");
 //     },
 //     togglePasswordVisibility() {
 //       this.showPassword = !this.showPassword;
