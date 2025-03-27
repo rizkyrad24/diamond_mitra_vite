@@ -53,7 +53,7 @@ import { dateParsing } from '@/utils/helper';
             <div class="flex items-center">
               <h1 :class="{ 'text-[#FFB200]': !isProgressFinish, 'text-[#0ea976]': isProgressFinish }"
                 class="w-[150px] h-auto font-sans text-[18px] font-bold ml-4 my-2">
-                {{ progress }}
+                <!-- {{ progress }} -->
               </h1>
               <button class="ml-[9px]" @click="showProgressMoUPopup = true">
                 <svg v-if="!isProgressFinish" width="46" height="45" viewBox="0 0 46 45" fill="none"
@@ -175,7 +175,7 @@ import { dateParsing } from '@/utils/helper';
                       </div>
                     </a>
                     <div v-else class="w-[289px] h-[130px] border-[1px] rounded-t-lg rounded-b-lg">
-                      <div class="w-auto h-[40px] bg-[#bcc6d2] rounded-t-lg justify-start items-center px-4"><span
+                      <div class="w-auto h-[40px] bg-[#bcc6d2] rounded-t-lg flex justify-start items-center px-4"><span
                           class="text-white font-semibold">Surat Penawaran</span></div>
                       <div class="w-[265px] h-[18px] flex justify-between ml-3 mt-[10px]">
                         <span class="text-[#333333] text-xs">Dokumen Surat Penawaran</span>
@@ -244,7 +244,7 @@ import { dateParsing } from '@/utils/helper';
                       </div>
                     </a>
                     <div v-else class="w-[289px] h-[130px] border-[1px] rounded-t-lg rounded-b-lg">
-                      <div class="w-auto h-[40px] bg-[#bcc6d2] rounded-t-lg justify-start items-center px-4"><span
+                      <div class="w-auto h-[40px] bg-[#bcc6d2] rounded-t-lg flex justify-start items-center px-4"><span
                           class="text-white font-semibold">Profosal</span></div>
                       <div class="w-[265px] h-[18px] flex justify-between ml-3 mt-[10px]">
                         <span class="text-[#333333] text-xs">Dokumen Profosal</span>
@@ -315,7 +315,7 @@ import { dateParsing } from '@/utils/helper';
                       </div>
                     </a>
                     <div v-else class="w-[289px] h-[130px] border-[1px] rounded-t-lg rounded-b-lg">
-                      <div class="w-auto h-[40px] bg-[#bcc6d2] rounded-t-lg justify-start items-center px-4"><span
+                      <div class="w-auto h-[40px] bg-[#bcc6d2] rounded-t-lg flex justify-start items-center px-4"><span
                           class="text-white font-semibold">Draf MoU/NDA</span></div>
                       <div class="w-[265px] h-[18px] flex justify-between ml-3 mt-[10px]">
                         <span class="text-[#333333] text-xs">Dokumen Draf MoU/NDA</span>
@@ -387,7 +387,7 @@ import { dateParsing } from '@/utils/helper';
                       </div>
                     </a>
                     <div v-else class="w-[289px] h-[130px] border-[1px] rounded-t-lg rounded-b-lg">
-                      <div class="w-auto h-[40px] bg-[#bcc6d2] rounded-t-lg justify-start items-center px-4"><span
+                      <div class="w-auto h-[40px] bg-[#bcc6d2] rounded-t-lg flex justify-start items-center px-4"><span
                           class="text-white font-semibold">Review User</span></div>
                       <div class="w-[265px] h-[18px] flex justify-between ml-3 mt-[10px]">
                         <span class="text-[#333333] text-xs">Dokumen Review User</span>
@@ -456,7 +456,7 @@ import { dateParsing } from '@/utils/helper';
                       </div>
                     </a>
                     <div v-else class="w-[289px] h-[130px] border-[1px] rounded-t-lg rounded-b-lg">
-                      <div class="w-auto h-[40px] bg-[#bcc6d2] rounded-t-lg justify-start items-center px-4"><span
+                      <div class="w-auto h-[40px] bg-[#bcc6d2] rounded-t-lg flex justify-start items-center px-4"><span
                           class="text-white font-semibold">Review Legal</span></div>
                       <div class="w-[265px] h-[18px] flex justify-between ml-3 mt-[10px]">
                         <span class="text-[#333333] text-xs">Dokumen Review Legal</span>
@@ -524,7 +524,7 @@ import { dateParsing } from '@/utils/helper';
                       </div>
                     </a>
                     <div v-else class="w-[289px] h-[130px] border-[1px] rounded-t-lg rounded-b-lg">
-                      <div class="w-auto h-[40px] bg-[#bcc6d2] rounded-t-lg justify-start items-center px-4"><span
+                      <div class="w-auto h-[40px] bg-[#bcc6d2] rounded-t-lg flex justify-start items-center px-4"><span
                           class="text-white font-semibold">Review Mitra</span></div>
                       <div class="w-[265px] h-[18px] flex justify-between ml-3 mt-[10px]">
                         <span class="text-[#333333] text-xs">Dokumen Review mitra</span>
@@ -596,7 +596,7 @@ import { dateParsing } from '@/utils/helper';
                       </div>
                     </a>
                     <div v-else class="w-[289px] h-[130px] border-[1px] rounded-t-lg rounded-b-lg">
-                      <div class="w-auto h-[40px] bg-[#bcc6d2] rounded-t-lg justify-start items-center px-4"><span
+                      <div class="w-auto h-[40px] bg-[#bcc6d2] rounded-t-lg flex justify-start items-center px-4"><span
                           class="text-white font-semibold">MoU/NDA</span></div>
                       <div class="w-[265px] h-[18px] flex justify-between ml-3 mt-[10px]">
                         <span class="text-[#333333] text-xs">Dokumen MoU/NDA</span>
