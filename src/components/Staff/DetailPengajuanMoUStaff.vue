@@ -498,7 +498,7 @@ import { dateParsing } from "@/utils/helper";
                             !fileUploaded2 ? 'text-[#333333]' : 'text-[#FFFFFF]'
                           "
                           class="font-sans text-[14px] font-semibold">
-                          {{ fileUploaded3 ? "Draf MoU/NDA" : "Draf MoU/NDA" }}
+                          {{ fileUploaded3 ? "Draft MoU/NDA" : "Draft MoU/NDA" }}
                         </div>
                       </div>
                       <div
@@ -509,7 +509,7 @@ import { dateParsing } from "@/utils/helper";
                             !fileUploaded2 ? 'text-[#7F7F80]' : 'text-[#333333]'
                           "
                           class="font-sans text-[12px] font-normal">
-                          Dokumen Draf MoU/NDA
+                          Dokumen Draft MoU/NDA
                         </p>
                         <label
                           :class="[
@@ -1848,7 +1848,7 @@ import { dateParsing } from "@/utils/helper";
             <div class="flex flex-col w-[316.6px]">
               <div class="flex items-center">
                 <h1 class="font-sans text-[#4D5E80] text-[16px] font-semibold">
-                  Draf Mou/NDA
+                  Draft Mou/NDA
                 </h1>
                 <a
                   v-if="linkDownloadFile3"
@@ -2078,8 +2078,8 @@ import { dateParsing } from "@/utils/helper";
                   MoU/NDA
                 </h1>
                 <a
-                  v-if="linkDownloadFile3"
-                  :href="linkDownloadFile3"
+                  v-if="linkDownloadFile7"
+                  :href="linkDownloadFile7"
                   class="text-sm text-blue-700 italic ms-2"
                   >download</a
                 >
@@ -2108,17 +2108,17 @@ import { dateParsing } from "@/utils/helper";
                       ref="fileInputEvaluasi"
                       type="file"
                       class="hidden"
-                      @change="handleFileUpload3($event)" />
+                      @change="handleFileUpload7($event)" />
                     <!-- Tombol yang menampilkan nama file dan ukuran -->
                     <button class="ml-4 block text-left p-2 w-full">
                       <div class="flex justify-between items-center pe-4">
                         <div class="overflow-hidden">
                           <span
                             class="block text-sm font-semibold text-[#333333] font-sans text-[14px] truncate">
-                            {{ fileName3 || "Belum diupload" }}
+                            {{ fileName7 || "Belum diupload" }}
                           </span>
                           <span class="block text-xs">
-                            {{ fileSize3 || "" }}
+                            {{ fileSize7 || "" }}
                           </span>
                         </div>
                       </div>
@@ -2562,7 +2562,7 @@ export default {
       } else if (this.fileId3) {
         return "Review User";
       } else if (this.fileId2) {
-        return "Draf MoU/NDA";
+        return "Draft MoU/NDA";
       } else if (this.fileId1) {
         return "Proposal";
       } else {
@@ -3227,7 +3227,7 @@ export default {
             )}/download/file/${item.id}`;
           }
 
-          if (item.fileType == "Draf MoU/NDA") {
+          if (item.fileType == "Draft MoU/NDA") {
             this.fileName3 = item.fileName;
             this.fileSize3 = item.fileSize;
             this.fileId3 = item.id;
@@ -3442,7 +3442,7 @@ export default {
       }
       if (this.file3 || this.fileId3) {
         if (this.file3) {
-          form.append(`attachmentsMou[${sort}].fileType`, "Draf MoU/NDA");
+          form.append(`attachmentsMou[${sort}].fileType`, "Draft MoU/NDA");
           form.append(`attachmentsMou[${sort}].file`, this.file3);
           if (this.fileId3) {
             form.append(`attachmentsMou[${sort}].id`, this.fileId3);

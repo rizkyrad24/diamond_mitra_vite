@@ -247,7 +247,7 @@ import { dateParsing } from '@/utils/helper';
                       <div class="w-auto h-[40px] bg-[#bcc6d2] rounded-t-lg justify-start items-center px-4"><span
                           class="text-white font-semibold">Profosal</span></div>
                       <div class="w-[265px] h-[18px] flex justify-between ml-3 mt-[10px]">
-                        <span class="text-[#333333] text-xs">Dokumen Profosal</span>
+                        <span class="text-[#333333] text-xs">Dokumen Proposal</span>
                       </div>
                       <div class="w-[265px] h-auto flex ml-3 py-[10px]">
                         <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -274,14 +274,14 @@ import { dateParsing } from '@/utils/helper';
                       class="flex flex-col w-[289px] h-[130px] rounded-lg border-[1px] border-[#E5E7E9]">
                       <div class="w-full h-[40px] p-4 flex justify-between items-center rounded-t-lg bg-[#0EA976]">
                         <div class="font-sans text-[14px] font-semibold text-white">
-                          Draf MoU/NDA
+                          Draft MoU/NDA
                         </div>
                       </div>
                       <div class="flex items-center ml-4 mt-[10px]">
                         <div class="flex">
                           <div>
                             <div class="font-sans text-[#333333] text-[12px] font-normal">
-                              Draf MoU/NDA
+                              Draft MoU/NDA
                             </div>
                             <div class="flex">
                               <svg class="w-[30px] h-[30px] mt-[12px]" viewBox="0 0 30 30" fill="none"
@@ -318,7 +318,7 @@ import { dateParsing } from '@/utils/helper';
                       <div class="w-auto h-[40px] bg-[#bcc6d2] rounded-t-lg justify-start items-center px-4"><span
                           class="text-white font-semibold">Draf MoU/NDA</span></div>
                       <div class="w-[265px] h-[18px] flex justify-between ml-3 mt-[10px]">
-                        <span class="text-[#333333] text-xs">Dokumen Draf MoU/NDA</span>
+                        <span class="text-[#333333] text-xs">Dokumen Draft MoU/NDA</span>
                       </div>
                       <div class="w-[265px] h-auto flex ml-3 py-[10px]">
                         <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1025,7 +1025,7 @@ import { dateParsing } from '@/utils/helper';
             <div class="flex flex-col w-[316.6px]">
               <div class="flex items-center">
                 <h1 class="font-sans text-[#4D5E80] text-[16px] font-semibold">
-                  Draf MoU/NDA
+                  Draft MoU/NDA
                 </h1>
               </div>
               <a v-if="fileName3" :href="linkDownloadFile3"
@@ -1325,7 +1325,7 @@ export default {
       } else if (this.fileId3) {
         return "Review User";
       } else if (this.fileId2) {
-        return "Draf MoU/NDA";
+        return "Draft MoU/NDA";
       } else if (this.fileId1) {
         return "Proposal";
       } else {
@@ -1541,7 +1541,7 @@ export default {
             this.linkDownloadFile2 = `${baseURL.replace('/api', "")}/download/file/${item.id}`;
           }
 
-          if (item.fileType == "Draf MoU/NDA") {
+          if (item.fileType == "Draft MoU/NDA") {
             this.fileName3 = item.fileName;
             this.fileSize3 = item.fileSize;
             this.linkDownloadFile3 = `${baseURL.replace('/api', "")}/download/file/${item.id}`;
