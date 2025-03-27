@@ -1125,7 +1125,7 @@ import { dateParsing } from '@/utils/helper';
                           :class="!fileUploaded6 ? 'text-[#333333]' : 'text-[#FFFFFF]'"
                           class="font-sans text-[14px] font-semibold"
                         >
-                          {{ fileUploaded7 ? "Draf PKS" : "Draf PKS" }}
+                          {{ fileUploaded7 ? "Draft PKS" : "Draft PKS" }}
                         </div>
                       </div>
                       <div
@@ -1136,7 +1136,7 @@ import { dateParsing } from '@/utils/helper';
                           :class="!fileUploaded6 ? 'text-[#7F7F80]' : 'text-[#333333]'"
                           class="font-sans text-[12px] font-normal"
                         >
-                          Dokumen Draf PKS
+                          Dokumen Draft PKS
                         </p>
                         <label
                           :class="[!fileUploaded6 ? 'cursor-not-allowed bg-[#E6E6E6] text-[#7F7F80]' : 'cursor-pointer bg-[#2671D9] hover:bg-[#1E5BB7] text-[#FFFFFF]']"
@@ -1184,7 +1184,7 @@ import { dateParsing } from '@/utils/helper';
                             @click="openFileDialog('Kemitraan7')"
                           >
                             <div class="font-sans text-[#333333] text-[12px] font-normal">
-                              Dokumen Draf PKS
+                              Dokumen Draft PKS
                             </div>
                             <div class="flex">
                               <svg
@@ -1561,7 +1561,7 @@ import { dateParsing } from '@/utils/helper';
                             :class="!fileUploaded10 ? 'text-[#333333]' : 'text-[#FFFFFF]'"
                             class="font-sans text-[14px] font-semibold"
                           >
-                            {{ fileUploaded11 ? "Surat Pesanan" : "Surat Pesanan" }}
+                            {{ fileUploaded11 ? "PKS" : "PKS" }}
                           </div>
                         </div>
                         <div
@@ -1572,7 +1572,7 @@ import { dateParsing } from '@/utils/helper';
                             :class="!fileUploaded10 ? 'text-[#7F7F80]' : 'text-[#333333]'"
                             class="font-sans text-[12px] font-normal"
                           >
-                            Dokumen Surat Pesanan
+                            Dokumen PKS
                           </p>
                           <label
                             :class="[!fileUploaded10 ? 'cursor-not-allowed bg-[#E6E6E6] text-[#7F7F80]' : 'cursor-pointer bg-[#2671D9] hover:bg-[#1E5BB7] text-[#FFFFFF]']"
@@ -1620,7 +1620,7 @@ import { dateParsing } from '@/utils/helper';
                               @click="openFileDialog('Kemitraan11')"
                             >
                               <div class="font-sans text-[#333333] text-[12px] font-normal">
-                                Dokumen Surat Pesanan
+                                Dokumen PKS
                               </div>
                               <div class="flex">
                                 <svg
@@ -3993,7 +3993,7 @@ import { dateParsing } from '@/utils/helper';
             <div class="flex flex-col w-[316.6px]">
               <div class="flex items-center">
                 <h1 class="font-sans text-[#4D5E80] text-[16px] font-semibold">
-                  Draf PKS
+                  Draft PKS
                 </h1>
                 <a
                   v-if="linkDownloadFile7"
@@ -4730,7 +4730,7 @@ export default {
       } else if (this.fileId7) {
         return "Review User";
       } else if (this.fileId6) {
-        return "Draf PKS";
+        return "Draft PKS";
       } else if (this.fileId5) {
         return "Surat Pesanan"
       } else if (this.fileId4) {
@@ -5429,7 +5429,7 @@ export default {
             this.linkDownloadFile6 = `${baseURL.replace('/api',"")}/download/file/${item.id}`;
           }
 
-          if (item.fileType == "Draf PKS") {
+          if (item.fileType == "Draft PKS") {
             this.fileName7 = item.fileName;
             this.fileSize7 = item.fileSize;
             this.fileId7 = item.id;
@@ -5673,7 +5673,7 @@ export default {
       }
       if (this.file7 || this.fileId7) {
         if (this.file7) {
-          form.append(`attachmentsPks[${sort}].fileType`, 'Draf PKS')
+          form.append(`attachmentsPks[${sort}].fileType`, 'Draft PKS')
           form.append(`attachmentsPks[${sort}].file`, this.file7)
           if (this.fileId7 && this.file7) {
             form.append(`attachmentsPks[${sort}].id`, this.fileId7)
