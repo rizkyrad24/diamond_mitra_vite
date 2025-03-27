@@ -646,7 +646,7 @@ export default {
       if (tipe == 'MoU') {
         base = 'MOU'
       }
-      this.$router.push(`/masukstaff/detailpengajuanstaff/${base}/${id}`);
+      this.$router.push(`/mitra/masukstaff/detailpengajuanstaff/${base}/${id}`);
     },
     toggleDropdown() {
       this.showDropdown = !this.showDropdown;

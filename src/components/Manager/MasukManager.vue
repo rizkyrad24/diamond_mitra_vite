@@ -640,7 +640,7 @@ export default {
       if (tipe == 'MoU') {
         base = 'MOU'
       }
-      this.$router.push(`/masukmanager/detailpengajuanmanager/${base}/${id}`);
+      this.$router.push(`/mitra/masukmanager/detailpengajuanmanager/${base}/${id}`);
     },
     toggleDropdown() {
       this.showDropdown = !this.showDropdown;

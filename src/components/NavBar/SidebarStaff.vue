@@ -186,22 +186,22 @@ export default {
   },
   methods: {
     navigateToDetail() {
-      this.$router.push("/homepage");
+      this.$router.push("/mitra/homepage");
     },
     navigateTo(menu) {
       this.selectedMenu = menu;
       switch (menu) {
         case "DashboardStaff":
-          this.$router.push("/dashboardstaff");
+          this.$router.push("/mitra/dashboardstaff");
           break;
         case "MasukStaff":
-          this.$router.push("/masukstaff");
+          this.$router.push("/mitra/masukstaff");
           break;
         case "ProsesStaff":
-          this.$router.push("/prosesstaff");
+          this.$router.push("/mitra/prosesstaff");
           break;
         case "SelesaiStaff":
-          this.$router.push("/selesaistaff");
+          this.$router.push("/mitra/selesaistaff");
           break;
         default:
           break;

@@ -560,10 +560,10 @@ export default {
       });
     },
     navigateToSelesaiStaff() {
-      this.$router.push("/selesaistaff");
+      this.$router.push("/mitra/selesaistaff");
     },
     navigateToDitolakStaff() {
-      this.$router.push("/selesaistaff/ditolakstaff");
+      this.$router.push("/mitra/selesaistaff/ditolakstaff");
     },
     toggleDropdown() {
       this.showDropdown = !this.showDropdown;

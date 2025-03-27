@@ -1288,7 +1288,7 @@ export default {
       this.isDropdownArrowOpen4 = !this.isDropdownArrowOpen4;
     },
     navigateToDetail() {
-      this.$router.push("/proses");
+      this.$router.push("/mitra/proses");
     },
     toggleDatePickerSelesai() {
       this.showDatePickerSelesai = !this.showDatePickerSelesai;
@@ -1365,7 +1365,7 @@ export default {
     },
     closeSelesaiApprove() {
       this.closeModalSuccess();
-      this.$router.push('/proses')
+      this.$router.push('/mitra/proses')
     },
     handleSelectionChange(option) {
       this.namaPejabat = option;

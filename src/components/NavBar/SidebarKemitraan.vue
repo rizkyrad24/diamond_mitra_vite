@@ -66,6 +66,7 @@
       </button>
       <!-- Masuk -->
       <button
+        v-if="position != 'PartnershipDirector'"
         :class="['flex text-[14px] font-sans font-semibold items-center justify p-2 rounded-lg transition-colors', isActive('MasukManager') ? 'bg-[#2671D9] text-[#FFFFFF]' : 'text-[#333333] hover:bg-[#DBEAFE]']"
         @click="navigateTo('MasukManager')"
       >
@@ -205,7 +206,7 @@ export default {
   data() {
     return {
       selectedMenu: "Dashboard",
-      position: null,
+      position: null
     };
   },
   mounted() {
@@ -213,25 +214,25 @@ export default {
   },
   methods: {
     navigateToDetail() {
-      this.$router.push("/homepage");
+      this.$router.push("/mitra/homepage");
     },
     navigateTo(menu) {
       this.selectedMenu = menu;
       switch (menu) {
         case "Dashboard":
-          this.$router.push("/dashboard");
+          this.$router.push("/mitra/dashboard");
           break;
         case "MasukManager":
-          this.$router.push("/masukmanager");
+          this.$router.push("/mitra/masukmanager");
           break;
         case "Approval":
-          this.$router.push("/approval");
+          this.$router.push("/mitra/approval");
           break;
         case "Proses":
-          this.$router.push("/proses");
+          this.$router.push("/mitra/proses");
           break;
         case "Selesai":
-          this.$router.push("/selesai");
+          this.$router.push("/mitra/selesai");
           break;
         default:
           break;

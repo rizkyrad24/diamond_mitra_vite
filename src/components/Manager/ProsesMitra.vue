@@ -713,9 +713,9 @@ export default {
     },
     navigateToDetail(tipe, id) {
       if (tipe.toUpperCase() === "PKS") {
-        this.$router.push(`/proses/detailpengajuanpks/${id}`);
+        this.$router.push(`/mitra/proses/detailpengajuanpks/${id}`);
       } else if (tipe.toUpperCase() === "MOU" || tipe.toUpperCase() === "NDA") {
-        this.$router.push(`/proses/detailpengajuanmou/${id}`);
+        this.$router.push(`/mitra/proses/detailpengajuanmou/${id}`);
       }
     },
     toggleDropdown() {
@@ -737,7 +737,7 @@ export default {
       this.selectedSubOptions = this.selectedSubOptions.filter((item) => item !== subOption);
     },
     navigateToProgress() {
-      this.$router.push("/progresspkspopup");
+      this.$router.push("/mitra/progresspkspopup");
     },
     toggleActionDropdown(index) {
       this.actionDropdownIndex = this.actionDropdownIndex === index ? null : index;
