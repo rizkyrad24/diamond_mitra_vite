@@ -1838,7 +1838,7 @@ import { dateParsing } from '@/utils/helper';
             <div class="flex flex-col w-[316.6px]">
               <div class="flex items-center">
                 <h1 class="font-sans text-[#4D5E80] text-[16px] font-semibold">
-                  Riview Mitra
+                  Review Mitra
                 </h1>
               </div>
               <a
