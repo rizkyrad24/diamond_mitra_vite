@@ -73,19 +73,21 @@ import { dateParsing } from '@/utils/helper';
             Detail Pengajuan {{
               dataBerkas?.base || 'PKS' }}
           </h1>
-          <div class="relative mt-4 mb-4 items-start w-[209px] h-[72px] border-[1px] border-[#E5E7E9] rounded-md">
-            <div class="w-[209px] h-[29px] border-[1px] border-[#E5E7E9] rounded-tl-md rounded-tr-md bg-[#FFB200]">
+          <div class="relative mt-4 mb-4 items-start w-min-[209px] w-auto h-min-[72px] h-auto border-[1px] border-[#E5E7E9] rounded-md">
+            <div :class="{ 'bg-[#FFB200]': !isProgressFinish, 'bg-[#0ea976]': isProgressFinish }" 
+              class="w-min-[209px] w-auto h-[29px] border-[1px] border-[#E5E7E9] rounded-tl-md rounded-tr-md">
               <h1 class="mt-[7px] ml-4 w-[177px] h-[15px] font-sans text-[10px] text-[#333333] font-medium">
                 Progress Kemitraan {{
                   dataBerkas?.base || 'PKS' }}
               </h1>
             </div>
-            <div class="flex items-center">
-              <h1 class="w-[79px] h-[27px] font-sans text-[18px] font-bold text-[#FFB200] ml-4 mb-2">
+            <div class="flex items-center w-auto h-auto">
+              <h1 :class="{ 'text-[#FFB200]': !isProgressFinish, 'text-[#0ea976]': isProgressFinish }" 
+                class="w-full h-min-[27px] h-auto font-sans text-[18px] font-bold ml-4 mb-2" >
                 {{ progress }}
               </h1>
               <button
-                class="ml-[80px]"
+                class=""
                 @click="showProgressPKSPopup = true"
               >
                 <svg
@@ -1205,7 +1207,7 @@ import { dateParsing } from '@/utils/helper';
                         </div>
                       </div>
                     </a>
-                    <div v-else class="w-[289px] h-[130px] border-[1px] rounded-t-lg rounded-b-lg">
+                    <div v-else class="w-[289px] h-[130px] border-[1px] rounded-t-lg rounded-b-lg ml-auto">
                       <div class="w-auto h-[40px] bg-[#bcc6d2] rounded-t-lg flex justify-start items-center px-4"><span
                           class="text-white font-semibold">PKS</span></div>
                       <div class="w-[265px] h-[18px] flex justify-between ml-3 mt-[10px]">
@@ -1253,7 +1255,7 @@ import { dateParsing } from '@/utils/helper';
                     <a :href="linkDownloadFile10" v-if="fileName10" class="flex flex-col w-[289px] h-[130px] rounded-lg border-[1px] border-[#DEDEDE]">
                       <div class="w-full h-[40px] p-4 flex justify-between items-center rounded-t-lg bg-[#0EA976]">
                         <div class="font-sans text-[14px] font-semibold text-white">
-                          Review Mitra
+                          Review Mitra tes
                         </div>
                       </div>
                       <div class="flex flex-col ml-4 mt-[10px]">
@@ -2887,25 +2889,25 @@ export default {
     },
     // ini belum 
     progress() {
-      if (this.fileId11 || this.fileId10) {
+      if (this.fileName11 || this.fileName10) {
         return "PKS"
-      } else if (this.fileId9) {
+      } else if (this.fileName9) {
         return "Review Mitra";
-      } else if (this.fileId8) {
+      } else if (this.fileName8) {
         return "Review Legal";
-      } else if (this.fileId7) {
+      } else if (this.fileName7) {
         return "Review User";
-      } else if (this.fileId6) {
+      } else if (this.fileName6) {
         return "Draft PKS";
-      } else if (this.fileId5) {
+      } else if (this.fileName5) {
         return "Surat Pesanan"
-      } else if (this.fileId4) {
+      } else if (this.fileName4) {
         return "BAK Pemilihan Mitra"
-      } else if (this.fileId3) {
+      } else if (this.fileName3) {
         return "Negosiasi"
-      } else if (this.fileId2) {
+      } else if (this.fileName2) {
         return "Evaluasi"
-      } else if (this.fileId1) {
+      } else if (this.fileName1) {
         return "Proposal"
       } else {
         return "Surat Penawaran"
