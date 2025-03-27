@@ -344,18 +344,18 @@ import { dateParsing } from '@/utils/helper';
 
                   <div class="flex items-center gap-4">
                     <!-- review user -->
-                    <a :href="linkDownloadFile4" v-if="fileName4"
+                    <a :href="linkDownloadFile6" v-if="fileName6"
                       class="flex flex-col w-[289px] h-[130px] rounded-lg border-[1px] border-[#E5E7E9]">
                       <div class="w-full h-[40px] p-4 flex justify-between items-center rounded-t-lg bg-[#0EA976]">
                         <div class="font-sans text-[14px] font-semibold text-white">
-                          Review User
+                          Review Mitra
                         </div>
                       </div>
                       <div class="flex items-center ml-4 mt-[10px]">
                         <div class="flex">
                           <div>
                             <div class="font-sans text-[#333333] text-[12px] font-normal">
-                              Dokumen Review User
+                              Dokumen Review Mitra
                             </div>
                             <div class="flex">
                               <svg class="w-[30px] h-[30px] mt-[12px]" viewBox="0 0 30 30" fill="none"
@@ -368,10 +368,10 @@ import { dateParsing } from '@/utils/helper';
                               </svg>
                               <div class="mt-[12px] ml-2">
                                 <p class="w-[200px] h[-12px] text-[#333333] text-[9.06px] truncate">
-                                  {{ fileName4 }}
+                                  {{ fileName6 }}
                                 </p>
                                 <p class="w-[30px] h-[11px] text-[#9E9E9E] text-[7.77px]">
-                                  {{ fileSize4 }}
+                                  {{ fileSize6 }}
                                 </p>
                               </div>
                             </div>
@@ -388,9 +388,9 @@ import { dateParsing } from '@/utils/helper';
                     </a>
                     <div v-else class="w-[289px] h-[130px] border-[1px] rounded-t-lg rounded-b-lg">
                       <div class="w-auto h-[40px] bg-[#bcc6d2] rounded-t-lg justify-start items-center px-4"><span
-                          class="text-white font-semibold">Review User</span></div>
+                          class="text-white font-semibold">Review Mitra</span></div>
                       <div class="w-[265px] h-[18px] flex justify-between ml-3 mt-[10px]">
-                        <span class="text-[#333333] text-xs">Dokumen Review User</span>
+                        <span class="text-[#333333] text-xs">Dokumen Review Mitra</span>
                       </div>
                       <div class="w-[265px] h-auto flex ml-3 py-[10px]">
                         <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -481,18 +481,18 @@ import { dateParsing } from '@/utils/helper';
                         stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
                     
-                    <a :href="linkDownloadFile6" v-if="fileName6"
+                    <a :href="linkDownloadFile4" v-if="fileName4"
                       class="flex flex-col w-[289px] h-[130px] rounded-lg border-[1px] border-[#E5E7E9]">
                       <div class="w-full h-[40px] p-4 flex justify-between items-center rounded-t-lg bg-[#0EA976]">
                         <div class="font-sans text-[14px] font-semibold text-white">
-                          Review Mitra
+                          Review User
                         </div>
                       </div>
                       <div class="flex items-center ml-4 mt-[10px]">
                         <div class="flex">
                           <div>
                             <div class="font-sans text-[#333333] text-[12px] font-normal">
-                              Review Mitra
+                              Review User
                             </div>
                             <div class="flex">
                               <svg class="w-[30px] h-[30px] mt-[12px]" viewBox="0 0 30 30" fill="none"
@@ -505,10 +505,10 @@ import { dateParsing } from '@/utils/helper';
                               </svg>
                               <div class="mt-[12px] ml-2">
                                 <p class="w-[200px] h[-12px] text-[#333333] text-[9.06px] truncate">
-                                  {{ fileName6 }}
+                                  {{ fileName4 }}
                                 </p>
                                 <p class="w-[60px] h-[11px] text-[#9E9E9E] text-[7.77px]">
-                                  {{ fileSize6 }}
+                                  {{ fileSize4 }}
                                 </p>
                               </div>
                             </div>
@@ -525,9 +525,9 @@ import { dateParsing } from '@/utils/helper';
                     </a>
                     <div v-else class="w-[289px] h-[130px] border-[1px] rounded-t-lg rounded-b-lg">
                       <div class="w-auto h-[40px] bg-[#bcc6d2] rounded-t-lg justify-start items-center px-4"><span
-                          class="text-white font-semibold">Review Mitra</span></div>
+                          class="text-white font-semibold">Review User</span></div>
                       <div class="w-[265px] h-[18px] flex justify-between ml-3 mt-[10px]">
-                        <span class="text-[#333333] text-xs">Dokumen Review mitra</span>
+                        <span class="text-[#333333] text-xs">Dokumen Review User</span>
                       </div>
                       <div class="w-[265px] h-auto flex ml-3 py-[10px]">
                         <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1316,24 +1316,24 @@ export default {
       return this.fileUploaded7 ? "bg-[#0EA976]" : "bg-[#FFC107]";
     },
     progress() {
-      if (this.fileId7 || this.fileId6) {
+      if (this.fileName7 || this.fileName6) {
         return "MoU/NDA";
-      } else if (this.fileId5) {
+      } else if (this.fileName5) {
         return "Review Mitra";
-      } else if (this.fileId4) {
+      } else if (this.fileName4) {
         return "Review Legal";
-      } else if (this.fileId3) {
+      } else if (this.fileName3) {
         return "Review User";
-      } else if (this.fileId2) {
+      } else if (this.fileName2) {
         return "Draft MoU/NDA";
-      } else if (this.fileId1) {
+      } else if (this.fileName1) {
         return "Proposal";
       } else {
         return "Surat Penawaran";
       }
     },
     isProgressFinish() {
-      if (this.fileId7) {
+      if (this.fileName7) {
         return true;
       } else {
         return false;
