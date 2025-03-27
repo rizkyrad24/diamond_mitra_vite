@@ -74,133 +74,66 @@ import { dateParsing } from '@/utils/helper';
               dataBerkas?.base || 'PKS' }}
           </h1>
           <div class="relative mt-4 mb-4 items-start w-min-[209px] w-auto h-min-[72px] h-auto border-[1px] border-[#E5E7E9] rounded-md">
-            <div :class="{ 'bg-[#FFB200]': !isProgressFinish, 'bg-[#0ea976]': isProgressFinish }" 
-              class="w-min-[209px] w-auto h-[29px] border-[1px] border-[#E5E7E9] rounded-tl-md rounded-tr-md">
+            <!-- disini is finish -->
+            <div :class="{ 'bg-[#FFB200]': !isProgressFinish, 'bg-[#0ea976]': isProgressFinish }"
+              class="w-[209px] h-[29px] border-[1px] border-[#E5E7E9] rounded-tl-md rounded-tr-md">
               <h1 class="mt-[7px] ml-4 w-[177px] h-[15px] font-sans text-[10px] text-[#333333] font-medium">
                 Progress Kemitraan {{
                   dataBerkas?.base || 'PKS' }}
               </h1>
             </div>
-            <div class="flex items-center w-auto h-auto">
-              <h1 :class="{ 'text-[#FFB200]': !isProgressFinish, 'text-[#0ea976]': isProgressFinish }" 
-                class="w-full h-min-[27px] h-auto font-sans text-[18px] font-bold ml-4 mb-2" >
+            <div class="flex items-center">
+              <h1 :class="{ 'text-[#FFB200]': !isProgressFinish, 'text-[#0ea976]': isProgressFinish }"
+                class="w-[150px] h-auto font-sans text-[18px] font-bold ml-4 my-2">
                 {{ progress }}
               </h1>
-              <button
-                class=""
-                @click="showProgressPKSPopup = true"
-              >
-                <svg
-                  width="46"
-                  height="45"
-                  viewBox="0 0 46 45"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
+              <button class="ml-[9px]" @click="showProgressMoUPopup = true">
+                <svg v-if="!isProgressFinish" width="46" height="45" viewBox="0 0 46 45" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
                   <g filter="url(#filter0_d_1290_16355)">
-                    <g
-                      opacity="0.4"
-                      filter="url(#filter1_d_1290_16355)"
-                    >
+                    <g opacity="0.4" filter="url(#filter1_d_1290_16355)">
                       <path
                         d="M19 26C23.1421 26 26.5 22.6421 26.5 18.5C26.5 14.3579 23.1421 11 19 11C14.8579 11 11.5 14.3579 11.5 18.5C11.5 22.6421 14.8579 26 19 26Z"
-                        fill="#FFB200"
-                      />
+                        fill="#FFB200" />
                     </g>
-                    <path
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
+                    <path fill-rule="evenodd" clip-rule="evenodd"
                       d="M21.3536 18.6464C21.5488 18.8417 21.5488 19.1583 21.3536 19.3536L18.8536 21.8536C18.6583 22.0488 18.3417 22.0488 18.1464 21.8536C17.9512 21.6583 17.9512 21.3417 18.1464 21.1464L20.2929 19L18.1464 16.8536C17.9512 16.6583 17.9512 16.3417 18.1464 16.1464C18.3417 15.9512 18.6583 15.9512 18.8536 16.1464L21.3536 18.6464Z"
-                      fill="#F08800"
-                    />
+                      fill="#F08800" />
                   </g>
                   <defs>
-                    <filter
-                      id="filter0_d_1290_16355"
-                      x="6"
-                      y="6.5"
-                      width="26"
-                      height="26"
-                      filterUnits="userSpaceOnUse"
-                      color-interpolation-filters="sRGB"
-                    >
-                      <feFlood
-                        flood-opacity="0"
-                        result="BackgroundImageFix"
-                      />
-                      <feColorMatrix
-                        in="SourceAlpha"
-                        type="matrix"
-                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                        result="hardAlpha"
-                      />
+                    <filter id="filter0_d_1290_16355" x="6" y="6.5" width="26" height="26" filterUnits="userSpaceOnUse"
+                      color-interpolation-filters="sRGB">
+                      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                        result="hardAlpha" />
                       <feOffset dy="1" />
                       <feGaussianBlur stdDeviation="2" />
-                      <feComposite
-                        in2="hardAlpha"
-                        operator="out"
-                      />
-                      <feColorMatrix
-                        type="matrix"
-                        values="0 0 0 0 1 0 0 0 0 0.778759 0 0 0 0 0.267318 0 0 0 1 0"
-                      />
-                      <feBlend
-                        mode="normal"
-                        in2="BackgroundImageFix"
-                        result="effect1_dropShadow_1290_16355"
-                      />
-                      <feBlend
-                        mode="normal"
-                        in="SourceGraphic"
-                        in2="effect1_dropShadow_1290_16355"
-                        result="shape"
-                      />
+                      <feComposite in2="hardAlpha" operator="out" />
+                      <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 0.778759 0 0 0 0 0.267318 0 0 0 1 0" />
+                      <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1290_16355" />
+                      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1290_16355" result="shape" />
                     </filter>
-                    <filter
-                      id="filter1_d_1290_16355"
-                      x="0.5"
-                      y="0"
-                      width="45"
-                      height="45"
-                      filterUnits="userSpaceOnUse"
-                      color-interpolation-filters="sRGB"
-                    >
-                      <feFlood
-                        flood-opacity="0"
-                        result="BackgroundImageFix"
-                      />
-                      <feColorMatrix
-                        in="SourceAlpha"
-                        type="matrix"
-                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                        result="hardAlpha"
-                      />
-                      <feOffset
-                        dx="4"
-                        dy="4"
-                      />
+                    <filter id="filter1_d_1290_16355" x="0.5" y="0" width="45" height="45" filterUnits="userSpaceOnUse"
+                      color-interpolation-filters="sRGB">
+                      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                        result="hardAlpha" />
+                      <feOffset dx="4" dy="4" />
                       <feGaussianBlur stdDeviation="7.5" />
-                      <feComposite
-                        in2="hardAlpha"
-                        operator="out"
-                      />
-                      <feColorMatrix
-                        type="matrix"
-                        values="0 0 0 0 0.763946 0 0 0 0 0.970231 0 0 0 0 0.498223 0 0 0 0.5 0"
-                      />
-                      <feBlend
-                        mode="normal"
-                        in2="BackgroundImageFix"
-                        result="effect1_dropShadow_1290_16355"
-                      />
-                      <feBlend
-                        mode="normal"
-                        in="SourceGraphic"
-                        in2="effect1_dropShadow_1290_16355"
-                        result="shape"
-                      />
+                      <feComposite in2="hardAlpha" operator="out" />
+                      <feColorMatrix type="matrix"
+                        values="0 0 0 0 0.763946 0 0 0 0 0.970231 0 0 0 0 0.498223 0 0 0 0.5 0" />
+                      <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1290_16355" />
+                      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1290_16355" result="shape" />
                     </filter>
                   </defs>
+                </svg>
+                <svg v-else xmlns="http://www.w3.org/2000/svg"
+                  class="text-[#0EA976] bg-[#E2FCF3] rounded-full w-[15px] h-[15px] absolute top-[42px] ml-[5px]"
+                  viewBox="0 0 21 19" fill="currentColor">
+                  <path fill-rule="evenodd"
+                    d="M16.707 4.293a1 1 0 00-1.414 0L8 11.586 4.707 8.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z"
+                    clip-rule="evenodd" />
                 </svg>
               </button>
             </div>
@@ -2914,7 +2847,7 @@ export default {
       }
     },
     isProgressFinish() {
-      if (this.fileId11) {
+      if (this.fileName11) {
         return true
       }else {
         return false
