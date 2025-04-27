@@ -5,7 +5,7 @@ export const fetchGet = async (endpoint, params, router) => {
     const token = localStorage.getItem('access');
     if (!token) {
         clearDataLogin();
-        router.push("/");
+        router.push("/mitra");
     }
     try {
         const result = await ApiManager(`/${endpoint}`, {
@@ -20,7 +20,7 @@ export const fetchGet = async (endpoint, params, router) => {
     } catch (error) {
         if (error.response.status == 401) {
             clearDataLogin();
-            router.push("/");
+            router.push("/mitra");
         }
         return error.response
     }
@@ -30,7 +30,7 @@ export const fetchPost = async (endpoint, params, data, router) => {
     const token = localStorage.getItem('access');
     if (!token) {
         clearDataLogin();
-        router.push("/");
+        router.push("/mitra");
     }
     try {
         const result = await ApiManager(`/${endpoint}`, {
@@ -46,7 +46,7 @@ export const fetchPost = async (endpoint, params, data, router) => {
     } catch (error) {
         if (error.response.status == 401) {
             clearDataLogin();
-            router.push("/");
+            router.push("/mitra");
         }
         return error.response
     }
@@ -56,7 +56,7 @@ export const fetchPostForm = async (endpoint, params, data, router) => {
     const token = localStorage.getItem('access');
     if (!token) {
         clearDataLogin();
-        router.push("/");
+        router.push("/mitra");
     }
     try {
         const result = await ApiManager(`/${endpoint}`, {
@@ -72,7 +72,7 @@ export const fetchPostForm = async (endpoint, params, data, router) => {
     } catch (error) {
         if (error.response.status == 401) {
             clearDataLogin();
-            router.push("/");
+            router.push("/mitra");
         }
         return error.response
     }
@@ -92,7 +92,7 @@ export const fetchPostFormPublic = async (endpoint, params, data, router) => {
     } catch (error) {
         if (error.response.status == 401) {
             clearDataLogin();
-            router.push("/");
+            router.push("/mitra");
         }
         return error.response
     }
@@ -102,7 +102,7 @@ export const fetchPut = async (endpoint, params, data, router) => {
     const token = localStorage.getItem('access');
     if (!token) {
         clearDataLogin();
-        router.push("/");
+        router.push("/mitra");
     }
     try {
         const result = await ApiManager(`/${endpoint}`, {
@@ -118,7 +118,7 @@ export const fetchPut = async (endpoint, params, data, router) => {
     } catch (error) {
         if (error.response.status == 401) {
             clearDataLogin();
-            router.push("/");
+            router.push("/mitra");
         }
         return error.response
     }
@@ -128,7 +128,7 @@ export const fetchPutForm = async (endpoint, params, data, router) => {
     const token = localStorage.getItem('access');
     if (!token) {
         clearDataLogin();
-        router.push("/");
+        router.push("/mitra");
     }
     try {
         const result = await ApiManager(`/${endpoint}`, {
@@ -144,7 +144,7 @@ export const fetchPutForm = async (endpoint, params, data, router) => {
     } catch (error) {
         if (error.response.status == 401) {
             clearDataLogin();
-            router.push("/");
+            router.push("/mitra");
         }
         return error.response
     }
@@ -154,7 +154,7 @@ export const fetchPatch = async (endpoint, params, data, router) => {
     const token = localStorage.getItem('access');
     if (!token) {
         clearDataLogin();
-        router.push("/");
+        router.push("/mitra");
     }
     try {
         const result = await ApiManager(`/${endpoint}`, {
@@ -170,7 +170,7 @@ export const fetchPatch = async (endpoint, params, data, router) => {
     } catch (error) {
         if (error.response.status == 401) {
             clearDataLogin();
-            router.push("/");
+            router.push("/mitra");
         }
         return error.response
     }
@@ -180,7 +180,7 @@ export const fetchDelete = async (endpoint, params, router) => {
     const token = localStorage.getItem('access');
     if (!token) {
         clearDataLogin();
-        router.push("/");
+        router.push("/mitra");
     }
     try {
         const result = await ApiManager(`/${endpoint}`, {
@@ -195,7 +195,7 @@ export const fetchDelete = async (endpoint, params, router) => {
     } catch (error) {
         if (error.response.status == 401) {
             clearDataLogin();
-            router.push("/");
+            router.push("/mitra");
         }
         return error.response
     }

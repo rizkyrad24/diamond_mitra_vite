@@ -272,7 +272,7 @@ async function submit() {
     modalFailed.value = {
       isVisible: true,
       title: 'Gagal',
-      message: res.data
+      message: res.data.message
     }
   }
 }
