@@ -44,6 +44,7 @@
         Approval Selesai
       </button>
       <button
+        v-if="role == 'PartnershipManager'"
         class="flex-grow w-[158px] h-[24px] font-sans text-[16px] font-semibold mt-7 ml-8 mr-4"
         @click="navigateToApprovalStopclock"
       >
@@ -602,6 +603,7 @@ export default {
       //   { judul: "Lorem ipsum dolor", nomor: 90224, tipe: "PKS", pelaksana: "Pusat", status: "Approval Stop Clock" },
       // ],
       sortOrder: "asc",
+      role: null,
     };
   },
   computed: {
@@ -645,6 +647,7 @@ export default {
   },
   mounted() {
     this.getDataApi();
+    this.role = localStorage.getItem('position');
   },
   methods: {
     closeModalFailed() {
@@ -763,16 +766,22 @@ export default {
       this.isLoading = true;
       let boxResult = new Array;
       const positionLevel = localStorage.getItem("position");
-      if (positionLevel != "PartnershipManager") {
+      let url = null;
+      let params = null;
+      if (positionLevel == "PartnershipManager") {
+        url = "mitra/manager/mounda/approval-reject";
+      }
+      if (positionLevel == "PartnershipVP") {
+        url = "mitra/vp/mounda/approval-reject";
+      }
+      if (!url) {
         this.isLoading = false;
         return this.modalFailed = {
           isVisible: true,
           title: 'Gagal',
-          message: "Halaman ini khusus manager mitra"
+          message: "Posisi anda tidak dapat mengakses halaman ini"
         }
       }
-      let url = "mitra/manager/mounda/approval-reject";
-      let params = null;
       const res = await fetchGet(url, params, this.$router);
       if (res.status == 200) {
         const cleanData = res.data.map((item) => ({
@@ -795,7 +804,21 @@ export default {
           message: res.data.message ? res.data.message : "Silahkan hubungi admin"
         }
       }
-      let url2 = "mitra/manager/pks/approval-reject";
+      let url2 = null;
+      if (positionLevel == "PartnershipManager") {
+        url2 = "mitra/manager/pks/approval-reject";
+      }
+      if (positionLevel == "PartnershipVP") {
+        url2 = "mitra/vp/pks/approval-reject";
+      }
+      if (!url2) {
+        this.isLoading = false;
+        return this.modalFailed = {
+          isVisible: true,
+          title: 'Gagal',
+          message: "Posisi anda tidak dapat mengakses halaman ini"
+        }
+      }
       const res2 = await fetchGet(url2, params, this.$router);
       if (res2.status == 200) {
         const cleanData2 = res2.data.map((item) => ({

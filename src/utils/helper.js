@@ -8,7 +8,7 @@ export function parseStatusAproval(positionLevel, status) {
     if (status == 'Pengajuan StartClock') {
       return "Pengajuan StartClock"
     }
-    if (status == 'Pengajuan Ditolak') {
+    if (status == 'Pengajuan Ditolak' || status == 'Pengajuan Ditolak Lv2') {
       return "Mengajukan Ditolak"
     }
     if (status == 'Approved' && positionLevel >= 10) {
@@ -141,7 +141,7 @@ export function mapperStatus(positionLevel, status, attachments, isStopClock) {
   if (status == 'Pengajuan StartClock') {
     return ['Pengajuan StartClock', 'bg-[#FFE5E6] text-[#FF5656] border-[#FD8A8A]']
   }
-  if (status == 'Pengajuan Ditolak') {
+  if (status == 'Pengajuan Ditolak' || status == 'Pengajuan Ditolak Lv2') {
     return ['Mengajukan Ditolak', 'bg-[#FFE5E6] text-[#FF5656] border-[#FD8A8A]']
   }
   if ('Revisi'.includes(status)) {
@@ -171,6 +171,9 @@ export function mapperStatus(positionLevel, status, attachments, isStopClock) {
   if (positionLevel == 7 && fileKemitraan.file11) {
     return ['PKS', 'bg-[#E2FCF3] text-[#0EA976] border-[#8ADFC3]']
   }
+  if (positionLevel == 7 && fileKemitraan.file7A) {
+    return ['MoU/NDA', 'bg-[#E2FCF3] text-[#0EA976] border-[#8ADFC3]']
+  }
   if (positionLevel == 7 && fileKemitraan.file10) {
     return ['Review Mitra', 'bg-[#E2FCF3] text-[#0EA976] border-[#8ADFC3]']
   }
@@ -179,9 +182,6 @@ export function mapperStatus(positionLevel, status, attachments, isStopClock) {
   }
   if (positionLevel == 7 && fileKemitraan.file8) {
     return ['Review User', 'bg-[#E2FCF3] text-[#0EA976] border-[#8ADFC3]']
-  }
-  if (positionLevel == 7 && fileKemitraan.file7A) {
-    return ['MoU/NDA', 'bg-[#E2FCF3] text-[#0EA976] border-[#8ADFC3]']
   }
   if (positionLevel == 7 && fileKemitraan.file7) {
     return ['Draft PKS', 'bg-[#E2FCF3] text-[#0EA976] border-[#8ADFC3]']
@@ -208,7 +208,7 @@ export function mapperStatus(positionLevel, status, attachments, isStopClock) {
     return ['Surat Penawaran', 'bg-[#E7F1FD] text-[#4791F2] border-[#91BEF7]']
   }
   if (positionLevel == 7) {
-    return ['DiProses Staff Mitra', 'bg-[#E2FCF3] text-[#0EA976] border-[#8ADFC3]']
+    return ['Diproses Staff Mitra', 'bg-[#E2FCF3] text-[#0EA976] border-[#8ADFC3]']
   }
   if (positionLevel == 8) {
     return ['Waiting Apv Manager Mitra', 'bg-[#E2FCF3] text-[#0EA976] border-[#8ADFC3]']

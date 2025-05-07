@@ -1311,8 +1311,6 @@ export default {
           url = `mitra/manager/pks/approval/${id}`;
         } else if (position == "PartnershipVP") {
           url = `mitra/vp/pks/approval/${id}`;
-        } else if (position == "PartnershipDirector") {
-          url = `mitra/direksi/pks/approval/${id}`;
         } else {
           this.isLoading = false;
           return this.modalFailed = {
@@ -1380,8 +1378,6 @@ export default {
           url = `mitra/manager/mounda/approval/${id}`;
         } else if (position == "PartnershipVP") {
           url = `mitra/vp/mounda/approval/${id}`;
-        } else if (position == "PartnershipDirector") {
-          url = `mitra/direksi/mounda/approval/${id}`;
         } else {
           this.isLoading = false;
           return this.modalFailed = {
@@ -1434,6 +1430,8 @@ export default {
         const position = localStorage.getItem('position')
         if (position == "PartnershipManager") {
           url = `mitra/manager/pks/approval/${this.id}/approve-reject`;
+        } else if (position == "PartnershipVP") {
+          url = `mitra/vp/pks/approval/${this.id}/approve-reject`;
         } else {
           this.isLoading = false;
           return this.modalFailed = {
@@ -1456,6 +1454,8 @@ export default {
         const position = localStorage.getItem('position')
         if (position == "PartnershipManager") {
           url = `mitra/manager/mounda/approval/${this.id}/approve-reject`;
+        } else if (position == "PartnershipVP") {
+          url = `mitra/vp/mounda/approval/${this.id}/approve-reject`;
         } else {
           this.isLoading = false;
           return this.modalFailed = {
@@ -1485,6 +1485,8 @@ export default {
         const position = localStorage.getItem('position')
         if (position == "PartnershipManager") {
           url = `mitra/manager/pks/approval/${this.id}/abort-reject`;
+        } else if (position == "PartnershipVP") {
+          url = `mitra/vp/pks/approval/${this.id}/abort-reject`;
         } else {
           this.isLoading = false;
           return this.modalFailed = {
@@ -1507,6 +1509,8 @@ export default {
         const position = localStorage.getItem('position')
         if (position == "PartnershipManager") {
           url = `mitra/manager/mounda/approval/${this.id}/abort-reject`;
+        } else if (position == "PartnershipVP") {
+          url = `mitra/vp/mounda/approval/${this.id}/abort-reject`;
         } else {
           this.isLoading = false;
           return this.modalFailed = {

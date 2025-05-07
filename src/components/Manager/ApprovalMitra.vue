@@ -55,7 +55,7 @@
         Approval Stop Clock
       </button>
       <button
-        v-if="role == 'PartnershipManager'"
+        v-if="role == 'PartnershipManager' || role == 'PartnershipVP'"
         class="flex-grow w-[158px] h-[24px] font-sans text-[16px] font-semibold mt-7 ml-8 mr-4"
         @click="navigateToApprovalDitolak"
       >

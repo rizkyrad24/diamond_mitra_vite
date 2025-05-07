@@ -338,6 +338,7 @@ import { dateParsing } from "@/utils/helper";
                           </div>
                           <input
                             type="file"
+                            accept=".pdf, .docx, .xlsx"
                             class="hidden"
                             @change="handleFileUpload1"
                           >
@@ -351,6 +352,7 @@ import { dateParsing } from "@/utils/helper";
                           <input
                             ref="fileInputKemitraan1"
                             type="file"
+                            accept=".pdf, .docx, .xlsx"
                             class="hidden"
                             @change="handleFileUpload1"
                           >
@@ -492,6 +494,7 @@ import { dateParsing } from "@/utils/helper";
                           </div>
                           <input
                             type="file"
+                            accept=".pdf, .docx, .xlsx"
                             class="hidden"
                             :disabled="!fileUploaded1"
                             @change="handleFileUpload2"
@@ -506,6 +509,7 @@ import { dateParsing } from "@/utils/helper";
                           <input
                             ref="fileInputKemitraan2"
                             type="file"
+                            accept=".pdf, .docx, .xlsx"
                             class="hidden"
                             @change="handleFileUpload2"
                           >
@@ -651,6 +655,7 @@ import { dateParsing } from "@/utils/helper";
                           </div>
                           <input
                             type="file"
+                            accept=".pdf, .docx, .xlsx"
                             class="hidden"
                             :disabled="!fileUploaded2"
                             @change="handleFileUpload3"
@@ -665,6 +670,7 @@ import { dateParsing } from "@/utils/helper";
                           <input
                             ref="fileInputKemitraan3"
                             type="file"
+                            accept=".pdf, .docx, .xlsx"
                             class="hidden"
                             @change="handleFileUpload3"
                           >
@@ -811,6 +817,7 @@ import { dateParsing } from "@/utils/helper";
                           </div>
                           <input
                             type="file"
+                            accept=".pdf, .docx, .xlsx"
                             class="hidden"
                             :disabled="!fileUploaded5"
                             @change="handleFileUpload6"
@@ -825,6 +832,7 @@ import { dateParsing } from "@/utils/helper";
                           <input
                             ref="fileInputKemitraan6"
                             type="file"
+                            accept=".pdf, .docx, .xlsx"
                             class="hidden"
                             @change="handleFileUpload6"
                           >
@@ -970,6 +978,7 @@ import { dateParsing } from "@/utils/helper";
                           </div>
                           <input
                             type="file"
+                            accept=".pdf, .docx, .xlsx"
                             class="hidden"
                             :disabled="!fileUploaded4"
                             @change="handleFileUpload5"
@@ -984,6 +993,7 @@ import { dateParsing } from "@/utils/helper";
                           <input
                             ref="fileInputKemitraan5"
                             type="file"
+                            accept=".pdf, .docx, .xlsx"
                             class="hidden"
                             @change="handleFileUpload5"
                           >
@@ -1128,6 +1138,7 @@ import { dateParsing } from "@/utils/helper";
                           </div>
                           <input
                             type="file"
+                            accept=".pdf, .docx, .xlsx"
                             class="hidden"
                             :disabled="!fileUploaded3"
                             @change="handleFileUpload4"
@@ -1142,6 +1153,7 @@ import { dateParsing } from "@/utils/helper";
                           <input
                             ref="fileInputKemitraan4"
                             type="file"
+                            accept=".pdf, .docx, .xlsx"
                             class="hidden"
                             @change="handleFileUpload4"
                           >
@@ -1289,6 +1301,7 @@ import { dateParsing } from "@/utils/helper";
                           </div>
                           <input
                             type="file"
+                            accept=".pdf, .docx, .xlsx"
                             class="hidden"
                             :disabled="!fileUploaded6"
                             @change="handleFileUpload7"
@@ -1303,6 +1316,7 @@ import { dateParsing } from "@/utils/helper";
                           <input
                             ref="fileInputKemitraan7"
                             type="file"
+                            accept=".pdf, .docx, .xlsx"
                             class="hidden"
                             @change="handleFileUpload7"
                           >
@@ -2062,6 +2076,7 @@ import { dateParsing } from "@/utils/helper";
                     <input
                       ref="fileInputSuratPenawaran"
                       type="file"
+                      accept=".pdf, .docx, .xlsx"
                       class="hidden"
                       @change="handleFileUpload1($event)"
                     >
@@ -2125,6 +2140,7 @@ import { dateParsing } from "@/utils/helper";
                       id="fileInputProposal"
                       ref="fileInputProposal"
                       type="file"
+                      accept=".pdf, .docx, .xlsx"
                       class="hidden"
                       @change="handleFileUpload2($event)"
                     >
@@ -2188,6 +2204,7 @@ import { dateParsing } from "@/utils/helper";
                       id="fileInputDrafMou"
                       ref="fileInputDrafMou"
                       type="file"
+                      accept=".pdf, .docx, .xlsx"
                       class="hidden"
                       @change="handleFileUpload3($event)"
                     >
@@ -2251,6 +2268,7 @@ import { dateParsing } from "@/utils/helper";
                       id="fileInputReviewUser"
                       ref="fileInputReviewUser"
                       type="file"
+                      accept=".pdf, .docx, .xlsx"
                       class="hidden"
                       @change="handleFileUpload4($event)"
                     >
@@ -2314,6 +2332,7 @@ import { dateParsing } from "@/utils/helper";
                       id="fileInputReviewLegal"
                       ref="fileInputReviewLegal"
                       type="file"
+                      accept=".pdf, .docx, .xlsx"
                       class="hidden"
                       @change="handleFileUpload5($event)"
                     >
@@ -2377,6 +2396,7 @@ import { dateParsing } from "@/utils/helper";
                       id="fileInputReviewMitra"
                       ref="fileInputReviewMitra"
                       type="file"
+                      accept=".pdf, .docx, .xlsx"
                       class="hidden"
                       @change="handleFileUpload6($event)"
                     >
@@ -2440,6 +2460,7 @@ import { dateParsing } from "@/utils/helper";
                       id="fileInputEvaluasi"
                       ref="fileInputEvaluasi"
                       type="file"
+                      accept=".pdf, .docx, .xlsx"
                       class="hidden"
                       @change="handleFileUpload7($event)"
                     >
@@ -2850,6 +2871,7 @@ export default {
       },
       isLoading: false,
       statusAction: 0,
+      maxSizeFile: 10 * 1024 * 1024,
     };
   },
   computed: {
@@ -2998,6 +3020,13 @@ export default {
         closeFunction: () => null,
       };
     },
+    onFileSizeOver(message) {
+      this.modalFailed = {
+        isVisible: true,
+        title: 'File Terlalu Besar',
+        message: message
+      };
+    },
     checkConditions() {
       if (this.fileId1 && this.fileId2 && this.fileId3 && this.fileId4 && this.fileId5 && this.fileId6 && this.fileId7) {
         this.kirimClicked = true;
@@ -3013,6 +3042,9 @@ export default {
     handleFileUpload1(event) {
       const file = event.target.files[0];
       if (file) {
+        if (file.size > this.maxSizeFile) {
+            return this.onFileSizeOver(`Maaf ukuran file ${(file.size / 1024 / 1024).toFixed(2)} MB melebihi 10 MB`)
+        }
         this.fileUploaded1 = true;
         this.fileName1 = file.name;
         this.fileSize1 = `${(file.size / (1024 * 1024)).toFixed(2)} MB`;
@@ -3022,6 +3054,9 @@ export default {
     handleFileUpload2(event) {
       const file = event.target.files[0];
       if (file) {
+        if (file.size > this.maxSizeFile) {
+            return this.onFileSizeOver(`Maaf ukuran file ${(file.size / 1024 / 1024).toFixed(2)} MB melebihi 10 MB`)
+        }
         this.fileUploaded2 = true;
         this.fileName2 = file.name;
         this.fileSize2 = `${(file.size / (1024 * 1024)).toFixed(2)} MB`;
@@ -3031,6 +3066,9 @@ export default {
     handleFileUpload3(event) {
       const file = event.target.files[0];
       if (file) {
+        if (file.size > this.maxSizeFile) {
+            return this.onFileSizeOver(`Maaf ukuran file ${(file.size / 1024 / 1024).toFixed(2)} MB melebihi 10 MB`)
+        }
         this.fileUploaded3 = true;
         this.fileName3 = file.name;
         this.fileSize3 = `${(file.size / (1024 * 1024)).toFixed(2)} MB`;
@@ -3040,6 +3078,9 @@ export default {
     handleFileUpload4(event) {
       const file = event.target.files[0];
       if (file) {
+        if (file.size > this.maxSizeFile) {
+            return this.onFileSizeOver(`Maaf ukuran file ${(file.size / 1024 / 1024).toFixed(2)} MB melebihi 10 MB`)
+        }
         this.fileUploaded4 = true;
         this.fileName4 = file.name;
         this.fileSize4 = `${(file.size / (1024 * 1024)).toFixed(2)} MB`;
@@ -3049,6 +3090,9 @@ export default {
     handleFileUpload5(event) {
       const file = event.target.files[0];
       if (file) {
+        if (file.size > this.maxSizeFile) {
+            return this.onFileSizeOver(`Maaf ukuran file ${(file.size / 1024 / 1024).toFixed(2)} MB melebihi 10 MB`)
+        }
         this.fileUploaded5 = true;
         this.fileName5 = file.name;
         this.fileSize5 = `${(file.size / (1024 * 1024)).toFixed(2)} MB`;
@@ -3058,6 +3102,9 @@ export default {
     handleFileUpload6(event) {
       const file = event.target.files[0];
       if (file) {
+        if (file.size > this.maxSizeFile) {
+            return this.onFileSizeOver(`Maaf ukuran file ${(file.size / 1024 / 1024).toFixed(2)} MB melebihi 10 MB`)
+        }
         this.fileUploaded6 = true;
         this.fileName6 = file.name;
         this.fileSize6 = `${(file.size / (1024 * 1024)).toFixed(2)} MB`;
@@ -3067,6 +3114,9 @@ export default {
     handleFileUpload7(event) {
       const file = event.target.files[0];
       if (file) {
+        if (file.size > this.maxSizeFile) {
+            return this.onFileSizeOver(`Maaf ukuran file ${(file.size / 1024 / 1024).toFixed(2)} MB melebihi 10 MB`)
+        }
         this.fileUploaded7 = true;
         this.fileName7 = file.name;
         this.fileSize7 = `${(file.size / (1024 * 1024)).toFixed(2)} MB`;
@@ -3107,6 +3157,9 @@ export default {
     handleFileChange(section, event) {
       const file = event.target.files[0];
       if (file) {
+        if (file.size > this.maxSizeFile) {
+            return this.onFileSizeOver(`Maaf ukuran file ${(file.size / 1024 / 1024).toFixed(2)} MB melebihi 10 MB`)
+        }
         this.fileDetails[section].fileName = file.name;
         this.fileDetails[section].fileSize = `${(
           file.size /

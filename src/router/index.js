@@ -48,7 +48,7 @@ const routes = [
   { name: 'ApprovalDitolak', path: '/mitra/approval/approvalditolak', component: ApprovalDitolak, meta: { requiresAuth: true, role: ['PartnershipManager', 'PartnershipVP', 'PartnershipDirector'] }  },
   { name: 'DetailPengajuanApproval', path: '/mitra/approval/detailpengajuanapproval/:base/:id', component: DetailPengajuanApproval, meta: { requiresAuth: true, role: ['PartnershipManager', 'PartnershipVP', 'PartnershipDirector'] }  },
   { name: 'DetailPengajuanApprovalStopclock', path: '/mitra/approval/approvalstopclock/detailpengajuanapprovalstopclock/:base/:id', component: DetailPengajuanApprovalStopclock, meta: { requiresAuth: true, role: ['PartnershipManager'] }  },
-  { name: 'DetailPengajuanApprovalDitolak', path: '/mitra/approval/approvalditolak/detailpengajuanapprovalditolak/:base/:id', component: DetailPengajuanApprovalDitolak, meta: { requiresAuth: true, role: ['PartnershipManager'] }  },
+  { name: 'DetailPengajuanApprovalDitolak', path: '/mitra/approval/approvalditolak/detailpengajuanapprovalditolak/:base/:id', component: DetailPengajuanApprovalDitolak, meta: { requiresAuth: true, role: ['PartnershipManager', 'PartnershipVP'] }  },
   { name: 'ProsesMitra', path: '/mitra/proses', component: ProsesMitra, meta: { requiresAuth: true, role: ['PartnershipManager', 'PartnershipVP', 'PartnershipDirector'] } },
   { name: 'ProsesStaff', path: '/mitra/prosesstaff', component: ProsesStaff, meta: { requiresAuth: true, role: ['PartnershipStaff'] } },
   { name: 'SelesaiMitra', path: '/mitra/selesai', component: SelesaiMitra, meta: { requiresAuth: true, role: ['PartnershipManager', 'PartnershipVP', 'PartnershipDirector'] } },

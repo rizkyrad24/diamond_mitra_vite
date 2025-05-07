@@ -56,7 +56,7 @@
 </template>
 
 <script>
-import { ref, computed, watch } from "vue";
+import { ref, computed, watch, onMounted } from "vue";
 
 export default {
   name: "SelectSearch",
@@ -77,7 +77,9 @@ export default {
   emits: ["change"],
   setup(props, { emit }) {
     const searchTerm = ref("");
+    const choosenOption = ref("");
     const isDropdownOpen = ref(false);
+    const filterClickListener = ref(null);
 
     const filteredOptions = computed(() => {
       return props.options.filter((option) =>
@@ -102,10 +104,22 @@ export default {
         if (newValue !== null) {
           console.log("Initial value is not null:", newValue);
           searchTerm.value = newValue.label; // Optionally update search term
+          choosenOption.value = newValue.label;
         }
       },
       { immediate: true } // Trigger immediately on component mount
     );
+
+    onMounted(() => {
+      filterClickListener.value = (e) => {
+        if (!e.target.closest('.searchable-select')
+        ) {
+          isDropdownOpen.value = false;
+          searchTerm.value = choosenOption.value
+        }
+      }
+      document.addEventListener('click', filterClickListener.value);
+    });
 
     return {
       searchTerm,
