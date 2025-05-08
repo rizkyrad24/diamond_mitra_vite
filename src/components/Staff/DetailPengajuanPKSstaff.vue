@@ -4,7 +4,7 @@ import ModalFailed from '../modalfailed.vue';
 import ModalSuccess from '../modalsuccess.vue';
 import ModalDialog from '../modaldialog.vue';
 import SelectSearch from '../SelectSearch/SelectSearch.vue';
-import { dateParsing } from '@/utils/helper';
+import { dateParsing, dueDateParsing } from '@/utils/helper';
 </script>
 
 <template>
@@ -69,16 +69,19 @@ import { dateParsing } from '@/utils/helper';
               fill="#1F5AAD"
             />
           </svg>
-          <h1 class="w-[825px] h-[56px] font-sans text-[20px] text-[#333333] mt-4 ml-[5px] font-semibold">
-            Detail Pengajuan
-          </h1>
+          <div>
+            <h1 class="w-[825px] font-sans text-[20px] text-[#333333] mt-4 ml-[5px] mb-1 font-semibold">
+              Detail Pengajuan PKS
+            </h1>
+            <span class="text-base text-[#9C9C9C] pl-2">( Status: {{ progressKemitraan || '-' }} )</span>
+          </div>
           <div class="relative mt-4 mb-4 items-start w-[209px] min-h-[72px] border-[1px] border-[#E5E7E9] rounded-md">
             <div
               :class="{'bg-[#FFB200]': !isProgressFinish, 'bg-[#0ea976]': isProgressFinish}"
               class="w-[209px] h-[29px] border-[1px] border-[#E5E7E9] rounded-tl-md rounded-tr-md"
             >
               <h1 class="mt-[7px] ml-4 w-[177px] h-[15px] font-sans text-[10px] text-[#333333] font-medium">
-                Progress Kemitraan
+                Proses Kemitraan
               </h1>
             </div>
             <div class="flex items-center">
@@ -1999,7 +2002,7 @@ import { dateParsing } from '@/utils/helper';
                   dateParsing(dataBerkas?.submissionDate) || '-' }}</span>
               </div>
             </div>
-            <div class="flex items-center mt-6">
+            <div class="flex items-center mt-6 mb-2">
               <h1 class="w-[130px] h-[17px] font-sans text-[#333333] text-[14px] font-semibold">
                 Due Date
               </h1>
@@ -2011,6 +2014,21 @@ import { dateParsing } from '@/utils/helper';
                 </h1>
                 <span class="w-[112px] h-[17px] font-sans font-thin text-[#7F7F80] text-[14px] ml-4">{{
                   dateParsing(dataBerkas?.expectedDate) || '-' }}</span>
+              </div>
+            </div>
+            <div
+              v-if="dataBerkas.isStopClock"
+              class="flex items-center mt-6 mb-3"
+            >
+              <h1 class="w-[130px] h-[17px] font-sans text-[#333333] text-[14px] font-semibold">
+                Lama Stopclock
+              </h1>
+              <span class="w-[92px] h-[17px] text-[#7F7F80] font-sans font-thin text-[14px] ml-4">{{ dueDateParsing(dataBerkas?.stopClockDate)*(-1) }} Hari</span>
+              <div class="flex">
+                <h1 class="w-[130px] h-[17px] font-sans text-[14px] text-[#333333] font-semibold ml-[300px]">
+                  Tanggal Mulai Stopclock
+                </h1>
+                <span class="w-[112px] h-[17px] font-sans font-thin text-[#7F7F80] text-[14px] ml-4">{{ dateParsing(dataBerkas?.stopClockDate) }}</span>
               </div>
             </div>
           </div>
@@ -3526,7 +3544,7 @@ import { dateParsing } from '@/utils/helper';
                 </div>
                 <SelectSearch
                   :options="optionsPejabat"
-                  placeholder="Pilih staff..."
+                  placeholder="Pilih Pejabat..."
                   :initial-value="namaPejabat"
                   @change="handleSelectionChange"
                 />
@@ -3571,6 +3589,7 @@ import { dateParsing } from '@/utils/helper';
 <script>
 import { fetchGet, fetchPostForm } from '@/api/apiFunction';
 import { baseURL } from '@/api/apiManager';
+import { mapperStatus } from '@/utils/helper';
 
 export default {
   data() {
@@ -3704,6 +3723,8 @@ export default {
       isSelesaiSetuju: false,
       isFailOpen: false,
       isSelesaiFile: false,
+
+      progressKemitraan: null,
     };
   },
   computed: {
@@ -4627,6 +4648,7 @@ export default {
         if (res.data.isStopClock && res.data.status == "Pengajuan StartClock") {
           this.statusAction = 4;
         }
+        this.progressKemitraan = mapperStatus(res.data.positionLevel, res.data.status, res.data.attachmentsPks, res.data.isStopClock)[0];
         this.isLoading = false;
         console.log(res.data);
       } else {

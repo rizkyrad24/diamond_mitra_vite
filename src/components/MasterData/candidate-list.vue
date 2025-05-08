@@ -449,7 +449,7 @@ export default {
   },
   computed: {
     totalData() {
-      return this.tableData.length;
+      return this.filteredData.length;
     },
     totalPages() {
       return Math.ceil(this.totalData / this.selectedValue);
@@ -466,7 +466,7 @@ export default {
       const end = start + this.selectedValue; // Calculate ending index
       return this.filteredTableData.slice(start, end); // Slice the filtered data based on the current page
     },
-    filteredAndPaginatedData() {
+    filteredData() {
       let filteredData = this.tableData;
       // Filter berdasarkan opsi terpilih (selectedSubOptions)
       if (this.selectedSubOptions.length) {
@@ -476,12 +476,6 @@ export default {
             if (this.filterOptions[0].subOptions.includes(option)) {
               return item.name == option;
             }
-            // // Filter untuk aktif
-            // if (option === "Aktif") {
-            //   return item.is_active;
-            // } else if (option === "Tidak Aktif") {
-            //   return !item.is_active;
-            // }
           });
         });
       }
@@ -494,6 +488,10 @@ export default {
           );
         });
       }
+      return filteredData
+    },
+    filteredAndPaginatedData() {
+      let filteredData = this.filteredData;
       const start = (this.currentPage - 1) * this.selectedValue; // Calculate starting index
       const end = start + this.selectedValue; // Calculate ending index
       return filteredData.slice(start, end);

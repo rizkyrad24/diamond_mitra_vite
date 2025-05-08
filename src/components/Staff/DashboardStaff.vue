@@ -789,7 +789,7 @@ export default {
   },
   computed: {
     totalData() {
-      return this.tableData.length;
+      return this.filteredData.length;
     },
     totalPages() {
       return Math.ceil(this.totalData / this.selectedValue);
@@ -806,7 +806,7 @@ export default {
       const end = start + this.selectedValue; // Calculate ending index
       return this.filteredTableData.slice(start, end); // Slice the filtered data based on the current page
     },
-    filteredAndPaginatedData() {
+    filteredData() {
       let filteredData = this.tableData;
       // Filter berdasarkan opsi terpilih (selectedSubOptions)
       if (this.selectedSubOptions.length) {
@@ -854,6 +854,10 @@ export default {
           return item.pic.toLowerCase().includes(query);
         });
       }
+      return filteredData
+    },
+    filteredAndPaginatedData() {
+      let filteredData = this.filteredData;
       const start = (this.currentPage - 1) * this.selectedValue; // Calculate starting index
       const end = start + this.selectedValue; // Calculate ending index
       return filteredData.slice(start, end);
@@ -1175,7 +1179,7 @@ export default {
         { header: "Total Selesai", key: "totalSelesai", width: 20 },
         { header: "Total Stop Clock", key: "totalStopClock", width: 20 },
       ];
-      const data = this.tableData.map((item, index) => ({
+      const data = this.filteredData.map((item, index) => ({
         ...item,
         no: index + 1,
         duedate: item.hari >= 0? `H-${item.hari}`: `H+${item.hari * (-1)}`

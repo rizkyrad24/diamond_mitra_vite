@@ -112,7 +112,7 @@
           </form>
         </div>
         <div
-          v-if="[1,2].includes(formType)"
+          v-if="[1,2].includes(formType) && ['PartnershipStaff', 'PartnershipManager', 'PartnershipVP', 'PartnershipDirector'].includes(role)"
           class="mb-4"
         >
           <label class="text-[#4D5E80] font-medium">Tipe Bisnis <span class="text-[#FF5656]">*</span></label>
@@ -917,7 +917,7 @@ export default {
   },
   computed: {
     totalData() {
-      return this.tableData.length;
+      return this.filteredData.length;
     },
     totalPages() {
       return Math.ceil(this.totalData / this.selectedValue);
@@ -934,7 +934,7 @@ export default {
       const end = start + this.selectedValue; // Calculate ending index
       return this.filteredTableData.slice(start, end); // Slice the filtered data based on the current page
     },
-    filteredAndPaginatedData() {
+    filteredData() {
       let filteredData = this.tableData;
       // Filter berdasarkan opsi terpilih (selectedSubOptions)
       if (this.selectedSubOptions.length) {
@@ -956,7 +956,7 @@ export default {
       // Filter berdasarkan input pencarian (searchQuery)
       if (this.searchQuery) {
         const query = this.searchQuery.toLowerCase();
-        filteredData = filteredData.filter((item) => {
+        filteredData = this.tableData.filter((item) => {
           return (
             item.username.toLowerCase().includes(query) ||
             item.first_name.toLowerCase().includes(query) ||
@@ -964,22 +964,41 @@ export default {
           );
         });
       }
+      return filteredData
+    },
+    filteredAndPaginatedData() {
+      let filteredData = this.filteredData;
       const start = (this.currentPage - 1) * this.selectedValue; // Calculate starting index
       const end = start + this.selectedValue; // Calculate ending index
       return filteredData.slice(start, end);
     },
     isSendAvaible() {
-      return (
-        this.username != "" && this.firstName != "" &&
-        this.email != "" && this.role != "" &&
-        this.password != "" && this.rePassword != "" && this.password === this.rePassword
-      )
+      if (['PartnershipStaff', 'PartnershipManager', 'PartnershipVP', 'PartnershipDirector'].includes(this.role)){
+        return (
+          this.username != "" && this.firstName != "" &&
+          this.email != "" && this.role != "" && this.bisnisType != "" &&
+          this.password != "" && this.rePassword != "" && this.password === this.rePassword
+        )
+      } else {
+        return (
+          this.username != "" && this.firstName != "" &&
+          this.email != "" && this.role != "" &&
+          this.password != "" && this.rePassword != "" && this.password === this.rePassword
+        )
+      }
     },
     isSendEditAvaible() {
-      return (
-        this.firstName != "" &&
-        this.email != "" && this.role != "" && this.userId
-      )
+      if (['PartnershipStaff', 'PartnershipManager', 'PartnershipVP', 'PartnershipDirector'].includes(this.role)){
+        return (
+          this.firstName != "" && this.bisnisType != "" &&
+          this.email != "" && this.role != "" && this.userId
+        )
+      } else {
+        return (
+          this.firstName != "" &&
+          this.email != "" && this.role != "" && this.userId
+        )
+      }
     },
     isSendResetPasswordAvaible() {
       return (
