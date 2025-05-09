@@ -1,3 +1,7 @@
+<script setup>
+import { dateParsing } from '@/utils/helper';
+</script>
+
 <template>
   <Loading :is-visible="isLoading" />
   <ModalFailed
@@ -199,7 +203,7 @@
                   <th class="p-2 border border-[#E5E7E9]">
                     <div class="flex items-center justify-between">
                       <span>No.</span>
-                      <svg
+                      <!-- <svg
                         class="ml-2"
                         width="14"
                         height="10"
@@ -217,7 +221,7 @@
                           d="M3.21369 0.144824C3.41312 -0.0476236 3.73647 -0.0476236 3.9359 0.144824L7.00001 3.10158C7.19945 3.29403 7.19945 3.60605 7.00001 3.79849C6.80058 3.99094 6.47723 3.99094 6.27779 3.79849L4.08548 1.68299V9.36355C4.08548 9.63571 3.85684 9.85634 3.57479 9.85634C3.29275 9.85634 3.06411 9.63571 3.06411 9.36355V1.68299L0.871794 3.79849C0.672359 3.99094 0.349011 3.99094 0.149576 3.79849C-0.0498587 3.60605 -0.0498587 3.29403 0.149576 3.10158L3.21369 0.144824Z"
                           fill="#93B8EC"
                         />
-                      </svg>
+                      </svg> -->
                     </div>
                   </th>
                   <th class="p-2 border border-[#E5E7E9]">
@@ -448,6 +452,7 @@
                         viewBox="0 0 14 10"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
+                        @click="sortTable('status')"
                       >
                         <path
                           fill-rule="evenodd"
@@ -486,10 +491,10 @@
                     {{ item.user }}
                   </td>
                   <td class="p-2 py-4 border border-[#E5E7E9]">
-                    {{ item.tanggal }}
+                    {{ dateParsing(item.tanggal) }}
                   </td>
                   <td class="p-2 py-4 border border-[#E5E7E9]">
-                    {{ item.tgl_end }}
+                    {{ dateParsing(item.tgl_end) }}
                   </td>
                   <td class="p-2 py-4 border border-[#E5E7E9]">
                     {{ item.pejabat }}
@@ -586,7 +591,7 @@
 
 <script>
 import { fetchGet } from '@/api/apiFunction';
-import { parseStatusAproval, dueDateParsing, dateParsing, mapperStatusPerjanjian } from '@/utils/helper';
+import { parseStatusAproval, dueDateParsing, mapperStatusPerjanjian } from '@/utils/helper';
 import Loading from '../loading.vue';
 import ModalFailed from '../modalfailed.vue';
 import exportExcel from '@/utils/expot_excel';
@@ -833,7 +838,7 @@ export default {
 					user: item.user,
           tanggal: item.approvalCompletionDate,
           pejabat: item.officialUndersign,
-          tgl_end: dateParsing(item.endContractDate),
+          tgl_end: item.endContractDate,
           hari: item.endContractDate? dueDateParsing(item.endContractDate): null,
           statusperjanjian: mapperStatusPerjanjian(item.endContractDate),
 					status: item.status,
@@ -878,7 +883,7 @@ export default {
 					user: item.user,
           tanggal: item.approvalCompletionDate,
           pejabat: item.officialUndersign,
-          tgl_end: dateParsing(item.endContractDate),
+          tgl_end: item.endContractDate,
           hari: item.endContractDate? dueDateParsing(item.endContractDate): null,
           statusperjanjian: mapperStatusPerjanjian(item.endContractDate),
 					status: item.status,
