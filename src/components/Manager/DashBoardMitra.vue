@@ -388,6 +388,125 @@
             </div>
           </div>
         </div>
+
+        <div class="w-[97%] h-[68px] ml-4 mt-3 flex justify-between">
+          <div class="w-[196.4px] h-full bg-[#7367f0] border-[1px] rounded-lg flex justify-between">
+            <div class="mt-[5px] ml-4">
+              <span class="text-xs text-white">Total Diproses</span>
+              <h1 class="text-[24px] text-white font-medium">
+                {{ totalDiproses }}
+              </h1>
+            </div>
+            <div class="flex flex-col h-full justify-center me-3 w-[45px]">
+              <div class="flex justify-between text-[10px] text-white border-x-[1px] px-1 border-t-[1px] border-white">
+                <span>MoU:</span>
+                <span>{{ totalDiprosesMOU }}</span>
+              </div>
+              <div class="flex justify-between text-[10px] text-white border-x-[1px] px-1 border-white">
+                <span>NDA:</span>
+                <span>{{ totalDiprosesNDA }}</span>
+              </div>
+              <div class="flex justify-between text-[10px] text-white border-x-[1px] px-1 border-b-[1px] border-white">
+                <span>PKS:</span>
+                <span>{{ totalDiprosesPKS }}</span>
+              </div>
+            </div>
+            <!-- <img :src="deliv" alt="Diproses Image" class="object-none"> -->
+          </div>
+          <div class="w-[196.4px] h-full bg-[#ffa229] border-[1px] rounded-lg flex justify-between">
+            <div class="mt-[5px] ml-4">
+              <span class="text-xs text-white">Total Direvisi</span>
+              <h1 class="text-[24px] text-white font-medium">
+                {{ totalDirevisi }}
+              </h1>
+            </div>
+            <div class="flex flex-col h-full justify-center me-3 w-[45px]">
+              <div class="flex justify-between text-[10px] text-white border-x-[1px] px-1 border-t-[1px] border-white">
+                <span>MoU:</span>
+                <span>{{ totalDirevisiMOU }}</span>
+              </div>
+              <div class="flex justify-between text-[10px] text-white border-x-[1px] px-1 border-white">
+                <span>NDA:</span>
+                <span>{{ totalDirevisiNDA }}</span>
+              </div>
+              <div class="flex justify-between text-[10px] text-white border-x-[1px] px-1 border-b-[1px] border-white">
+                <span>PKS:</span>
+                <span>{{ totalDirevisiPKS }}</span>
+              </div>
+            </div>
+            <!-- <img :src="deliv2" alt="Direvisi Image" class="object-none"> -->
+          </div>
+          <div class="w-[196.4px] h-full bg-[#ff5656] border-[1px] rounded-lg flex justify-between">
+            <div class="mt-[5px] ml-4">
+              <span class="text-xs text-white">Total Ditolak</span>
+              <h1 class="text-[24px] text-white font-medium">
+                {{ totalDitolak }}
+              </h1>
+            </div>
+            <div class="flex flex-col h-full justify-center me-3 w-[45px]">
+              <div class="flex justify-between text-[10px] text-white border-x-[1px] px-1 border-t-[1px] border-white">
+                <span>MoU:</span>
+                <span>{{ totalDitolakMOU }}</span>
+              </div>
+              <div class="flex justify-between text-[10px] text-white border-x-[1px] px-1 border-white">
+                <span>NDA:</span>
+                <span>{{ totalDitolakNDA }}</span>
+              </div>
+              <div class="flex justify-between text-[10px] text-white border-x-[1px] px-1 border-b-[1px] border-white">
+                <span>PKS:</span>
+                <span>{{ totalDitolakPKS }}</span>
+              </div>
+            </div>
+            <!-- <img :src="deliv3" alt="Dilotak Image" class="object-none"> -->
+          </div>
+          <div class="w-[196.4px] h-full bg-[#0ea976] border-[1px] rounded-lg flex justify-between">
+            <div class="mt-[5px] ml-4">
+              <span class="text-xs text-white">Total Selesai</span>
+              <h1 class="text-[24px] text-white font-medium">
+                {{ totalSelesai }}
+              </h1>
+            </div>
+            <div class="flex flex-col h-full justify-center me-3 w-[45px]">
+              <div class="flex justify-between text-[10px] text-white border-x-[1px] px-1 border-t-[1px] border-white">
+                <span>MoU:</span>
+                <span>{{ totalSelesaiMOU }}</span>
+              </div>
+              <div class="flex justify-between text-[10px] text-white border-x-[1px] px-1 border-white">
+                <span>NDA:</span>
+                <span>{{ totalSelesaiNDA }}</span>
+              </div>
+              <div class="flex justify-between text-[10px] text-white border-x-[1px] px-1 border-b-[1px] border-white">
+                <span>PKS:</span>
+                <span>{{ totalSelesaiPKS }}</span>
+              </div>
+            </div>
+            <!-- <img :src="deliv4" alt="Selesai Image" class="object-none"> -->
+          </div>
+          <div class="w-[196.4px] h-full bg-[#4e79b6] border-[1px] rounded-lg flex justify-between">
+            <div class="mt-[5px] ml-4">
+              <span class="text-xs text-white">Total Stop Clock</span>
+              <h1 class="text-[24px] text-white font-medium">
+                {{ totalStopClock }}
+              </h1>
+            </div>
+            <div class="flex flex-col h-full justify-center me-3 w-[45px]">
+              <div class="flex justify-between text-[10px] text-white border-x-[1px] px-1 border-t-[1px] border-white">
+                <span>MoU:</span>
+                <span>{{ totalStopClockMOU }}</span>
+              </div>
+              <div class="flex justify-between text-[10px] text-white border-x-[1px] px-1 border-white">
+                <span>NDA:</span>
+                <span>{{ totalStopClockNDA }}</span>
+              </div>
+              <div class="flex justify-between text-[10px] text-white border-x-[1px] px-1 border-b-[1px] border-white">
+                <span>PKS:</span>
+                <span>{{ totalStopClockPKS }}</span>
+              </div>
+            </div>
+            <!-- <img :src="deliv1" alt="Direvisi Image" class="object-none"> -->
+          </div>
+        </div>
+
         <div class="flex items-start relative">
           <div class="w-[320px] h-[40px] rounded-lg bg-[#FFFFFF] border border-[#E5E7E9] mt-6 ml-4 flex justify-between items-center">
             <input
@@ -888,6 +1007,7 @@ export default {
       isDelay: false,
       title: "",
       department: "",
+      dataRows: [],
     };
   },
   computed: {
@@ -964,6 +1084,101 @@ export default {
       const start = (this.currentPage - 1) * this.selectedValue; // Calculate starting index
       const end = start + this.selectedValue; // Calculate ending index
       return filteredData.slice(start, end);
+    },
+    totalPermintaan() {
+      return this.dataRows.length
+    },
+    totalPermintaanMOU() {
+      const filtered = this.dataRows.filter(item => item.type == 'MoU')
+      return filtered.length
+    },
+    totalPermintaanNDA() {
+      const filtered = this.dataRows.filter(item => item.type == 'NDA')
+      return filtered.length
+    },
+    totalPermintaanPKS() {
+      const filtered = this.dataRows.filter(item => item.type == 'PKS')
+      return filtered.length
+    },
+    totalDiproses() {
+      const filtered = this.dataRows.filter(item => ['F','P','S1','S2', 'T1', 'T2'].includes(item.status) && item.isStopClock == false)
+      return filtered.length
+    },
+    totalDiprosesMOU() {
+      const filtered = this.dataRows.filter(item => ['F','P','S1','S2', 'T1', 'T2'].includes(item.status) && item.type == 'MoU' && item.isStopClock == false)
+      return filtered.length
+    },
+    totalDiprosesNDA() {
+      const filtered = this.dataRows.filter(item => ['F','P','S1','S2', 'T1', 'T2'].includes(item.status) && item.type == 'NDA' && item.isStopClock == false)
+      return filtered.length
+    },
+    totalDiprosesPKS() {
+      const filtered = this.dataRows.filter(item => ['F','P','S1','S2', 'T1', 'T2'].includes(item.status) && item.type == 'PKS' && item.isStopClock == false)
+      return filtered.length
+    },
+    totalDirevisi() {
+      const filtered = this.dataRows.filter(item => ['R','R1','R2'].includes(item.status) && item.isStopClock == false)
+      return filtered.length
+    },
+    totalDirevisiMOU() {
+      const filtered = this.dataRows.filter(item => ['R','R1','R2'].includes(item.status) && item.type == 'MoU' && item.isStopClock == false)
+      return filtered.length
+    },
+    totalDirevisiNDA() {
+      const filtered = this.dataRows.filter(item => ['R','R1','R2'].includes(item.status) && item.type == 'NDA' && item.isStopClock == false)
+      return filtered.length
+    },
+    totalDirevisiPKS() {
+      const filtered = this.dataRows.filter(item => ['R','R1','R2'].includes(item.status) && item.type == 'PKS' && item.isStopClock == false)
+      return filtered.length
+    },
+    totalDitolak() {
+      const filtered = this.dataRows.filter(item => ['T'].includes(item.status))
+      return filtered.length
+    },
+    totalDitolakMOU() {
+      const filtered = this.dataRows.filter(item => ['T'].includes(item.status) && item.type == 'MoU')
+      return filtered.length
+    },
+    totalDitolakNDA() {
+      const filtered = this.dataRows.filter(item => ['T'].includes(item.status) && item.type == 'NDA')
+      return filtered.length
+    },
+    totalDitolakPKS() {
+      const filtered = this.dataRows.filter(item => ['T'].includes(item.status) && item.type == 'PKS')
+      return filtered.length
+    },
+    totalSelesai() {
+      const filtered = this.dataRows.filter(item => ['A'].includes(item.status) && item.positionLevel >= 10)
+      return filtered.length
+    },
+    totalSelesaiMOU() {
+      const filtered = this.dataRows.filter(item => ['A'].includes(item.status) && item.positionLevel == 10 && item.type == 'MoU')
+      return filtered.length
+    },
+    totalSelesaiNDA() {
+      const filtered = this.dataRows.filter(item => ['A'].includes(item.status) && item.positionLevel == 10 && item.type == 'NDA')
+      return filtered.length
+    },
+    totalSelesaiPKS() {
+      const filtered = this.dataRows.filter(item => ['A'].includes(item.status) && item.positionLevel == 11 && item.type == 'PKS')
+      return filtered.length
+    },
+    totalStopClock() {
+      const filtered = this.dataRows.filter(item => !['T', 'A'].includes(item.status) && item.isStopClock == true)
+      return filtered.length
+    },
+    totalStopClockMOU() {
+      const filtered = this.dataRows.filter(item => !['T', 'A'].includes(item.status) && item.type == 'MoU' && item.isStopClock == true)
+      return filtered.length
+    },
+    totalStopClockNDA() {
+      const filtered = this.dataRows.filter(item => !['T', 'A'].includes(item.status) && item.type == 'NDA' && item.isStopClock == true)
+      return filtered.length
+    },
+    totalStopClockPKS() {
+      const filtered = this.dataRows.filter(item => !['T', 'A'].includes(item.status) && item.type == 'PKS' && item.isStopClock == true)
+      return filtered.length
     },
   },
   watch: {
@@ -1358,6 +1573,34 @@ export default {
         this.summaryData = original;
         this.totalDataPengajuan = res.data.totalNda + res.data.totalMou + res.data.totalPks
 
+        let boxResult2 = new Array();
+        let cleanData3 = res.data.listRawMounda.map((item) => {
+          return {
+            did: item.id,
+            name: item.partnershipTitle,
+            code: item.submissionNumber,
+            type: item.base == "MOU" ? "MoU" : item.base,
+            positionLevel: item.positionLevel,
+            status: item.status,
+            isStopClock: item.isStopClock
+          };
+        });
+        boxResult2 = boxResult2.concat(cleanData3);
+        let cleanData4 = res.data.listRawPks.map((item) => {
+          return {
+            did: item.id,
+            name: item.partnershipTitle,
+            code: item.submissionNumber,
+            type: "PKS",
+            positionLevel: item.positionLevel,
+            status: item.status,
+            isStopClock: item.isStopClock
+          };
+        });
+        boxResult2 = boxResult2.concat(cleanData4);
+        console.log('raw', boxResult2)
+        this.dataRows = boxResult2;
+
         this.years = res.data.listYear.map(item => item.toString())
         const barChartData = [res.data.totalProcessed, res.data.totalRevision, res.data.totalRejected, res.data.totalFinished, res.data.totalStopClock]
         const max = Math.max.apply(null, barChartData)
@@ -1388,12 +1631,12 @@ export default {
   align-items: center;
   justify-content: space-between;
   width: 300px;
-  margin-bottom: 10px;
+  margin-bottom: 5px !important;
 }
 .chart-circle {
   position: relative;
-  width: 70px;
-  height: 70px;
+  width: 80px !important;
+  height: 80px !important;
   font-family: sans-serif;
 }
 .chart-circle svg {
@@ -1414,12 +1657,12 @@ export default {
   align-items: baseline;
 }
 .chart-text .value {
-  font-size: 10px;
+  font-size: 15px !important;
   font-weight: bold;
   color: #000000 !important;
 }
 .chart-text .total {
-  font-size: 8px;
+  font-size: 13px !important;
   font-weight: normal;
   color: #7f7f80 !important;
   margin-left: 1px;
