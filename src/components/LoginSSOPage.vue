@@ -1,5 +1,5 @@
 <template>
-  <div class="flex items-center justify-center w-[1366px] h-[1024px] bg-[#F6F0F0] shadow-xl">
+  <div class="flex items-center justify-center w-[1366px] h-full bg-[#F6F0F0] shadow-xl">
     <Loading :is-visible="isLoading" />
     <ModalFailed
       :is-visible="modalFailed.isVisible"
@@ -13,13 +13,13 @@
       :message="modalSuccess.message"
       @close="modalSuccess.closeFunction"
     />
-    <div class="relative">
+    <div class="relative self-start mt-[150px] flex justify-center">
       <img
-        src="../assets/image/loginbg.png"
-        class="w-full h-auto"
+        src="../assets/image/iconplus.png"
+        class="w-[50%] h-auto"
         alt="Background Image"
       >
-      <div class="absolute mt-[425px] inset-0 flex items-center justify-center">
+      <div class="absolute mt-[325px] inset-0 flex items-center justify-center">
         <div class="custom-bg w-[588px] h-[156px] rounded-md text-center flex flex-col items-center justify-center">
           <h1 class="text-[#E9EAEC] font-sans font-semibold text-[30px]">
             "Welcome to DIAMOND"
@@ -30,7 +30,7 @@
         </div>
       </div>
     </div>
-    <div class="w-[480px] h-[496px] bg-[#F6F0F0] ml-[120px]">
+    <div class="w-[480px] h-[496px] bg-[#F6F0F0] mr-[60px]">
       <svg
         class="ml-[114.5px]"
         width="252"

@@ -233,21 +233,21 @@
             </div>
           </div>
           <div class="flex flex-col justify-start w-[346px] h-[416px] ml-6 mt-6 mr-6 border-collapse rounded-lg bg-[#FFFFFF] border-[#E5E7E9] border-[1px] bg-wave">
-            <div class="flex items-start p-6">
+            <!-- <div class="flex items-start p-6">
               <h1 class="font-sans text-[20px] font-semibold text-[#FFFFFF]">
                 <span class="block">Total Dokumen Kemitraan</span>
                 <span class="block">yang telah selesai</span>
               </h1>
-            </div>
-            <div class="flex flex-col items-center mt-12">
+            </div> -->
+            <div class="flex flex-col items-center mt-5 gap-6">
               <div class="chart-item mb-6">
                 <div>
-                  <p class="font-sans text-[16px] text-[#7F7F80] font-medium">
+                  <p class="font-sans text-[20px] text-[#7F7F80] font-medium">
                     Total NDA
                   </p>
                   <h2
                     id="totalNDA"
-                    class="font-sans text-[24px] text-[#333333] font-bold"
+                    class="font-sans text-[30px] text-[#333333] font-bold"
                   >
                     {{ summaryData?.totalNda }}
                   </h2>
@@ -256,12 +256,12 @@
               </div>
               <div class="chart-item mb-6">
                 <div>
-                  <p class="font-sans text-[16px] text-[#7F7F80] font-medium">
+                  <p class="font-sans text-[20px] text-[#7F7F80] font-medium">
                     Total MoU
                   </p>
                   <h2
                     id="totalMoU"
-                    class="font-sans text-[24px] text-[#333333] font-bold"
+                    class="font-sans text-[30px] text-[#333333] font-bold"
                   >
                     {{ summaryData?.totalMou }}
                   </h2>
@@ -270,12 +270,12 @@
               </div>
               <div class="chart-item">
                 <div>
-                  <p class="font-sans text-[16px] text-[#7F7F80] font-medium">
+                  <p class="font-sans text-[20px] text-[#7F7F80] font-medium">
                     Total PKS
                   </p>
                   <h2
                     id="totalPKS"
-                    class="font-sans text-[24px] text-[#333333] font-bold"
+                    class="font-sans text-[30px] text-[#333333] font-bold"
                   >
                     {{ summaryData?.totalPks }}
                   </h2>
@@ -1213,43 +1213,52 @@ export default {
       const totalData = totalNda + totalMou + totalPks;
       document.getElementById("totalData").innerText = totalData;
 
-      const createCircleChart = (elementId, value, finishedValue, color, label) => {
+      const createCircleChart = (elementId, value, finishedValue, color, label, size=80) => {
         const container = document.getElementById(elementId);
         const percentage = value > 0? (finishedValue / value * 100): 0;
-        const radius = 40;
-        const strokeWidth = 15;
-        const normalizedRadius = radius - strokeWidth / 2;
-        const circumference = normalizedRadius * 2 * Math.PI;
-        const initialDashoffset = circumference;
+        
+        const extra = size * 0.2; // 20% ekstra ruang
+        const svgViewBoxSize = size + extra;
+        const strokeWidth = size * 0.18; // 10% dari ukuran
+        const center = svgViewBoxSize / 2;
+        const radius = center - strokeWidth / 2;
+        const circumference = 2 * Math.PI * radius;
         const strokeDashoffset = circumference - (percentage / 100) * circumference;
+        const padding = size * 0.1;
+
+        // const outerSize = size + padding * 2;
+        // container.style.width = `${outerSize}px`;
+        // container.style.height = `${outerSize}px`;
 
         container.innerHTML = `
-          <div class="chart-circle" style="position: relative;">
-            <svg viewBox="0 0 100 100" class="chart-svg">
-              <circle class="circle-bg"
+          <div class="chart-circle" style="position: relative; width: ${size + padding * 2}px; height: ${size + padding * 2}px; overflow: visible;">
+            <svg viewBox="0 0 ${svgViewBoxSize} ${svgViewBoxSize}" width="${size}" height="${size}" class="chart-svg" style="overflow: visible;">
+              <circle
+                class="circle-bg"
                 stroke="#E5E5E5"
                 stroke-width="${strokeWidth}"
                 fill="transparent"
-                r="${normalizedRadius}"
-                cx="50"
-                cy="50"
+                r="${radius}"
+                cx="${center}"
+                cy="${center}"
               />
-              <circle class="progress-circle"
+              <circle
+                class="progress-circle"
                 stroke="${color}"
                 stroke-width="${strokeWidth}"
                 stroke-dasharray="${circumference} ${circumference}"
-                stroke-dashoffset="${initialDashoffset}"
+                stroke-dashoffset="${circumference}"
                 fill="transparent"
-                r="${normalizedRadius}"
-                cx="50"
-                cy="50"
+                r="${radius}"
+                cx="${center}"
+                cy="${center}"
               />
             </svg>
             <div class="chart-text">
               <span class="value">${finishedValue}</span>
               <span class="total">/${value}</span>
             </div>
-            <div class="chart-tooltip" style="display: none; position: absolute; padding: 5px; background: rgba(0, 0, 0, 0.85); color: #fff; border-radius: 5px; font-size: 12px; white-space: nowrap;">
+            <div class="chart-tooltip" style="display: none; position: absolute; padding: 5px; background: rgba(0, 0, 0, 0.85); color: #fff; border-radius: 5px; font-size: 10px; white-space: nowrap;">
               <div style="font-weight: bold;">${label}</div>
               <div style="display: flex; align-items: center; margin-top: 5px;">
                 <span style="display: inline-block; width: 10px; height: 10px; background-color: ${color}; margin-right: 5px;"></span>
@@ -1282,6 +1291,7 @@ export default {
         chartSvg.addEventListener("mouseenter", () => {
           tooltip.style.display = "block";
           progressCircle.style.transform = "scale(1.1)";
+          progressCircle.style.transformOrigin = "center center";
           progressCircle.style.transition = "transform 0.5s ease";
         });
       };
@@ -1525,9 +1535,9 @@ export default {
 }
 .chart-circle {
   position: relative;
-  width: 80px !important;
-  height: 80px !important;
-  font-family: sans-serif;
+  width: auto;
+  height: auto;
+  overflow: visible;
 }
 .chart-circle svg {
   transform: rotate(-90deg);
@@ -1547,12 +1557,12 @@ export default {
   align-items: baseline;
 }
 .chart-text .value {
-  font-size: 15px !important;
+  font-size: 20px !important;
   font-weight: bold;
   color: #000000 !important;
 }
 .chart-text .total {
-  font-size: 13px !important;
+  font-size: 18px !important;
   font-weight: normal;
   color: #7f7f80 !important;
   margin-left: 1px;
