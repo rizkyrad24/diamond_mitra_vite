@@ -31,6 +31,9 @@ import ProdukData from '@/pages/master-data/produk-data.vue';
 import CandidateData from '@/pages/master-data/candidate-data.vue';
 
 import { clearDataLogin } from '@/utils/helper';
+import DirektoratData from '@/pages/master-data/direktorat-data.vue';
+import BidangData from '@/pages/master-data/bidang-data.vue';
+import SubBidangData from '@/pages/master-data/sub-bidang-data.vue';
 
 const routes = [
   { name: 'LoginPage', path: '/mitra/login', component: LoginPage },
@@ -64,6 +67,9 @@ const routes = [
   { name: 'PelangganData', path: '/mitra/pelanggan', component: PelangganData, meta: { requiresAuth: true, role: ['Admin'] } },
   { name: 'ProdukData', path: '/mitra/produk', component: ProdukData, meta: { requiresAuth: true, role: ['Admin'] } },
   { name: 'CandidateData', path: '/mitra/candidate', component: CandidateData, meta: { requiresAuth: true, role: ['Admin'] } },
+  { name: 'DirektoratData', path: '/mitra/direktorat', component: DirektoratData, meta: { requiresAuth: true, role: ['Admin'] } },
+  { name: 'BidangData', path: '/mitra/bidang', component: BidangData, meta: { requiresAuth: true, role: ['Admin'] } },
+  { name: 'SubBidangData', path: '/mitra/subbidang', component: SubBidangData, meta: { requiresAuth: true, role: ['Admin'] } },
 ];
 
 const router = createRouter({

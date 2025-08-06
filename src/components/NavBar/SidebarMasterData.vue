@@ -316,6 +316,171 @@
         </svg>
         Candidate
       </button>
+      <!-- Direktorat -->
+      <button
+        :class="['flex text-[14px] font-sans font-semibold items-center justify p-2 rounded-lg transition-colors', isActive('SelesaiStaff') ? 'bg-[#2671D9] text-[#FFFFFF]' : 'text-[#333333] hover:bg-[#DBEAFE]']"
+        @click="navigateTo('Direktorat')"
+      >
+        <svg
+          class="ml-[5px] mr-[14px]"
+          width="18"
+          height="18"
+          viewBox="0 0 18 18"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M9.27759 6.66H13.2151H9.27759Z"
+            fill="white"
+          />
+          <path
+            d="M9.27759 6.66H13.2151"
+            :stroke="isActive('Direktorat') ? '#FFFFFF' : '#2671D9'"
+            stroke-width="1.3"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M4.78491 6.66L5.34741 7.2225L7.03491 5.535"
+            :stroke="isActive('Direktorat') ? '#FFFFFF' : '#2671D9'"
+            stroke-width="1.3"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M9.27759 11.91H13.2151"
+            :stroke="isActive('Direktorat') ? '#FFFFFF' : '#2671D9'"
+            stroke-width="1.3"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M4.78491 11.91L5.34741 12.4725L7.03491 10.785"
+            :stroke="isActive('Direktorat') ? '#FFFFFF' : '#2671D9'"
+            stroke-width="1.3"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M6.75 16.5H11.25C15 16.5 16.5 15 16.5 11.25V6.75C16.5 3 15 1.5 11.25 1.5H6.75C3 1.5 1.5 3 1.5 6.75V11.25C1.5 15 3 16.5 6.75 16.5Z"
+            :stroke="isActive('Direktorat') ? '#FFFFFF' : '#2671D9'"
+            stroke-width="1.3"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+        Direktorat
+      </button>
+      <!-- Bidang -->
+      <button
+        :class="['flex text-[14px] font-sans font-semibold items-center justify p-2 rounded-lg transition-colors', isActive('SelesaiStaff') ? 'bg-[#2671D9] text-[#FFFFFF]' : 'text-[#333333] hover:bg-[#DBEAFE]']"
+        @click="navigateTo('Bidang')"
+      >
+        <svg
+          class="ml-[5px] mr-[14px]"
+          width="18"
+          height="18"
+          viewBox="0 0 18 18"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M9.27759 6.66H13.2151H9.27759Z"
+            fill="white"
+          />
+          <path
+            d="M9.27759 6.66H13.2151"
+            :stroke="isActive('Bidang') ? '#FFFFFF' : '#2671D9'"
+            stroke-width="1.3"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M4.78491 6.66L5.34741 7.2225L7.03491 5.535"
+            :stroke="isActive('Bidang') ? '#FFFFFF' : '#2671D9'"
+            stroke-width="1.3"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M9.27759 11.91H13.2151"
+            :stroke="isActive('Bidang') ? '#FFFFFF' : '#2671D9'"
+            stroke-width="1.3"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M4.78491 11.91L5.34741 12.4725L7.03491 10.785"
+            :stroke="isActive('Bidang') ? '#FFFFFF' : '#2671D9'"
+            stroke-width="1.3"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M6.75 16.5H11.25C15 16.5 16.5 15 16.5 11.25V6.75C16.5 3 15 1.5 11.25 1.5H6.75C3 1.5 1.5 3 1.5 6.75V11.25C1.5 15 3 16.5 6.75 16.5Z"
+            :stroke="isActive('Bidang') ? '#FFFFFF' : '#2671D9'"
+            stroke-width="1.3"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+        Bidang
+      </button>
+      <!-- SubBidang -->
+      <button
+        :class="['flex text-[14px] font-sans font-semibold items-center justify p-2 rounded-lg transition-colors', isActive('SelesaiStaff') ? 'bg-[#2671D9] text-[#FFFFFF]' : 'text-[#333333] hover:bg-[#DBEAFE]']"
+        @click="navigateTo('SubBidang')"
+      >
+        <svg
+          class="ml-[5px] mr-[14px]"
+          width="18"
+          height="18"
+          viewBox="0 0 18 18"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M9.27759 6.66H13.2151H9.27759Z"
+            fill="white"
+          />
+          <path
+            d="M9.27759 6.66H13.2151"
+            :stroke="isActive('SubBidang') ? '#FFFFFF' : '#2671D9'"
+            stroke-width="1.3"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M4.78491 6.66L5.34741 7.2225L7.03491 5.535"
+            :stroke="isActive('SubBidang') ? '#FFFFFF' : '#2671D9'"
+            stroke-width="1.3"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M9.27759 11.91H13.2151"
+            :stroke="isActive('SubBidang') ? '#FFFFFF' : '#2671D9'"
+            stroke-width="1.3"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M4.78491 11.91L5.34741 12.4725L7.03491 10.785"
+            :stroke="isActive('SubBidang') ? '#FFFFFF' : '#2671D9'"
+            stroke-width="1.3"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M6.75 16.5H11.25C15 16.5 16.5 15 16.5 11.25V6.75C16.5 3 15 1.5 11.25 1.5H6.75C3 1.5 1.5 3 1.5 6.75V11.25C1.5 15 3 16.5 6.75 16.5Z"
+            :stroke="isActive('SubBidang') ? '#FFFFFF' : '#2671D9'"
+            stroke-width="1.3"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+        Sub Bidang
+      </button>
     </div>
   </div>
 </template>
@@ -349,6 +514,15 @@ export default {
           break;
         case "Candidate":
           this.$router.push("/mitra/candidate");
+          break;
+        case "Direktorat":
+          this.$router.push("/mitra/direktorat");
+          break;
+        case "Bidang":
+          this.$router.push("/mitra/bidang");
+          break;
+        case "SubBidang":
+          this.$router.push("/mitra/subbidang");
           break;
         default:
           break;

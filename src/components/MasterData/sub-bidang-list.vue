@@ -11,237 +11,20 @@
         &times;
       </button>
       <h1 class="font-sans text-[30px] text-center text-[#333333] mt-6 ml-[5px] font-semibold">
-        Form User
+        Form Sub Bidang
       </h1>
       <div class="w-full h-[400px] overflow-y-auto px-10 pb-5">
         <div
-          v-if="[1,].includes(formType)"
-          class="mb-4"
-        >
-          <label class="text-[#4D5E80] font-medium">Username <span class="text-[#FF5656]">*</span></label>
-          <form
-            action=""
-            class="w-full py-[10px] px-4 mt-2 border-[1px] rounded-lg text-sm flex justify-between"
-          >
-            <input
-              v-model="username"
-              type="text"
-              placeholder="Username..."
-              class="w-full outline-none"
-            >
-          </form>
-        </div>
-        <div
           v-if="[1, 2].includes(formType)"
           class="mb-4"
         >
-          <label class="text-[#4D5E80] font-medium">First Name <span class="text-[#FF5656]">*</span></label>
-          <form
-            action=""
-            class="w-full py-[10px] px-4 mt-2 border-[1px] rounded-lg text-sm flex justify-between"
-          >
-            <input
-              v-model="firstName"
-              type="text"
-              placeholder="First Name..."
-              class="w-full outline-none"
-            >
-          </form>
-        </div>
-        <div
-          v-if="[1, 2].includes(formType)"
-          class="mb-4"
-        >
-          <label class="text-[#4D5E80] font-medium">Last Name </label>
-          <form
-            action=""
-            class="w-full py-[10px] px-4 mt-2 border-[1px] rounded-lg text-sm flex justify-between"
-          >
-            <input
-              v-model="lastName"
-              type="text"
-              placeholder="Last Name..."
-              class="w-full outline-none"
-            >
-          </form>
-        </div>
-        <div
-          v-if="[1, 2].includes(formType)"
-          class="mb-4"
-        >
-          <label class="text-[#4D5E80] font-medium">Email <span class="text-[#FF5656]">*</span></label>
-          <form
-            action=""
-            class="w-full py-[10px] px-4 mt-2 border-[1px] rounded-lg text-sm flex justify-between"
-          >
-            <input
-              v-model="email"
-              type="text"
-              placeholder="Email..."
-              class="w-full outline-none"
-            >
-          </form>
-        </div>
-        <div
-          v-if="[1, 2].includes(formType)"
-          class="mb-4"
-        >
-          <label class="text-[#4D5E80] font-medium">Role <span class="text-[#FF5656]">*</span></label>
-          <form
-            action=""
-            class="w-full py-[10px] px-4 mt-2 border-[1px] rounded-lg text-sm flex justify-between"
-          >
-            <select
-              v-model="role"
-              class="w-full outline-none px-2"
-            >
-              <option
-                class="text-[#bfc4cc]"
-                value=""
-              >
-                Pilih Role
-              </option>
-              <option
-                v-for="(option, index) in filterOptions[0].subOptions"
-                :key="index"
-                :value="option"
-              >
-                {{ option }}
-              </option>
-            </select>
-          </form>
-        </div>
-        <div
-          v-if="[1, 2].includes(formType) && role != '' && role2Type1.includes(role)"
-          class="mb-4"
-        >
-          <label class="text-[#4D5E80] font-medium">Role Kedua<span> (optional)</span></label>
-          <form
-            action=""
-            class="w-full py-[10px] px-4 mt-2 border-[1px] rounded-lg text-sm flex justify-between"
-          >
-            <select
-              v-model="role2"
-              class="w-full outline-none px-2"
-            >
-              <option
-                class="text-[#bfc4cc]"
-                value=""
-              >
-                Pilih Role Kedua
-              </option>
-              <option
-                v-for="(option, index) in role2Type2"
-                :key="index"
-                :value="option"
-              >
-                {{ option }}
-              </option>
-            </select>
-          </form>
-        </div>
-        <div
-          v-if="[1, 2].includes(formType) && role != '' && role2Type2.includes(role)"
-          class="mb-4"
-        >
-          <label class="text-[#4D5E80] font-medium">Role Kedua<span> (optional)</span></label>
-          <form
-            action=""
-            class="w-full py-[10px] px-4 mt-2 border-[1px] rounded-lg text-sm flex justify-between"
-          >
-            <select
-              v-model="role2"
-              class="w-full outline-none px-2"
-            >
-              <option
-                class="text-[#bfc4cc]"
-                value=""
-              >
-                Pilih Role Kedua
-              </option>
-              <option
-                v-for="(option, index) in role2Type1"
-                :key="index"
-                :value="option"
-              >
-                {{ option }}
-              </option>
-            </select>
-          </form>
-        </div>
-        <div
-          v-if="[1,2].includes(formType) && (['PartnershipStaff', 'PartnershipManager', 'PartnershipVP', 'PartnershipDirector'].includes(role) || ['PartnershipStaff', 'PartnershipManager', 'PartnershipVP', 'PartnershipDirector'].includes(role2))"
-          class="mb-4"
-        >
-          <label class="text-[#4D5E80] font-medium">Tipe Bisnis <span class="text-[#FF5656]">*</span></label>
-          <form
-            action=""
-            class="w-full py-[10px] px-4 mt-2 border-[1px] rounded-lg text-sm flex justify-between"
-          >
-            <select
-              v-model="bisnisType"
-              class="w-full outline-none px-2"
-            >
-              <option
-                class="text-[#bfc4cc]"
-                value=""
-              >
-                Pilih Tipe Bisnis
-              </option>
-              <option
-                class="text-[black]"
-                value="Infrastruktur"
-              >
-                Infrastruktur
-              </option>
-              <option
-                class="text-[black]"
-                value="Digital"
-              >
-                Digital
-              </option>
-            </select>
-          </form>
-        </div>
-        <div
-          v-if="[1,2].includes(formType) && (['Direksi'].includes(role) || ['Direksi'].includes(role2))"
-          class="mb-4"
-        >
-          <label class="text-[#4D5E80] font-medium">Direktorat <span class="text-[#FF5656]">*</span></label>
-          <div class="relative">
-            <SelectSearch
-              :options="optionsDirektorat"
-              placeholder="Pilih Direktorat..."
-              :initial-value="direktorat"
-              @change="handleSelectionChangeDirektorat"
-            />
-            <span class="absolute right-3 top-3 text-[#9C9C9C]">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-5 w-5 mt-[2px]"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M12.9 14.32a8 8 0 111.414-1.415l3.705 3.704a1 1 0 01-1.414 1.415l-3.705-3.704zM8 14a6 6 0 100-12 6 6 0 000 12z"
-                  clip-rule="evenodd"
-                />
-              </svg>
-            </span>
-          </div>
-        </div>
-        <div
-          v-if="[1,2].includes(formType) && (['VP'].includes(role) || ['VP'].includes(role2))"
-          class="mb-4"
-        >
-          <label class="text-[#4D5E80] font-medium">Bidang <span class="text-[#FF5656]">*</span></label>
+          <label class="text-[#4D5E80] font-medium">Bidang<span class="text-[#FF5656]">*</span></label>
           <div class="relative">
             <SelectSearch
               :options="optionsBidang"
               placeholder="Pilih Bidang..."
               :initial-value="bidang"
-              @change="handleSelectionChangeBidang"
+              @change="handleSelectionChange"
             />
             <span class="absolute right-3 top-3 text-[#9C9C9C]">
               <svg
@@ -260,165 +43,35 @@
           </div>
         </div>
         <div
-          v-if="[1,2].includes(formType) && (['Staff','Manager'].includes(role) || ['Staff','Manager'].includes(role2))"
+          v-if="[1, 2].includes(formType)"
           class="mb-4"
         >
-          <label class="text-[#4D5E80] font-medium">Sub Bidang <span class="text-[#FF5656]">*</span></label>
-          <div class="relative">
-            <SelectSearch
-              :options="optionsSubBidang"
-              placeholder="Pilih Sub Bidang..."
-              :initial-value="subBidang"
-              @change="handleSelectionChangeSubBidang"
-            />
-            <span class="absolute right-3 top-3 text-[#9C9C9C]">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-5 w-5 mt-[2px]"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M12.9 14.32a8 8 0 111.414-1.415l3.705 3.704a1 1 0 01-1.414 1.415l-3.705-3.704zM8 14a6 6 0 100-12 6 6 0 000 12z"
-                  clip-rule="evenodd"
-                />
-              </svg>
-            </span>
-          </div>
-        </div>
-        <div
-          v-if="[1, 2].includes(formType) && loginType != 'SSO'"
-          class="mb-4"
-        >
-          <label class="text-[#4D5E80] font-medium">Title/Jabatan </label>
+          <label class="text-[#4D5E80] font-medium">Nama Sub Bidang<span class="text-[#FF5656]">*</span></label>
           <form
             action=""
             class="w-full py-[10px] px-4 mt-2 border-[1px] rounded-lg text-sm flex justify-between"
           >
             <input
-              v-model="title"
+              v-model="name"
               type="text"
-              placeholder="Title..."
+              placeholder="Nama Sub Bidang..."
               class="w-full outline-none"
             >
           </form>
         </div>
         <div
-          v-if="[1, 2].includes(formType) && loginType != 'SSO'"
+          v-if="[1, 2].includes(formType)"
           class="mb-4"
         >
-          <label class="text-[#4D5E80] font-medium">Department </label>
+          <label class="text-[#4D5E80] font-medium">Deskripsi</label>
           <form
             action=""
             class="w-full py-[10px] px-4 mt-2 border-[1px] rounded-lg text-sm flex justify-between"
           >
             <input
-              v-model="department"
+              v-model="description"
               type="text"
-              placeholder="Department..."
-              class="w-full outline-none"
-            >
-          </form>
-        </div>
-        <div
-          v-if="[2,].includes(formType)"
-          class="mb-4"
-        >
-          <label class="text-[#4D5E80] font-medium">Status <span class="text-[#FF5656]">*</span></label>
-          <form
-            action=""
-            class="w-full py-[10px] px-4 mt-2 border-[1px] rounded-lg text-sm flex justify-between"
-          >
-            <select
-              v-model="isActive"
-              class="w-full outline-none px-2"
-            >
-              <option
-                class="text-[#bfc4cc]"
-                value=""
-              >
-                Pilih Status
-              </option>
-              <option
-                class="text-[black]"
-                value="1"
-              >
-                Aktif
-              </option>
-              <option
-                class="text-[black]"
-                value="2"
-              >
-                Tidak Aktif
-              </option>
-            </select>
-          </form>
-        </div>
-        <div
-          v-if="[1,].includes(formType)"
-          class="mb-4"
-        >
-          <label class="text-[#4D5E80] font-medium">Password <span class="text-[#FF5656]">*</span></label>
-          <form
-            action=""
-            class="w-full py-[10px] px-4 mt-2 border-[1px] rounded-lg text-sm flex justify-between"
-          >
-            <input
-              v-model="password"
-              type="password"
-              placeholder="Password..."
-              class="w-full outline-none"
-            >
-          </form>
-        </div>
-        <div
-          v-if="[1,].includes(formType)"
-          class="mb-4"
-        >
-          <label class="text-[#4D5E80] font-medium">Ulangi Password <span class="text-[#FF5656]">*</span></label>
-          <form
-            action=""
-            class="w-full py-[10px] px-4 mt-2 border-[1px] rounded-lg text-sm flex justify-between"
-          >
-            <input
-              v-model="rePassword"
-              type="password"
-              placeholder="Ulangi Password..."
-              class="w-full outline-none"
-            >
-          </form>
-        </div>
-        <div
-          v-if="[3,].includes(formType)"
-          class="mb-4"
-        >
-          <label class="text-[#4D5E80] font-medium">Password Baru<span class="text-[#FF5656]">*</span></label>
-          <form
-            action=""
-            class="w-full py-[10px] px-4 mt-2 border-[1px] rounded-lg text-sm flex justify-between"
-          >
-            <input
-              v-model="password"
-              type="password"
-              placeholder="Password..."
-              class="w-full outline-none"
-            >
-          </form>
-        </div>
-        <div
-          v-if="[3,].includes(formType)"
-          class="mb-4"
-        >
-          <label class="text-[#4D5E80] font-medium">Ulangi Password Baru<span class="text-[#FF5656]">*</span></label>
-          <form
-            action=""
-            class="w-full py-[10px] px-4 mt-2 border-[1px] rounded-lg text-sm flex justify-between"
-          >
-            <input
-              v-model="rePassword"
-              type="password"
-              placeholder="Ulangi Password..."
+              placeholder="Deskripsi..."
               class="w-full outline-none"
             >
           </form>
@@ -432,9 +85,9 @@
             }"
             :disabled="!isSendAvaible"
             class="p-3 flex justify-center w-full rounded-lg border-[1px] text-[16px] text-center font-sans font-semibold"
-            @click="SendCreateUser"
+            @click="SendCreateSubBidang"
           >
-            Buat User
+            Buat Sub Bidang
           </button>
           <button
             v-if="formType == 2"
@@ -444,21 +97,9 @@
             }"
             :disabled="!isSendEditAvaible"
             class="p-3 flex justify-center w-full rounded-lg border-[1px] text-[16px] text-center font-sans font-semibold"
-            @click="SendEditUser"
+            @click="SendEditSubBidang"
           >
-            Edit User
-          </button>
-          <button
-            v-if="formType == 3"
-            :class="{
-              'bg-[#2671D9] hover:bg-[#1E5BB7] text-[#FFFFFF]': isSendResetPasswordAvaible,
-              'bg-[#cfd6df] text-[black]': !isSendResetPasswordAvaible
-            }"
-            :disabled="!isSendResetPasswordAvaible"
-            class="p-3 flex justify-center w-full rounded-lg border-[1px] text-[16px] text-center font-sans font-semibold"
-            @click="SendResetPassword"
-          >
-            Reset Password
+            Edit Sub Bidang
           </button>
         </div>
       </div>
@@ -488,7 +129,7 @@
     <div class="h-auto w-[1086px] rounded-lg bg-[#FFFFFF] border-collapse mx-auto">
       <div class="flex">
         <h1 class="mt-[20px] ms-8 text-[30px] font-sans text-[#4D5E80] font-bold">
-          Master User
+          Master Sub Bidang
         </h1>
       </div>
       <div>
@@ -628,7 +269,7 @@
         class="bg-[#2671D9] hover:bg-[#1E5BB7] text-[#FFFFFF] py-2 px-4 me-6 flex justify-center justify-self-end rounded-lg border-[1px] text-[12px] text-center font-sans font-semibold"
         @click="showFormCreate"
       >
-        Tambah User
+        Tambah Sub Bidang
       </button>
       <div class="flex">
         <div class="flex w-[1046px] rounded-lg bg-[#FFFFFF] border-[1px] border-[#E5E7E9] mt-4 ml-4 mr-4 overflow-auto">
@@ -660,14 +301,14 @@
                 </th>
                 <th class="p-2 border border-[#E5E7E9]">
                   <div class="flex items-center justify-between">
-                    <span>Username</span>
+                    <span>Nama Direktorat</span>
                     <svg
                       width="14"
                       height="10"
                       viewBox="0 0 14 10"
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
-                      @click="sortTable('pic')"
+                      @click="sortTable('direktorat')"
                     >
                       <path
                         fill-rule="evenodd"
@@ -684,14 +325,14 @@
                 </th>
                 <th class="p-2 border border-[#E5E7E9]">
                   <div class="flex items-center justify-between">
-                    <span>First Name</span>
+                    <span>Nama Bidang</span>
                     <svg
                       width="14"
                       height="10"
                       viewBox="0 0 14 10"
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
-                      @click="sortTable('jumlahPengajuan')"
+                      @click="sortTable('bidang')"
                     >
                       <path
                         fill-rule="evenodd"
@@ -708,14 +349,14 @@
                 </th>
                 <th class="p-2 border border-[#E5E7E9]">
                   <div class="flex items-center justify-between">
-                    <span>Last Name</span>
+                    <span>Nama Sub Bidang</span>
                     <svg
                       width="14"
                       height="10"
                       viewBox="0 0 14 10"
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
-                      @click="sortTable('totalSelesai')"
+                      @click="sortTable('name')"
                     >
                       <path
                         fill-rule="evenodd"
@@ -732,133 +373,14 @@
                 </th>
                 <th class="p-2 border border-[#E5E7E9]">
                   <div class="flex items-center justify-between">
-                    <span>Title/Jabatan</span>
+                    <span>Deskripsi</span>
                     <svg
                       width="14"
                       height="10"
                       viewBox="0 0 14 10"
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
-                      @click="sortTable('title')"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        clip-rule="evenodd"
-                        d="M10.4252 0.144043C10.7073 0.144043 10.9359 0.364674 10.9359 0.636836L10.9359 8.3174L13.1282 6.20189C13.3276 6.00944 13.651 6.00944 13.8504 6.20189C14.0499 6.39434 14.0499 6.70636 13.8504 6.89881L10.7863 9.85556C10.6906 9.94798 10.5607 9.9999 10.4252 9.9999C10.2898 9.9999 10.1599 9.94798 10.0641 9.85556L7.00001 6.89881C6.80057 6.70636 6.80057 6.39434 7.00001 6.20189C7.19944 6.00944 7.52279 6.00944 7.72223 6.20189L9.91454 8.3174L9.91454 0.636836C9.91454 0.364674 10.1432 0.144043 10.4252 0.144043Z"
-                        fill="#93B8EC"
-                      />
-                      <path
-                        d="M3.21369 0.144824C3.41312 -0.0476236 3.73647 -0.0476236 3.9359 0.144824L7.00001 3.10158C7.19945 3.29403 7.19945 3.60605 7.00001 3.79849C6.80058 3.99094 6.47723 3.99094 6.27779 3.79849L4.08548 1.68299V9.36355C4.08548 9.63571 3.85684 9.85634 3.57479 9.85634C3.29275 9.85634 3.06411 9.63571 3.06411 9.36355V1.68299L0.871794 3.79849C0.672359 3.99094 0.349011 3.99094 0.149576 3.79849C-0.0498587 3.60605 -0.0498587 3.29403 0.149576 3.10158L3.21369 0.144824Z"
-                        fill="#93B8EC"
-                      />
-                    </svg>
-                  </div>
-                </th>
-                <th class="p-2 border border-[#E5E7E9]">
-                  <div class="flex items-center justify-between">
-                    <span>Departemen</span>
-                    <svg
-                      width="14"
-                      height="10"
-                      viewBox="0 0 14 10"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        clip-rule="evenodd"
-                        d="M10.4252 0.144043C10.7073 0.144043 10.9359 0.364674 10.9359 0.636836L10.9359 8.3174L13.1282 6.20189C13.3276 6.00944 13.651 6.00944 13.8504 6.20189C14.0499 6.39434 14.0499 6.70636 13.8504 6.89881L10.7863 9.85556C10.6906 9.94798 10.5607 9.9999 10.4252 9.9999C10.2898 9.9999 10.1599 9.94798 10.0641 9.85556L7.00001 6.89881C6.80057 6.70636 6.80057 6.39434 7.00001 6.20189C7.19944 6.00944 7.52279 6.00944 7.72223 6.20189L9.91454 8.3174L9.91454 0.636836C9.91454 0.364674 10.1432 0.144043 10.4252 0.144043Z"
-                        fill="#93B8EC"
-                      />
-                      <path
-                        d="M3.21369 0.144824C3.41312 -0.0476236 3.73647 -0.0476236 3.9359 0.144824L7.00001 3.10158C7.19945 3.29403 7.19945 3.60605 7.00001 3.79849C6.80058 3.99094 6.47723 3.99094 6.27779 3.79849L4.08548 1.68299V9.36355C4.08548 9.63571 3.85684 9.85634 3.57479 9.85634C3.29275 9.85634 3.06411 9.63571 3.06411 9.36355V1.68299L0.871794 3.79849C0.672359 3.99094 0.349011 3.99094 0.149576 3.79849C-0.0498587 3.60605 -0.0498587 3.29403 0.149576 3.10158L3.21369 0.144824Z"
-                        fill="#93B8EC"
-                      />
-                    </svg>
-                  </div>
-                </th>
-                <th class="p-2 border border-[#E5E7E9]">
-                  <div class="flex items-center justify-between">
-                    <span>Email</span>
-                    <svg
-                      width="14"
-                      height="10"
-                      viewBox="0 0 14 10"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      @click="sortTable('totalDiproses')"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        clip-rule="evenodd"
-                        d="M10.4252 0.144043C10.7073 0.144043 10.9359 0.364674 10.9359 0.636836L10.9359 8.3174L13.1282 6.20189C13.3276 6.00944 13.651 6.00944 13.8504 6.20189C14.0499 6.39434 14.0499 6.70636 13.8504 6.89881L10.7863 9.85556C10.6906 9.94798 10.5607 9.9999 10.4252 9.9999C10.2898 9.9999 10.1599 9.94798 10.0641 9.85556L7.00001 6.89881C6.80057 6.70636 6.80057 6.39434 7.00001 6.20189C7.19944 6.00944 7.52279 6.00944 7.72223 6.20189L9.91454 8.3174L9.91454 0.636836C9.91454 0.364674 10.1432 0.144043 10.4252 0.144043Z"
-                        fill="#93B8EC"
-                      />
-                      <path
-                        d="M3.21369 0.144824C3.41312 -0.0476236 3.73647 -0.0476236 3.9359 0.144824L7.00001 3.10158C7.19945 3.29403 7.19945 3.60605 7.00001 3.79849C6.80058 3.99094 6.47723 3.99094 6.27779 3.79849L4.08548 1.68299V9.36355C4.08548 9.63571 3.85684 9.85634 3.57479 9.85634C3.29275 9.85634 3.06411 9.63571 3.06411 9.36355V1.68299L0.871794 3.79849C0.672359 3.99094 0.349011 3.99094 0.149576 3.79849C-0.0498587 3.60605 -0.0498587 3.29403 0.149576 3.10158L3.21369 0.144824Z"
-                        fill="#93B8EC"
-                      />
-                    </svg>
-                  </div>
-                </th>
-                <th class="p-2 border border-[#E5E7E9]">
-                  <div class="flex items-center justify-between">
-                    <span>Role</span>
-                    <svg
-                      width="14"
-                      height="10"
-                      viewBox="0 0 14 10"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      @click="sortTable('role')"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        clip-rule="evenodd"
-                        d="M10.4252 0.144043C10.7073 0.144043 10.9359 0.364674 10.9359 0.636836L10.9359 8.3174L13.1282 6.20189C13.3276 6.00944 13.651 6.00944 13.8504 6.20189C14.0499 6.39434 14.0499 6.70636 13.8504 6.89881L10.7863 9.85556C10.6906 9.94798 10.5607 9.9999 10.4252 9.9999C10.2898 9.9999 10.1599 9.94798 10.0641 9.85556L7.00001 6.89881C6.80057 6.70636 6.80057 6.39434 7.00001 6.20189C7.19944 6.00944 7.52279 6.00944 7.72223 6.20189L9.91454 8.3174L9.91454 0.636836C9.91454 0.364674 10.1432 0.144043 10.4252 0.144043Z"
-                        fill="#93B8EC"
-                      />
-                      <path
-                        d="M3.21369 0.144824C3.41312 -0.0476236 3.73647 -0.0476236 3.9359 0.144824L7.00001 3.10158C7.19945 3.29403 7.19945 3.60605 7.00001 3.79849C6.80058 3.99094 6.47723 3.99094 6.27779 3.79849L4.08548 1.68299V9.36355C4.08548 9.63571 3.85684 9.85634 3.57479 9.85634C3.29275 9.85634 3.06411 9.63571 3.06411 9.36355V1.68299L0.871794 3.79849C0.672359 3.99094 0.349011 3.99094 0.149576 3.79849C-0.0498587 3.60605 -0.0498587 3.29403 0.149576 3.10158L3.21369 0.144824Z"
-                        fill="#93B8EC"
-                      />
-                    </svg>
-                  </div>
-                </th>
-                <th class="p-2 border border-[#E5E7E9]">
-                  <div class="flex items-center justify-between">
-                    <span>Role2</span>
-                    <svg
-                      width="14"
-                      height="10"
-                      viewBox="0 0 14 10"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      @click="sortTable('role2')"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        clip-rule="evenodd"
-                        d="M10.4252 0.144043C10.7073 0.144043 10.9359 0.364674 10.9359 0.636836L10.9359 8.3174L13.1282 6.20189C13.3276 6.00944 13.651 6.00944 13.8504 6.20189C14.0499 6.39434 14.0499 6.70636 13.8504 6.89881L10.7863 9.85556C10.6906 9.94798 10.5607 9.9999 10.4252 9.9999C10.2898 9.9999 10.1599 9.94798 10.0641 9.85556L7.00001 6.89881C6.80057 6.70636 6.80057 6.39434 7.00001 6.20189C7.19944 6.00944 7.52279 6.00944 7.72223 6.20189L9.91454 8.3174L9.91454 0.636836C9.91454 0.364674 10.1432 0.144043 10.4252 0.144043Z"
-                        fill="#93B8EC"
-                      />
-                      <path
-                        d="M3.21369 0.144824C3.41312 -0.0476236 3.73647 -0.0476236 3.9359 0.144824L7.00001 3.10158C7.19945 3.29403 7.19945 3.60605 7.00001 3.79849C6.80058 3.99094 6.47723 3.99094 6.27779 3.79849L4.08548 1.68299V9.36355C4.08548 9.63571 3.85684 9.85634 3.57479 9.85634C3.29275 9.85634 3.06411 9.63571 3.06411 9.36355V1.68299L0.871794 3.79849C0.672359 3.99094 0.349011 3.99094 0.149576 3.79849C-0.0498587 3.60605 -0.0498587 3.29403 0.149576 3.10158L3.21369 0.144824Z"
-                        fill="#93B8EC"
-                      />
-                    </svg>
-                  </div>
-                </th>
-                <th class="p-2 border border-[#E5E7E9]">
-                  <div class="flex items-center justify-between">
-                    <span>Tipe Bisnis</span>
-                    <svg
-                      width="14"
-                      height="10"
-                      viewBox="0 0 14 10"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      @click="sortTable('bisnis_type')"
+                      @click="sortTable('description')"
                     >
                       <path
                         fill-rule="evenodd"
@@ -878,7 +400,7 @@
             <tbody>
               <tr
                 v-for="(item, index) in filteredAndPaginatedData"
-                :key="`${index}-${item.username}`"
+                :key="`${index}-${item.name}`"
                 class="bg-[#FFFFFF] border border-[#E5E7E9] text-[12px] text-[#4D5E80] font-sans font-semibold"
               >
                 <td class="p-2 py-4 border border-[#E5E7E9]">
@@ -886,31 +408,16 @@
                     index + 1 }}
                 </td>
                 <td class="p-2 py-4 border border-[#E5E7E9]">
-                  {{ item.username }}
+                  {{ item.direktorat }}
                 </td>
                 <td class="p-2 py-4 border border-[#E5E7E9]">
-                  {{ item.first_name }}
+                  {{ item.bidang }}
                 </td>
                 <td class="p-2 py-4 border border-[#E5E7E9]">
-                  {{ item.last_name }}
+                  {{ item.name }}
                 </td>
                 <td class="p-2 py-4 border border-[#E5E7E9]">
-                  {{ item.title }}
-                </td>
-                <td class="p-2 py-4 border border-[#E5E7E9]">
-                  {{ showDepartement(item) }}
-                </td>
-                <td class="p-2 py-4 border border-[#E5E7E9]">
-                  {{ item.email }}
-                </td>
-                <td class="p-2 py-4 border border-[#E5E7E9]">
-                  {{ item.role }}
-                </td>
-                <td class="p-2 py-4 border border-[#E5E7E9]">
-                  {{ item.role2 }}
-                </td>
-                <td class="p-2 py-4 border border-[#E5E7E9]">
-                  {{ item.bisnis_type }}
+                  {{ item.description }}
                 </td>
                 <td class="p-2 py-4 border border-[#E5E7E9] relative">
                   <button
@@ -943,15 +450,8 @@
                       Edit
                     </button>
                     <button
-                      v-if="item.loginType != 'SSO'"
                       class="block w-full flex-grow px-4 py-2 text-[14px] font-sans font-normal text-[#333333] text-left hover:bg-[#DBEAFE]"
-                      @click="showFormResetPassword(item)"
-                    >
-                      Reset Password
-                    </button>
-                    <button
-                      class="block w-full flex-grow px-4 py-2 text-[14px] font-sans font-normal text-[#333333] text-left hover:bg-[#DBEAFE]"
-                      @click="SendDeleteUser(item.id)"
+                      @click="SendDeleteSubBidang(item.id)"
                     >
                       Hapus
                     </button>
@@ -1017,7 +517,7 @@ import ModalDialog from '../modaldialog.vue';
 import SelectSearch from '../SelectSearch/SelectSearch.vue';
 
 export default {
-  name: "UserData",
+  name: "SubBidangData",
   components: {
     Loading,
     ModalFailed,
@@ -1031,18 +531,19 @@ export default {
       showDropdown: false,
       selectedOption: null,
       selectedSubOptions: [],
-      filterOptions: [
-        { name: "Role", subOptions: ["Staff", "Manager", "VP", "Direksi", "Admin", "PartnershipStaff", "PartnershipManager", "PartnershipVP", "PartnershipDirector"] },
-        { name: "Role2", subOptions: ["Staff", "Manager", "VP", "Direksi", "Admin", "PartnershipStaff", "PartnershipManager", "PartnershipVP", "PartnershipDirector"] },
-        { name: "Aktif", subOptions: ["Aktif", "Tidak Aktif"] },
-      ],
-      role2Type1: ["Staff", "Manager", "VP", "Direksi"],
-      role2Type2: ["Admin", "PartnershipStaff", "PartnershipManager", "PartnershipVP", "PartnershipDirector"],
+      filterOptions: [],
+      // filterOptions: [
+      //   { name: "Role", subOptions: ["Staff", "Manager", "VP", "Admin", "PartnershipStaff", "PartnershipManager", "PartnershipVP", "PartnershipDirector"] },
+      //   { name: "Aktif", subOptions: ["Aktif", "Tidak Aktif"] },
+      // ],
+
       selectedValue: 8,
       currentPage: 1,
       displayOptions: [8, 16, 25],
       actionDropdownIndex: null,
       searchQuery: "",
+      optionsBidang: [],
+      bidang: null,
 
       modalFailed: {
         isVisible: false,
@@ -1062,34 +563,16 @@ export default {
         okFunction: () => null,
         closeFunction: () => null
       },
-      
+
       isLoading: false,
       summaryData: null,
       totalDataPengajuan: 0,
       showFormPopup: false,
 
-      userId: null,
-      username: "",
-      firstName: "",
-      lastName: "",
-      email: "",
-      role: "",
-      role2: "",
-      password: "",
-      rePassword: "",
-      isActive: "",
-      bisnisType: "",
-      title: "",
-      department: "",
-      loginType: "",
+      subBidangId: null,
+      name: "",
+      description: "",
       formType: null, // 1 = create, 2 = edit, 3 = reset password
-
-      optionsDirektorat: [],
-      direktorat: null,
-      optionsBidang: [],
-      bidang: null,
-      optionsSubBidang: [],
-      subBidang: null,
 
       tableData: [],
       sortOrder: "asc",
@@ -1122,13 +605,7 @@ export default {
           return this.selectedSubOptions.some((option) => {
             // Filter untuk role
             if (this.filterOptions[0].subOptions.includes(option)) {
-              return item.role == option;
-            }
-            // Filter untuk aktif
-            if (option === "Aktif") {
-              return item.is_active;
-            } else if (option === "Tidak Aktif") {
-              return !item.is_active;
+              return item.name == option;
             }
           });
         });
@@ -1136,11 +613,9 @@ export default {
       // Filter berdasarkan input pencarian (searchQuery)
       if (this.searchQuery) {
         const query = this.searchQuery.toLowerCase();
-        filteredData = this.tableData.filter((item) => {
+        filteredData = filteredData.filter((item) => {
           return (
-            item.username.toLowerCase().includes(query) ||
-            item.first_name.toLowerCase().includes(query) ||
-            item.last_name.toLowerCase().includes(query)
+            item.name.toLowerCase().includes(query)
           );
         });
       }
@@ -1153,51 +628,19 @@ export default {
       return filteredData.slice(start, end);
     },
     isSendAvaible() {
-      if (
-      ['PartnershipStaff', 'PartnershipManager', 'PartnershipVP', 'PartnershipDirector'].includes(this.role) ||
-      ['PartnershipStaff', 'PartnershipManager', 'PartnershipVP', 'PartnershipDirector'].includes(this.role2)
-      ){
-        return (
-          this.username != "" && this.firstName != "" &&
-          this.email != "" && this.role != "" && this.bisnisType != "" &&
-          this.password != "" && this.rePassword != "" && this.password === this.rePassword
-        )
-      } else {
-        return (
-          this.username != "" && this.firstName != "" &&
-          this.email != "" && this.role != "" &&
-          this.password != "" && this.rePassword != "" && this.password === this.rePassword
-        )
-      }
+      return (
+        this.name != ""
+      )
     },
     isSendEditAvaible() {
-      if (
-        ['PartnershipStaff', 'PartnershipManager', 'PartnershipVP', 'PartnershipDirector'].includes(this.role) ||
-        ['PartnershipStaff', 'PartnershipManager', 'PartnershipVP', 'PartnershipDirector'].includes(this.role)
-      ){
-        return (
-          this.firstName != "" && this.bisnisType != "" &&
-          this.email != "" && this.role != "" && this.userId
-        )
-      } else {
-        return (
-          this.firstName != "" &&
-          this.email != "" && this.role != "" && this.userId
-        )
-      }
-    },
-    isSendResetPasswordAvaible() {
       return (
-        this.password != "" && this.rePassword != "" && 
-        this.password === this.rePassword && this.userId
+        this.name != "" && this.subBidangId
       )
     },
   },
   mounted() {
     this.getDataApi();
-    this.getDataDirektoratApi();
     this.getDataBidangApi();
-    this.getDataSubBidangApi();
   },
   methods: {
     closeModalFailed() {
@@ -1224,37 +667,12 @@ export default {
         closeFunction: () => null
       }
     },
-    handleSelectionChangeDirektorat(option) {
-      this.direktorat = option;
-      console.log("Selected Option:", option);
-    },
-    handleSelectionChangeBidang(option) {
-      this.bidang = option;
-      console.log("Selected Option:", option);
-    },
-    handleSelectionChangeSubBidang(option) {
-      this.subBidang = option;
-      console.log("Selected Option:", option);
-    },
     clearFormData() {
-      this.userId = null;
-      this.username = "";
-      this.firstName = "";
-      this.lastName = "";
-      this.email = "";
-      this.role = "";
-      this.role2 = "";
-      this.password = "";
-      this.rePassword = "";
-      this.isActive = "";
-      this.bisnisType = "";
-      this.title = "";
-      this.department= "";
-      this.loginType= "";
-      this.formType = null;
-      this.direktorat = null;
+      this.subBidangId = null;
+      this.name = "";
       this.bidang = null;
-      this.subBidang = null;
+      this.description = "";
+      this.formType = null;
     },
     closePopup() {
       this.showFormPopup = false;
@@ -1266,42 +684,12 @@ export default {
       this.showFormPopup = true;
     },
     showFormEdit(data) {
-      this.actionDropdownIndex = null;
-      this.userId = data.id;
-      this.firstName = data.first_name;
-      this.lastName = data.last_name;
-      this.email = data.email;
-      this.role = data.role;
-      this.role2 = data.role2;
-      this.isActive = data.is_active? "1": "2";
-      this.bisnisType = data.bisnis_type;
-      this.title = data.title,
-      this.department = data.department,
-      this.loginType = data.loginType,
-      this.direktorat = this.optionsDirektorat.find(item => item.label == data.direktorat) || null;
+      this.subBidangId = data.id;
+      this.name = data.name;
       this.bidang = this.optionsBidang.find(item => item.label == data.bidang) || null;
-      this.subBidang = this.optionsSubBidang.find(item => item.label == data.subBidang) || null;
+      this.description = data.description;
       this.formType = 2;
       this.showFormPopup = true;
-    },
-    showFormResetPassword(data) {
-      this.actionDropdownIndex = null;
-      this.clearFormData();
-      this.userId = data.id;
-      this.formType = 3;
-      this.showFormPopup = true;
-    },
-    showDepartement(item) {
-      if (item.role === 'Staff' || item.role === 'Manager' || item.role2 === 'Staff' || item.role2 === 'Manager') {
-        return item.subBidang
-      }
-      if (item.role === 'VP' || item.role2 === 'VP') {
-        return item.bidang
-      }
-      if (item.role === 'Direksi' || item.role2 === 'Direksi') {
-        return item.direktorat
-      }
-      return item.department
     },
     sortTable(columnName) {
       this.sortOrder = this.sortOrder === "asc" ? "desc" : "asc";
@@ -1413,40 +801,44 @@ export default {
         document.addEventListener('click', this.closeDropdown);
       });
     },
+    handleSelectionChange(option) {
+      this.bidang = option;
+      console.log("Selected Option:", option);
+    },
 
     // Popup Create
-    SendCreateUser() {
+    SendCreateSubBidang() {
       this.modalDialog = {
         isVisible: true,
         title: 'Konfirmasi',
         message: 'Apakan anda yakin dengan data yang anda masukan',
-        okFunction: this.openCreateUser,
-        closeFunction: this.closeCreateUser
+        okFunction: this.openCreateSubBidang,
+        closeFunction: this.closeCreateSubBidang
       }
     },
-    openCreateUser() {
+    openCreateSubBidang() {
       this.closeModalDialog();
-      this.postCreateUser(this.successCreateUser, this.failCreateUser);
+      this.postCreateSubBidang(this.successCreateSubBidang, this.failCreateSubBidang);
     },
-    closeCreateUser() {
+    closeCreateSubBidang() {
       this.closeModalDialog()
     },
-    successCreateUser() {
+    successCreateSubBidang() {
       this.modalSuccess = {
         isVisible: true,
         title: 'Berhasil',
-        message: 'Berhasil membuat user baru',
-        closeFunction: this.closeSelesaiCreateUser
+        message: 'Berhasil membuat Sub Bidang baru',
+        closeFunction: this.closeSelesaiCreateSubBidang
       }
     },
-    failCreateUser(data) {
+    failCreateSubBidang(data) {
       this.modalFailed = {
         isVisible: true,
         title: 'Gagal',
         message: data?.message ? data.message : "Silahkan hubungi admin"
       }
     },
-    closeSelesaiCreateUser() {
+    closeSelesaiCreateSubBidang() {
       this.showFormPopup = false;
       this.clearFormData();
       this.closeModalSuccess();
@@ -1454,118 +846,78 @@ export default {
     },
 
     // Popup Edit
-    SendEditUser() {
+    SendEditSubBidang() {
       this.modalDialog = {
         isVisible: true,
         title: 'Konfirmasi',
         message: 'Apakan anda yakin dengan data yang anda masukan',
-        okFunction: this.openEditUser,
-        closeFunction: this.closeEditUser
+        okFunction: this.openEditSubBidang,
+        closeFunction: this.closeEditSubBidang
       }
     },
-    openEditUser() {
+    openEditSubBidang() {
       this.closeModalDialog();
-      this.postEditUser(this.successEditUser, this.failEditUser);
+      this.postEditSubBidang(this.successEditSubBidang, this.failEditSubBidang);
     },
-    closeEditUser() {
+    closeEditSubBidang() {
       this.closeModalDialog()
     },
-    successEditUser() {
+    successEditSubBidang() {
       this.modalSuccess = {
         isVisible: true,
         title: 'Berhasil',
-        message: 'Berhasil mengedit user',
-        closeFunction: this.closeSelesaiEditUser
+        message: 'Berhasil mengedit Sub Bidang',
+        closeFunction: this.closeSelesaiEditSubBidang
       }
     },
-    failEditUser(data) {
+    failEditSubBidang(data) {
       this.modalFailed = {
         isVisible: true,
         title: 'Gagal',
         message: data?.message ? data.message : "Silahkan hubungi admin"
       }
     },
-    closeSelesaiEditUser() {
+    closeSelesaiEditSubBidang() {
       this.showFormPopup = false;
       this.clearFormData();
       this.closeModalSuccess();
       this.getDataApi()
     },
 
-    // Popup Reset Passowrd
-    SendResetPassword() {
+    // Popup Delete Sub Bidang
+    SendDeleteSubBidang(id) {
+      this.subBidangId = id
       this.modalDialog = {
         isVisible: true,
         title: 'Konfirmasi',
-        message: 'Apakan anda yakin dengan data yang anda masukan',
-        okFunction: this.openResetPassword,
-        closeFunction: this.closeResetPassword
+        message: 'Apakan anda yakin menghapus Sub Bidang ini',
+        okFunction: this.openDeleteSubBidang,
+        closeFunction: this.closeDeleteSubBidang
       }
     },
-    openResetPassword() {
+    openDeleteSubBidang() {
       this.closeModalDialog();
-      this.postResetPassword(this.successResetPassword, this.failResetPassword);
+      this.postDeleteSubBidang(this.successDeleteSubBidang, this.failDeleteSubBidang);
     },
-    closeResetPassword() {
+    closeDeleteSubBidang() {
       this.closeModalDialog()
     },
-    successResetPassword() {
+    successDeleteSubBidang() {
       this.modalSuccess = {
         isVisible: true,
         title: 'Berhasil',
-        message: 'Berhasil reset password',
-        closeFunction: this.closeSelesaiResetPassword
+        message: 'Berhasil menghapus Sub Bidang',
+        closeFunction: this.closeSelesaiDeleteSubBidang
       }
     },
-    failResetPassword(data) {
+    failDeleteSubBidang(data) {
       this.modalFailed = {
         isVisible: true,
         title: 'Gagal',
         message: data?.message ? data.message : "Silahkan hubungi admin"
       }
     },
-    closeSelesaiResetPassword() {
-      this.showFormPopup = false;
-      this.clearFormData();
-      this.closeModalSuccess();
-      this.getDataApi()
-    },
-
-    // Popup Delete User
-    SendDeleteUser(id) {
-      this.actionDropdownIndex = null;
-      this.userId = id
-      this.modalDialog = {
-        isVisible: true,
-        title: 'Konfirmasi',
-        message: 'Apakan anda yakin menghapus user ini',
-        okFunction: this.openDeleteUser,
-        closeFunction: this.closeDeleteUser
-      }
-    },
-    openDeleteUser() {
-      this.closeModalDialog();
-      this.postDeleteUser(this.successDeleteUser, this.failDeleteUser);
-    },
-    closeDeleteUser() {
-      this.closeModalDialog()
-    },
-    successDeleteUser() {
-      this.modalSuccess = {
-        isVisible: true,
-        title: 'Berhasil',
-        message: 'Berhasil menghapus user',
-        closeFunction: this.closeSelesaiDeleteUser
-      }
-    },
-    failDeleteUser(data) {
-      this.modalFailed = {
-        isVisible: true,
-        title: 'Gagal',
-        message: data?.message ? data.message : "Silahkan hubungi admin"
-      }
-    },
-    closeSelesaiDeleteUser() {
+    closeSelesaiDeleteSubBidang() {
       this.clearFormData();
       this.closeModalSuccess();
       this.getDataApi();
@@ -1574,27 +926,17 @@ export default {
     // api
     async getDataApi() {
       this.isLoading = true;
-      let url = 'account/list-user';
+      let url = 'subbidang';
       let params = null;
       const res = await fetchGet(url, params, this.$router);
       if (res.status == 200) {
         console.log(res.data)
         const cleanData = res.data.map((item) => ({
           id: item.id,
-          username: item.username,
-          first_name: item.firstName,
-          last_name: item.lastName,
-          email: item.email,
-          role: item.role,
-          role2: item.role2,
-          bisnis_type: item.bisnisType || "",
-          is_active: item.isActive,
-          title: item.title,
-          department: item.department,
-          loginType: item.loginType,
           direktorat: item.direktorat,
           bidang: item.bidang,
-          subBidang: item.subBidang,
+          name: item.name,
+          description: item.description
         }))
         this.tableData = cleanData;
         this.isLoading = false;
@@ -1607,78 +949,19 @@ export default {
         }
       }
     },
-    async postCreateUser(successFunction, failFunction) {
+    async postCreateSubBidang(successFunction, failFunction) {
       this.isLoading = true;
       const form = new FormData()
-      form.append('username', this.username);
-      form.append('firstName', this.firstName);
-      form.append('lastName', this.lastName);
-      form.append('email', this.email);
-      form.append('title', this.title);
-      form.append('department', this.department);
-      form.append('role', this.role);
-      if (this.role2 != "") {
-        form.append('role2', this.role2);
-      }
-      if (this.bisnisType != "") {
-        form.append('bisnisType', this.bisnisType);
-      }
-      form.append('password', this.password);
-      form.append('rePassword', this.rePassword);
-      if (this.direktorat) {
-        form.append('direktoratId', this.direktorat.value)
-      }
-      if (this.bidang) {
-        form.append('bidangId', this.bidang.value)
-      }
-      if (this.subBidang) {
-        form.append('subBidangId', this.subBidang.value)
-      }
+      form.append('name', this.name);
+      form.append('description', this.description);
+      form.append('bidangId', this.bidang.value)
       // Display the values
       for (var pair of form.entries()) {
         console.log(pair[0] + ', ' + pair[1]);
       }
-      const res = await fetchPostForm('account/register', null, form, this.$router);
+      const res = await fetchPostForm('subbidang', null, form, this.$router);
       console.log(res.data)
-      if (res.status == 200) {
-        this.isLoading = false;
-        successFunction();
-      } else {
-        this.isLoading = false;
-        failFunction(res.data);
-      }
-    },
-    async postEditUser(successFunction, failFunction) {
-      this.isLoading = true;
-      const form = new FormData()
-      form.append('firstName', this.firstName);
-      form.append('lastName', this.lastName);
-      form.append('email', this.email);
-      form.append('role', this.role);
-      if (this.role2 != "") {
-        form.append('role2', this.role2);
-      }
-      form.append('title', this.title);
-      form.append('department', this.department);
-      if (this.direktorat) {
-        form.append('direktoratId', this.direktorat.value)
-      }
-      if (this.bidang) {
-        form.append('bidangId', this.bidang.value)
-      }
-      if (this.subBidang) {
-        form.append('subBidangId', this.subBidang.value)
-      }
-      if (this.bisnisType != "") {
-        form.append('bisnisType', this.bisnisType);
-      }
-      // Display the values
-      for (var pair of form.entries()) {
-        console.log(pair[0] + ', ' + pair[1]);
-      }
-      const res = await fetchPutForm(`account/update/${this.userId}`, null, form, this.$router);
-      console.log(res.data)
-      if (res.status == 200) {
+      if (res.status == 201) {
         this.isLoading = false;
         successFunction();
       } else {
@@ -1686,18 +969,19 @@ export default {
         failFunction();
       }
     },
-    async postResetPassword(successFunction, failFunction) {
+    async postEditSubBidang(successFunction, failFunction) {
       this.isLoading = true;
       const form = new FormData()
-      form.append('password', this.password);
-      form.append('rePassword', this.rePassword);
+      form.append('name', this.name);
+      form.append('description', this.description);
+      form.append('bidangId', this.bidang.value)
       // Display the values
       for (var pair of form.entries()) {
         console.log(pair[0] + ', ' + pair[1]);
       }
-      const res = await fetchPostForm(`account/reset-password/${this.userId}`, null, form, this.$router);
+      const res = await fetchPutForm(`subbidang/${this.subBidangId}`, null, form, this.$router);
       console.log(res.data)
-      if (res.status == 200) {
+      if (res.status == 201) {
         this.isLoading = false;
         successFunction();
       } else {
@@ -1705,9 +989,9 @@ export default {
         failFunction();
       }
     },
-    async postDeleteUser(successFunction, failFunction) {
+    async postDeleteSubBidang(successFunction, failFunction) {
       this.isLoading = true;
-      const res = await fetchDelete(`account/delete/${this.userId}`, null, this.$router);
+      const res = await fetchDelete(`subbidang/${this.subBidangId}`, null, this.$router);
       console.log(res.data)
       if (res.status == 200) {
         this.isLoading = false;
@@ -1715,27 +999,6 @@ export default {
       } else {
         this.isLoading = false;
         failFunction();
-      }
-    },
-    async getDataDirektoratApi() {
-      this.isLoading = true;
-      let url = 'direktorat';
-      let params = null;
-      const res = await fetchGet(url, params, this.$router);
-      if (res.status == 200) {
-        this.optionsDirektorat = res.data.map(item => ({
-          value: item.id,
-          label: item.name
-        }))
-        this.isLoading = false;
-        console.log(res.data, 'direktorat');
-      } else {
-        this.isLoading = false;
-        this.modalFailed = {
-          isVisible: true,
-          title: 'Gagal',
-          message: res.data.message ? res.data.message : "Silahkan hubungi admin"
-        }
       }
     },
     async getDataBidangApi() {
@@ -1750,27 +1013,6 @@ export default {
         }))
         this.isLoading = false;
         console.log(res.data, 'bidang');
-      } else {
-        this.isLoading = false;
-        this.modalFailed = {
-          isVisible: true,
-          title: 'Gagal',
-          message: res.data.message ? res.data.message : "Silahkan hubungi admin"
-        }
-      }
-    },
-    async getDataSubBidangApi() {
-      this.isLoading = true;
-      let url = 'subbidang';
-      let params = null;
-      const res = await fetchGet(url, params, this.$router);
-      if (res.status == 200) {
-        this.optionsSubBidang = res.data.map(item => ({
-          value: item.id,
-          label: item.name
-        }))
-        this.isLoading = false;
-        console.log(res.data, 'sub bidang');
       } else {
         this.isLoading = false;
         this.modalFailed = {

@@ -55,7 +55,13 @@ export function saveDataLogin(dataUser) {
   localStorage.setItem('username', dataUser.username);
   localStorage.setItem('firstName', dataUser.firstName);
   localStorage.setItem('lastName', dataUser.lastName);
-  localStorage.setItem('position', dataUser.role);
+  if (
+    ['Admin', 'PartnershipStaff','PartnershipManager','PartnershipVP','PartnershipDirector'].includes(dataUser.role)
+  ) {
+    localStorage.setItem('position', dataUser.role);
+  } else {
+    localStorage.setItem('position', dataUser.role2);
+  }
   localStorage.setItem('bisnisType', dataUser.bisnisType);
   localStorage.setItem('title', dataUser.title);
   localStorage.setItem('department', dataUser.department);

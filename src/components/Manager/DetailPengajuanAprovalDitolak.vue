@@ -256,6 +256,27 @@ import { dateParsing } from '@/utils/helper';
                   dateParsing(dataBerkas?.expectedDate) || '-' }}</span>
               </div>
             </div>
+            <div class="flex items-center mt-6">
+              <h1 class="w-[130px] font-sans text-[#333333] text-[14px] font-semibold">
+                Sub Bidang
+              </h1>
+              <span class="w-[310px] text-[#7F7F80] font-sans font-thin text-[14px] ml-4">{{ dataBerkas?.subBidang ||
+                '-' }}</span>
+              <div class="flex">
+                <h1 class="w-[130px] font-sans text-[14px] text-[#333333] font-semibold ml-[82px]">
+                  Bidang
+                </h1>
+                <span class="w-[310px] font-sans font-thin text-[#7F7F80] text-[14px] ml-4">{{
+                  dataBerkas?.bidang || '-' }}</span>
+              </div>
+            </div>
+            <div class="flex items-center mt-6">
+              <h1 class="w-[130px] font-sans text-[#333333] text-[14px] font-semibold">
+                Direktorat
+              </h1>
+              <span class="w-[330px] text-[#7F7F80] font-sans font-thin text-[14px] ml-4">{{ dataBerkas?.direktorat ||
+                '-' }}</span>
+            </div>
           </div>
         </transition>
         <div

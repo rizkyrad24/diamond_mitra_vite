@@ -126,6 +126,7 @@ export default {
       fullName: '',
       notifList: [],
       isLoading: false,
+      role: '',
       modalFailed: {
         isVisible: false,
         title: '',
@@ -135,6 +136,7 @@ export default {
   },
   mounted() {
     this.fullName = `${localStorage.getItem('firstName')} ${localStorage.getItem('lastName')}`;
+    this.role = (localStorage.getItem('position') || '').toLowerCase()
     this.getDataApi();
   },
   methods: {
@@ -157,7 +159,7 @@ export default {
 
     async getDataApi() {
       this.isLoading = true;
-      const res = await fetchGet("history", null, this.$router);
+      const res = await fetchGet(`history/byrole/${this.role}`, null, this.$router);
       if (res.status == 200) {
           console.log(res.data)
           this.notifList = res.data;

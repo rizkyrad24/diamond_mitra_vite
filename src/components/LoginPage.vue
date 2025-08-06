@@ -247,15 +247,18 @@ async function submit() {
   payload.append('password', password.value);
   const res = await fetchPostFormPublic('account/login', null, payload, router);
   if (res?.status == 200) {
-    if (res.data.role == "PartnershipStaff") {
+    if (res.data.role == "PartnershipStaff" || res.data.role2 == "PartnershipStaff") {
       saveDataLogin(res.data);
       isLoading.value = false;
       router.push('/mitra/dashboardstaff')
-    } else if (res.data.role == "PartnershipManager" || res.data.role == "PartnershipVP" || res.data.role == "PartnershipDirector") {
+    } else if (
+      res.data.role == "PartnershipManager" || res.data.role == "PartnershipVP" || res.data.role == "PartnershipDirector" ||
+      res.data.role2 == "PartnershipManager" || res.data.role2 == "PartnershipVP" || res.data.role2 == "PartnershipDirector"
+    ) {
       saveDataLogin(res.data);
       isLoading.value = false;
       router.push('/mitra/dashboard')
-    } else if (res.data.role == "Admin") {
+    } else if (res.data.role == "Admin" || res.data.role2 == "Admin") {
       saveDataLogin(res.data);
       isLoading.value = false;
       router.push('/mitra/user')
