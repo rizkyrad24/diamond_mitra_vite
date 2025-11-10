@@ -39,7 +39,7 @@ import { dateParsing } from '@/utils/helper';
         </h1>
       </div>
       <h1 class="items-start justify-center px-2 ml-2 text-[#9C9C9C]">
-        Surat Masuk Pengajuan Mitra
+        <!-- Surat Masuk Pengajuan Mitra --> 
       </h1>
       <button
         class="flex-grow w-[56px] h-[24px] font-sans text-[16px] font-semibold mt-7 ml-8 mr-4 text-[#2671D9]"
@@ -535,6 +535,38 @@ import { dateParsing } from '@/utils/helper';
                       {{ item.status }}
                     </span>
                   </td>
+                  <td class="p-2 py-4 border border-[#E5E7E9] relative">
+                    <button
+                      class="flex items-center justify-center w-[24px] h-[24px] rounded-lg bg-[#E5E7E9]"
+                      @click.stop="toggleActionDropdown(index)"
+                    >
+                      <svg
+                        width="16"
+                        height="12"
+                        viewBox="0 0 16 12"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M8.00051 1.66667C5.20279 1.66667 2.82714 3.48116 1.98946 5.99938C1.98897 6.00085 1.98897 6.00266 1.98946 6.00413C2.82818 8.52053 5.20293 10.3333 7.99934 10.3333C10.7971 10.3333 13.1727 8.51884 14.0104 6.00062C14.0109 5.99915 14.0109 5.99734 14.0104 5.99587C13.1717 3.47947 10.7969 1.66667 8.00051 1.66667ZM0.72429 5.57853C1.73777 2.53181 4.61153 0.333334 8.00051 0.333334C11.3879 0.333334 14.2606 2.52976 15.2753 5.57427C15.3669 5.84915 15.367 6.14654 15.2756 6.42148C14.2621 9.4682 11.3883 11.6667 7.99934 11.6667C4.61194 11.6667 1.73927 9.47024 0.72454 6.42573C0.632921 6.15085 0.632834 5.85346 0.72429 5.57853ZM7.99997 4.66667C7.26359 4.66667 6.66663 5.26362 6.66663 6C6.66663 6.73638 7.26359 7.33333 7.99997 7.33333C8.73635 7.33333 9.3333 6.73638 9.3333 6C9.3333 5.26362 8.73635 4.66667 7.99997 4.66667ZM5.3333 6C5.3333 4.52724 6.52721 3.33333 7.99997 3.33333C9.47273 3.33333 10.6666 4.52724 10.6666 6C10.6666 7.47276 9.47273 8.66667 7.99997 8.66667C6.52721 8.66667 5.3333 7.47276 5.3333 6Z"
+                          fill="#2671D9"
+                        />
+                      </svg>
+                    </button>
+                    <div
+                      v-if="actionDropdownIndex === index"
+                      class="absolute right-[45px] bottom-[10px] h-[40px] flex items-center rounded-lg bg-[#FFFFFF] border border-[#E5E7E9] hover:bg-[#DBEAFE] shadow-lg z-10"
+                    >
+                      <button
+                        class="block flex-grow px-4 py-2 text-[14px] font-sans font-normal text-[#333333] text-left"
+                        @click="navigateToDetail(item.tipe, item.did)"
+                      >
+                        View
+                      </button>
+                    </div>
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -609,6 +641,8 @@ export default {
         { name: "Tipe", subOptions: ["PKS", "NDA", "MoU"] },
         { name: "Status Perjanjian", subOptions: ["Aktif", "Tidak Aktif"] },
       ],
+
+      actionDropdownIndex: null,
 
       selectedValue: 8,
       currentPage: 1,
@@ -748,6 +782,25 @@ export default {
         document.removeEventListener("click", this.handleClickOutside);
       }
     },
+    navigateToDetail(tipe, id) {
+      if (tipe.toUpperCase() === "PKS") {
+        this.$router.push(`/mitra/selesaistaff/detailpengajuanpksstaff/${id}?origin=selesai`);
+      } else if (tipe.toUpperCase() === "MOU" || tipe.toUpperCase() === "NDA") {
+        this.$router.push(`/mitra/selesaistaff/detailpengajuanmoustaff/${id}?origin=selesai`);
+      }
+    },
+    toggleActionDropdown(index) {
+      this.actionDropdownIndex = this.actionDropdownIndex === index ? null : index;
+      this.$nextTick(() => {
+        document.addEventListener("click", this.closeDropdown);
+      });
+    },
+    closeDropdown(event) {
+      if (!event.target.closest(".action-dropdown") && !event.target.closest("button")) {
+        this.actionDropdownIndex = null;
+        document.removeEventListener("click", this.closeDropdown);
+      }
+    },
     selectOption(option) {
       if (this.selectedOption === option) {
         this.selectedOption = null;
@@ -828,7 +881,6 @@ export default {
           user: item.user,
           bisnis_type: item.bisnisType
 				}))
-				console.log(res.data)
 				boxResult = boxResult.concat(cleanData)
 			} else {
 				this.isLoading = false;
@@ -859,7 +911,6 @@ export default {
 				}))
 				boxResult = boxResult.concat(cleanData2)
 				boxResult = boxResult.map((item, index) => ({ id: index + 1, ...item }))
-				console.log(res2.data)
 			} else {
 				this.isLoading = false;
         this.modalFailed = {

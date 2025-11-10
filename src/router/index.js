@@ -24,6 +24,8 @@ import DetailPengajuanMoU from '@/pages/proses/proses-detail-pengajuan-mou.vue';
 import DetailPengajuanMoUStaff from '@/pages/proses/proses-detail-pengajuan-mou-staff.vue';
 import SelesaiStaff from '@/pages/selesai/selesai-staff.vue';
 import SelesaiDitolakStaff from '@/pages/selesai/selesai-ditolak-staff.vue';
+import SelesaiDetailPengajuanMou from '@/pages/selesai/selesai-detail-pengajuan-mou.vue';
+import SelesaiDetailPengajuanPks from '@/pages/selesai/selesai-detail-pengajuan-pks.vue';
 import UserData from '@/pages/master-data/user-data.vue';
 import PejabatData from '@/pages/master-data/pejabat-data.vue';
 import PelangganData from '@/pages/master-data/pelanggan-data.vue';
@@ -38,6 +40,7 @@ import SubBidangData from '@/pages/master-data/sub-bidang-data.vue';
 const routes = [
   { name: 'LoginPage', path: '/mitra/login', component: LoginPage },
   { name: 'LoginSSOPage', path: '/mitra/login-sso', component: loginSSOPage },
+  // { name: 'LoginSSOPage', path: '/mitra/login', component: loginSSOPage },
   { path: '/mitra/', redirect: '/mitra/login' },
   { name: 'Homepage', path: '/mitra/homepage', component: HomePage, meta: { requiresAuth: true, role: ['PartnershipManager', 'PartnershipVP', 'PartnershipDirector'] }  },
   { name: 'Dashboard', path: '/mitra/dashboard', component: DashboardView, meta: { requiresAuth: true, role: ['PartnershipManager', 'PartnershipVP', 'PartnershipDirector'] }  },
@@ -60,8 +63,10 @@ const routes = [
   { name: 'DitolakStaff', path: '/mitra/selesaistaff/ditolakstaff', component: SelesaiDitolakStaff, meta: { requiresAuth: true, role: ['PartnershipStaff'] } },
   { name: 'DetailPengajuanPKS', path: '/mitra/proses/detailpengajuanpks/:id', component: DetailPengajuanPKS, meta: { requiresAuth: true, role: ['PartnershipManager', 'PartnershipVP', 'PartnershipDirector'] } },
   { name: 'DetailPengajuanPKSstaff', path: '/mitra/prosesstaff/detailpengajuanpksstaff/:id', component: DetailPengajuanPKSstaff, meta: { requiresAuth: true, role: ['PartnershipStaff'] } },
+  { name: 'DetailPengajuanPKSSelesai', path: '/mitra/selesaistaff/detailpengajuanpksstaff/:id', component: SelesaiDetailPengajuanPks, meta: { requiresAuth: true, role: ['PartnershipStaff'] } },
   { name: 'DetailPengajuanMoU', path: '/mitra/proses/detailpengajuanmou/:id', component: DetailPengajuanMoU, meta: { requiresAuth: true, role: ['PartnershipManager', 'PartnershipVP', 'PartnershipDirector'] } },
   { name: 'DetailPengajuanMoUStaff', path: '/mitra/prosesstaff/detailpengajuanmoustaff/:id', component: DetailPengajuanMoUStaff, meta: { requiresAuth: true, role: ['PartnershipStaff'] } },
+  { name: 'DetailPengajuanMoUSelesai', path: '/mitra/selesaistaff/detailpengajuanmoustaff/:id', component: SelesaiDetailPengajuanMou, meta: { requiresAuth: true, role: ['PartnershipStaff'] } },
   { name: 'UserData', path: '/mitra/user', component: UserData, meta: { requiresAuth: true, role: ['Admin'] } },
   { name: 'PejabatData', path: '/mitra/pejabat', component: PejabatData, meta: { requiresAuth: true, role: ['Admin'] } },
   { name: 'PelangganData', path: '/mitra/pelanggan', component: PelangganData, meta: { requiresAuth: true, role: ['Admin'] } },

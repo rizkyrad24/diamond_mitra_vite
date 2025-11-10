@@ -1540,7 +1540,6 @@ export default {
       }
 			const res = await fetchGet(url, params, this.$router);
 			if (res.status == 200) {
-        console.log(res.data)
 				const cleanData1 = res.data.listMounda.map((item) => ({
 					pic: item.disposedStaff,
 					jumlahPengajuan: item.jmlPengajuan,
@@ -1609,7 +1608,6 @@ export default {
           };
         });
         boxResult2 = boxResult2.concat(cleanData4);
-        console.log('raw', boxResult2)
         this.dataRows = boxResult2;
 
         this.years = res.data.listYear.map(item => item.toString())

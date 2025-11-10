@@ -600,7 +600,6 @@ export default {
     updateDate(event) {
       this.selectedDate = event.target.value;
       this.hideDatePicker();
-      console.log(this.selectedDate);
     },
     hideDatePicker() {
       this.showDatePicker = false;
@@ -790,7 +789,6 @@ export default {
       let params = null;
       const res = await fetchGet(url, params, this.$router);
       if (res.status == 200) {
-        console.log(res.data)
         const cleanData = res.data.map((item) => ({
           id: item.id,
           name: item.name,
@@ -811,11 +809,10 @@ export default {
       const form = new FormData()
       form.append('name', this.name);
       // Display the values
-      for (var pair of form.entries()) {
-        console.log(pair[0] + ', ' + pair[1]);
-      }
+      // for (var pair of form.entries()) {
+      //   console.log(pair[0] + ', ' + pair[1]);
+      // }
       const res = await fetchPostForm('candidate', null, form, this.$router);
-      console.log(res.data)
       if (res.status == 201) {
         this.isLoading = false;
         successFunction();
@@ -829,11 +826,10 @@ export default {
       const form = new FormData()
       form.append('name', this.name);
       // Display the values
-      for (var pair of form.entries()) {
-        console.log(pair[0] + ', ' + pair[1]);
-      }
+      // for (var pair of form.entries()) {
+      //   console.log(pair[0] + ', ' + pair[1]);
+      // }
       const res = await fetchPutForm(`candidate/${this.CandidateId}`, null, form, this.$router);
-      console.log(res.data)
       if (res.status == 201) {
         this.isLoading = false;
         successFunction();
@@ -845,7 +841,6 @@ export default {
     async postDeleteCandidate(successFunction, failFunction) {
       this.isLoading = true;
       const res = await fetchDelete(`candidate/${this.CandidateId}`, null, this.$router);
-      console.log(res.data)
       if (res.status == 200) {
         this.isLoading = false;
         successFunction();

@@ -709,7 +709,6 @@ export default {
     updateDate(event) {
       this.selectedDate = event.target.value;
       this.hideDatePicker();
-      console.log(this.selectedDate);
     },
     hideDatePicker() {
       this.showDatePicker = false;
@@ -776,7 +775,6 @@ export default {
     },
     handleSelectionChange(option) {
       this.direktorat = option;
-      console.log("Selected Option:", option);
     },
 
     // Popup Create
@@ -903,7 +901,6 @@ export default {
       let params = null;
       const res = await fetchGet(url, params, this.$router);
       if (res.status == 200) {
-        console.log(res.data)
         const cleanData = res.data.map((item) => ({
           id: item.id,
           direktorat: item.direktorat,
@@ -928,11 +925,10 @@ export default {
       form.append('description', this.description);
       form.append('direktoratId', this.direktorat.value)
       // Display the values
-      for (var pair of form.entries()) {
-        console.log(pair[0] + ', ' + pair[1]);
-      }
+      // for (var pair of form.entries()) {
+      //   console.log(pair[0] + ', ' + pair[1]);
+      // }
       const res = await fetchPostForm('bidang', null, form, this.$router);
-      console.log(res.data)
       if (res.status == 201) {
         this.isLoading = false;
         successFunction();
@@ -948,11 +944,10 @@ export default {
       form.append('description', this.description);
       form.append('direktoratId', this.direktorat.value)
       // Display the values
-      for (var pair of form.entries()) {
-        console.log(pair[0] + ', ' + pair[1]);
-      }
+      // for (var pair of form.entries()) {
+      //   console.log(pair[0] + ', ' + pair[1]);
+      // }
       const res = await fetchPutForm(`bidang/${this.bidangId}`, null, form, this.$router);
-      console.log(res.data)
       if (res.status == 201) {
         this.isLoading = false;
         successFunction();
@@ -964,7 +959,6 @@ export default {
     async postDeleteBidang(successFunction, failFunction) {
       this.isLoading = true;
       const res = await fetchDelete(`bidang/${this.bidangId}`, null, this.$router);
-      console.log(res.data)
       if (res.status == 200) {
         this.isLoading = false;
         successFunction();
@@ -984,7 +978,6 @@ export default {
           label: item.name
         }))
         this.isLoading = false;
-        console.log(res.data, 'direktorat');
       } else {
         this.isLoading = false;
         this.modalFailed = {

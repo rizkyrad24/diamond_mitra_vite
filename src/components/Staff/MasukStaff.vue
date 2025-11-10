@@ -39,7 +39,7 @@ import { dateParsing } from '@/utils/helper';
         </h1>
       </div>
       <h1 class="items-start justify-center px-2 ml-2 text-[#9C9C9C]">
-        Surat Masuk Pengajuan Mitra
+        <!-- Surat Masuk Pengajuan Mitra --> 
       </h1>
       <div class="flex items-start">
         <div class="w-[320px] h-[40px] rounded-lg bg-[#FFFFFF] border border-[#E5E7E9] mt-6 ml-4 flex justify-between items-center">
@@ -716,7 +716,7 @@ export default {
     },
     viewItem(item) {
       // Handle the "view" action here
-      console.log("Viewing item:", item);
+      // console.log("Viewing item:", item);
     },
     // api
 		async getDataApi() {
@@ -735,7 +735,6 @@ export default {
 					status: parseStatusAproval(item.positionLevel, item.status),
           did: item.id
 				}))
-				console.log(res.data)
 				boxResult = boxResult.concat(cleanData)
 			} else {
 				this.isLoading = false;
@@ -759,7 +758,6 @@ export default {
 				}))
 				boxResult = boxResult.concat(cleanData2)
 				boxResult = boxResult.map((item, index) => ({ id: index + 1, ...item }))
-				console.log(res2.data)
 			} else {
 				this.isLoading = false;
         this.modalFailed = {

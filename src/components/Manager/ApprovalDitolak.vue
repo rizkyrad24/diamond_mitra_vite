@@ -764,7 +764,7 @@ export default {
       this.currentPage = page;
     },
     viewItem(item) {
-      console.log("Viewing item:", item);
+      // console.log("Viewing item:", item);
     },
     // api
     async getDataApi() {
@@ -799,7 +799,6 @@ export default {
           status: parseStatusAproval(item.positionLevel, item.status),
           did: item.id
         }))
-        console.log(res.data)
         boxResult = boxResult.concat(cleanData)
       } else {
         this.isLoading = false;
@@ -838,7 +837,6 @@ export default {
         }))
         boxResult = boxResult.concat(cleanData2)
         boxResult = boxResult.map((item, index) => ({ id: index + 1, ...item }))
-        console.log(res2.data)
       } else {
         this.isLoading = false;
         this.modalFailed = {

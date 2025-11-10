@@ -647,7 +647,6 @@ export default {
     updateDate(event) {
       this.selectedDate = event.target.value;
       this.hideDatePicker();
-      console.log(this.selectedDate);
     },
     hideDatePicker() {
       this.showDatePicker = false;
@@ -837,7 +836,6 @@ export default {
       let params = null;
       const res = await fetchGet(url, params, this.$router);
       if (res.status == 200) {
-        console.log(res.data)
         const cleanData = res.data.map((item) => ({
           id: item.id,
           name: item.name,
@@ -860,11 +858,10 @@ export default {
       form.append('name', this.name);
       form.append('description', this.description);
       // Display the values
-      for (var pair of form.entries()) {
-        console.log(pair[0] + ', ' + pair[1]);
-      }
+      // for (var pair of form.entries()) {
+      //   console.log(pair[0] + ', ' + pair[1]);
+      // }
       const res = await fetchPostForm('direktorat', null, form, this.$router);
-      console.log(res.data)
       if (res.status == 201) {
         this.isLoading = false;
         successFunction();
@@ -879,11 +876,10 @@ export default {
       form.append('name', this.name);
       form.append('description', this.description);
       // Display the values
-      for (var pair of form.entries()) {
-        console.log(pair[0] + ', ' + pair[1]);
-      }
+      // for (var pair of form.entries()) {
+      //   console.log(pair[0] + ', ' + pair[1]);
+      // }
       const res = await fetchPutForm(`direktorat/${this.direktoratId}`, null, form, this.$router);
-      console.log(res.data)
       if (res.status == 201) {
         this.isLoading = false;
         successFunction();
@@ -895,7 +891,6 @@ export default {
     async postDeleteDirektorat(successFunction, failFunction) {
       this.isLoading = true;
       const res = await fetchDelete(`direktorat/${this.direktoratId}`, null, this.$router);
-      console.log(res.data)
       if (res.status == 200) {
         this.isLoading = false;
         successFunction();

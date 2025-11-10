@@ -4,6 +4,8 @@ import ModalFailed from '../modalfailed.vue';
 import ModalSuccess from '../modalsuccess.vue';
 import ModalDialog from '../modaldialog.vue';
 import { dateParsing, dueDateParsing } from '@/utils/helper';
+import router from '@/router';
+import { downloadFile } from '@/api/apiFunction';
 // import SelectSearch from '../SelectSearch/SelectSearch.vue';
 </script>
 
@@ -30,7 +32,26 @@ import { dateParsing, dueDateParsing } from '@/utils/helper';
   />
   <div>
     <div class="flex w-auto h-[54px] rounded-lg bg-[#FFFFFF] border-collapse">
-      <button @click="navigateToDetail">
+      <button
+        v-if="origin == 'selesai'"
+        @click="navigateToSelesai"
+      >
+        <h1 class="w-[51px] h-[22px] font-sans text-[#2671D9] text-[14px] font-semibold ml-6 mr-2 mt-4 mb-4">
+          Selesai
+        </h1>
+      </button>
+      <button
+        v-else-if="origin == 'ditolak'"
+        @click="navigateToSelesaiDitolak"
+      >
+        <h1 class="w-[51px] h-[22px] font-sans text-[#2671D9] text-[14px] font-semibold ml-6 mr-2 mt-4 mb-4">
+          Ditolak
+        </h1>
+      </button>
+      <button 
+        v-else 
+        @click="navigateToDetail"
+      >
         <h1 class="w-[51px] h-[22px] font-sans text-[#2671D9] text-[14px] font-semibold ml-6 mr-2 mt-4 mb-4">
           Proses
         </h1>
@@ -270,10 +291,10 @@ import { dateParsing, dueDateParsing } from '@/utils/helper';
                 </h1>
                 <div class="p-6">
                   <div class="flex items-center gap-4">
-                    <a
+                    <div
                       v-if="fileName1"
-                      :href="linkDownloadFile1"
-                      class="flex flex-col w-[289px] h-[130px] rounded-lg border-[1px] border-[#E5E7E9]"
+                      class="flex flex-col w-[289px] h-[130px] rounded-lg border-[1px] border-[#E5E7E9] cursor-pointer"
+                      @click="downloadFile(linkDownloadFile1, fileName1, router)"
                     >
                       <div class="w-[289px] h-[40px] p-4 flex justify-between items-center rounded-t-lg bg-[#0EA976]">
                         <div class="font-sans text-[14px] font-semibold text-white">
@@ -332,7 +353,7 @@ import { dateParsing, dueDateParsing } from '@/utils/helper';
                           </svg>
                         </div>
                       </div>
-                    </a>
+                    </div>
                     <div
                       v-else
                       class="w-[289px] h-[130px] border-[1px] rounded-t-lg rounded-b-lg"
@@ -394,10 +415,10 @@ import { dateParsing, dueDateParsing } from '@/utils/helper';
                       />
                     </svg>
 
-                    <a
+                    <div
                       v-if="fileName2"
-                      :href="linkDownloadFile2"
-                      class="flex flex-col w-[289px] h-[130px] rounded-lg border-[1px] border-[#DEDEDE]"
+                      class="flex flex-col w-[289px] h-[130px] rounded-lg border-[1px] border-[#DEDEDE] cursor-pointer"
+                      @click="downloadFile(linkDownloadFile2, fileName2, router)"
                     >
                       <div class="w-full h-[40px] p-4 flex justify-between items-center rounded-t-lg bg-[#0EA976]">
                         <div class="font-sans text-[14px] font-semibold text-white">
@@ -454,7 +475,7 @@ import { dateParsing, dueDateParsing } from '@/utils/helper';
                           </svg>
                         </div>
                       </div>
-                    </a>
+                    </div>
                     <div
                       v-else
                       class="w-[289px] h-[130px] border-[1px] rounded-t-lg rounded-b-lg"
@@ -516,10 +537,10 @@ import { dateParsing, dueDateParsing } from '@/utils/helper';
                       />
                     </svg>
 
-                    <a
+                    <div
                       v-if="fileName3"
-                      :href="linkDownloadFile3"
-                      class="flex flex-col w-[289px] h-[130px] rounded-lg border-[1px] border-[#DEDEDE]"
+                      class="flex flex-col w-[289px] h-[130px] rounded-lg border-[1px] border-[#DEDEDE] cursor-pointer"
+                      @click="downloadFile(linkDownloadFile3, fileName3, router)"
                     >
                       <div class="w-full h-[40px] p-4 flex justify-between items-center rounded-t-lg bg-[#0EA976]">
                         <div class="font-sans text-[14px] font-semibold text-white">
@@ -578,7 +599,7 @@ import { dateParsing, dueDateParsing } from '@/utils/helper';
                           </svg>
                         </div>
                       </div>
-                    </a>
+                    </div>
                     <div
                       v-else
                       class="w-[289px] h-[130px] border-[1px] rounded-t-lg rounded-b-lg"
@@ -642,10 +663,10 @@ import { dateParsing, dueDateParsing } from '@/utils/helper';
                   </svg>
 
                   <div class="flex items-center gap-4">
-                    <a
+                    <div
                       v-if="fileName6"
-                      :href="linkDownloadFile6"
-                      class="flex flex-col w-[289px] h-[130px] rounded-lg border-[1px] border-[#DEDEDE]"
+                      class="flex flex-col w-[289px] h-[130px] rounded-lg border-[1px] border-[#DEDEDE] cursor-pointer"
+                      @click="downloadFile(linkDownloadFile6, fileName6, router)"
                     >
                       <div class="w-full h-[40px] p-4 flex justify-between items-center rounded-t-lg bg-[#0EA976]">
                         <div class="font-sans text-[14px] font-semibold text-white">
@@ -704,7 +725,7 @@ import { dateParsing, dueDateParsing } from '@/utils/helper';
                           </svg>
                         </div>
                       </div>
-                    </a>
+                    </div>
                     <div
                       v-else
                       class="w-[289px] h-[130px] border-[1px] rounded-t-lg rounded-b-lg"
@@ -790,10 +811,10 @@ import { dateParsing, dueDateParsing } from '@/utils/helper';
                         stroke-linejoin="round"
                       />
                     </svg> -->
-                    <a
+                    <div
                       v-if="fileName5"
-                      :href="linkDownloadFile5"
-                      class="flex flex-col w-[289px] h-[130px] rounded-lg border-[1px] border-[#DEDEDE]"
+                      class="flex flex-col w-[289px] h-[130px] rounded-lg border-[1px] border-[#DEDEDE] cursor-pointer"
+                      @click="downloadFile(linkDownloadFile5, fileName5, router)"
                     >
                       <div class="w-full h-[40px] p-4 flex justify-between items-center rounded-t-lg bg-[#0EA976]">
                         <div class="font-sans text-[14px] font-semibold text-white">
@@ -852,7 +873,7 @@ import { dateParsing, dueDateParsing } from '@/utils/helper';
                           </svg>
                         </div>
                       </div>
-                    </a>
+                    </div>
                     <div
                       v-else
                       class="w-[289px] h-[130px] border-[1px] rounded-t-lg rounded-b-lg"
@@ -916,10 +937,10 @@ import { dateParsing, dueDateParsing } from '@/utils/helper';
                       />
                     </svg>
 
-                    <a
+                    <div
                       v-if="fileName4"
-                      :href="linkDownloadFile4"
-                      class="flex flex-col w-[289px] h-[130px] rounded-lg border-[1px] border-[#DEDEDE]"
+                      class="flex flex-col w-[289px] h-[130px] rounded-lg border-[1px] border-[#DEDEDE] cursor-pointer"
+                      @click="downloadFile(linkDownloadFile4, fileName4, router)"
                     >
                       <div class="w-full h-[40px] p-4 flex justify-between items-center rounded-t-lg bg-[#0EA976]">
                         <div class="font-sans text-[14px] font-semibold text-white">
@@ -977,7 +998,7 @@ import { dateParsing, dueDateParsing } from '@/utils/helper';
                           </svg>
                         </div>
                       </div>
-                    </a>
+                    </div>
                     <div
                       v-else
                       class="w-[289px] h-[130px] border-[1px] rounded-t-lg rounded-b-lg"
@@ -1041,10 +1062,10 @@ import { dateParsing, dueDateParsing } from '@/utils/helper';
                   </svg>
 
                   <div class="flex items-center gap-4">
-                    <a
+                    <div
                       v-if="fileName7"
-                      :href="linkDownloadFile7"
-                      class="flex flex-col w-[289px] h-[130px] rounded-lg border-[1px] border-[#E5E7E9]"
+                      class="flex flex-col w-[289px] h-[130px] rounded-lg border-[1px] border-[#E5E7E9] cursor-pointer"
+                      @click="downloadFile(linkDownloadFile7, fileName7, router)"
                     >
                       <div class="w-[289px] h-[40px] p-4 flex justify-between items-center rounded-t-lg bg-[#0EA976]">
                         <div class="font-sans text-[14px] font-semibold text-white">
@@ -1102,7 +1123,7 @@ import { dateParsing, dueDateParsing } from '@/utils/helper';
                           </svg>
                         </div>
                       </div>
-                    </a>
+                    </div>
                     <div
                       v-else
                       class="w-[289px] h-[130px] border-[1px] rounded-t-lg rounded-b-lg"
@@ -1181,10 +1202,10 @@ import { dateParsing, dueDateParsing } from '@/utils/helper';
                         stroke-linejoin="round"
                       />
                     </svg>
-                    <a
+                    <div
                       v-if="fileName8"
-                      :href="linkDownloadFile8"
-                      class="flex flex-col w-[289px] h-[130px] rounded-lg border-[1px] border-[#DEDEDE]"
+                      class="flex flex-col w-[289px] h-[130px] rounded-lg border-[1px] border-[#DEDEDE] cursor-pointer"
+                      @click="downloadFile(linkDownloadFile8, fileName8, router)"
                     >
                       <div class="w-full h-[40px] p-4 flex justify-between items-center rounded-t-lg bg-[#0EA976]">
                         <div class="font-sans text-[14px] font-semibold text-white">
@@ -1242,7 +1263,7 @@ import { dateParsing, dueDateParsing } from '@/utils/helper';
                           </svg>
                         </div>
                       </div>
-                    </a>
+                    </div>
                     <div
                       v-else
                       class="w-[289px] h-[130px] border-[1px] rounded-t-lg rounded-b-lg"
@@ -1304,10 +1325,10 @@ import { dateParsing, dueDateParsing } from '@/utils/helper';
                       />
                     </svg>
 
-                    <a
+                    <div
                       v-if="fileName9"
-                      :href="linkDownloadFile9"
-                      class="flex flex-col w-[289px] h-[130px] rounded-lg border-[1px] border-[#DEDEDE]"
+                      class="flex flex-col w-[289px] h-[130px] rounded-lg border-[1px] border-[#DEDEDE] cursor-pointer"
+                      @click="downloadFile(linkDownloadFile9, fileName9, router)"
                     >
                       <div class="w-full h-[40px] p-4 flex justify-between items-center rounded-t-lg bg-[#0EA976]">
                         <div class="font-sans text-[14px] font-semibold text-white">
@@ -1365,7 +1386,7 @@ import { dateParsing, dueDateParsing } from '@/utils/helper';
                           </svg>
                         </div>
                       </div>
-                    </a>
+                    </div>
                     <div
                       v-else
                       class="w-[289px] h-[130px] border-[1px] rounded-t-lg rounded-b-lg"
@@ -1429,10 +1450,10 @@ import { dateParsing, dueDateParsing } from '@/utils/helper';
                   </svg>
 
                   <div class="flex items-center gap-4">
-                    <a
+                    <div
                       v-if="fileName11"
-                      :href="linkDownloadFile11"
-                      class="flex flex-col w-[289px] h-[130px] rounded-lg border-[1px] border-[#DEDEDE] ml-auto"
+                      class="flex flex-col w-[289px] h-[130px] rounded-lg border-[1px] border-[#DEDEDE] ml-auto cursor-pointer"
+                      @click="downloadFile(linkDownloadFile11, fileName11, router)"
                     >
                       <div class="w-full h-[40px] p-4 flex justify-between items-center rounded-t-lg bg-[#0EA976]">
                         <div class="font-sans text-[14px] font-semibold text-white">
@@ -1490,7 +1511,7 @@ import { dateParsing, dueDateParsing } from '@/utils/helper';
                           </svg>
                         </div>
                       </div>
-                    </a>
+                    </div>
                     <div
                       v-else
                       class="w-[289px] h-[130px] border-[1px] rounded-t-lg rounded-b-lg ml-auto"
@@ -1554,10 +1575,10 @@ import { dateParsing, dueDateParsing } from '@/utils/helper';
                       />
                     </svg>
 
-                    <a
+                    <div
                       v-if="fileName10"
-                      :href="linkDownloadFile10"
-                      class="flex flex-col w-[289px] h-[130px] rounded-lg border-[1px] border-[#DEDEDE]"
+                      class="flex flex-col w-[289px] h-[130px] rounded-lg border-[1px] border-[#DEDEDE] cursor-pointer"
+                      @click="downloadFile(linkDownloadFile10, fileName10, router)"
                     >
                       <div class="w-full h-[40px] p-4 flex justify-between items-center rounded-t-lg bg-[#0EA976]">
                         <div class="font-sans text-[14px] font-semibold text-white">
@@ -1615,7 +1636,7 @@ import { dateParsing, dueDateParsing } from '@/utils/helper';
                           </svg>
                         </div>
                       </div>
-                    </a>
+                    </div>
                     <div
                       v-else
                       class="w-[289px] h-[130px] border-[1px] rounded-t-lg rounded-b-lg"
@@ -2234,10 +2255,10 @@ import { dateParsing, dueDateParsing } from '@/utils/helper';
                 </h1>
                 <span class="text-[#FF5656] font-bold ml-1">*</span>
               </div>
-              <a
+              <div
                 v-if="fileDetails.KKB.fileName"
-                :href="fileDetails.KKB.linkDownload"
-                class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center"
+                class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center cursor-pointer"
+                @click="downloadFile(fileDetails.KKB.linkDownload, fileDetails.KKB.fileName, router)"
               >
                 <svg
                   width="45"
@@ -2262,7 +2283,7 @@ import { dateParsing, dueDateParsing } from '@/utils/helper';
                   <span class="text-[#333333] text-sm font-semibold">{{ fileDetails.KKB.fileName }}</span>
                   <p class="text-[#9E9E9E] text-xs">{{ fileDetails.KKB.fileSize }}</p>
                 </div>
-              </a>
+              </div>
               <div
                 v-else
                 class="w-[333px] h-auto"
@@ -2278,10 +2299,10 @@ import { dateParsing, dueDateParsing } from '@/utils/helper';
                 </h1>
                 <span class="text-[#FF5656] font-bold ml-1">*</span>
               </div>
-              <a
+              <div
                 v-if="fileDetails.KKR.fileName"
-                :href="fileDetails.KKR.linkDownload"
-                class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center"
+                class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center cursor-pointer"
+                @click="downloadFile(fileDetails.KKR.linkDownload, fileDetails.KKR.fileName, router)"
               >
                 <svg
                   width="45"
@@ -2306,7 +2327,7 @@ import { dateParsing, dueDateParsing } from '@/utils/helper';
                   <span class="text-[#333333] text-sm font-semibold">{{ fileDetails.KKR.fileName }}</span>
                   <p class="text-[#9E9E9E] text-xs">{{ fileDetails.KKR.fileSize }}</p>
                 </div>
-              </a>
+              </div>
               <div
                 v-else
                 class="w-[333px] h-auto"
@@ -2322,10 +2343,10 @@ import { dateParsing, dueDateParsing } from '@/utils/helper';
                 </h1>
                 <span class="text-[#FF5656] font-bold ml-1">*</span>
               </div>
-              <a
+              <div
                 v-if="fileDetails.KKF.fileName"
-                :href="fileDetails.KKF.linkDownload"
-                class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center"
+                class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center cursor-pointer"
+                @click="downloadFile(fileDetails.KKF.linkDownload, fileDetails.KKF.fileName, router)"
               >
                 <svg
                   width="45"
@@ -2350,7 +2371,7 @@ import { dateParsing, dueDateParsing } from '@/utils/helper';
                   <span class="text-[#333333] text-sm font-semibold">{{ fileDetails.KKF.fileName }}</span>
                   <p class="text-[#9E9E9E] text-xs">{{ fileDetails.KKF.fileSize }}</p>
                 </div>
-              </a>
+              </div>
               <div
                 v-else
                 class="w-[333px] h-auto"
@@ -2366,10 +2387,10 @@ import { dateParsing, dueDateParsing } from '@/utils/helper';
                 </h1>
                 <span class="text-[#FF5656] font-bold ml-1">*</span>
               </div>
-              <a
+              <div
                 v-if="fileDetails.KKO.fileName"
-                :href="fileDetails.KKO.linkDownload"
-                class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center"
+                class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center cursor-pointer"
+                @click="downloadFile(fileDetails.KKO.linkDownload, fileDetails.KKO.fileName, router)"
               >
                 <svg
                   width="45"
@@ -2394,7 +2415,7 @@ import { dateParsing, dueDateParsing } from '@/utils/helper';
                   <span class="text-[#333333] text-sm font-semibold">{{ fileDetails.KKO.fileName }}</span>
                   <p class="text-[#9E9E9E] text-xs">{{ fileDetails.KKO.fileSize }}</p>
                 </div>
-              </a>
+              </div>
               <div
                 v-else
                 class="w-[333px] h-auto"
@@ -2410,10 +2431,10 @@ import { dateParsing, dueDateParsing } from '@/utils/helper';
                 </h1>
                 <span class="text-[#B3B3B3] font-sans text-[12px] font-light mt-1 ml-1">(Opsional)</span>
               </div>
-              <a
+              <div
                 v-if="fileDetails.ProposalMitra.fileName"
-                :href="fileDetails.ProposalMitra.linkDownload"
-                class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center"
+                class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center cursor-pointer"
+                @click="downloadFile(fileDetails.ProposalMitra.linkDownload, fileDetails.ProposalMitra.fileName, router)"
               >
                 <svg
                   width="45"
@@ -2438,7 +2459,7 @@ import { dateParsing, dueDateParsing } from '@/utils/helper';
                   <span class="text-[#333333] text-sm font-semibold">{{ fileDetails.ProposalMitra.fileName }}</span>
                   <p class="text-[#9E9E9E] text-xs">{{ fileDetails.ProposalMitra.fileSize }}</p>
                 </div>
-              </a>
+              </div>
               <div
                 v-else
                 class="w-[333px] h-auto"
@@ -2454,10 +2475,10 @@ import { dateParsing, dueDateParsing } from '@/utils/helper';
                 </h1>
                 <span class="text-[#B3B3B3] font-sans text-[12px] font-light mt-1 ml-1">(Opsional)</span>
               </div>
-              <a
+              <div
                 v-if="fileDetails.DokumenSuratMenyurat.fileName"
-                :href="fileDetails.DokumenSuratMenyurat.linkDownload"
-                class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center"
+                class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center cursor-pointer"
+                @click="downloadFile(fileDetails.DokumenSuratMenyurat.linkDownload, fileDetails.DokumenSuratMenyurat.fileName, router)"
               >
                 <svg
                   width="45"
@@ -2482,7 +2503,7 @@ import { dateParsing, dueDateParsing } from '@/utils/helper';
                   <span class="text-[#333333] text-sm font-semibold">{{ fileDetails.DokumenSuratMenyurat.fileName }}</span>
                   <p class="text-[#9E9E9E] text-xs">{{ fileDetails.DokumenSuratMenyurat.fileSize }}</p>
                 </div>
-              </a>
+              </div>
               <div
                 v-else
                 class="w-[333px] h-auto"
@@ -2498,10 +2519,10 @@ import { dateParsing, dueDateParsing } from '@/utils/helper';
                 </h1>
                 <span class="text-[#B3B3B3] font-sans text-[12px] font-light mt-1 ml-1">(Opsional)</span>
               </div>
-              <a
+              <div
                 v-if="fileDetails.DokumenLainnya.fileName"
-                :href="fileDetails.DokumenLainnya.linkDownload"
-                class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center"
+                class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center cursor-pointer"
+                @click="downloadFile(fileDetails.DokumenLainnya.linkDownload, fileDetails.DokumenLainnya.fileName, router)"
               >
                 <svg
                   width="45"
@@ -2526,7 +2547,7 @@ import { dateParsing, dueDateParsing } from '@/utils/helper';
                   <span class="text-[#333333] text-sm font-semibold">{{ fileDetails.DokumenLainnya.fileName }}</span>
                   <p class="text-[#9E9E9E] text-xs">{{ fileDetails.DokumenLainnya.fileSize }}</p>
                 </div>
-              </a>
+              </div>
               <div
                 v-else
                 class="w-[333px] h-auto"
@@ -2574,10 +2595,10 @@ import { dateParsing, dueDateParsing } from '@/utils/helper';
                   Surat Penawaran
                 </h1>
               </div>
-              <a
+              <div
                 v-if="fileName1"
-                :href="linkDownloadFile1"
-                class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center"
+                class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center cursor-pointer"
+                @click="downloadFile(linkDownloadFile1, fileName1, router)"
               >
                 <svg
                   width="45"
@@ -2602,7 +2623,7 @@ import { dateParsing, dueDateParsing } from '@/utils/helper';
                   <span class="text-[#333333] text-sm font-semibold">{{ fileName1 }}</span>
                   <p class="text-[#9E9E9E] text-xs">{{ fileSize1 }}</p>
                 </div>
-              </a>
+              </div>
               <div
                 v-else
                 class="w-[333px] h-auto"
@@ -2617,10 +2638,10 @@ import { dateParsing, dueDateParsing } from '@/utils/helper';
                   Proposal
                 </h1>
               </div>
-              <a
+              <div
                 v-if="fileName2"
-                :href="linkDownloadFile2"
-                class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center"
+                class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center cursor-pointer"
+                @click="downloadFile(linkDownloadFile2, fileName2, router)"
               >
                 <svg
                   width="45"
@@ -2645,7 +2666,7 @@ import { dateParsing, dueDateParsing } from '@/utils/helper';
                   <span class="text-[#333333] text-sm font-semibold">{{ fileName2 }}</span>
                   <p class="text-[#9E9E9E] text-xs">{{ fileSize2 }}</p>
                 </div>
-              </a>
+              </div>
               <div
                 v-else
                 class="w-[333px] h-auto"
@@ -2660,10 +2681,10 @@ import { dateParsing, dueDateParsing } from '@/utils/helper';
                   Evaluasi
                 </h1>
               </div>
-              <a
+              <div
                 v-if="fileName3"
-                :href="linkDownloadFile3"
-                class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center"
+                class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center cursor-pointer"
+                @click="downloadFile(linkDownloadFile3, fileName3, router)"
               >
                 <svg
                   width="45"
@@ -2688,7 +2709,7 @@ import { dateParsing, dueDateParsing } from '@/utils/helper';
                   <span class="text-[#333333] text-sm font-semibold">{{ fileName3 }}</span>
                   <p class="text-[#9E9E9E] text-xs">{{ fileSize3 }}</p>
                 </div>
-              </a>
+              </div>
               <div
                 v-else
                 class="w-[333px] h-auto"
@@ -2703,10 +2724,10 @@ import { dateParsing, dueDateParsing } from '@/utils/helper';
                   Negosiasi
                 </h1>
               </div>
-              <a
+              <div
                 v-if="fileName4"
-                :href="linkDownloadFile4"
-                class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center"
+                class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center cursor-pointer"
+                @click="downloadFile(linkDownloadFile4, fileName4, router)"
               >
                 <svg
                   width="45"
@@ -2731,7 +2752,7 @@ import { dateParsing, dueDateParsing } from '@/utils/helper';
                   <span class="text-[#333333] text-sm font-semibold">{{ fileName4 }}</span>
                   <p class="text-[#9E9E9E] text-xs">{{ fileSize4 }}</p>
                 </div>
-              </a>
+              </div>
               <div
                 v-else
                 class="w-[333px] h-auto"
@@ -2746,10 +2767,10 @@ import { dateParsing, dueDateParsing } from '@/utils/helper';
                   BAK Pemilihan Mitra
                 </h1>
               </div>
-              <a
+              <div
                 v-if="fileName5"
-                :href="linkDownloadFile5"
-                class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center"
+                class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center cursor-pointer"
+                @click="downloadFile(linkDownloadFile5, fileName5, router)"
               >
                 <svg
                   width="45"
@@ -2774,7 +2795,7 @@ import { dateParsing, dueDateParsing } from '@/utils/helper';
                   <span class="text-[#333333] text-sm font-semibold">{{ fileName5 }}</span>
                   <p class="text-[#9E9E9E] text-xs">{{ fileSize5 }}</p>
                 </div>
-              </a>
+              </div>
               <div
                 v-else
                 class="w-[333px] h-auto"
@@ -2789,10 +2810,10 @@ import { dateParsing, dueDateParsing } from '@/utils/helper';
                   Surat Pesanan
                 </h1>
               </div>
-              <a
+              <div
                 v-if="fileName6"
-                :href="linkDownloadFile6"
-                class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center"
+                class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center cursor-pointer"
+                @click="downloadFile(linkDownloadFile6, fileName6, router)"
               >
                 <svg
                   width="45"
@@ -2817,7 +2838,7 @@ import { dateParsing, dueDateParsing } from '@/utils/helper';
                   <span class="text-[#333333] text-sm font-semibold">{{ fileName6 }}</span>
                   <p class="text-[#9E9E9E] text-xs">{{ fileSize6 }}</p>
                 </div>
-              </a>
+              </div>
               <div
                 v-else
                 class="w-[333px] h-auto"
@@ -2833,10 +2854,10 @@ import { dateParsing, dueDateParsing } from '@/utils/helper';
                   Draft PKS
                 </h1>
               </div>
-              <a
+              <div
                 v-if="fileName7"
-                :href="linkDownloadFile7"
-                class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center"
+                class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center cursor-pointer"
+                @click="downloadFile(linkDownloadFile7, fileName7, router)"
               >
                 <svg
                   width="45"
@@ -2861,7 +2882,7 @@ import { dateParsing, dueDateParsing } from '@/utils/helper';
                   <span class="text-[#333333] text-sm font-semibold">{{ fileName7 }}</span>
                   <p class="text-[#9E9E9E] text-xs">{{ fileSize7 }}</p>
                 </div>
-              </a>
+              </div>
               <div
                 v-else
                 class="w-[333px] h-auto"
@@ -2876,10 +2897,10 @@ import { dateParsing, dueDateParsing } from '@/utils/helper';
                   Review User
                 </h1>
               </div>
-              <a
+              <div
                 v-if="fileName8"
-                :href="linkDownloadFile8"
-                class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center"
+                class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center cursor-pointer"
+                @click="downloadFile(linkDownloadFile8, fileName8, router)"
               >
                 <svg
                   width="45"
@@ -2904,7 +2925,7 @@ import { dateParsing, dueDateParsing } from '@/utils/helper';
                   <span class="text-[#333333] text-sm font-semibold">{{ fileName8 }}</span>
                   <p class="text-[#9E9E9E] text-xs">{{ fileSize8 }}</p>
                 </div>
-              </a>
+              </div>
               <div
                 v-else
                 class="w-[333px] h-auto"
@@ -2919,10 +2940,10 @@ import { dateParsing, dueDateParsing } from '@/utils/helper';
                   Review Legal
                 </h1>
               </div>
-              <a
+              <div
                 v-if="fileName9"
-                :href="linkDownloadFile9"
-                class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center"
+                class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center cursor-pointer"
+                @click="downloadFile(linkDownloadFile9, fileName9, router)"
               >
                 <svg
                   width="45"
@@ -2947,7 +2968,7 @@ import { dateParsing, dueDateParsing } from '@/utils/helper';
                   <span class="text-[#333333] text-sm font-semibold">{{ fileName9 }}</span>
                   <p class="text-[#9E9E9E] text-xs">{{ fileSize9 }}</p>
                 </div>
-              </a>
+              </div>
               <div
                 v-else
                 class="w-[333px] h-auto"
@@ -2962,10 +2983,10 @@ import { dateParsing, dueDateParsing } from '@/utils/helper';
                   Review Mitra
                 </h1>
               </div>
-              <a
+              <div
                 v-if="fileName10"
-                :href="linkDownloadFile10"
-                class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center"
+                class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center cursor-pointer"
+                @click="downloadFile(linkDownloadFile10, fileName10, router)"
               >
                 <svg
                   width="45"
@@ -2990,7 +3011,7 @@ import { dateParsing, dueDateParsing } from '@/utils/helper';
                   <span class="text-[#333333] text-sm font-semibold">{{ fileName10 }}</span>
                   <p class="text-[#9E9E9E] text-xs">{{ fileSize10 }}</p>
                 </div>
-              </a>
+              </div>
               <div
                 v-else
                 class="w-[333px] h-auto"
@@ -3006,10 +3027,10 @@ import { dateParsing, dueDateParsing } from '@/utils/helper';
                   PKS
                 </h1>
               </div>
-              <a
+              <div
                 v-if="fileName11"
-                :href="linkDownloadFile11"
-                class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center"
+                class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center cursor-pointer"
+                @click="downloadFile(linkDownloadFile11, fileName11, router)"
               >
                 <svg
                   width="45"
@@ -3034,7 +3055,7 @@ import { dateParsing, dueDateParsing } from '@/utils/helper';
                   <span class="text-[#333333] text-sm font-semibold">{{ fileName11 }}</span>
                   <p class="text-[#9E9E9E] text-xs">{{ fileSize11 }}</p>
                 </div>
-              </a>
+              </div>
               <div
                 v-else
                 class="w-[333px] h-auto"
@@ -3196,6 +3217,7 @@ export default {
       },
       isLoading: false,
       progressKemitraan: null,
+      origin: null,
     };
   },
   computed: {
@@ -3308,6 +3330,9 @@ export default {
     }
     this.id = this.$route.params.id;
     this.isManager = localStorage.getItem('position') == 'PartnershipManager';
+    if (this.$route.query.origin) {
+      this.origin = this.$route.query.origin;
+    }
   },
   methods: {
     closeModalFailed() {
@@ -3354,6 +3379,12 @@ export default {
     },
     navigateToDetail() {
       this.$router.push("/mitra/proses");
+    },
+    navigateToSelesai() {
+      this.$router.push("/mitra/selesai");
+    },
+    navigateToSelesaiDitolak() {
+      this.$router.push("/mitra/selesai/ditolak");
     },
     toggleDatePickerSelesai() {
       this.showDatePickerSelesai = !this.showDatePickerSelesai;
@@ -3478,7 +3509,6 @@ export default {
           value: item.fullName,
           label: item.title
         }))
-        console.log(res1.data, 'functionary');
       } else {
         this.isLoading = false;
         return this.modalFailed = {
@@ -3514,94 +3544,94 @@ export default {
           if (item.fileType == 'KKB') {
             this.fileDetails.KKB.fileName = item.fileName;
             this.fileDetails.KKB.fileSize = item.fileSize;
-            this.fileDetails.KKB.linkDownload = `${baseURL}/download/file/${item.id}`
+            this.fileDetails.KKB.linkDownload = item.fileUrl
           }
           if (item.fileType == 'KKR') {
             this.fileDetails.KKR.fileName = item.fileName;
             this.fileDetails.KKR.fileSize = item.fileSize;
-            this.fileDetails.KKR.linkDownload = `${baseURL}/download/file/${item.id}`
+            this.fileDetails.KKR.linkDownload = item.fileUrl
           }
           if (item.fileType == 'KKF') {
             this.fileDetails.KKF.fileName = item.fileName;
             this.fileDetails.KKF.fileSize = item.fileSize;
-            this.fileDetails.KKF.linkDownload = `${baseURL}/download/file/${item.id}`
+            this.fileDetails.KKF.linkDownload = item.fileUrl
           }
           if (item.fileType == 'KKO') {
             this.fileDetails.KKO.fileName = item.fileName;
             this.fileDetails.KKO.fileSize = item.fileSize;
-            this.fileDetails.KKO.linkDownload = `${baseURL}/download/file/${item.id}`
+            this.fileDetails.KKO.linkDownload = item.fileUrl
           }
           if (item.fileType == 'Dokumen Surat Menyurat') {
             this.fileDetails.DokumenSuratMenyurat.fileName = item.fileName;
             this.fileDetails.DokumenSuratMenyurat.fileSize = item.fileSize;
-            this.fileDetails.DokumenSuratMenyurat.linkDownload = `${baseURL}/download/file/${item.id}`
+            this.fileDetails.DokumenSuratMenyurat.linkDownload = item.fileUrl
           }
           if (item.fileType == 'Proposal Mitra') {
             this.fileDetails.ProposalMitra.fileName = item.fileName;
             this.fileDetails.ProposalMitra.fileSize = item.fileSize;
-            this.fileDetails.ProposalMitra.linkDownload = `${baseURL}/download/file/${item.id}`
+            this.fileDetails.ProposalMitra.linkDownload = item.fileUrl
           }
           if (item.fileType == 'Dokumen Lainnya') {
             this.fileDetails.DokumenLainnya.fileName = item.fileName;
             this.fileDetails.DokumenLainnya.fileSize = item.fileSize;
-            this.fileDetails.DokumenLainnya.linkDownload = `${baseURL}/download/file/${item.id}`
+            this.fileDetails.DokumenLainnya.linkDownload = item.fileUrl
           }
           if (item.fileType == 'Surat Penawaran') {
             this.fileName1 = item.fileName;
             this.fileSize1 = item.fileSize;
-            this.linkDownloadFile1 = `${baseURL}/download/file/${item.id}`;
+            this.linkDownloadFile1 = item.fileUrl;
           }
           if (item.fileType == 'Proposal') {
             this.fileName2 = item.fileName;
             this.fileSize2 = item.fileSize;
-            this.linkDownloadFile2 = `${baseURL}/download/file/${item.id}`;
+            this.linkDownloadFile2 = item.fileUrl;
           }
           if (item.fileType == 'Evaluasi') {
             this.fileName3 = item.fileName;
             this.fileSize3 = item.fileSize;
-            this.linkDownloadFile3 = `${baseURL}/download/file/${item.id}`;
+            this.linkDownloadFile3 = item.fileUrl;
           }
           if (item.fileType == 'Negosiasi') {
             this.fileName4 = item.fileName;
             this.fileSize4 = item.fileSize;
-            this.linkDownloadFile4 = `${baseURL}/download/file/${item.id}`;
+            this.linkDownloadFile4 = item.fileUrl;
           }
           if (item.fileType == 'BAK Pemilihan Mitra') {
             this.fileName5 = item.fileName;
             this.fileSize5 = item.fileSize;
-            this.linkDownloadFile5 = `${baseURL}/download/file/${item.id}`;
+            this.linkDownloadFile5 = item.fileUrl;
           }
           if (item.fileType == 'Surat Pesanan') {
             this.fileName6 = item.fileName;
             this.fileSize6 = item.fileSize;
-            this.linkDownloadFile6 = `${baseURL}/download/file/${item.id}`;
+            this.linkDownloadFile6 = item.fileUrl;
           }
 
           if (item.fileType == "Draft PKS") {
             this.fileName7 = item.fileName;
             this.fileSize7 = item.fileSize;
-            this.linkDownloadFile7 = `${baseURL}/download/file/${item.id}`;
+            this.linkDownloadFile7 = item.fileUrl;
           }
           if (item.fileType == "Review User") {
             this.fileName8 = item.fileName;
             this.fileSize8 = item.fileSize;
-            this.linkDownloadFile8 = `${baseURL}/download/file/${item.id}`;
+            this.linkDownloadFile8 = item.fileUrl;
           }
           if (item.fileType == "Review Legal") {
             this.fileName9 = item.fileName;
             this.fileSize9 = item.fileSize;
-            this.linkDownloadFile9 = `${baseURL}/download/file/${item.id}`;
+            this.linkDownloadFile9 = item.fileUrl;
           }
           if (item.fileType == "Review Mitra") {
             this.fileName10 = item.fileName;
             this.fileSize10 = item.fileSize;
-            this.linkDownloadFile10 = `${baseURL}/download/file/${item.id}`;
+            this.linkDownloadFile10 = item.fileUrl;
           }
 
           if (item.fileType == 'PKS') {
             this.fileName11 = item.fileName;
             this.fileSize11 = item.fileSize;
-            this.linkDownloadFile11 = `${baseURL}/download/file/${item.id}`;
+            this.linkDownloadFile11 = item.fileUrl;
           }
           if (res.data.officialUndersign) {
           const choosenStaff = res1.data.find(item => item.fullName == res.data.officialUndersign);
@@ -3612,7 +3642,6 @@ export default {
         })
         this.progressKemitraan = mapperStatus(res.data.positionLevel, res.data.status, res.data.attachmentsPks, res.data.isStopClock)[0];
         this.isLoading = false;
-        console.log(res.data);
       } else {
         this.isLoading = false;
         this.modalFailed = {
@@ -3632,11 +3661,10 @@ export default {
       form.append('endContractDate', this.jangkaWaktuPerjanjian)
       
       // Display the values
-      for (var pair of form.entries()) {
-        console.log(pair[0] + ', ' + pair[1]);
-      }
+      // for (var pair of form.entries()) {
+      //   console.log(pair[0] + ', ' + pair[1]);
+      // }
       const res = await fetchPostForm(`mitra/manager/pks/proses/${this.id}`, null, form, this.$router);
-      console.log(res.data)
       if (res.status == 200) {
         this.isLoading = false;
         successFunction();

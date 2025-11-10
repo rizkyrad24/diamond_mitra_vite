@@ -448,7 +448,7 @@
           >
             Edit User
           </button>
-          <button
+          <!-- <button
             v-if="formType == 3"
             :class="{
               'bg-[#2671D9] hover:bg-[#1E5BB7] text-[#FFFFFF]': isSendResetPasswordAvaible,
@@ -459,7 +459,7 @@
             @click="SendResetPassword"
           >
             Reset Password
-          </button>
+          </button> -->
         </div>
       </div>
     </div>
@@ -624,12 +624,12 @@
           </div>
         </div>
       </div>
-      <button
+      <!-- <button
         class="bg-[#2671D9] hover:bg-[#1E5BB7] text-[#FFFFFF] py-2 px-4 me-6 flex justify-center justify-self-end rounded-lg border-[1px] text-[12px] text-center font-sans font-semibold"
         @click="showFormCreate"
       >
         Tambah User
-      </button>
+      </button> -->
       <div class="flex">
         <div class="flex w-[1046px] rounded-lg bg-[#FFFFFF] border-[1px] border-[#E5E7E9] mt-4 ml-4 mr-4 overflow-auto">
           <table class="table-auto w-full text-left border-collapse border border-[#E5E7E9]">
@@ -881,35 +881,65 @@
                 :key="`${index}-${item.username}`"
                 class="bg-[#FFFFFF] border border-[#E5E7E9] text-[12px] text-[#4D5E80] font-sans font-semibold"
               >
-                <td class="p-2 py-4 border border-[#E5E7E9]">
+                <td 
+                  class="p-2 py-4 border border-[#E5E7E9]" 
+                  :class="item.isBlock ? 'text-red-500' : ''"
+                >
                   {{ (currentPage - 1) * selectedValue +
                     index + 1 }}
                 </td>
-                <td class="p-2 py-4 border border-[#E5E7E9]">
+                <td 
+                  class="p-2 py-4 border border-[#E5E7E9]" 
+                  :class="item.isBlock ? 'text-red-500' : ''"
+                >
                   {{ item.username }}
                 </td>
-                <td class="p-2 py-4 border border-[#E5E7E9]">
+                <td 
+                  class="p-2 py-4 border border-[#E5E7E9]" 
+                  :class="item.isBlock ? 'text-red-500' : ''"
+                >
                   {{ item.first_name }}
                 </td>
-                <td class="p-2 py-4 border border-[#E5E7E9]">
+                <td 
+                  class="p-2 py-4 border border-[#E5E7E9]" 
+                  :class="item.isBlock ? 'text-red-500' : ''"
+                >
                   {{ item.last_name }}
                 </td>
-                <td class="p-2 py-4 border border-[#E5E7E9]">
+                <td 
+                  class="p-2 py-4 border border-[#E5E7E9]" 
+                  :class="item.isBlock ? 'text-red-500' : ''"
+                >
                   {{ item.title }}
                 </td>
-                <td class="p-2 py-4 border border-[#E5E7E9]">
+                <td 
+                  class="p-2 py-4 border border-[#E5E7E9]" 
+                  :class="item.isBlock ? 'text-red-500' : ''"
+                >
                   {{ showDepartement(item) }}
                 </td>
-                <td class="p-2 py-4 border border-[#E5E7E9]">
+                <td 
+                  class="p-2 py-4 border border-[#E5E7E9]" 
+                  :class="item.isBlock ? 'text-red-500' : ''"
+                >
                   {{ item.email }}
                 </td>
-                <td class="p-2 py-4 border border-[#E5E7E9]">
+                <td 
+                  class="p-2 py-4 border border-[#E5E7E9]" 
+                  :class="item.isBlock ? 'text-red-500' : ''"
+                >
                   {{ item.role }}
                 </td>
-                <td class="p-2 py-4 border border-[#E5E7E9]">
+                <td 
+                  class="p-2 py-4 border border-[#E5E7E9]" 
+                  :class="item.isBlock ? 'text-red-500' : ''"
+                >
                   {{ item.role2 }}
                 </td>
-                <td class="p-2 py-4 border border-[#E5E7E9]">
+                <td 
+                  class="p-2 py-4 border border-[#E5E7E9]" 
+                  :class="item.isBlock ? 'text-red-500' : ''"
+                >
                   {{ item.bisnis_type }}
                 </td>
                 <td class="p-2 py-4 border border-[#E5E7E9] relative">
@@ -943,12 +973,19 @@
                       Edit
                     </button>
                     <button
+                      v-if="item.isBlock"
+                      class="block w-full flex-grow px-4 py-2 text-[14px] font-sans font-normal text-[#333333] text-left hover:bg-[#DBEAFE]"
+                      @click="SendUnblockUser(item.id)"
+                    >
+                      Unblock
+                    </button>
+                    <!-- <button
                       v-if="item.loginType != 'SSO'"
                       class="block w-full flex-grow px-4 py-2 text-[14px] font-sans font-normal text-[#333333] text-left hover:bg-[#DBEAFE]"
                       @click="showFormResetPassword(item)"
                     >
                       Reset Password
-                    </button>
+                    </button> -->
                     <button
                       class="block w-full flex-grow px-4 py-2 text-[14px] font-sans font-normal text-[#333333] text-left hover:bg-[#DBEAFE]"
                       @click="SendDeleteUser(item.id)"
@@ -1009,7 +1046,7 @@
 </template>
 
 <script>
-import { fetchGet, fetchPostForm, fetchPutForm, fetchDelete } from '@/api/apiFunction';
+import { fetchGet, fetchPostForm, fetchPutForm, fetchDelete, fetchPut } from '@/api/apiFunction';
 import Loading from '../loading.vue';
 import ModalFailed from '../modalfailed.vue';
 import ModalSuccess from '../modalsuccess.vue';
@@ -1226,15 +1263,12 @@ export default {
     },
     handleSelectionChangeDirektorat(option) {
       this.direktorat = option;
-      console.log("Selected Option:", option);
     },
     handleSelectionChangeBidang(option) {
       this.bidang = option;
-      console.log("Selected Option:", option);
     },
     handleSelectionChangeSubBidang(option) {
       this.subBidang = option;
-      console.log("Selected Option:", option);
     },
     clearFormData() {
       this.userId = null;
@@ -1260,11 +1294,11 @@ export default {
       this.showFormPopup = false;
       this.clearFormData();
     },
-    showFormCreate() {
-      this.clearFormData();
-      this.formType = 1;
-      this.showFormPopup = true;
-    },
+    // showFormCreate() {
+    //   this.clearFormData();
+    //   this.formType = 1;
+    //   this.showFormPopup = true;
+    // },
     showFormEdit(data) {
       this.actionDropdownIndex = null;
       this.userId = data.id;
@@ -1348,7 +1382,6 @@ export default {
     updateDate(event) {
       this.selectedDate = event.target.value;
       this.hideDatePicker();
-      console.log(this.selectedDate);
     },
     hideDatePicker() {
       this.showDatePicker = false;
@@ -1415,43 +1448,43 @@ export default {
     },
 
     // Popup Create
-    SendCreateUser() {
-      this.modalDialog = {
-        isVisible: true,
-        title: 'Konfirmasi',
-        message: 'Apakan anda yakin dengan data yang anda masukan',
-        okFunction: this.openCreateUser,
-        closeFunction: this.closeCreateUser
-      }
-    },
-    openCreateUser() {
-      this.closeModalDialog();
-      this.postCreateUser(this.successCreateUser, this.failCreateUser);
-    },
-    closeCreateUser() {
-      this.closeModalDialog()
-    },
-    successCreateUser() {
-      this.modalSuccess = {
-        isVisible: true,
-        title: 'Berhasil',
-        message: 'Berhasil membuat user baru',
-        closeFunction: this.closeSelesaiCreateUser
-      }
-    },
-    failCreateUser(data) {
-      this.modalFailed = {
-        isVisible: true,
-        title: 'Gagal',
-        message: data?.message ? data.message : "Silahkan hubungi admin"
-      }
-    },
-    closeSelesaiCreateUser() {
-      this.showFormPopup = false;
-      this.clearFormData();
-      this.closeModalSuccess();
-      this.getDataApi()
-    },
+    // SendCreateUser() {
+    //   this.modalDialog = {
+    //     isVisible: true,
+    //     title: 'Konfirmasi',
+    //     message: 'Apakan anda yakin dengan data yang anda masukan',
+    //     okFunction: this.openCreateUser,
+    //     closeFunction: this.closeCreateUser
+    //   }
+    // },
+    // openCreateUser() {
+    //   this.closeModalDialog();
+    //   this.postCreateUser(this.successCreateUser, this.failCreateUser);
+    // },
+    // closeCreateUser() {
+    //   this.closeModalDialog()
+    // },
+    // successCreateUser() {
+    //   this.modalSuccess = {
+    //     isVisible: true,
+    //     title: 'Berhasil',
+    //     message: 'Berhasil membuat user baru',
+    //     closeFunction: this.closeSelesaiCreateUser
+    //   }
+    // },
+    // failCreateUser(data) {
+    //   this.modalFailed = {
+    //     isVisible: true,
+    //     title: 'Gagal',
+    //     message: data?.message ? data.message : "Silahkan hubungi admin"
+    //   }
+    // },
+    // closeSelesaiCreateUser() {
+    //   this.showFormPopup = false;
+    //   this.clearFormData();
+    //   this.closeModalSuccess();
+    //   this.getDataApi()
+    // },
 
     // Popup Edit
     SendEditUser() {
@@ -1493,43 +1526,43 @@ export default {
     },
 
     // Popup Reset Passowrd
-    SendResetPassword() {
-      this.modalDialog = {
-        isVisible: true,
-        title: 'Konfirmasi',
-        message: 'Apakan anda yakin dengan data yang anda masukan',
-        okFunction: this.openResetPassword,
-        closeFunction: this.closeResetPassword
-      }
-    },
-    openResetPassword() {
-      this.closeModalDialog();
-      this.postResetPassword(this.successResetPassword, this.failResetPassword);
-    },
-    closeResetPassword() {
-      this.closeModalDialog()
-    },
-    successResetPassword() {
-      this.modalSuccess = {
-        isVisible: true,
-        title: 'Berhasil',
-        message: 'Berhasil reset password',
-        closeFunction: this.closeSelesaiResetPassword
-      }
-    },
-    failResetPassword(data) {
-      this.modalFailed = {
-        isVisible: true,
-        title: 'Gagal',
-        message: data?.message ? data.message : "Silahkan hubungi admin"
-      }
-    },
-    closeSelesaiResetPassword() {
-      this.showFormPopup = false;
-      this.clearFormData();
-      this.closeModalSuccess();
-      this.getDataApi()
-    },
+    // SendResetPassword() {
+    //   this.modalDialog = {
+    //     isVisible: true,
+    //     title: 'Konfirmasi',
+    //     message: 'Apakan anda yakin dengan data yang anda masukan',
+    //     okFunction: this.openResetPassword,
+    //     closeFunction: this.closeResetPassword
+    //   }
+    // },
+    // openResetPassword() {
+    //   this.closeModalDialog();
+    //   this.postResetPassword(this.successResetPassword, this.failResetPassword);
+    // },
+    // closeResetPassword() {
+    //   this.closeModalDialog()
+    // },
+    // successResetPassword() {
+    //   this.modalSuccess = {
+    //     isVisible: true,
+    //     title: 'Berhasil',
+    //     message: 'Berhasil reset password',
+    //     closeFunction: this.closeSelesaiResetPassword
+    //   }
+    // },
+    // failResetPassword(data) {
+    //   this.modalFailed = {
+    //     isVisible: true,
+    //     title: 'Gagal',
+    //     message: data?.message ? data.message : "Silahkan hubungi admin"
+    //   }
+    // },
+    // closeSelesaiResetPassword() {
+    //   this.showFormPopup = false;
+    //   this.clearFormData();
+    //   this.closeModalSuccess();
+    //   this.getDataApi()
+    // },
 
     // Popup Delete User
     SendDeleteUser(id) {
@@ -1571,6 +1604,46 @@ export default {
       this.getDataApi();
     },
 
+    // Popup Unblock User
+    SendUnblockUser(id) {
+      this.actionDropdownIndex = null;
+      this.userId = id
+      this.modalDialog = {
+        isVisible: true,
+        title: 'Konfirmasi',
+        message: 'Apakan anda yakin menghilangkan block user ini',
+        okFunction: this.openUnblockUser,
+        closeFunction: this.closeUnblockUser
+      }
+    },
+    openUnblockUser() {
+      this.closeModalDialog();
+      this.putUnblockUser(this.successUnblockUser, this.failUnblockUser);
+    },
+    closeUnblockUser() {
+      this.closeModalDialog()
+    },
+    successUnblockUser() {
+      this.modalSuccess = {
+        isVisible: true,
+        title: 'Berhasil',
+        message: 'Berhasil menghilangkan block user',
+        closeFunction: this.closeSelesaiUnblockUser
+      }
+    },
+    failUnblockUser(data) {
+      this.modalFailed = {
+        isVisible: true,
+        title: 'Gagal',
+        message: data?.message ? data.message : "Silahkan hubungi admin"
+      }
+    },
+    closeSelesaiUnblockUser() {
+      this.clearFormData();
+      this.closeModalSuccess();
+      this.getDataApi();
+    },
+
     // api
     async getDataApi() {
       this.isLoading = true;
@@ -1578,7 +1651,6 @@ export default {
       let params = null;
       const res = await fetchGet(url, params, this.$router);
       if (res.status == 200) {
-        console.log(res.data)
         const cleanData = res.data.map((item) => ({
           id: item.id,
           username: item.username,
@@ -1595,6 +1667,7 @@ export default {
           direktorat: item.direktorat,
           bidang: item.bidang,
           subBidang: item.subBidang,
+          isBlock: item.isBlock
         }))
         this.tableData = cleanData;
         this.isLoading = false;
@@ -1607,47 +1680,46 @@ export default {
         }
       }
     },
-    async postCreateUser(successFunction, failFunction) {
-      this.isLoading = true;
-      const form = new FormData()
-      form.append('username', this.username);
-      form.append('firstName', this.firstName);
-      form.append('lastName', this.lastName);
-      form.append('email', this.email);
-      form.append('title', this.title);
-      form.append('department', this.department);
-      form.append('role', this.role);
-      if (this.role2 != "") {
-        form.append('role2', this.role2);
-      }
-      if (this.bisnisType != "") {
-        form.append('bisnisType', this.bisnisType);
-      }
-      form.append('password', this.password);
-      form.append('rePassword', this.rePassword);
-      if (this.direktorat) {
-        form.append('direktoratId', this.direktorat.value)
-      }
-      if (this.bidang) {
-        form.append('bidangId', this.bidang.value)
-      }
-      if (this.subBidang) {
-        form.append('subBidangId', this.subBidang.value)
-      }
-      // Display the values
-      for (var pair of form.entries()) {
-        console.log(pair[0] + ', ' + pair[1]);
-      }
-      const res = await fetchPostForm('account/register', null, form, this.$router);
-      console.log(res.data)
-      if (res.status == 200) {
-        this.isLoading = false;
-        successFunction();
-      } else {
-        this.isLoading = false;
-        failFunction(res.data);
-      }
-    },
+    // async postCreateUser(successFunction, failFunction) {
+    //   this.isLoading = true;
+    //   const form = new FormData()
+    //   form.append('username', this.username);
+    //   form.append('firstName', this.firstName);
+    //   form.append('lastName', this.lastName);
+    //   form.append('email', this.email);
+    //   form.append('title', this.title);
+    //   form.append('department', this.department);
+    //   form.append('role', this.role);
+    //   if (this.role2 != "") {
+    //     form.append('role2', this.role2);
+    //   }
+    //   if (this.bisnisType != "") {
+    //     form.append('bisnisType', this.bisnisType);
+    //   }
+    //   form.append('password', this.password);
+    //   form.append('rePassword', this.rePassword);
+    //   if (this.direktorat) {
+    //     form.append('direktoratId', this.direktorat.value)
+    //   }
+    //   if (this.bidang) {
+    //     form.append('bidangId', this.bidang.value)
+    //   }
+    //   if (this.subBidang) {
+    //     form.append('subBidangId', this.subBidang.value)
+    //   }
+    //   // Display the values
+    //   for (var pair of form.entries()) {
+    //     console.log(pair[0] + ', ' + pair[1]);
+    //   }
+    //   const res = await fetchPostForm('account/register', null, form, this.$router);
+    //   if (res.status == 200) {
+    //     this.isLoading = false;
+    //     successFunction();
+    //   } else {
+    //     this.isLoading = false;
+    //     failFunction(res.data);
+    //   }
+    // },
     async postEditUser(successFunction, failFunction) {
       this.isLoading = true;
       const form = new FormData()
@@ -1673,11 +1745,10 @@ export default {
         form.append('bisnisType', this.bisnisType);
       }
       // Display the values
-      for (var pair of form.entries()) {
-        console.log(pair[0] + ', ' + pair[1]);
-      }
+      // for (var pair of form.entries()) {
+      //   console.log(pair[0] + ', ' + pair[1]);
+      // }
       const res = await fetchPutForm(`account/update/${this.userId}`, null, form, this.$router);
-      console.log(res.data)
       if (res.status == 200) {
         this.isLoading = false;
         successFunction();
@@ -1686,29 +1757,38 @@ export default {
         failFunction();
       }
     },
-    async postResetPassword(successFunction, failFunction) {
-      this.isLoading = true;
-      const form = new FormData()
-      form.append('password', this.password);
-      form.append('rePassword', this.rePassword);
-      // Display the values
-      for (var pair of form.entries()) {
-        console.log(pair[0] + ', ' + pair[1]);
-      }
-      const res = await fetchPostForm(`account/reset-password/${this.userId}`, null, form, this.$router);
-      console.log(res.data)
-      if (res.status == 200) {
-        this.isLoading = false;
-        successFunction();
-      } else {
-        this.isLoading = false;
-        failFunction();
-      }
-    },
+    // async postResetPassword(successFunction, failFunction) {
+    //   this.isLoading = true;
+    //   const form = new FormData()
+    //   form.append('password', this.password);
+    //   form.append('rePassword', this.rePassword);
+    //   // Display the values
+    //   for (var pair of form.entries()) {
+    //     console.log(pair[0] + ', ' + pair[1]);
+    //   }
+    //   const res = await fetchPostForm(`account/reset-password/${this.userId}`, null, form, this.$router);
+    //   if (res.status == 200) {
+    //     this.isLoading = false;
+    //     successFunction();
+    //   } else {
+    //     this.isLoading = false;
+    //     failFunction();
+    //   }
+    // },
     async postDeleteUser(successFunction, failFunction) {
       this.isLoading = true;
       const res = await fetchDelete(`account/delete/${this.userId}`, null, this.$router);
-      console.log(res.data)
+      if (res.status == 200) {
+        this.isLoading = false;
+        successFunction();
+      } else {
+        this.isLoading = false;
+        failFunction();
+      }
+    },
+    async putUnblockUser(successFunction, failFunction) {
+      this.isLoading = true;
+      const res = await fetchPut(`account/unblock/${this.userId}`, null, null, this.$router);
       if (res.status == 200) {
         this.isLoading = false;
         successFunction();
@@ -1728,7 +1808,6 @@ export default {
           label: item.name
         }))
         this.isLoading = false;
-        console.log(res.data, 'direktorat');
       } else {
         this.isLoading = false;
         this.modalFailed = {
@@ -1749,7 +1828,6 @@ export default {
           label: item.name
         }))
         this.isLoading = false;
-        console.log(res.data, 'bidang');
       } else {
         this.isLoading = false;
         this.modalFailed = {
@@ -1770,7 +1848,6 @@ export default {
           label: item.name
         }))
         this.isLoading = false;
-        console.log(res.data, 'sub bidang');
       } else {
         this.isLoading = false;
         this.modalFailed = {

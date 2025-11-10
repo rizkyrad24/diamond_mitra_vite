@@ -5,6 +5,8 @@ import ModalSuccess from '../modalsuccess.vue';
 import ModalDialog from '../modaldialog.vue';
 import SelectSearch from '../SelectSearch/SelectSearch.vue';
 import { dateParsing, dueDateParsing } from '@/utils/helper';
+import { downloadFile } from '@/api/apiFunction';
+import router from '@/router';
 </script>
 
 <template>
@@ -2398,11 +2400,13 @@ import { dateParsing, dueDateParsing } from '@/utils/helper';
                   KKB
                 </h1>
                 <span class="text-[#FF5656] font-bold ml-1">*</span>
-                <a
+                <button
                   v-if="fileDetails.KKB.linkDownload"
-                  :href="fileDetails.KKB?.linkDownload"
                   class="text-sm text-blue-700 italic ms-2"
-                >download</a>
+                  @click="downloadFile(fileDetails.KKB.linkDownload, fileDetails.KKB.fileName, router)"
+                >
+                  download
+                </button>
               </div>
               <div class="w-full h-[69px] bg-[#FFFFFF] border-[#E5E7E9] border-[1px] rounded-lg mt-2 flex items-center justify-center">
                 <div class="flex items-center p-4 bg-[#FFFFFF] border border-[#E5E7E9] rounded-lg w-full">
@@ -2448,11 +2452,13 @@ import { dateParsing, dueDateParsing } from '@/utils/helper';
                   KKR
                 </h1>
                 <span class="text-[#FF5656] font-bold ml-1">*</span>
-                <a
+                <button
                   v-if="fileDetails.KKR.linkDownload"
-                  :href="fileDetails.KKR?.linkDownload"
                   class="text-sm text-blue-700 italic ms-2"
-                >download</a>
+                  @click="downloadFile(fileDetails.KKR.linkDownload, fileDetails.KKR.fileName, router)"
+                >
+                  download
+                </button>
               </div>
               <div class="w-full h-[69px] bg-[#FFFFFF] border-[#E5E7E9] border-[1px] rounded-lg mt-2 flex items-center justify-center">
                 <div class="flex items-center p-4 bg-[#FFFFFF] border border-[#E5E7E9] rounded-lg w-full">
@@ -2498,11 +2504,13 @@ import { dateParsing, dueDateParsing } from '@/utils/helper';
                   KKF
                 </h1>
                 <span class="text-[#FF5656] font-bold ml-1">*</span>
-                <a
+                <button
                   v-if="fileDetails.KKF.linkDownload"
-                  :href="fileDetails.KKF?.linkDownload"
                   class="text-sm text-blue-700 italic ms-2"
-                >download</a>
+                  @click="downloadFile(fileDetails.KKF.linkDownload, fileDetails.KKF.fileName, router)"
+                >
+                  download
+                </button>
               </div>
               <div class="w-full h-[69px] bg-[#FFFFFF] border-[#E5E7E9] border-[1px] rounded-lg mt-2 flex items-center justify-center">
                 <div class="flex items-center p-4 bg-[#FFFFFF] border border-[#E5E7E9] rounded-lg w-full">
@@ -2548,11 +2556,13 @@ import { dateParsing, dueDateParsing } from '@/utils/helper';
                   KKO
                 </h1>
                 <span class="text-[#FF5656] font-bold ml-1">*</span>
-                <a
+                <button
                   v-if="fileDetails.KKO.linkDownload"
-                  :href="fileDetails.KKO?.linkDownload"
                   class="text-sm text-blue-700 italic ms-2"
-                >download</a>
+                  @click="downloadFile(fileDetails.KKO.linkDownload, fileDetails.KKO.fileName, router)"
+                >
+                  download
+                </button>
               </div>
               <div class="w-full h-[69px] bg-[#FFFFFF] border-[#E5E7E9] border-[1px] rounded-lg mt-2 flex items-center justify-center">
                 <div class="flex items-center p-4 bg-[#FFFFFF] border border-[#E5E7E9] rounded-lg w-full">
@@ -2598,11 +2608,13 @@ import { dateParsing, dueDateParsing } from '@/utils/helper';
                   Proposal Mitra
                 </h1>
                 <span class="text-[#B3B3B3] font-sans text-[12px] font-light mt-1 ml-1">(Opsional)</span>
-                <a
+                <button
                   v-if="fileDetails.ProposalMitra.linkDownload"
-                  :href="fileDetails.ProposalMitra?.linkDownload"
                   class="text-sm text-blue-700 italic ms-2"
-                >download</a>
+                  @click="downloadFile(fileDetails.ProposalMitra.linkDownload, fileDetails.ProposalMitra.fileName, router)"
+                >
+                  download
+                </button>
               </div>
               <div class="w-full h-[69px] bg-[#FFFFFF] border-[#E5E7E9] border-[1px] rounded-lg mt-2 flex items-center justify-center">
                 <div class="flex items-center p-4 bg-[#FFFFFF] border border-[#E5E7E9] rounded-lg w-full">
@@ -2648,11 +2660,13 @@ import { dateParsing, dueDateParsing } from '@/utils/helper';
                   Dokumen Surat Menyurat
                 </h1>
                 <span class="text-[#B3B3B3] font-sans text-[12px] font-light mt-1 ml-1">(Opsional)</span>
-                <a
+                <button
                   v-if="fileDetails.DokumenSuratMenyurat.linkDownload"
-                  :href="fileDetails.DokumenSuratMenyurat?.linkDownload"
                   class="text-sm text-blue-700 italic ms-2"
-                >download</a>
+                  @click="downloadFile(fileDetails.DokumenSuratMenyurat.linkDownload, fileDetails.DokumenSuratMenyurat.fileName, router)"
+                >
+                  download
+                </button>
               </div>
               <div class="w-full h-[69px] bg-[#FFFFFF] border-[#E5E7E9] border-[1px] rounded-lg mt-2 flex items-center justify-center">
                 <div class="flex items-center p-4 bg-[#FFFFFF] border border-[#E5E7E9] rounded-lg w-full">
@@ -2698,11 +2712,13 @@ import { dateParsing, dueDateParsing } from '@/utils/helper';
                   Dokumen Lainnya
                 </h1>
                 <span class="text-[#B3B3B3] font-sans text-[12px] font-light mt-1 ml-1">(Opsional)</span>
-                <a
+                <button
                   v-if="fileDetails.DokumenLainnya.linkDownload"
-                  :href="fileDetails.DokumenLainnya?.linkDownload"
                   class="text-sm text-blue-700 italic ms-2"
-                >download</a>
+                  @click="downloadFile(fileDetails.DokumenLainnya.linkDownload, fileDetails.DokumenLainnya.fileName, router)"
+                >
+                  download
+                </button>
               </div>
               <div class="w-full h-[69px] bg-[#FFFFFF] border-[#E5E7E9] border-[1px] rounded-lg mt-2 flex items-center justify-center">
                 <div class="flex items-center p-4 bg-[#FFFFFF] border border-[#E5E7E9] rounded-lg w-full">
@@ -2780,11 +2796,13 @@ import { dateParsing, dueDateParsing } from '@/utils/helper';
                 <h1 class="font-sans text-[#4D5E80] text-[16px] font-semibold">
                   Surat Penawaran
                 </h1>
-                <a
+                <button
                   v-if="linkDownloadFile1"
-                  :href="linkDownloadFile1"
                   class="text-sm text-blue-700 italic ms-2"
-                >download</a>
+                  @click="downloadFile(linkDownloadFile1, fileName1, router)"
+                >
+                  download
+                </button>
               </div>
               <div class="w-full h-[69px] bg-[#FFFFFF] border-[#E5E7E9] border-[1px] rounded-lg mt-2 flex items-center justify-center">
                 <div class="flex items-center p-4 bg-[#FFFFFF] border border-[#E5E7E9] rounded-lg w-full">
@@ -2836,11 +2854,13 @@ import { dateParsing, dueDateParsing } from '@/utils/helper';
                 <h1 class="font-sans text-[#4D5E80] text-[16px] font-semibold">
                   Proposal
                 </h1>
-                <a
+                <button
                   v-if="linkDownloadFile2"
-                  :href="linkDownloadFile2"
                   class="text-sm text-blue-700 italic ms-2"
-                >download</a>
+                  @click="downloadFile(linkDownloadFile2, fileName2, router)"
+                >
+                  download
+                </button>
               </div>
               <div class="w-full h-[69px] bg-[#FFFFFF] border-[#E5E7E9] border-[1px] rounded-lg mt-2 flex items-center justify-center">
                 <div class="flex items-center p-4 bg-[#FFFFFF] border border-[#E5E7E9] rounded-lg w-full">
@@ -2892,11 +2912,13 @@ import { dateParsing, dueDateParsing } from '@/utils/helper';
                 <h1 class="font-sans text-[#4D5E80] text-[16px] font-semibold">
                   Evaluasi
                 </h1>
-                <a
+                <button
                   v-if="linkDownloadFile3"
-                  :href="linkDownloadFile3"
                   class="text-sm text-blue-700 italic ms-2"
-                >download</a>
+                  @click="downloadFile(linkDownloadFile3, fileName3, router)"
+                >
+                  download
+                </button>
               </div>
               <div class="w-full h-[69px] bg-[#FFFFFF] border-[#E5E7E9] border-[1px] rounded-lg mt-2 flex items-center justify-center">
                 <div class="flex items-center p-4 bg-[#FFFFFF] border border-[#E5E7E9] rounded-lg w-full">
@@ -2948,11 +2970,13 @@ import { dateParsing, dueDateParsing } from '@/utils/helper';
                 <h1 class="font-sans text-[#4D5E80] text-[16px] font-semibold">
                   Negosiasi
                 </h1>
-                <a
+                <button
                   v-if="linkDownloadFile4"
-                  :href="linkDownloadFile4"
                   class="text-sm text-blue-700 italic ms-2"
-                >download</a>
+                  @click="downloadFile(linkDownloadFile4, fileName4, router)"
+                >
+                  download
+                </button>
               </div>
               <div class="w-full h-[69px] bg-[#FFFFFF] border-[#E5E7E9] border-[1px] rounded-lg mt-2 flex items-center justify-center">
                 <div class="flex items-center p-4 bg-[#FFFFFF] border border-[#E5E7E9] rounded-lg w-full">
@@ -3002,11 +3026,13 @@ import { dateParsing, dueDateParsing } from '@/utils/helper';
                 <h1 class="font-sans text-[#4D5E80] text-[16px] font-semibold">
                   BAK Pemilihan Mitra
                 </h1>
-                <a
+                <button
                   v-if="linkDownloadFile5"
-                  :href="linkDownloadFile5"
                   class="text-sm text-blue-700 italic ms-2"
-                >download</a>
+                  @click="downloadFile(linkDownloadFile5, fileName5, router)"
+                >
+                  download
+                </button>
               </div>
               <div class="w-full h-[69px] bg-[#FFFFFF] border-[#E5E7E9] border-[1px] rounded-lg mt-2 flex items-center justify-center">
                 <div class="flex items-center p-4 bg-[#FFFFFF] border border-[#E5E7E9] rounded-lg w-full">
@@ -3056,11 +3082,13 @@ import { dateParsing, dueDateParsing } from '@/utils/helper';
                 <h1 class="font-sans text-[#4D5E80] text-[16px] font-semibold">
                   Surat Pesanan
                 </h1>
-                <a
+                <button
                   v-if="linkDownloadFile6"
-                  :href="linkDownloadFile6"
                   class="text-sm text-blue-700 italic ms-2"
-                >download</a>
+                  @click="downloadFile(linkDownloadFile6, fileName6, router)"
+                >
+                  download
+                </button>
               </div>
               <div class="w-full h-[69px] bg-[#FFFFFF] border-[#E5E7E9] border-[1px] rounded-lg mt-2 flex items-center justify-center">
                 <div class="flex items-center p-4 bg-[#FFFFFF] border border-[#E5E7E9] rounded-lg w-full">
@@ -3111,11 +3139,13 @@ import { dateParsing, dueDateParsing } from '@/utils/helper';
                 <h1 class="font-sans text-[#4D5E80] text-[16px] font-semibold">
                   Draft PKS
                 </h1>
-                <a
+                <button
                   v-if="linkDownloadFile7"
-                  :href="linkDownloadFile7"
                   class="text-sm text-blue-700 italic ms-2"
-                >download</a>
+                  @click="downloadFile(linkDownloadFile7, fileName7, router)"
+                >
+                  download
+                </button>
               </div>
               <div class="w-full h-[69px] bg-[#FFFFFF] border-[#E5E7E9] border-[1px] rounded-lg mt-2 flex items-center justify-center">
                 <div class="flex items-center p-4 bg-[#FFFFFF] border border-[#E5E7E9] rounded-lg w-full">
@@ -3168,11 +3198,13 @@ import { dateParsing, dueDateParsing } from '@/utils/helper';
                 <h1 class="font-sans text-[#4D5E80] text-[16px] font-semibold">
                   Review User
                 </h1>
-                <a
+                <button
                   v-if="linkDownloadFile8"
-                  :href="linkDownloadFile8"
                   class="text-sm text-blue-700 italic ms-2"
-                >download</a>
+                  @click="downloadFile(linkDownloadFile8, fileName8, router)"
+                >
+                  download
+                </button>
               </div>
               <div class="w-full h-[69px] bg-[#FFFFFF] border-[#E5E7E9] border-[1px] rounded-lg mt-2 flex items-center justify-center">
                 <div class="flex items-center p-4 bg-[#FFFFFF] border border-[#E5E7E9] rounded-lg w-full">
@@ -3225,11 +3257,13 @@ import { dateParsing, dueDateParsing } from '@/utils/helper';
                 <h1 class="font-sans text-[#4D5E80] text-[16px] font-semibold">
                   Review Legal
                 </h1>
-                <a
+                <button
                   v-if="linkDownloadFile9"
-                  :href="linkDownloadFile9"
                   class="text-sm text-blue-700 italic ms-2"
-                >download</a>
+                  @click="downloadFile(linkDownloadFile9, fileName9, router)"
+                >
+                  download
+                </button>
               </div>
               <div class="w-full h-[69px] bg-[#FFFFFF] border-[#E5E7E9] border-[1px] rounded-lg mt-2 flex items-center justify-center">
                 <div class="flex items-center p-4 bg-[#FFFFFF] border border-[#E5E7E9] rounded-lg w-full">
@@ -3282,11 +3316,13 @@ import { dateParsing, dueDateParsing } from '@/utils/helper';
                 <h1 class="font-sans text-[#4D5E80] text-[16px] font-semibold">
                   Review Mitra
                 </h1>
-                <a
+                <button
                   v-if="linkDownloadFile10"
-                  :href="linkDownloadFile10"
                   class="text-sm text-blue-700 italic ms-2"
-                >download</a>
+                  @click="downloadFile(linkDownloadFile10, fileName10, router)"
+                >
+                  download
+                </button>
               </div>
               <div class="w-full h-[69px] bg-[#FFFFFF] border-[#E5E7E9] border-[1px] rounded-lg mt-2 flex items-center justify-center">
                 <div class="flex items-center p-4 bg-[#FFFFFF] border border-[#E5E7E9] rounded-lg w-full">
@@ -3339,11 +3375,13 @@ import { dateParsing, dueDateParsing } from '@/utils/helper';
                 <h1 class="font-sans text-[#4D5E80] text-[16px] font-semibold">
                   PKS
                 </h1>
-                <a
+                <button
                   v-if="linkDownloadFile11"
-                  :href="linkDownloadFile11"
                   class="text-sm text-blue-700 italic ms-2"
-                >download</a>
+                  @click="downloadFile(linkDownloadFile11, fileName11, router)"
+                >
+                  download
+                </button>
               </div>
               <div class="w-full h-[69px] bg-[#FFFFFF] border-[#E5E7E9] border-[1px] rounded-lg mt-2 flex items-center justify-center">
                 <div class="flex items-center p-4 bg-[#FFFFFF] border border-[#E5E7E9] rounded-lg w-full">
@@ -4480,7 +4518,6 @@ export default {
           value: item.fullName,
           label: item.title
         }))
-        console.log(res1.data, 'functionary');
       } else {
         this.isLoading = false;
         return this.modalFailed = {
@@ -4504,49 +4541,49 @@ export default {
             this.fileDetails.KKB.fileSize = item.fileSize;
             this.fileDetails.KKB.fileId = item.id;
             this.fileDetails.KKB.file = null;
-            this.fileDetails.KKB.linkDownload = `${baseURL}/download/file/${item.id}`;
+            this.fileDetails.KKB.linkDownload = item.fileUrl;
           }
           if (item.fileType == 'KKR') {
             this.fileDetails.KKR.fileName = item.fileName;
             this.fileDetails.KKR.fileSize = item.fileSize;
             this.fileDetails.KKR.fileId = item.id;
             this.fileDetails.KKR.file = null;
-            this.fileDetails.KKR.linkDownload = `${baseURL}/download/file/${item.id}`;
+            this.fileDetails.KKR.linkDownload = item.fileUrl;
           }
           if (item.fileType == 'KKF') {
             this.fileDetails.KKF.fileName = item.fileName;
             this.fileDetails.KKF.fileSize = item.fileSize;
             this.fileDetails.KKF.fileId = item.id;
             this.fileDetails.KKF.file = null;
-            this.fileDetails.KKF.linkDownload = `${baseURL}/download/file/${item.id}`;
+            this.fileDetails.KKF.linkDownload = item.fileUrl;
           }
           if (item.fileType == 'KKO') {
             this.fileDetails.KKO.fileName = item.fileName;
             this.fileDetails.KKO.fileSize = item.fileSize;
             this.fileDetails.KKO.fileId = item.id;
             this.fileDetails.KKO.file = null;
-            this.fileDetails.KKO.linkDownload = `${baseURL}/download/file/${item.id}`;
+            this.fileDetails.KKO.linkDownload = item.fileUrl;
           }
           if (item.fileType == 'Dokumen Surat Menyurat') {
             this.fileDetails.DokumenSuratMenyurat.fileName = item.fileName;
             this.fileDetails.DokumenSuratMenyurat.fileSize = item.fileSize;
             this.fileDetails.DokumenSuratMenyurat.fileId = item.id;
             this.fileDetails.DokumenSuratMenyurat.file = null;
-            this.fileDetails.DokumenSuratMenyurat.linkDownload = `${baseURL}/download/file/${item.id}`;
+            this.fileDetails.DokumenSuratMenyurat.linkDownload = item.fileUrl;
           }
           if (item.fileType == 'Proposal Mitra') {
             this.fileDetails.ProposalMitra.fileName = item.fileName;
             this.fileDetails.ProposalMitra.fileSize = item.fileSize;
             this.fileDetails.ProposalMitra.fileId = item.id;
             this.fileDetails.ProposalMitra.file = null;
-            this.fileDetails.ProposalMitra.linkDownload = `${baseURL}/download/file/${item.id}`;
+            this.fileDetails.ProposalMitra.linkDownload = item.fileUrl;
           }
           if (item.fileType == 'Dokumen Lainnya') {
             this.fileDetails.DokumenLainnya.fileName = item.fileName;
             this.fileDetails.DokumenLainnya.fileSize = item.fileSize;
             this.fileDetails.DokumenLainnya.fileId = item.id;
             this.fileDetails.DokumenLainnya.file = null;
-            this.fileDetails.DokumenLainnya.linkDownload = `${baseURL}/download/file/${item.id}`;
+            this.fileDetails.DokumenLainnya.linkDownload = item.fileUrl;
           }
           if (item.fileType == 'Surat Penawaran') {
             this.fileName1 = item.fileName;
@@ -4554,7 +4591,7 @@ export default {
             this.fileId1 = item.id;
             this.file1 = null;
             this.fileUploaded1 = true;
-            this.linkDownloadFile1 = `${baseURL}/download/file/${item.id}`;
+            this.linkDownloadFile1 = item.fileUrl;
           }
           if (item.fileType == 'Proposal') {
             this.fileName2 = item.fileName;
@@ -4562,7 +4599,7 @@ export default {
             this.fileId2 = item.id;
             this.file2 = null;
             this.fileUploaded2 = true;
-            this.linkDownloadFile2 = `${baseURL}/download/file/${item.id}`;
+            this.linkDownloadFile2 = item.fileUrl;
           }
           if (item.fileType == 'Evaluasi') {
             this.fileName3 = item.fileName;
@@ -4570,7 +4607,7 @@ export default {
             this.fileId3 = item.id;
             this.file3 = null;
             this.fileUploaded3 = true;
-            this.linkDownloadFile3 = `${baseURL}/download/file/${item.id}`;
+            this.linkDownloadFile3 = item.fileUrl;
           }
           if (item.fileType == 'Negosiasi') {
             this.fileName4 = item.fileName;
@@ -4578,7 +4615,7 @@ export default {
             this.fileId4 = item.id;
             this.file4 = null;
             this.fileUploaded4 = true;
-            this.linkDownloadFile4 = `${baseURL}/download/file/${item.id}`;
+            this.linkDownloadFile4 = item.fileUrl;
           }
           if (item.fileType == 'BAK Pemilihan Mitra') {
             this.fileName5 = item.fileName;
@@ -4586,7 +4623,7 @@ export default {
             this.fileId5 = item.id;
             this.file5 = null;
             this.fileUploaded5 = true;
-            this.linkDownloadFile5 = `${baseURL}/download/file/${item.id}`;
+            this.linkDownloadFile5 = item.fileUrl;
           }
           if (item.fileType == 'Surat Pesanan') {
             this.fileName6 = item.fileName;
@@ -4594,7 +4631,7 @@ export default {
             this.fileId6 = item.id;
             this.file6 = null;
             this.fileUploaded6 = true;
-            this.linkDownloadFile6 = `${baseURL}/download/file/${item.id}`;
+            this.linkDownloadFile6 = item.fileUrl;
           }
 
           if (item.fileType == "Draft PKS") {
@@ -4648,7 +4685,7 @@ export default {
             this.fileId11 = item.id;
             this.file11 = null;
             this.fileUploaded11 = true;
-            this.linkDownloadFile11 = `${baseURL}/download/file/${item.id}`;
+            this.linkDownloadFile11 = item.fileUrl;
           }
         })
         if (res.data.officialUndersign) {
@@ -4671,7 +4708,6 @@ export default {
         }
         this.progressKemitraan = mapperStatus(res.data.positionLevel, res.data.status, res.data.attachmentsPks, res.data.isStopClock)[0];
         this.isLoading = false;
-        console.log(res.data);
       } else {
         this.isLoading = false;
         this.modalFailed = {
@@ -4691,11 +4727,10 @@ export default {
       form.append('approvalCompletionDate', this.selectedDateSelesai)
       form.append('endContractDate', this.jangkaWaktuPerjanjian)
       // Display the values
-      for (var pair of form.entries()) {
-        console.log(pair[0] + ', ' + pair[1]);
-      }
+      // for (var pair of form.entries()) {
+      //   console.log(pair[0] + ', ' + pair[1]);
+      // }
       const res = await fetchPostForm(`mitra/staff/pks/proses/${this.id}`, null, form, this.$router);
-      console.log(res.data)
       if (res.status == 200) {
         this.isLoading = false;
         successFunction();
@@ -4891,11 +4926,10 @@ export default {
         }
       }
       // Display the values
-      for (var pair of form.entries()) {
-        console.log(pair[0] + ', ' + pair[1]);
-      }
+      // for (var pair of form.entries()) {
+      //   console.log(pair[0] + ', ' + pair[1]);
+      // }
       const res = await fetchPostForm(`mitra/staff/pks/proses/${this.id}/req/files`, null, form, this.$router);
-      console.log(res.data)
       if (res.status == 201) {
         this.isLoading = false;
         successFunction();
@@ -4915,7 +4949,6 @@ export default {
         this.isSendRevisiMinor = false;
         this.isLoading = false;
         successFunction();
-        console.log(res.data)
       } else {
         this.isLoading = false;
         failFunction(res.data);
@@ -4927,11 +4960,10 @@ export default {
       form.append('approvalNote', this.approvalNote)
       form.append('responseText', this.responseText)
       // Display the values
-      for (var pair of form.entries()) {
-        console.log(pair[0] + ', ' + pair[1]);
-      }
+      // for (var pair of form.entries()) {
+      //   console.log(pair[0] + ', ' + pair[1]);
+      // }
       const res = await fetchPostForm(`mitra/staff/pks/proses/${this.id}/req/stop-clock`, null, form, this.$router);
-      console.log(res.data)
       if (res.status == 200) {
         this.isLoading = false;
         successFunction();
@@ -4946,11 +4978,10 @@ export default {
       form.append('approvalNote', this.approvalNote)
       form.append('responseText', this.responseText)
       // Display the values
-      for (var pair of form.entries()) {
-        console.log(pair[0] + ', ' + pair[1]);
-      }
+      // for (var pair of form.entries()) {
+      //   console.log(pair[0] + ', ' + pair[1]);
+      // }
       const res = await fetchPostForm(`mitra/staff/pks/proses/${this.id}/req/abort-stop-clock`, null, form, this.$router);
-      console.log(res.data)
       if (res.status == 200) {
         this.isLoading = false;
         successFunction();
@@ -4965,11 +4996,10 @@ export default {
       form.append('approvalNote', this.approvalNote)
       form.append('responseText', this.responseText)
       // Display the values
-      for (var pair of form.entries()) {
-        console.log(pair[0] + ', ' + pair[1]);
-      }
+      // for (var pair of form.entries()) {
+      //   console.log(pair[0] + ', ' + pair[1]);
+      // }
       const res = await fetchPostForm(`mitra/staff/pks/proses/${this.id}/req/start-clock`, null, form, this.$router);
-      console.log(res.data)
       if (res.status == 200) {
         this.isLoading = false;
         successFunction();
@@ -4984,11 +5014,10 @@ export default {
       form.append('approvalNote', this.approvalNote)
       form.append('responseText', this.responseText)
       // Display the values
-      for (var pair of form.entries()) {
-        console.log(pair[0] + ', ' + pair[1]);
-      }
+      // for (var pair of form.entries()) {
+      //   console.log(pair[0] + ', ' + pair[1]);
+      // }
       const res = await fetchPostForm(`mitra/staff/pks/proses/${this.id}/req/abort-start-clock`, null, form, this.$router);
-      console.log(res.data)
       if (res.status == 200) {
         this.isLoading = false;
         successFunction();

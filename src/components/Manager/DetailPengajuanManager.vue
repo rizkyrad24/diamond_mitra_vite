@@ -1,5 +1,7 @@
 <script setup>
 import { dateParsing } from '@/utils/helper';
+import router from '@/router';
+import { downloadFile } from '@/api/apiFunction';
 </script>
 
 <template>
@@ -736,10 +738,10 @@ import { dateParsing } from '@/utils/helper';
               <div class="px-6 mt-6 mb-4 flex justify-between">
                 <div>
                   <label class="text-[#4D5E80] font-semibold">KKB <span class="text-[#FF5656] text-xs">*</span></label>
-                  <a
+                  <div
                     v-if="fileNameKKB"
-                    :href="linkDownloadKKB"
-                    class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center"
+                    class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center cursor-pointer"
+                    @click="downloadFile(linkDownloadKKB, fileNameKKB, router)"
                   >
                     <svg
                       width="45"
@@ -764,7 +766,7 @@ import { dateParsing } from '@/utils/helper';
                       <span class="text-[#333333] text-sm font-semibold">{{ fileNameKKB }}</span>
                       <p class="text-[#9E9E9E] text-xs">{{ fileSizeKKB }}</p>
                     </div>
-                  </a>
+                  </div>
                   <div
                     v-else
                     class="w-[333px] h-auto"
@@ -774,10 +776,10 @@ import { dateParsing } from '@/utils/helper';
                 </div>
                 <div>
                   <label class="text-[#4D5E80] font-semibold">KKR <span class="text-[#FF5656] text-xs">*</span></label>
-                  <a
+                  <div
                     v-if="fileNameKKR"
-                    :href="linkDownloadKKR"
-                    class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center"
+                    class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center cursor-pointer"
+                    @click="downloadFile(linkDownloadKKR, fileNameKKR, router)"
                   >
                     <svg
                       width="45"
@@ -802,7 +804,7 @@ import { dateParsing } from '@/utils/helper';
                       <span class="text-[#333333] text-sm font-semibold">{{ fileNameKKR }}</span>
                       <p class="text-[#9E9E9E] text-xs">{{ fileSizeKKR }}</p>
                     </div>
-                  </a>
+                  </div>
                   <div
                     v-else
                     class="w-[333px] h-auto"
@@ -812,10 +814,10 @@ import { dateParsing } from '@/utils/helper';
                 </div>
                 <div>
                   <label class="text-[#4D5E80] font-semibold">KKF <span class="text-[#FF5656] text-xs">*</span></label>
-                  <a
+                  <div
                     v-if="fileNameKKF"
-                    :href="linkDownloadKKF"
-                    class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center"
+                    class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center cursor-pointer"
+                    @click="downloadFile(linkDownloadKKF, fileNameKKF, router)"
                   >
                     <svg
                       width="45"
@@ -840,7 +842,7 @@ import { dateParsing } from '@/utils/helper';
                       <span class="text-[#333333] text-sm font-semibold">{{ fileNameKKF }}</span>
                       <p class="text-[#9E9E9E] text-xs">{{ fileSizeKKF }}</p>
                     </div>
-                  </a>
+                  </div>
                   <div
                     v-else
                     class="w-[333px] h-auto"
@@ -852,10 +854,10 @@ import { dateParsing } from '@/utils/helper';
               <div class="px-6 mt-6 mb-4 flex justify-between">
                 <div>
                   <label class="text-[#4D5E80] font-semibold">KKO <span class="text-[#FF5656] text-xs">*</span></label>
-                  <a
+                  <div
                     v-if="fileNameKKO"
-                    :href="linkDownloadKKO"
-                    class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center"
+                    class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center cursor-pointer"
+                    @click="downloadFile(linkDownloadKKO, fileNameKKO, router)"
                   >
                     <svg
                       width="45"
@@ -880,7 +882,7 @@ import { dateParsing } from '@/utils/helper';
                       <span class="text-[#333333] text-sm font-semibold">{{ fileNameKKO }}</span>
                       <p class="text-[#9E9E9E] text-xs">{{ fileSizeKKO }}</p>
                     </div>
-                  </a>
+                  </div>
                   <div
                     v-else
                     class="w-[333px] h-auto"
@@ -891,10 +893,10 @@ import { dateParsing } from '@/utils/helper';
                 <div>
                   <label class="text-[#4D5E80] font-semibold">Proposal Mitra
                     <span class="text-[#B3B3B3] text-xs">(Opsional)</span></label>
-                  <a
+                  <div
                     v-if="fileNamemitra"
-                    :href="linkDownloadmitra"
-                    class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center"
+                    class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center cursor-pointer"
+                    @click="downloadFile(linkDownloadmitra, fileNamemitra, router)"
                   >
                     <svg
                       width="45"
@@ -919,7 +921,7 @@ import { dateParsing } from '@/utils/helper';
                       <span class="text-[#333333] text-sm font-semibold">{{ fileNamemitra }}</span>
                       <p class="text-[#9E9E9E] text-xs">{{ fileSizemitra }}</p>
                     </div>
-                  </a>
+                  </div>
                   <div
                     v-else
                     class="w-[333px] h-auto"
@@ -930,10 +932,10 @@ import { dateParsing } from '@/utils/helper';
                 <div>
                   <label class="text-[#4D5E80] font-semibold">Dokumen Surat Menyurat
                     <span class="text-[#B3B3B3] text-xs">(Opsional)</span></label>
-                  <a
+                  <div
                     v-if="fileNamesurat"
-                    :href="linkDownloadsurat"
-                    class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center"
+                    class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center cursor-pointer"
+                    @click="downloadFile(linkDownloadsurat, fileNamesurat, router)"
                   >
                     <svg
                       width="45"
@@ -958,7 +960,7 @@ import { dateParsing } from '@/utils/helper';
                       <span class="text-[#333333] text-sm font-semibold">{{ fileNamesurat }}</span>
                       <p class="text-[#9E9E9E] text-xs">{{ fileSizesurat }}</p>
                     </div>
-                  </a>
+                  </div>
                   <div
                     v-else
                     class="w-[333px] h-auto"
@@ -970,10 +972,10 @@ import { dateParsing } from '@/utils/helper';
               <div class="px-6 mt-6 mb-4">
                 <label class="text-[#4D5E80] font-semibold">Dokumen Lainnya
                   <span class="text-[#B3B3B3] text-xs">(Opsional)</span></label>
-                <a
+                <div
                   v-if="fileNamelainnya"
-                  :href="linkDownloadlainnya"
-                  class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center"
+                  class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center cursor-pointer"
+                  @click="downloadFile(linkDownloadlainnya, fileNamelainnya, router)"
                 >
                   <svg
                     width="45"
@@ -998,7 +1000,7 @@ import { dateParsing } from '@/utils/helper';
                     <span class="text-[#333333] text-sm font-semibold">{{ fileNamelainnya }}</span>
                     <p class="text-[#9E9E9E] text-xs">{{ fileSizelainnya }}</p>
                   </div>
-                </a>
+                </div>
                 <div
                   v-else
                   class="w-[333px] h-auto"
@@ -1012,10 +1014,10 @@ import { dateParsing } from '@/utils/helper';
                 <div>
                   <label class="text-[#4D5E80] font-semibold">Proposal Mitra
                     <span class="text-[#B3B3B3] text-xs">(Opsional)</span></label>
-                  <a
+                  <div
                     v-if="fileNamemitra"
-                    :href="linkDownloadmitra"
-                    class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center"
+                    class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center cursor-pointer"
+                    @click="downloadFile(linkDownloadmitra, fileNamemitra, router)"
                   >
                     <svg
                       width="45"
@@ -1040,7 +1042,7 @@ import { dateParsing } from '@/utils/helper';
                       <span class="text-[#333333] text-sm font-semibold">{{ fileNamemitra }}</span>
                       <p class="text-[#9E9E9E] text-xs">{{ fileSizemitra }}</p>
                     </div>
-                  </a>
+                  </div>
                   <div
                     v-else
                     class="w-[333px] h-auto"
@@ -1053,10 +1055,10 @@ import { dateParsing } from '@/utils/helper';
                     Dokumen Surat Menyurat
                     <span class="text-[#FF5656] text-xs">*</span>
                   </label>
-                  <a
+                  <div
                     v-if="fileNamesurat"
-                    :href="linkDownloadsurat"
-                    class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center"
+                    class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center cursor-pointer"
+                    @click="downloadFile(linkDownloadsurat, fileNamesurat, router)"
                   >
                     <svg
                       width="45"
@@ -1081,7 +1083,7 @@ import { dateParsing } from '@/utils/helper';
                       <span class="text-[#333333] text-sm font-semibold">{{ fileNamesurat }}</span>
                       <p class="text-[#9E9E9E] text-xs">{{ fileSizesurat }}</p>
                     </div>
-                  </a>
+                  </div>
                   <div
                     v-else
                     class="w-[333px] h-auto"
@@ -1092,10 +1094,10 @@ import { dateParsing } from '@/utils/helper';
                 <div>
                   <label class="text-[#4D5E80] font-semibold">Dokumen Lainnya
                     <span class="text-[#B3B3B3] text-xs">(Opsional)</span></label>
-                  <a
+                  <div
                     v-if="fileNamelainnya"
-                    :href="linkDownloadlainnya"
-                    class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center"
+                    class="w-[333px] h-auto border-[1px] flex rounded-lg mt-2 items-center cursor-pointer"
+                    @click="downloadFile(linkDownloadlainnya, fileNamelainnya, router)"
                   >
                     <svg
                       width="45"
@@ -1120,7 +1122,7 @@ import { dateParsing } from '@/utils/helper';
                       <span class="text-[#333333] text-sm font-semibold">{{ fileNamelainnya }}</span>
                       <p class="text-[#9E9E9E] text-xs">{{ fileSizelainnya }}</p>
                     </div>
-                  </a>
+                  </div>
                   <div
                     v-else
                     class="w-[333px] h-auto"
@@ -1348,7 +1350,7 @@ export default {
     },
     handleSelectionChange(option) {
       this.disposedStaff = option;
-      console.log("Selected Option:", option);
+      // console.log("Selected Option:", option);
     },
     // Popup Create
     SendDispose() {
@@ -1502,43 +1504,42 @@ export default {
             if (item.fileType == 'KKO') {
               this.fileNameKKO = item.fileName;
               this.fileSizeKKO = item.fileSize;
-              this.linkDownloadKKO = `${baseURL}/download/file/${item.id}`
+              this.linkDownloadKKO = item.fileUrl;
             }
             if (item.fileType == 'KKF') {
               this.fileNameKKF = item.fileName;
               this.fileSizeKKF = item.fileSize;
-              this.linkDownloadKKF = `${baseURL}/download/file/${item.id}`
+              this.linkDownloadKKF = item.fileUrl;
             }
             if (item.fileType == 'KKR') {
               this.fileNameKKR = item.fileName;
               this.fileSizeKKR = item.fileSize;
-              this.linkDownloadKKR = `${baseURL}/download/file/${item.id}`
+              this.linkDownloadKKR = item.fileUrl;
             }
             if (item.fileType == 'KKB') {
               this.fileNameKKB = item.fileName;
               this.fileSizeKKB = item.fileSize;
-              this.linkDownloadKKB = `${baseURL}/download/file/${item.id}`
+              this.linkDownloadKKB = item.fileUrl;
             }
             if (item.fileType == 'Dokumen Surat Menyurat') {
               this.fileNamesurat = item.fileName;
               this.fileSizesurat = item.fileSize;
-              this.linkDownloadsurat = `${baseURL}/download/file/${item.id}`
+              this.linkDownloadsurat = item.fileUrl;
             }
             if (item.fileType == 'Proposal Mitra') {
               this.fileNamemitra = item.fileName;
               this.fileSizemitra = item.fileSize;
-              this.linkDownloadmitra = `${baseURL}/download/file/${item.id}`
+              this.linkDownloadmitra = item.fileUrl;
             }
             if (item.fileType == 'Dokumen Lainnya') {
               this.fileNamelainnya = item.fileName;
               this.fileSizelainnya = item.fileSize;
-              this.linkDownloadlainnya = `${baseURL}/download/file/${item.id}`
+              this.linkDownloadlainnya = item.fileUrl;
             }
           })
           this.responseText = res.data.responseText;
           this.approvalNote = res.data.approvalNote;
           this.isLoading = false;
-          console.log(res.data);
         } else {
           this.isLoading = false;
           this.modalFailed = {
@@ -1559,23 +1560,22 @@ export default {
             if (item.fileType == 'Dokumen Surat Menyurat') {
               this.fileNamesurat = item.fileName;
               this.fileSizesurat = item.fileSize;
-              this.linkDownloadsurat = `${baseURL}/download/file/${item.id}`
+              this.linkDownloadsurat = item.fileUrl;
             }
             if (item.fileType == 'Proposal Mitra') {
               this.fileNamemitra = item.fileName;
               this.fileSizemitra = item.fileSize;
-              this.linkDownloadmitra = `${baseURL}/download/file/${item.id}`
+              this.linkDownloadmitra = item.fileUrl;
             }
             if (item.fileType == 'Dokumen Lainnya') {
               this.fileNamelainnya = item.fileName;
               this.fileSizelainnya = item.fileSize;
-              this.linkDownloadlainnya = `${baseURL}/download/file/${item.id}`
+              this.linkDownloadlainnya = item.fileUrl;
             }
           })
           this.responseText = res.data.responseText;
           this.approvalNote = res.data.approvalNote;
           this.isLoading = false;
-          console.log(res.data);
         } else {
           this.isLoading = false;
           this.modalFailed = {
@@ -1596,7 +1596,6 @@ export default {
           label: `${item.firstName} ${item.lastName}`
         }))
         this.isLoading = false;
-        console.log(res.data, 'user');
       } else {
         this.isLoading = false;
         this.modalFailed = {

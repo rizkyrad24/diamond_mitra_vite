@@ -161,7 +161,6 @@ export default {
       this.isLoading = true;
       const res = await fetchGet(`history/byrole/${this.role}`, null, this.$router);
       if (res.status == 200) {
-          console.log(res.data)
           this.notifList = res.data;
           this.isLoading = false;
       } else {

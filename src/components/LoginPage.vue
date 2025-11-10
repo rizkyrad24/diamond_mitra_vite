@@ -24,7 +24,7 @@
         </div>
       </div>
     </div>
-    <div class="w-[480px] h-[496px] bg-[#FFFFFF] mr-[60px]">
+    <div class="w-[480px] bg-[#FFFFFF] mr-[60px]">
       <svg
         class="ml-[114.5px]"
         width="252"
@@ -61,7 +61,7 @@
           />
         </defs>
       </svg>
-      <div class="w-auto h-[404px] bg-[#FFFFFF] mt-[48px]">
+      <div class="w-auto h-[404px] bg-[#FFFFFF] mt-[0px]">
         <h1 class="w-[108px] h-[60px] font-sans font-semibold text-[#21252B] text-[40px] ml-[186px]">
           Login
         </h1>
@@ -162,7 +162,20 @@
               </svg>
             </div>
           </div>
-          <div class="relative w-[480px] h-[112px] bg-[#FFFFFF] mt-8">
+          <div class="relative w-[120px] bg-[#FFFFFF] mt-5">
+            <AlphaNumCaptcha
+              ref="captchaRef"
+              :length="5"
+              :expires-in-ms="120000"
+              @expired="answer=''"
+            />
+            <input
+              v-model="answer"
+              placeholder="Masukkan kode"
+              class="mt-3 border rounded px-2 py-1"
+            >
+          </div>
+          <div class="relative w-[480px] h-[112px] bg-[#FFFFFF] mt-4">
             <button
               :disabled="isDisableLogin"
               :class="isDisableLogin ? 'bg-[#9C9C9C] text-white' : 'bg-[#2671D9] hover:bg-[#1E5BB7]'"
@@ -198,6 +211,7 @@ import { useRouter } from "vue-router";
 import { fetchPostFormPublic } from "@/api/apiFunction";
 import ModalFailed from "./modalfailed.vue";
 import Loading from "./loading.vue";
+import AlphaNumCaptcha from "./AlphaNumCaptcha.vue";
 
 const router = useRouter();
 const username = ref("");
@@ -212,6 +226,9 @@ const modalFailed = ref({
   title: '',
   message: ''
 });
+
+const answer = ref('');
+const captchaRef = ref(null);
 
 watch(
   [username, password],
@@ -241,6 +258,10 @@ function closeModalFailed() {
 }
 
 async function submit() {
+  if (!captchaRef.value.validate(answer.value)) {
+    captchaRef.value.refresh()
+    return
+  }
   isLoading.value = true;
   const payload = new FormData();
   payload.append('username', username.value);
@@ -264,6 +285,7 @@ async function submit() {
       router.push('/mitra/user')
     } else {
       isLoading.value = false;
+      captchaRef.value.refresh()
       modalFailed.value = {
         isVisible: true,
         title: 'Gagal',
@@ -272,6 +294,7 @@ async function submit() {
     }
   } else {
     isLoading.value = false;
+    captchaRef.value.refresh()
     modalFailed.value = {
       isVisible: true,
       title: 'Gagal',

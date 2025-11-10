@@ -48,14 +48,6 @@ import { downloadFile } from '@/api/apiFunction';
           Ditolak
         </h1>
       </button>
-      <button 
-        v-else 
-        @click="navigateToDetail"
-      >
-        <h1 class="w-[51px] h-[22px] font-sans text-[#2671D9] text-[14px] font-semibold ml-6 mr-2 mt-4 mb-4">
-          Proses
-        </h1>
-      </button>
       <svg
         width="8"
         height="12"
@@ -2232,14 +2224,11 @@ export default {
     toggleDropdownArrow4() {
       this.isDropdownArrowOpen4 = !this.isDropdownArrowOpen4;
     },
-    navigateToDetail() {
-      this.$router.push("/mitra/proses");
-    },
     navigateToSelesai() {
-      this.$router.push("/mitra/selesai");
+      this.$router.push("/mitra/selesaistaff");
     },
     navigateToSelesaiDitolak() {
-      this.$router.push("/mitra/selesai/ditolak");
+      this.$router.push("/mitra/selesaistaff/ditolakstaff");
     },
     toggleDatePickerSelesai() {
       this.showDatePickerSelesai = !this.showDatePickerSelesai;
@@ -2338,22 +2327,7 @@ export default {
           message: res.data.message ? res.data.message : "Silahkan hubungi admin"
         }
       }
-      let url = "";
-      const position = localStorage.getItem('position')
-      if (position == "PartnershipManager") {
-        url = `mitra/manager/mounda/proses/${id}`;
-      } else if (position == "PartnershipVP") {
-        url = `mitra/vp/mounda/proses/${id}`;
-      } else if (position == "PartnershipDirector") {
-        url = `mitra/direksi/mounda/proses/${id}`;
-      } else {
-        this.isLoading = false;
-        return this.modalFailed = {
-          isVisible: true,
-          title: 'Gagal',
-          message: "Anda tidak mempunyai akses untuk aproval"
-        }
-      }
+      const url = `mitra/staff/mounda/proses/${id}`;
       const res = await fetchGet(
         url,
         null,
