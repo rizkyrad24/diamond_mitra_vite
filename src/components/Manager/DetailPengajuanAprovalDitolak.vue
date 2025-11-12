@@ -182,7 +182,7 @@ import router from '@/router';
                 <h1 class="w-[130px] h-[17px] font-sans text-[14px] text-[#333333] font-semibold">
                   Jenis Kemitraan
                 </h1>
-                <span class="w-[112px] h-[17px] font-sans font-thin text-[#7F7F80] text-[14px] ml-[17px]">{{ dataBerkas.partnershipType }}</span>
+                <span class="w-[112px] h-[17px] font-sans font-thin text-[#7F7F80] text-[14px] ml-[17px]">{{ dataBerkas.partnershipType.toLowerCase() === "konsorsium" ? "Join Operation" : dataBerkas.partnershipType  }}</span>
               </div>
             </div>
             <div class="flex mt-6 items-center">
@@ -470,7 +470,7 @@ import router from '@/router';
         >
           <div
             v-if="isDropdownArrowOpen2"
-            class="flex items-center w-[1046px] max-h-[430px] bg-[#FFFFFF] border-[#E5E7E9] border-[1px] ml-4 px-6 py-6 rounded-bl-md rounded-br-md"
+            class="flex items-center w-[1046px] max-h-[430px] overflow-x-auto bg-[#FFFFFF] border-[#E5E7E9] border-[1px] ml-4 px-6 py-6 rounded-bl-md rounded-br-md"
           >
             <table class="table-auto w-auto text-left rounded-lg border-collapse border-[1px] border-[#E5E7E9] mt-3">
               <thead>
@@ -501,7 +501,7 @@ import router from '@/router';
                   </th>
                   <th class="p-2 border border-[#E5E7E9]">
                     <div class="flex items-center justify-between w-[231px]">
-                      <span class="px-3">Aksi</span>
+                      <span class="px-3">Produk</span>
                       <svg
                         width="14"
                         height="10"
@@ -591,6 +591,52 @@ import router from '@/router';
                       </svg>
                     </div>
                   </th>
+                  <th class="p-2 border border-[#E5E7E9]">
+                    <div class="flex w-32 items-center justify-between">
+                      <span class="px-3">Biaya</span>
+                      <svg
+                        width="14"
+                        height="10"
+                        viewBox="0 0 14 10"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M10.4252 0.144043C10.7073 0.144043 10.9359 0.364674 10.9359 0.636836L10.9359 8.3174L13.1282 6.20189C13.3276 6.00944 13.651 6.00944 13.8504 6.20189C14.0499 6.39434 14.0499 6.70636 13.8504 6.89881L10.7863 9.85556C10.6906 9.94798 10.5607 9.9999 10.4252 9.9999C10.2898 9.9999 10.1599 9.94798 10.0641 9.85556L7.00001 6.89881C6.80057 6.70636 6.80057 6.39434 7.00001 6.20189C7.19944 6.00944 7.52279 6.00944 7.72223 6.20189L9.91454 8.3174L9.91454 0.636836C9.91454 0.364674 10.1432 0.144043 10.4252 0.144043Z"
+                          fill="#93B8EC"
+                        />
+                        <path
+                          d="M3.21369 0.144824C3.41312 -0.0476236 3.73647 -0.0476236 3.9359 0.144824L7.00001 3.10158C7.19945 3.29403 7.19945 3.60605 7.00001 3.79849C6.80058 3.99094 6.47723 3.99094 6.27779 3.79849L4.08548 1.68299V9.36355C4.08548 9.63571 3.85684 9.85634 3.57479 9.85634C3.29275 9.85634 3.06411 9.63571 3.06411 9.36355V1.68299L0.871794 3.79849C0.672359 3.99094 0.349011 3.99094 0.149576 3.79849C-0.0498587 3.60605 -0.0498587 3.29403 0.149576 3.10158L3.21369 0.144824Z"
+                          fill="#93B8EC"
+                        />
+                      </svg>
+                    </div>
+                  </th>
+                  <th class="p-2 border border-[#E5E7E9]">
+                    <div class="flex w-32 items-center justify-between">
+                      <span class="px-3">Revenue</span>
+                      <svg
+                        width="14"
+                        height="10"
+                        viewBox="0 0 14 10"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M10.4252 0.144043C10.7073 0.144043 10.9359 0.364674 10.9359 0.636836L10.9359 8.3174L13.1282 6.20189C13.3276 6.00944 13.651 6.00944 13.8504 6.20189C14.0499 6.39434 14.0499 6.70636 13.8504 6.89881L10.7863 9.85556C10.6906 9.94798 10.5607 9.9999 10.4252 9.9999C10.2898 9.9999 10.1599 9.94798 10.0641 9.85556L7.00001 6.89881C6.80057 6.70636 6.80057 6.39434 7.00001 6.20189C7.19944 6.00944 7.52279 6.00944 7.72223 6.20189L9.91454 8.3174L9.91454 0.636836C9.91454 0.364674 10.1432 0.144043 10.4252 0.144043Z"
+                          fill="#93B8EC"
+                        />
+                        <path
+                          d="M3.21369 0.144824C3.41312 -0.0476236 3.73647 -0.0476236 3.9359 0.144824L7.00001 3.10158C7.19945 3.29403 7.19945 3.60605 7.00001 3.79849C6.80058 3.99094 6.47723 3.99094 6.27779 3.79849L4.08548 1.68299V9.36355C4.08548 9.63571 3.85684 9.85634 3.57479 9.85634C3.29275 9.85634 3.06411 9.63571 3.06411 9.36355V1.68299L0.871794 3.79849C0.672359 3.99094 0.349011 3.99094 0.149576 3.79849C-0.0498587 3.60605 -0.0498587 3.29403 0.149576 3.10158L3.21369 0.144824Z"
+                          fill="#93B8EC"
+                        />
+                      </svg>
+                    </div>
+                  </th>
                 </tr>
               </thead>
               <tbody class="h-[54px] w-[231px]">
@@ -628,6 +674,16 @@ import router from '@/router';
                     class="p-2 border border-[#E5E7E9] text-[14px] text-left pl-5 font-sans font-normal text-[#333333] w-[207px]"
                   >
                     Non PLN
+                  </td>
+                   <td
+                    class="p-2 border border-[#E5E7E9] text-[14px] text-left pl-5 font-sans font-normal text-[#333333] w-[207px]"
+                  >
+                    {{ item.cost.toLocaleString('id-ID') || "-" }}
+                  </td>
+                   <td
+                    class="p-2 border border-[#E5E7E9] text-[14px] text-left pl-5 font-sans font-normal text-[#333333] w-[207px]"
+                  >
+                    {{ item.revenue.toLocaleString('id-ID') || "-" }}
                   </td>
                 </tr>
               </tbody>

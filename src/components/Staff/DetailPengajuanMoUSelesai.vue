@@ -1200,8 +1200,7 @@ import { downloadFile } from '@/api/apiFunction';
                 <h1 class="w-[130px] h-[17px] font-sans text-[14px] text-[#333333] font-semibold">
                   Jenis Kemitraan
                 </h1>
-                <span class="w-[112px] h-[17px] font-sans font-thin text-[#7F7F80] text-[14px] ml-[17px]">{{
-                  dataBerkas?.partnershipType || '-' }}</span>
+                <span class="w-[112px] h-[17px] font-sans font-thin text-[#7F7F80] text-[14px] ml-[17px]">{{ dataBerkas.partnershipType.toLowerCase() === "konsorsium" ? "Join Operation" : dataBerkas.partnershipType  }}</span>
               </div>
             </div>
             <div class="flex mt-6 items-center">

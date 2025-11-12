@@ -624,12 +624,12 @@
           </div>
         </div>
       </div>
-      <!-- <button
+      <button
         class="bg-[#2671D9] hover:bg-[#1E5BB7] text-[#FFFFFF] py-2 px-4 me-6 flex justify-center justify-self-end rounded-lg border-[1px] text-[12px] text-center font-sans font-semibold"
         @click="showFormCreate"
       >
         Tambah User
-      </button> -->
+      </button>
       <div class="flex">
         <div class="flex w-[1046px] rounded-lg bg-[#FFFFFF] border-[1px] border-[#E5E7E9] mt-4 ml-4 mr-4 overflow-auto">
           <table class="table-auto w-full text-left border-collapse border border-[#E5E7E9]">
@@ -1294,11 +1294,11 @@ export default {
       this.showFormPopup = false;
       this.clearFormData();
     },
-    // showFormCreate() {
-    //   this.clearFormData();
-    //   this.formType = 1;
-    //   this.showFormPopup = true;
-    // },
+    showFormCreate() {
+      this.clearFormData();
+      this.formType = 1;
+      this.showFormPopup = true;
+    },
     showFormEdit(data) {
       this.actionDropdownIndex = null;
       this.userId = data.id;
@@ -1448,43 +1448,43 @@ export default {
     },
 
     // Popup Create
-    // SendCreateUser() {
-    //   this.modalDialog = {
-    //     isVisible: true,
-    //     title: 'Konfirmasi',
-    //     message: 'Apakan anda yakin dengan data yang anda masukan',
-    //     okFunction: this.openCreateUser,
-    //     closeFunction: this.closeCreateUser
-    //   }
-    // },
-    // openCreateUser() {
-    //   this.closeModalDialog();
-    //   this.postCreateUser(this.successCreateUser, this.failCreateUser);
-    // },
-    // closeCreateUser() {
-    //   this.closeModalDialog()
-    // },
-    // successCreateUser() {
-    //   this.modalSuccess = {
-    //     isVisible: true,
-    //     title: 'Berhasil',
-    //     message: 'Berhasil membuat user baru',
-    //     closeFunction: this.closeSelesaiCreateUser
-    //   }
-    // },
-    // failCreateUser(data) {
-    //   this.modalFailed = {
-    //     isVisible: true,
-    //     title: 'Gagal',
-    //     message: data?.message ? data.message : "Silahkan hubungi admin"
-    //   }
-    // },
-    // closeSelesaiCreateUser() {
-    //   this.showFormPopup = false;
-    //   this.clearFormData();
-    //   this.closeModalSuccess();
-    //   this.getDataApi()
-    // },
+    SendCreateUser() {
+      this.modalDialog = {
+        isVisible: true,
+        title: 'Konfirmasi',
+        message: 'Apakan anda yakin dengan data yang anda masukan',
+        okFunction: this.openCreateUser,
+        closeFunction: this.closeCreateUser
+      }
+    },
+    openCreateUser() {
+      this.closeModalDialog();
+      this.postCreateUser(this.successCreateUser, this.failCreateUser);
+    },
+    closeCreateUser() {
+      this.closeModalDialog()
+    },
+    successCreateUser() {
+      this.modalSuccess = {
+        isVisible: true,
+        title: 'Berhasil',
+        message: 'Berhasil membuat user baru',
+        closeFunction: this.closeSelesaiCreateUser
+      }
+    },
+    failCreateUser(data) {
+      this.modalFailed = {
+        isVisible: true,
+        title: 'Gagal',
+        message: data?.message ? data.message : "Silahkan hubungi admin"
+      }
+    },
+    closeSelesaiCreateUser() {
+      this.showFormPopup = false;
+      this.clearFormData();
+      this.closeModalSuccess();
+      this.getDataApi()
+    },
 
     // Popup Edit
     SendEditUser() {
@@ -1680,46 +1680,46 @@ export default {
         }
       }
     },
-    // async postCreateUser(successFunction, failFunction) {
-    //   this.isLoading = true;
-    //   const form = new FormData()
-    //   form.append('username', this.username);
-    //   form.append('firstName', this.firstName);
-    //   form.append('lastName', this.lastName);
-    //   form.append('email', this.email);
-    //   form.append('title', this.title);
-    //   form.append('department', this.department);
-    //   form.append('role', this.role);
-    //   if (this.role2 != "") {
-    //     form.append('role2', this.role2);
-    //   }
-    //   if (this.bisnisType != "") {
-    //     form.append('bisnisType', this.bisnisType);
-    //   }
-    //   form.append('password', this.password);
-    //   form.append('rePassword', this.rePassword);
-    //   if (this.direktorat) {
-    //     form.append('direktoratId', this.direktorat.value)
-    //   }
-    //   if (this.bidang) {
-    //     form.append('bidangId', this.bidang.value)
-    //   }
-    //   if (this.subBidang) {
-    //     form.append('subBidangId', this.subBidang.value)
-    //   }
-    //   // Display the values
-    //   for (var pair of form.entries()) {
-    //     console.log(pair[0] + ', ' + pair[1]);
-    //   }
-    //   const res = await fetchPostForm('account/register', null, form, this.$router);
-    //   if (res.status == 200) {
-    //     this.isLoading = false;
-    //     successFunction();
-    //   } else {
-    //     this.isLoading = false;
-    //     failFunction(res.data);
-    //   }
-    // },
+    async postCreateUser(successFunction, failFunction) {
+      this.isLoading = true;
+      const form = new FormData()
+      form.append('username', this.username);
+      form.append('firstName', this.firstName);
+      form.append('lastName', this.lastName);
+      form.append('email', this.email);
+      form.append('title', this.title);
+      form.append('department', this.department);
+      form.append('role', this.role);
+      if (this.role2 != "") {
+        form.append('role2', this.role2);
+      }
+      if (this.bisnisType != "") {
+        form.append('bisnisType', this.bisnisType);
+      }
+      form.append('password', this.password);
+      form.append('rePassword', this.rePassword);
+      if (this.direktorat) {
+        form.append('direktoratId', this.direktorat.value)
+      }
+      if (this.bidang) {
+        form.append('bidangId', this.bidang.value)
+      }
+      if (this.subBidang) {
+        form.append('subBidangId', this.subBidang.value)
+      }
+      // Display the values
+      for (var pair of form.entries()) {
+        console.log(pair[0] + ', ' + pair[1]);
+      }
+      const res = await fetchPostForm('account/register', null, form, this.$router);
+      if (res.status == 200) {
+        this.isLoading = false;
+        successFunction();
+      } else {
+        this.isLoading = false;
+        failFunction(res.data);
+      }
+    },
     async postEditUser(successFunction, failFunction) {
       this.isLoading = true;
       const form = new FormData()
