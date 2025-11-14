@@ -2,7 +2,7 @@
   <div class="">
     <div class="background">
       <div class="flex">
-        <SidebarKemitraan />
+        <SidebarStaff />
         <div class="flex-grow">
           <MainBar />
           <DetailPengajuanPKS />
@@ -14,12 +14,12 @@
 
 <script>
 import MainBar from "@/components/NavBar/MainBar.vue";
-import SidebarKemitraan from "@/components/NavBar/SidebarKemitraan.vue";
+import SidebarStaff from "@/components/NavBar/SidebarStaff.vue";
 import DetailPengajuanPKS from "@/components/Staff/DetailPengajuanPKSSelesai.vue";
 
 export default {
   components: {
-    SidebarKemitraan,
+    SidebarStaff,
     MainBar,
     DetailPengajuanPKS,
   },
